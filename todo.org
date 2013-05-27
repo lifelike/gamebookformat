@@ -1,12 +1,16 @@
-* Must Add [2/5]
+* TODO [3/12] [25%]
 - [X] Debug output
 - [X] DOT output
-- [ ] LaTeX output
+- [X] LaTeX output
 - [ ] RTF output
 - [ ] Save paragraph-number mapping and reuse automatically
-
-* Known Bugs [0/0]
-
-* Nice Features To Have Later [0/0]
+- [ ] Add support for custom begin/end document templates.
+  Fixed names and/or command-line options.
+- [ ] More formatting possibilities in paragraphs
+  Look at existing gamebooks to get ideas.
+- [ ] Prettier LaTeX output
+  Look at how some existing gamebooks are formatted.
 - [ ] Command-line flag to set max paragraph number to use
 - [ ] Dummy paragraphs
+- [ ] Document Gamebook JSON format.
+- [ ] Higher level text-language for Gamebooks
