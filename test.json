@@ -1,0 +1,18 @@
+{
+    "start" : {
+        "text" : "This is where the adventure begins. You can go on to the next paragraph, see %(next)c or try the other instread, see %(other)c.",
+        "number" : 1
+    },
+
+    "next" : {
+        "text" : "This is the next paragraph. Go on to the end at %(end)c."
+    },
+
+    "other" : {
+        "text" : "This is another paragraph. You can try the next paragraph now, see %(next)c, or go on to the end, see %(end)c."
+    },
+
+    "end" : {
+        "text" : "The end."
+    }
+}

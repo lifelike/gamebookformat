@@ -1,0 +1,12 @@
+* Must Add [2/5]
+- [X] Debug output
+- [X] DOT output
+- [ ] LaTeX output
+- [ ] RTF output
+- [ ] Save paragraph-number mapping and reuse automatically
+
+* Known Bugs [0/0]
+
+* Nice Features To Have Later [0/0]
+- [ ] Command-line flag to set max paragraph number to use
+- [ ] Dummy paragraphs

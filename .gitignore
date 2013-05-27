@@ -1,0 +1,10 @@
+*~
+*.pyc
+*.debug
+*.tex
+*.dot
+*.log
+*.aux
+*.toc
+*.pdf
+*.rtf
