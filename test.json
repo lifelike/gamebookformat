@@ -1,6 +1,6 @@
 {
     "start" : {
-        "text" : "This is where the adventure begins. You can go on to the next paragraph, see %(next)c or try the other instread, see %(other)c.",
+        "text" : "This is where the adventure begins. You can go on to the next paragraph, see %(next)c or try the other instead, see %(other)c.",
         "number" : 1
     },
 
