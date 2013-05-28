@@ -3,9 +3,12 @@
 - [X] DOT output
 - [X] LaTeX output
 - [ ] RTF output
+- [ ] HTML+JS output
+- [ ] Debug HTML+JS output
 - [ ] Save paragraph-number mapping and reuse automatically
 - [ ] Add support for custom begin/end document templates.
   Fixed names and/or command-line options.
+- [ ] Add paragraph links in LaTeX output.
 - [ ] More formatting possibilities in paragraphs
   Look at existing gamebooks to get ideas.
 - [ ] Prettier LaTeX output
