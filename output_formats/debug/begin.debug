@@ -1,0 +1,2 @@
+BEGIN DEBUG OUTPUT
+Number of paragraphs: %(max)d

@@ -1,0 +1,26 @@
+\documentclass[a4,onecolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage[top=3.3cm, bottom=3.3cm, left=2cm, right=2cm]{geometry}
+
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+  \pdffalse
+\else
+  \ifnum\pdfoutput=1
+    \pdftrue
+  \else
+    \pdffalse
+  \fi
+\fi
+
+\title{Gamebook}
+\author{}
+\date{}
+
+\begin{document}
+
+\thispagestyle{empty}
+\clearpage

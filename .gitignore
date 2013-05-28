@@ -1,12 +1,12 @@
 *~
 *.pyc
-*.debug
-*.tex
-*.dot
+test.debug
+test.tex
+test.dot
 *.log
 *.aux
 *.toc
 *.pdf
-*.rtf
+test.rtf
 *.png
 *.out
