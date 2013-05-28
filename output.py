@@ -28,15 +28,20 @@ class OutputFormat (object):
             self.write_paragraph(p, shuffled_paragraphs, output)
 
     def write_paragraph(self, paragraph, shuffled_paragraphs, output):
+        refs = []
         def paragraph_link_render(to_paragraph, shuffled_paragraphs):
-            return self.load_template("paragraph_ref") %  {
+            s = self.load_template("paragraph_ref") %  {
                 'nr' : shuffled_paragraphs.to_nr[to_paragraph],
                 'from_nr' : shuffled_paragraphs.to_nr[paragraph]
-            };
+            }
+            refs.append(s)
+            return s
+        formatted_text = paragraph.format(shuffled_paragraphs,
+                                      paragraph_link_render)
         print >> output, self.load_template("paragraph") % {
             'nr' : shuffled_paragraphs.to_nr[paragraph],
-            'text' : paragraph.format(shuffled_paragraphs,
-                                      paragraph_link_render)
+            'text' : formatted_text,
+            'refs' : '\n'.join(refs) # hack for DOT output reallyn
         },
 
     def write_end(self, book, output):
