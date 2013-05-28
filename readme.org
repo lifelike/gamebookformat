@@ -1,0 +1,54 @@
+* gamebookformat
+
+A tool to format [[http://www.gamebooks.org/][gamebooks]] into various formats useful for playing the
+gamebook on paper or a screen (or for debugging it).
+
+** License
+
+Copyright (c) 2013, Pelle Nilsson
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+** Supported Output Formats
+
+| Name             | Extension | Description                                                                                     |
+|------------------+-----------+-------------------------------------------------------------------------------------------------|
+| LaTeX            | .tex      | Useful to generate PDFs using pdflatex.                                                         |
+| Rich Text Format | .rtf      | Supported because the Windhammer Prize requires it.                                             |
+| Graphviz DOT     | .dot      | Use with the Graphviz dot tool to generate a flowchart graph of all paragraphs in the gamebook. |
+| Debug Plain Text | .debug    | Plain text debug output of gamebook contents.                                                   |
+
+More to be added.
+
+** JSON Gamebook Format
+
+The input file expected by the formatgamebook.py script must be in a
+JSON format containing information about all paragraphs in the book
+plus some optional metadata. The format should (TBD) be documented
+here, but it is not expected that most users would ever have to look
+at the gamebook JSON file, but rather use a higher level format or a
+GUI tool.
+
+
