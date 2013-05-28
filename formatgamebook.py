@@ -28,6 +28,8 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
 
+import os
+import os.path
 import sys
 import json
 
@@ -37,6 +39,7 @@ from output import OutputFormat
 from latex import LatexFormat
 from rtf import RtfFormat
 from dot import DotFormat
+from html import HtmlFormat
 from debug import DebugFormat
 
 USAGE = "usage: %prog [options] inputfile(s)... outputfile"
@@ -44,6 +47,7 @@ USAGE = "usage: %prog [options] inputfile(s)... outputfile"
 OUTPUT_FORMATS = [LatexFormat(),
                   RtfFormat(),
                   DotFormat(),
+                  HtmlFormat(),
                   DebugFormat()]
 
 def make_supported_formats_list_string():

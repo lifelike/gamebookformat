@@ -1,19 +1,23 @@
-* TODO [3/12] [25%]
+* TODO [5/15] [33%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
-- [ ] RTF output
-- [ ] HTML+JS output
-- [ ] Debug HTML+JS output
+- [X] RTF output
+- [X] HTML output
 - [ ] Save paragraph-number mapping and reuse automatically
 - [ ] Add support for custom begin/end document templates.
   Fixed names and/or command-line options.
 - [ ] Add paragraph links in LaTeX output.
+- [ ] Debug HTML output
+- [ ] Inventory (take, drop, check)
+- [ ] Codewords/Sightings (set, check, clean)
+- [ ] Skill checks? Or is this higher level? No?
 - [ ] More formatting possibilities in paragraphs
   Look at existing gamebooks to get ideas.
 - [ ] Prettier LaTeX output
   Look at how some existing gamebooks are formatted.
 - [ ] Command-line flag to set max paragraph number to use
 - [ ] Dummy paragraphs
+- [ ] Combat? Or is this higher level?
 - [ ] Document Gamebook JSON format.
 - [ ] Higher level text-language for Gamebooks

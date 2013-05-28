@@ -35,9 +35,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 | Name             | Extension | Description                                                                                     |
 |------------------+-----------+-------------------------------------------------------------------------------------------------|
-| LaTeX            | .tex      | Useful to generate PDFs using pdflatex.                                                         |
+| LaTeX            | .tex      | Useful to generate PDFs using pdflatex or whatever LaTeX tools you prefer.                      |
 | Rich Text Format | .rtf      | Supported because the Windhammer Prize requires it.                                             |
 | Graphviz DOT     | .dot      | Use with the Graphviz dot tool to generate a flowchart graph of all paragraphs in the gamebook. |
+| HTML             | .html     | Play gamebook in browser. javascript to make fully playable not yet implemented.                |
 | Debug Plain Text | .debug    | Plain text debug output of gamebook contents.                                                   |
 
 More to be added.
