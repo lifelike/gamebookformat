@@ -50,6 +50,7 @@ OUTPUT_FORMATS = [LatexFormat(),
                   HtmlFormat(),
                   DebugFormat()]
 
+
 def make_supported_formats_list_string():
     return "Supported Output Formats:\n" + "\n".join(
         [str(f) for f in OUTPUT_FORMATS])
@@ -62,21 +63,34 @@ def format_gamebook(inputfilenames, outputfilename):
     output_format.write(book, open(outputfilename, 'w'))
 
 def parse_file_to_book(inputfile, book):
-    for name,contents in json.load(inputfile).iteritems():
-        paragraph = paragraphs.Paragraph(name)
-        if 'text' in contents:
-            paragraph.addtext(contents['text'])
-        if 'number' in contents:
-            book.add(paragraph, contents['number'])
+    name = None
+    number = None
+    text = ""
+    for line in inputfile.readlines():
+        if line.startswith('*'):
+            if name:
+                book.add(paragraphs.Paragraph(name, text), number)
+            number = None
+            text = ""
+            heading = line[1:].strip().split(' ')
+            if len(heading) == 1:
+                name = heading[0]
+            elif len(heading) == 2:
+                number = int(heading[0])
+                name = heading[1]
+            else:
+                raise Exception("bad paragraph heading %s" % str(heading))
         else:
-            book.add(paragraph)
+            text = text + " " + line.strip()
+    if name:
+        book.add(paragraphs.Paragraph(name, text), number)
 
 def find_output_format(outputfilename):
     for of in OUTPUT_FORMATS:
         if of.supports(outputfilename):
             return of
     raise Exception("Unsupported or unknown output format for %s."
-                    % outputfile)
+                    % outputfilename)
 
 if __name__ == '__main__':
     import argparse

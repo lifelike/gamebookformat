@@ -2,8 +2,6 @@ import os
 import os.path
 import sys
 
-from paragraphs import paragraph_refs_format
-
 class OutputFormat (object):
     def __init__(self, extension, name):
         self.extension = extension
@@ -29,19 +27,13 @@ class OutputFormat (object):
 
     def write_paragraph(self, paragraph, shuffled_paragraphs, output):
         refs = []
-        def paragraph_link_render(to_paragraph, shuffled_paragraphs):
-            s = self.load_template("paragraph_ref") %  {
-                'nr' : shuffled_paragraphs.to_nr[to_paragraph],
-                'from_nr' : shuffled_paragraphs.to_nr[paragraph]
-            }
-            refs.append(s)
-            return s
-        formatted_text = paragraph.format(shuffled_paragraphs,
-                                      paragraph_link_render)
+        refsdict = ReferenceFormatter(paragraph, shuffled_paragraphs,
+                                      self.load_template("paragraph_ref"))
+        formatted_text = paragraph.format(refsdict)
         print >> output, self.load_template("paragraph") % {
             'nr' : shuffled_paragraphs.to_nr[paragraph],
             'text' : formatted_text,
-            'refs' : '\n'.join(refs) # hack for DOT output reallyn
+            'refs' : '\n'.join(refsdict.getfound()) # hack for DOT output
         },
 
     def write_end(self, book, output):
@@ -64,3 +56,23 @@ class OutputFormat (object):
         self.cached_templates[name] = template
         return template
 
+class ReferenceFormatter (object):
+    "There is probably a better way, but this hack seems to work."
+    def __init__(self, paragraph, shuffled_paragraphs, ref_template):
+        self.paragraph = paragraph
+        self.shuffled_paragraphs = shuffled_paragraphs
+        self.found = set()
+        self.ref_template = ref_template
+
+    def __getitem__(self, key):
+        to_paragraph = self.shuffled_paragraphs.from_name[key]
+        res = self.ref_template % {
+            'nr' : self.shuffled_paragraphs.to_nr[to_paragraph],
+            'from_nr' : self.shuffled_paragraphs.to_nr[self.paragraph]
+        }
+        if key in self.shuffled_paragraphs.name_to_nr:
+            self.found.add(res)
+        return res
+
+    def getfound(self):
+        return list(self.found)

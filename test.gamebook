@@ -1,0 +1,14 @@
+*1 start
+This is where the adventure begins. You can go on to the
+next paragraph, see %(next)s or try the other instead, see %(other)s.
+
+*next
+This is the next paragraph. Go on to the end at %(end)s.
+
+*other
+This is another paragraph. You can try the next paragraph now,
+see %(next)s, or go on to the end, see %(end)s.
+
+*end
+The end.
+
