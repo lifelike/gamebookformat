@@ -11,3 +11,5 @@ test.rtf
 *.png
 *.out
 test.html
+.lein*
+target
