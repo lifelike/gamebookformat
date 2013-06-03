@@ -25,7 +25,10 @@ clean:
 	$(RM) *.rtf *.html *.tex *.debug *.pdf *~ *.pyc *.dot \
 	*.aux *.toc *.png
 
-.PHONY: all clean
+fixmes:
+	grep FIXME *.py
+
+.PHONY: all clean fixmes
 
 .PRECIOUS: %.tex %.dot
 
