@@ -3,10 +3,10 @@ import os.path
 import sys
 
 class OutputFormat (object):
-    def __init__(self, extension, name):
+    def __init__(self, templates, extension, name):
         self.extension = extension
         self.name = name
-        self.cached_templates = {}
+        self.templates = templates
 
     def __str__(self):
         return ".%s: %s" % (self.extension, self.name)
@@ -43,18 +43,7 @@ class OutputFormat (object):
         return filename.endswith('.' + self.extension)
 
     def load_template(self, name):
-        "Templates is a mess and do not belong in the output class really."
-        if name in self.cached_templates:
-            return self.cached_templates[name]
-        filename = os.path.join(os.path.dirname(sys.argv[0]),
-                                "templates",
-                                self.extension,
-                                name + "." + self.extension)
-        f = open(filename, "r")
-        template = f.read()
-        f.close()
-        self.cached_templates[name] = template
-        return template
+        return self.templates.get(name)
 
 class ReferenceFormatter (object):
     "There is probably a better way, but this hack seems to work."

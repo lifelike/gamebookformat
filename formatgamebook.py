@@ -34,22 +34,21 @@ import sys
 import json
 
 import sections
-
+import templates
 from output import OutputFormat
-from latex import LatexFormat
-from rtf import RtfFormat
-from dot import DotFormat
-from html import HtmlFormat
-from debug import DebugFormat
 
 USAGE = "usage: %prog [options] inputfile(s)... outputfile"
 
-OUTPUT_FORMATS = [LatexFormat(),
-                  RtfFormat(),
-                  DotFormat(),
-                  HtmlFormat(),
-                  DebugFormat()]
+def of(extension, name):
+    return OutputFormat(templates.Templates(extension), extension, name)
 
+OUTPUT_FORMATS = [
+    of('tex', 'LaTeX'),
+    of('rtf', 'Rich Text Format'),
+    of('dot', 'Graphviz section flowchart'),
+    of('html', 'HTML+JS playable in browser'),
+    of('debug', 'Gamebook Debug Output'),
+]
 
 def make_supported_formats_list_string():
     return "Supported Output Formats:\n" + "\n".join(
