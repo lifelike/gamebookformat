@@ -3,13 +3,9 @@ import os.path
 import sys
 
 class OutputFormat (object):
-    def __init__(self, templates, extension, name):
-        self.extension = extension
-        self.name = name
+    "Handles book output. Big FIXME required to make sense."
+    def __init__(self, templates):
         self.templates = templates
-
-    def __str__(self):
-        return ".%s: %s" % (self.extension, self.name)
 
     def write_begin(self, book, output):
         print >> output, self.load_template("begin") % {
@@ -34,9 +30,6 @@ class OutputFormat (object):
 
     def write_end(self, book, output):
         print >> output, self.load_template("end") % {},
-
-    def supports(self, filename):
-        return filename.endswith('.' + self.extension)
 
     def load_template(self, name):
         return self.templates.get(name)

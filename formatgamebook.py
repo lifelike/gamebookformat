@@ -40,7 +40,8 @@ from output import OutputFormat
 USAGE = "usage: %prog [options] inputfile(s)... outputfile"
 
 def of(extension, name):
-    return OutputFormat(templates.Templates(extension), extension, name)
+    return {'extension' : extension,
+            'name' : name}
 
 OUTPUT_FORMATS = [
     of('tex', 'LaTeX'),
@@ -56,8 +57,9 @@ def make_supported_formats_list_string():
 
 def format_gamebook(inputfilenames,
                     outputfilename,
-                    import_default_map_file):
-    output_format = find_output_format(outputfilename)
+                    import_default_map_file,
+                    templatedirs):
+    output_format = make_output(outputfilename, templatedirs)
     book = sections.Book()
     for inputfilename in inputfilenames:
         parse_file_to_book(open(inputfilename, 'r'), book)
@@ -93,10 +95,11 @@ def add_section_to_book(book, name, text, number=None):
     if number:
         book.force_section_nr(name, number)
 
-def find_output_format(outputfilename):
+def make_output(outputfilename, templatedirs):
     for of in OUTPUT_FORMATS:
-        if of.supports(outputfilename):
-            return of
+        extension = of['extension']
+        if outputfilename.endswith('.' + extension):
+            return OutputFormat(templates.Templates(templatedirs, extension))
     raise Exception("Unsupported or unknown output format for %s."
                     % outputfilename)
 
@@ -136,8 +139,16 @@ if __name__ == '__main__':
     ap.add_argument('-M', '--no-default-map', action='store_false',
                     dest='import_default_map_file',
                     help='ignore default map file')
+    ap.add_argument('-t', '--template', metavar='D', dest='templatedirs',
+                    action='append', help='Add custom template dir')
     args = ap.parse_args()
+    templatedirs = ['templates',
+                    os.path.join(os.path.dirname(sys.argv[0]), 'templates')]
+    if args.templatedirs:
+        for t in args.templatedirs:
+            templatedirs.insert(-2, t)
     format_gamebook(args.inputfiles,
                     args.outputfile,
-                    args.import_default_map_file)
+                    args.import_default_map_file,
+                    templatedirs)
 

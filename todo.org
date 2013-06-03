@@ -1,4 +1,4 @@
-* TODO [8/26] [30%]
+* TODO [9/26] [34%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -7,7 +7,7 @@
 - [X] Split out template hanlding into separate class from output
 - [X] Inject Output dependencies
 - [X] Save section-number mapping and reuse automatically
-- [ ] Add support for custom document templates.
+- [X] Add support for custom document templates.
   Fixed names and/or command-line options.
 - [ ] Add section links in LaTeX output.
 - [ ] Debug HTML output
