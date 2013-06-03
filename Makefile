@@ -16,7 +16,7 @@ all: test.rtf test.pdf test.html test.debug test.png
 	./formatgamebook.py $< $@
 
 %.pdf: %.tex
-	pdflatex $<
+	pdflatex $< && pdflatex $<
 
 %.png: %.dot
 	dot -Tpng $< > $@

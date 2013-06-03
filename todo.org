@@ -1,4 +1,4 @@
-* TODO [9/26] [34%]
+* TODO [10/26] [38%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -9,7 +9,7 @@
 - [X] Save section-number mapping and reuse automatically
 - [X] Add support for custom document templates.
   Fixed names and/or command-line options.
-- [ ] Add section links in LaTeX output.
+- [X] Add section links in LaTeX output.
 - [ ] Debug HTML output
 - [ ] Inventory pick up items
 - [ ] Codewords set
