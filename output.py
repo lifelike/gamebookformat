@@ -47,7 +47,7 @@ class OutputFormat (object):
         if name in self.cached_templates:
             return self.cached_templates[name]
         filename = os.path.join(os.path.dirname(sys.argv[0]),
-                                "output_formats",
+                                "templates",
                                 self.extension,
                                 name + "." + self.extension)
         f = open(filename, "r")
