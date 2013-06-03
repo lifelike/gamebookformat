@@ -3,6 +3,19 @@
 A tool to format [[http://www.gamebooks.org/][gamebooks]] into various formats useful for playing the
 gamebook on paper or a screen (or for debugging it).
 
+** Usage
+: formatgamebook.py [-h] [-M] [-t D] inputfile [inputfile ...] outputfile
+:
+: positional arguments:
+:   inputfile             input gamebook file (eg test.json)
+:   outputfile            output file (eg test.tex or test.rtf)
+:
+: optional arguments:
+:   -h, --help            show this help message and exit
+:   -M, --no-default-map  ignore default map file
+:   -t D, --template D    add custom template dir
+
+
 ** Supported Output Formats
 
 | Name             | Extension | Description                                                                                     |

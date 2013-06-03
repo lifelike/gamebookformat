@@ -140,7 +140,7 @@ if __name__ == '__main__':
                     dest='import_default_map_file',
                     help='ignore default map file')
     ap.add_argument('-t', '--template', metavar='D', dest='templatedirs',
-                    action='append', help='Add custom template dir')
+                    action='append', help='add custom template dir')
     args = ap.parse_args()
     templatedirs = ['templates',
                     os.path.join(os.path.dirname(sys.argv[0]), 'templates')]
