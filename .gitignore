@@ -13,3 +13,4 @@ test.rtf
 test.html
 .lein*
 target
+*.map

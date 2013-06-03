@@ -25,30 +25,32 @@ class ShuffledSections:
 class Book:
     def __init__(self):
         self.sections = []
+        self.from_name = {}
         self.nr_sections = {}
         self.max = 0
 
-    def add(self, section, nr=None):
+    def add(self, section):
         self.sections.append(section)
+        self.from_name[section.name] = section
         if len(self.sections) > self.max:
             self.max = len(self.sections)
-        if nr:
-            self.nr_sections[nr] = section
-            if nr > self.max:
-                self.max = nr
+
+    def force_section_nr(self, name, nr):
+        self.nr_sections[nr] = name
+        if nr > self.max:
+            self.max = nr
 
     def shuffle(self):
         as_list = [None]
         from_nr = {}
         to_nr = {}
-        from_name = {}
         shuffled = self.sections[:]
         for p in self.nr_sections.values():
-            shuffled.remove(p)
+            shuffled.remove(self.from_name[p])
         random.shuffle(shuffled)
         for nr in range(1, self.max + 1):
             if self.nr_sections.has_key(nr):
-                section = self.nr_sections[nr]
+                section = self.from_name[self.nr_sections[nr]]
             elif len(shuffled):
                 section = shuffled.pop()
             else:
@@ -57,5 +59,4 @@ class Book:
             from_nr[nr] = section
             if section:
                 to_nr[section] = nr
-                from_name[section.name] = section
-        return ShuffledSections(as_list, from_nr, to_nr, from_name)
+        return ShuffledSections(as_list, from_nr, to_nr, self.from_name.copy())
