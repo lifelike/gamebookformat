@@ -11,11 +11,6 @@ class OutputFormat (object):
     def __str__(self):
         return ".%s: %s" % (self.extension, self.name)
 
-    def write(self, book, output):
-        self.write_begin(book, output)
-        self.write_shuffled_sections(book.shuffle(), output)
-        self.write_end(book, output)
-
     def write_begin(self, book, output):
         print >> output, self.load_template("begin") % {
             'max' : book.max
@@ -23,7 +18,8 @@ class OutputFormat (object):
 
     def write_shuffled_sections(self, shuffled_sections, output):
         for p in shuffled_sections.as_list[1:]:
-            self.write_section(p, shuffled_sections, output)
+            if p:
+                self.write_section(p, shuffled_sections, output)
 
     def write_section(self, section, shuffled_sections, output):
         refs = []
