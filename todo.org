@@ -1,22 +1,30 @@
-* TODO [5/15] [33%]
+* TODO [5/26] [19%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
 - [X] RTF output
 - [X] HTML output
+- [ ] Split out template hanlding into separate class from output
+- [ ] Inject Output dependencies
 - [ ] Save section-number mapping and reuse automatically
 - [ ] Add support for custom document templates.
   Fixed names and/or command-line options.
 - [ ] Add section links in LaTeX output.
 - [ ] Debug HTML output
-- [ ] Inventory (take, drop, check)
-- [ ] Codewords/Sightings (set, check, clean)
+- [ ] Inventory pick up items
+- [ ] Codewords set
+- [ ] Check if has inventory item
+- [ ] Check if has codeword
+- [ ] Remove item from inventory (forced by instructions)
+- [ ] Optionally remove inventory item to make a choice
 - [ ] More formatting possibilities in sections
   Look at existing gamebooks to get ideas.
 - [ ] Prettier LaTeX output
   Look at how some existing gamebooks are formatted.
 - [ ] Command-line flag to set max section number to use
 - [ ] Dummy sections
-- [ ] Combat? Or is this higher level?
-- [ ] Document Gamebook JSON format.
+- [ ] Counters (life, money, whatever) create and set
+- [ ] Counters increase/decrease
+- [ ] Counters check
+- [ ] Document Gamebook format
 - [ ] Higher level text-language for Gamebooks
