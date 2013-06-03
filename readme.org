@@ -9,7 +9,7 @@ gamebook on paper or a screen (or for debugging it).
 |------------------+-----------+-------------------------------------------------------------------------------------------------|
 | LaTeX            | .tex      | Useful to generate PDFs using pdflatex or whatever LaTeX tools you prefer.                      |
 | Rich Text Format | .rtf      | Supported because the Windhammer Prize requires it.                                             |
-| Graphviz DOT     | .dot      | Use with the Graphviz dot tool to generate a flowchart graph of all paragraphs in the gamebook. |
+| Graphviz DOT     | .dot      | Use with the Graphviz dot tool to generate a flowchart graph of all sections in the gamebook.   |
 | HTML             | .html     | Play gamebook in browser.                                                                       |
 | Debug Plain Text | .debug    | Plain text debug output of gamebook contents.                                                   |
 
@@ -18,7 +18,7 @@ More to be added.
 ** Gamebook Format
 
 The input file expected by the formatgamebook.py script must be in a
-format containing information about all paragraphs in the book
+format containing information about all sections in the book
 plus some optional metadata. The format should (when TBD) be documented
 here, but it is not expected that most users would ever have to look
 at the gamebook file, but rather use a higher level format or a

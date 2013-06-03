@@ -33,7 +33,7 @@ import os.path
 import sys
 import json
 
-import paragraphs
+import sections
 
 from output import OutputFormat
 from latex import LatexFormat
@@ -57,7 +57,7 @@ def make_supported_formats_list_string():
 
 def format_gamebook(inputfilenames, outputfilename):
     output_format = find_output_format(outputfilename)
-    book = paragraphs.Book()
+    book = sections.Book()
     for inputfilename in inputfilenames:
         parse_file_to_book(open(inputfilename, 'r'), book)
     output_format.write(book, open(outputfilename, 'w'))
@@ -69,7 +69,7 @@ def parse_file_to_book(inputfile, book):
     for line in inputfile.readlines():
         if line.startswith('*'):
             if name:
-                book.add(paragraphs.Paragraph(name, text), number)
+                book.add(sections.Section(name, text), number)
             number = None
             text = ""
             heading = line[1:].strip().split(' ')
@@ -79,11 +79,11 @@ def parse_file_to_book(inputfile, book):
                 number = int(heading[0])
                 name = heading[1]
             else:
-                raise Exception("bad paragraph heading %s" % str(heading))
+                raise Exception("bad section heading %s" % str(heading))
         else:
             text = text + " " + line.strip()
     if name:
-        book.add(paragraphs.Paragraph(name, text), number)
+        book.add(sections.Section(name, text), number)
 
 def find_output_format(outputfilename):
     for of in OUTPUT_FORMATS:

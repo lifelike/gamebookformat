@@ -4,20 +4,19 @@
 - [X] LaTeX output
 - [X] RTF output
 - [X] HTML output
-- [ ] Save paragraph-number mapping and reuse automatically
-- [ ] Add support for custom begin/end document templates.
+- [ ] Save section-number mapping and reuse automatically
+- [ ] Add support for custom document templates.
   Fixed names and/or command-line options.
-- [ ] Add paragraph links in LaTeX output.
+- [ ] Add section links in LaTeX output.
 - [ ] Debug HTML output
 - [ ] Inventory (take, drop, check)
 - [ ] Codewords/Sightings (set, check, clean)
-- [ ] Skill checks? Or is this higher level? No?
-- [ ] More formatting possibilities in paragraphs
+- [ ] More formatting possibilities in sections
   Look at existing gamebooks to get ideas.
 - [ ] Prettier LaTeX output
   Look at how some existing gamebooks are formatted.
-- [ ] Command-line flag to set max paragraph number to use
-- [ ] Dummy paragraphs
+- [ ] Command-line flag to set max section number to use
+- [ ] Dummy sections
 - [ ] Combat? Or is this higher level?
 - [ ] Document Gamebook JSON format.
 - [ ] Higher level text-language for Gamebooks

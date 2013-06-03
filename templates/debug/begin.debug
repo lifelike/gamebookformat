@@ -1,2 +1,2 @@
 BEGIN DEBUG OUTPUT
-Number of paragraphs: %(max)d
+Number of sections: %(max)d

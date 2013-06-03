@@ -13,7 +13,7 @@ class OutputFormat (object):
 
     def write(self, book, output):
         self.write_begin(book, output)
-        self.write_shuffled_paragraphs(book.shuffle(), output)
+        self.write_shuffled_sections(book.shuffle(), output)
         self.write_end(book, output)
 
     def write_begin(self, book, output):
@@ -21,17 +21,17 @@ class OutputFormat (object):
             'max' : book.max
         },
 
-    def write_shuffled_paragraphs(self, shuffled_paragraphs, output):
-        for p in shuffled_paragraphs.as_list[1:]:
-            self.write_paragraph(p, shuffled_paragraphs, output)
+    def write_shuffled_sections(self, shuffled_sections, output):
+        for p in shuffled_sections.as_list[1:]:
+            self.write_section(p, shuffled_sections, output)
 
-    def write_paragraph(self, paragraph, shuffled_paragraphs, output):
+    def write_section(self, section, shuffled_sections, output):
         refs = []
-        refsdict = ReferenceFormatter(paragraph, shuffled_paragraphs,
-                                      self.load_template("paragraph_ref"))
-        formatted_text = paragraph.format(refsdict)
-        print >> output, self.load_template("paragraph") % {
-            'nr' : shuffled_paragraphs.to_nr[paragraph],
+        refsdict = ReferenceFormatter(section, shuffled_sections,
+                                      self.load_template("section_ref"))
+        formatted_text = section.format(refsdict)
+        print >> output, self.load_template("section") % {
+            'nr' : shuffled_sections.to_nr[section],
             'text' : formatted_text,
             'refs' : '\n'.join(refsdict.getfound()) # hack for DOT output
         },
@@ -58,19 +58,19 @@ class OutputFormat (object):
 
 class ReferenceFormatter (object):
     "There is probably a better way, but this hack seems to work."
-    def __init__(self, paragraph, shuffled_paragraphs, ref_template):
-        self.paragraph = paragraph
-        self.shuffled_paragraphs = shuffled_paragraphs
+    def __init__(self, section, shuffled_sections, ref_template):
+        self.section = section
+        self.shuffled_sections = shuffled_sections
         self.found = set()
         self.ref_template = ref_template
 
     def __getitem__(self, key):
-        to_paragraph = self.shuffled_paragraphs.from_name[key]
+        to_section = self.shuffled_sections.from_name[key]
         res = self.ref_template % {
-            'nr' : self.shuffled_paragraphs.to_nr[to_paragraph],
-            'from_nr' : self.shuffled_paragraphs.to_nr[self.paragraph]
+            'nr' : self.shuffled_sections.to_nr[to_section],
+            'from_nr' : self.shuffled_sections.to_nr[self.section]
         }
-        if key in self.shuffled_paragraphs.name_to_nr:
+        if key in self.shuffled_sections.name_to_nr:
             self.found.add(res)
         return res
 
