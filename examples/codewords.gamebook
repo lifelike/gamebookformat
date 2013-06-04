@@ -1,2 +1,28 @@
 * 1 start
 Demonstrating how codewords (AKA sightings) can be used.
+Go to [[second]].
+
+* 2 second
+Simple enough to set. Turn to [[choice]].
+FIXME not actually setting anything here yet.
+
+* choice
+If you have the codeword [has]warrior[/has] you may
+turn to [[the_end]]. If you do not have the codeword
+[hasnot]fun[/hasnot], you may turn to [[notsofun]].
+Otherwise see [[forced]].
+
+* notsofun
+This is just to demonstrate choices allowed when not
+having a codeword. Now go on to [[forced]].
+
+* forced
+OK, if you have the codeword [has forced]warrior[/has], turn to
+[[the_end]].
+
+* the_end
+That was easy.
+
+
+
+

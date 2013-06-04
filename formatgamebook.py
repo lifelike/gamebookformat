@@ -150,7 +150,7 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser(epilog=make_supported_formats_list_string(),
         formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('inputfiles', metavar='inputfile', nargs='+',
-                    help='input gamebook file (eg test.json)')
+                    help='input gamebook file (eg test.gamebook)')
     ap.add_argument('outputfile', metavar='outputfile',
                     help='output file (eg test.tex or test.rtf)')
     ap.add_argument('-M', '--no-default-map', action='store_false',

@@ -12,6 +12,8 @@
 - [X] Add section links in LaTeX output.
 - [X] Prettier LaTeX output
   Look at how some existing gamebooks are formatted.
+- [ ] Parse wiki-style tags used to mark up sections
+- [ ] New text formatting style for section references
 - [ ] Inventory pick up items
 - [ ] Codewords set
 - [ ] Check if has inventory item

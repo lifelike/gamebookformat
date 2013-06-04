@@ -1,13 +1,13 @@
 * 1 start
 This is where the adventure begins. You can go on to the
-next section, see %(next)s or try the other instead, see %(other)s.
+next section, see [[next]] or try the other instead, see [[other]].
 
 * next
-This is the next section. Go on to the end at %(end)s.
+This is the next section. Go on to the end at [[end]].
 
 * other
 This is another section. You can try the next section now,
-see %(next)s, or go on to the end, see %(end)s.
+see [[next]], or go on to the end, see [[end]].
 
 * end
 The end.

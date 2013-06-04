@@ -7,13 +7,14 @@ gamebook on paper or a screen (or for debugging it).
 : formatgamebook.py [-h] [-M] [-t D] inputfile [inputfile ...] outputfile
 :
 : positional arguments:
-:   inputfile             input gamebook file (eg test.json)
+:   inputfile             input gamebook file (eg test.gamebook)
 :   outputfile            output file (eg test.tex or test.rtf)
 :
 : optional arguments:
 :   -h, --help            show this help message and exit
 :   -M, --no-default-map  ignore default map file
 :   -t D, --template D    add custom template dir
+:   -y, --verify          verify gamebook structure
 
 
 ** Supported Output Formats
@@ -33,13 +34,17 @@ More to be added.
 The input file expected by the formatgamebook.py script must be in a
 format containing information about all sections in the book
 plus some optional metadata. The format should (when TBD) be documented
-here, but it is not expected that most users would ever have to look
-at the gamebook file, but rather use a higher level format or a
-GUI tool.
+here.
+
+By design the format is similar enough to [[http://orgmode.org][Emacs Org-Mode]]
+that some edit shortcuts works in that mode without additional
+configuration (eg /C-c C-q/ to edit section tags).
+References to sections can be followed using
+/C-c C-o/ while editing the book in org-mode.
 
 ** License
 
-Copyright (c) 2013, Pelle Nilsson
+Copyright (c) 2013 Pelle Nilsson
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
