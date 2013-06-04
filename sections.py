@@ -30,6 +30,9 @@ class Book:
         self.max = 0
 
     def add(self, section):
+        if section.name in self.from_name:
+            raise Exception('Duplicate section names (%s) not allowed.' %
+                            section.name)
         self.sections.append(section)
         self.from_name[section.name] = section
         if len(self.sections) > self.max:
