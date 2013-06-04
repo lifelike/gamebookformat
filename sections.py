@@ -5,9 +5,14 @@ class Section:
     def __init__(self, name, text):
         self.name = name
         self.text = text
+        self.tags = set()
+
+    def set_tags(self, tags):
+        self.tags = set(tags)
 
     def __repr__(self):
-        return "Section(%s, %s)" % (repr(self.name), repr(self.text))
+        return "Section(%s, %s, %s)" % (repr(self.name), repr(self.text),
+                                        repr(self.tags))
 
     def format(self, references):
         return self.text % references

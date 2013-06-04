@@ -12,6 +12,7 @@
 - [X] Add section links in LaTeX output.
 - [X] Prettier LaTeX output
   Look at how some existing gamebooks are formatted.
+- [ ] Verify gamebook for debug and dot outputs
 - [ ] Inventory pick up items
 - [ ] Codewords set
 - [ ] Check if has inventory item
@@ -20,11 +21,23 @@
 - [ ] Optionally remove inventory item to make a choice
 - [ ] More formatting possibilities in sections
   Look at existing gamebooks to get ideas.
-- [ ] Command-line flag to set max section number to use
+- [ ] Book option to set max section number to use
+- [ ] Book option to set pdf layout (page size and number of columns)
+- [ ] Book option to set title
+- [ ] Book option to set author
+- [ ] Book option to set date
+- [ ] Template for book introduction (including rules etc)
+- [ ] Some way to insert character sheet in book introduction
+- [ ] Some way to insert dice at bottom of pages for LaTeX
+- [ ] Some way to insert optional random numbers table at end of book
+- [ ] Possibility to make predictable random numbers and shuffling for testing
+- [ ] Test generate examples and compare to expected output in all formats
+- [ ] Unit tests (finally...)
+- [ ] Inserting images
 - [ ] Dummy sections
 - [ ] Counters (life, money, whatever) create and set
 - [ ] Counters increase/decrease
 - [ ] Counters check
 - [ ] Document Gamebook format
-- [ ] Debug HTML output
+- [ ] Playable HTML (javascript) output
 - [ ] Higher level text-language for Gamebooks

@@ -1,29 +1,37 @@
-all: test.rtf test.pdf test.html test.debug test.png
+examples=$(wildcard examples/*.gamebook)
+
+all: $(examples:.gamebook=.rtf) \
+	$(examples:.gamebook=.pdf) \
+	$(examples:.gamebook=.html) \
+	$(examples:.gamebook=.debug) \
+	$(examples:.gamebook=.png)
 
 %.rtf: %.gamebook formatgamebook.py
-	./formatgamebook.py $< $@
+	./formatgamebook.py --verify $< $@
 
 %.html: %.gamebook formatgamebook.py
-	./formatgamebook.py $< $@
+	./formatgamebook.py --verify $< $@
 
 %.tex: %.gamebook formatgamebook.py
-	./formatgamebook.py $< $@
+	./formatgamebook.py --verify $< $@
 
 %.dot: %.gamebook formatgamebook.py
-	./formatgamebook.py $< $@
+	./formatgamebook.py --verify $< $@
 
 %.debug: %.gamebook formatgamebook.py
-	./formatgamebook.py $< $@
+	./formatgamebook.py --verify $< $@
 
 %.pdf: %.tex
-	pdflatex $< && pdflatex $<
+	cd $(dir $<) &&	pdflatex $(notdir $<) && pdflatex $(notdir $<)
 
 %.png: %.dot
 	dot -Tpng $< > $@
 
 clean:
-	$(RM) *.rtf *.html *.tex *.debug *.pdf *~ *.pyc *.dot \
-	*.aux *.toc *.png
+	$(RM) examples/*.rtf examples/*.html examples/*.tex \
+	examples/*.debug examples/*.pdf *~ examples/*~ *.pyc \
+	examples/*.dot examples/*.aux examples/*.toc examples/*.png \
+	examples/*.map
 
 fixmes:
 	grep FIXME *.py

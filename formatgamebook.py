@@ -35,13 +35,15 @@ import json
 
 import sections
 import templates
+import verifygamebook
 from output import OutputFormat
 
 USAGE = "usage: %prog [options] inputfile(s)... outputfile"
 
 def of(extension, name):
     return {'extension' : extension,
-            'name' : name}
+            'name' : name,
+    }
 
 OUTPUT_FORMATS = [
     of('tex', 'LaTeX'),
@@ -58,26 +60,38 @@ def make_supported_formats_list_string():
 def format_gamebook(inputfilenames,
                     outputfilename,
                     import_default_map_file,
-                    templatedirs):
+                    templatedirs,
+                    verify):
     output_format = make_output(outputfilename, templatedirs)
     book = sections.Book()
     for inputfilename in inputfilenames:
         parse_file_to_book(open(inputfilename, 'r'), book)
     if import_default_map_file:
         import_default_nr_map(outputfilename, book)
+    if verify:
+        verifygamebook.verify(book)
     write_book(book, output_format, outputfilename)
 
 def parse_file_to_book(inputfile, book):
     name = None
     number = None
     text = ""
+    tags = None
     for line in inputfile.readlines():
         if line.startswith('*'):
             if name:
                 add_section_to_book(book, name, text, number)
             number = None
             text = ""
-            heading = line[1:].strip().split(' ')
+            heading = [h.strip() for h in line[1:].strip().split()]
+            if len(heading) > 1 and heading[-1].startswith(':'):
+                if not heading[-1].endswith(':'):
+                    raise Exception('Section heading tags syntax error: %s' %
+                                    heading)
+                tags = [t.strip() for t in heading[-1][1:-1].split(':')]
+                heading = heading[:-1]
+            else:
+                tags = None
             if len(heading) == 1:
                 name = heading[0]
             elif len(heading) == 2:
@@ -88,10 +102,13 @@ def parse_file_to_book(inputfile, book):
         else:
             text = text + " " + line.strip()
     if name:
-        add_section_to_book(book, name, text, number)
+        add_section_to_book(book, name, text, number, tags)
 
-def add_section_to_book(book, name, text, number=None):
-    book.add(sections.Section(name, text))
+def add_section_to_book(book, name, text, number=None, tags=None):
+    section = sections.Section(name, text)
+    if tags:
+        section.set_tags(tags)
+    book.add(section)
     if number:
         book.force_section_nr(name, number)
 
@@ -141,6 +158,8 @@ if __name__ == '__main__':
                     help='ignore default map file')
     ap.add_argument('-t', '--template', metavar='D', dest='templatedirs',
                     action='append', help='add custom template dir')
+    ap.add_argument('-y', '--verify', action='store_true',
+                    help='verify gamebook structure')
     args = ap.parse_args()
     templatedirs = ['templates',
                     os.path.join(os.path.dirname(sys.argv[0]), 'templates')]
@@ -150,5 +169,5 @@ if __name__ == '__main__':
     format_gamebook(args.inputfiles,
                     args.outputfile,
                     args.import_default_map_file,
-                    templatedirs)
-
+                    templatedirs,
+                    args.verify)
