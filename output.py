@@ -8,31 +8,43 @@ class OutputFormat (object):
         self.templates = templates
 
     def write_begin(self, book, output):
-        print >> output, self.load_template("begin") % {
+        print >> output, self.format_with_template("begin", {
             'max' : book.max
-        },
+        }),
 
     def write_shuffled_sections(self, shuffled_sections, output):
-        for p in shuffled_sections.as_list[1:]:
+        for i, p in enumerate(shuffled_sections.as_list):
             if p:
                 self.write_section(p, shuffled_sections, output)
+            elif i > 0:
+                self.write_empty_section(i, output)
 
     def write_section(self, section, shuffled_sections, output):
         refs = []
         refsdict = ReferenceFormatter(section, shuffled_sections,
-                                      self.load_template("section_ref"))
+                                      self.format_with_template("section_ref"))
         formatted_text = section.format(refsdict)
-        print >> output, self.load_template("section") % {
+        print >> output, self.format_with_template("section", {
             'nr' : shuffled_sections.to_nr[section],
+            'name' : section.name,
             'text' : formatted_text,
             'refs' : '\n'.join(refsdict.getfound()) # hack for DOT output
-        },
+        }),
+
+    def write_empty_section(self, nr, output):
+        print >> output, self.format_with_template("empty_section", {
+            'nr' : nr,
+        }),
 
     def write_end(self, book, output):
-        print >> output, self.load_template("end") % {},
+        print >> output, self.format_with_template("end"),
 
-    def load_template(self, name):
-        return self.templates.get(name)
+    def format_with_template(self, name, values=None):
+        template = self.templates.get(name)
+        if values:
+            return template % values
+        else:
+            return template
 
 class ReferenceFormatter (object):
     "There is probably a better way, but this hack seems to work."

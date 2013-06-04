@@ -1,4 +1,4 @@
-* TODO [10/26] [38%]
+* TODO [11/26] [42%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -10,7 +10,8 @@
 - [X] Add support for custom document templates.
   Fixed names and/or command-line options.
 - [X] Add section links in LaTeX output.
-- [ ] Debug HTML output
+- [X] Prettier LaTeX output
+  Look at how some existing gamebooks are formatted.
 - [ ] Inventory pick up items
 - [ ] Codewords set
 - [ ] Check if has inventory item
@@ -19,12 +20,11 @@
 - [ ] Optionally remove inventory item to make a choice
 - [ ] More formatting possibilities in sections
   Look at existing gamebooks to get ideas.
-- [ ] Prettier LaTeX output
-  Look at how some existing gamebooks are formatted.
 - [ ] Command-line flag to set max section number to use
 - [ ] Dummy sections
 - [ ] Counters (life, money, whatever) create and set
 - [ ] Counters increase/decrease
 - [ ] Counters check
 - [ ] Document Gamebook format
+- [ ] Debug HTML output
 - [ ] Higher level text-language for Gamebooks

@@ -14,8 +14,7 @@ class Templates (object):
         for templatedir in self.templatedirs:
             if self.has_template_in(templatedir, name):
                 return self.get_in(templatedir, name)
-        raise Exception("Found no template " + name + " for "
-                        + self.extension + ".")
+        return ""
 
     def has_template_in(self, templatedir, name):
         # FIXME better test
