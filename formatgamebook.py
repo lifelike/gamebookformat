@@ -107,7 +107,7 @@ def parse_file_to_book(inputfile, book):
 def add_section_to_book(book, name, text, number=None, tags=None):
     section = sections.Section(name, text)
     if tags:
-        section.set_tags(tags)
+        section.add_tags(tags)
     book.add(section)
     if number:
         book.force_section_nr(name, number)

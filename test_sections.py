@@ -14,6 +14,17 @@ class TestSection(TestCase):
         self.assertEqual(sec.name, "nnn")
         self.assertEqual(sec.text, "text")
 
+    def test_add_tags(self):
+        sec = sections.Section("nnn", "text")
+        sec.add_tags(['a', 'b'])
+        self.assertTrue(sec.hastag('a'))
+        self.assertTrue(sec.hastag('b'))
+        sec.add_tags(['c', 'd'])
+        self.assertTrue(sec.hastag('a'))
+        self.assertTrue(sec.hastag('b'))
+        self.assertTrue(sec.hastag('c'))
+        self.assertTrue(sec.hastag('d'))
+
 class TestBook(TestCase):
     def setUp(self):
         pass

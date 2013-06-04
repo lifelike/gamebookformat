@@ -7,8 +7,11 @@ class Section:
         self.text = text
         self.tags = set()
 
-    def set_tags(self, tags):
-        self.tags = set(tags)
+    def add_tags(self, tags):
+        self.tags.update(set(tags))
+
+    def hastag(self, tag):
+        return tag in self.tags
 
     def __repr__(self):
         return "Section(%s, %s, %s)" % (repr(self.name), repr(self.text),
