@@ -8,11 +8,11 @@ Here you find a [found]key[/found]. Go on to [[door]].
 
 * door
 There is a locked door here.
-If you have a [has]key[/has] you can use that to
+If you have a [carries]key[/carries] you can use that to
 open the door, see [[inside]]. Being in the same sentence
 should be enough for the formatter to figure out that the
 key is required to be allowed to follow the link.
-Else you can try to open with the [has]sword[/has],
+Else you can try to open with the [carries]sword[/carries],
 if you have it, see [[attempt_break_door_with_sword]].
 Hopefully the same-sentence magic is enough to pair
 pre-conditions to links, or more markup must be added later.

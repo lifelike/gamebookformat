@@ -32,4 +32,3 @@ class Templates (object):
         return os.path.join(templatedir,
                             self.extension,
                             name + "." + self.extension)
-

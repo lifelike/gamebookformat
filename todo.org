@@ -1,4 +1,4 @@
-* TODO [11/26] [42%]
+* TODO [13/43] [30%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -12,14 +12,16 @@
 - [X] Add section links in LaTeX output.
 - [X] Prettier LaTeX output
   Look at how some existing gamebooks are formatted.
-- [ ] Parse wiki-style tags used to mark up sections
-- [ ] New text formatting style for section references
+- [X] Parse wiki-style tags used to mark up sections
+- [X] New text formatting style for section references
 - [ ] Inventory pick up items
 - [ ] Codewords set
 - [ ] Check if has inventory item
 - [ ] Check if has codeword
 - [ ] Remove item from inventory (forced by instructions)
 - [ ] Optionally remove inventory item to make a choice
+- [ ] Fix problem with map file from other book sometimes crashing formatter
+- [ ] Keys from formatted book should be added to map file, not replace it
 - [ ] More formatting possibilities in sections
   Look at existing gamebooks to get ideas.
 - [ ] Book option to set max section number to use

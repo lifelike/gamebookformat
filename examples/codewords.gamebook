@@ -3,8 +3,8 @@ Demonstrating how codewords (AKA sightings) can be used.
 Go to [[second]].
 
 * 2 second
-Simple enough to set. Turn to [[choice]].
-FIXME not actually setting anything here yet.
+[set]warrior[/set]
+Simple enough to set a codeword. Turn to [[choice]].
 
 * choice
 If you have the codeword [has]warrior[/has] you may
@@ -17,8 +17,9 @@ This is just to demonstrate choices allowed when not
 having a codeword. Now go on to [[forced]].
 
 * forced
-OK, if you have the codeword [has forced]warrior[/has], turn to
-[[the_end]].
+OK, if you have the codeword [has]warrior[/has], turn to
+[[auto the_end]] otherwise go back to [[second]]. Although
+we both know you have that codeword.
 
 * the_end
 That was easy.
