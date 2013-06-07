@@ -1,4 +1,4 @@
-* TODO [15/45] [33%]
+* TODO [18/45] [40%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -16,11 +16,15 @@
 - [X] New text formatting style for section references
 - [X] Inventory pick up items
 - [X] Codewords set
-- [ ] Check if has inventory item
-- [ ] Check if has codeword
-- [ ] Remove item from inventory (forced by instructions)
-- [ ] Make sure removed items can not be picked up again.
-- [ ] Optionally remove inventory item to make a choice
+- [X] Check if has inventory item
+- [X] Check if has codeword
+- [X] Remove item from inventory (forced by instructions)
+- [ ] Enable link if not having an item
+- [ ] Enable link if not having a codeword
+- [ ] Make sure dropped items can not be picked up again
+- [ ] Make inventory and codewords generic
+  They are the same, sort of, and it might be good to be able to
+  add other similar entities as well, like skills or spells or whatever.
 - [ ] Fix problem with map file from other book sometimes crashing formatter
 - [ ] Keys from formatted book should be added to map file, not replace it
 - [ ] More formatting possibilities in sections

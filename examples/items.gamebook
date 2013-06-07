@@ -9,12 +9,12 @@ Here you find a [found]key[/found]. Go on to [[door]].
 * door
 There is a locked door here.
 If you have a [carries]key[/carries] you can use that to
-open the door, see [[inside]]. Being in the same sentence
+open the door, see [[inside]]. Being right before the link
 should be enough for the formatter to figure out that the
 key is required to be allowed to follow the link.
 Else you can try to open with the [carries]sword[/carries],
 if you have it, see [[attempt_break_door_with_sword]].
-Hopefully the same-sentence magic is enough to pair
+Hopefully the magic is good enough to pair
 pre-conditions to links, or more markup must be added later.
 You could also try to go back to pick up the key, see [[continue]].
 
@@ -23,4 +23,12 @@ OK. The door is broken, but so is the [drop]sword[/drop].
 Turn to [[inside]].
 
 * inside
+There is a rope here that can be cut using a [carries]sword[/carries].
+If you have it and want to do that, see [[cut_rope]].
+Otherwise turn to [[won]].
+
+* cut_rope
+OK. That was fun. Turn to [[won]].
+
+* won
 Congratulations, you won.

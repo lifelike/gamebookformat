@@ -4,99 +4,174 @@
     <meta charset='utf-8'>
     <title>Gamebook Title Here</title>
     <script>
-    var gamebook = {};
-    gamebook.player = {
-        'currentSection' : null,
-        'inventory' : [],
-        'codewords' : {},
+    var gamebook = {
+        'player' : {
+            'currentSection' : null,
+            'inventory' : [],
+            'codewords' : {},
 
-        'take' : function(item) {
-            console.log("player take " + item);
-            if (this.inventory.indexOf(item) == -1) {
-                this.inventory.push(item);
+            'take' : function(item) {
+                if (this.inventory.indexOf(item) === -1) {
+                    this.inventory.push(item);
+                    this.inventory.sort();
+                    gamebook.updateInventory();
+                }
+            },
+
+            'drop' : function(item) {
+                var i = this.inventory.indexOf(item);
+                if (i >= 0) {
+                    this.inventory.splice(i, 1);
+                    gamebook.updateInventory();
+                }
+            },
+
+            'carries' : function(item) {
+                return this.inventory.indexOf(item) >= 0;
+            },
+
+            'set' : function(codeword) {
+                this.codewords[codeword] = true;
+                gamebook.updateCodewords();
+            },
+
+            'has' : function(codeword) {
+                return codeword in this.codewords;
             }
-            this.inventory.sort();
-            gamebook.updateInventory();
         },
 
-        'carries' : function(item) {
-            return this.inventory.indexOf(item) >= 0;
+        'sections' : {},
+
+        'turnToFunctions' : {},
+
+        'autoRun' : {},
+
+        'addAutoRun' : function(nr, f) {
+            if (nr in this.autoRun) {
+                this.autoRun[nr].push(f);
+            } else {
+                this.autoRun[nr] = [f];
+            }
         },
 
-        'set' : function(codeword) {
-            this.codewords[codeword] = true;
-            gamebook.updateCodewords();
+        'runAutoRuns' : function(nr) {
+            if (nr in gamebook.autoRun) {
+                gamebook.autoRun[nr].forEach(function (f) {
+                    f();
+                });
+            }
         },
 
-        'has' : function(codeword) {
-            return codeword in this.codewords;
-        }
-    };
-    gamebook.sections = {};
-    gamebook.autoRun = {};
+        'addSection' : function(nr, element) {
+            var section = {'element' : element, 'nr' : nr};
+            this.sections[nr] = section;
+        },
 
-    gamebook.addAutoRun = function(nr, f) {
-        if (nr in this.autoRun) {
-            this.autoRun[nr].push(f);
-        } else {
-            this.autoRun[nr] = [f];
-        }
-    };
-
-    gamebook.runAutoRuns = function(nr) {
-        if (nr in gamebook.autoRun) {
-            gamebook.autoRun[nr].forEach(function (f) {
-                f();
+        'takeItem' : function(nr, item) {
+            this.addAutoRun(nr, function() {
+                gamebook.player.take(item);
             });
+        },
+
+        'dropItem' : function(nr, item) {
+            this.addAutoRun(nr, function() {
+                gamebook.player.drop(item);
+            });
+        },
+
+        'setCodeword' : function(nr, codeword) {
+            this.addAutoRun(nr, function() {
+                gamebook.player.set(codeword);
+            });
+        },
+
+        'turnTo' : function(nr) {
+            console.log("Turning to " + nr + ".");
+            if (!nr in this.sections) {
+                throw new Exception("Can not turn to non-existing section "
+                                    + nr + ".");
+            }
+            this.displaySection(nr);
+        },
+
+        'displaySection' : function(nr) {
+            if (this.player.currentSection) {
+                this.player.currentSection.element.style.display = 'none';
+            }
+            var e = this.sections[nr].element;
+            this.enableDisableSectionLinks(
+                e.getElementsByClassName('sectiontext')[0]);
+            e.style.display = 'block';
+            this.player.currentSection = gamebook.sections[nr];
+            gamebook.runAutoRuns(nr);
+        },
+
+        'enableDisableSectionLinks' : function(e) {
+            // FIXME handle auto links that must be followed if possible
+            var enableNextLink = true;
+            Array.prototype.forEach.call(e.childNodes, function(c) {
+                if ('className' in c && c.className.endsWith('sectionref')) {
+                    if (enableNextLink) {
+                        gamebook.enableLink(c);
+                    } else {
+                        gamebook.disableLink(c);
+                    }
+                    enableNextLink = true;
+                } else if (c.className === 'itemcarried') {
+                    var item = c.dataset.carried;
+                    console.log("carries? " + item);
+                    enableNextLink = gamebook.player.carries(item);
+                } else if (c.className === 'hascodeword') {
+                    var codeword = c.dataset.has;
+                    console.log("has? " + codeword);
+                    enableNextLink = gamebook.player.has(codeword);
+                }
+            });
+        },
+
+        'enableLink' : function(e) {
+            e.addEventListener('click',
+                               gamebook.getTurnToFunction(e.dataset.ref));
+            e.className = "enabledsectionref";
+        },
+
+        'disableLink' : function(e) {
+            e.removeEventListener('click',
+                               gamebook.getTurnToFunction(e.dataset.ref));
+            e.className = "disabledsectionref";
+        },
+
+        'updateInventory' : function() {
+            // FIXME obviously, this should be better written and do more
+            var e = document.getElementById('inventoryitems');
+            e.innerHTML = gamebook.player.inventory.join(', ');
+        },
+
+        'updateCodewords' : function() {
+            // FIXME obviously, this should be better written and do more
+            var e = document.getElementById('codewordslist');
+            e.innerHTML = Object.keys(gamebook.player.codewords
+                                     ).sort().join(', ');
+        },
+
+        'getTurnToFunction' : function(nr) {
+            if (nr in this.turnToFunctions) {
+                return this.turnToFunctions[nr];
+            } else {
+                var f = function () {
+                    gamebook.turnTo(nr);
+                };
+                this.turnToFunctions[nr] = f;
+                return f;
+            }
         }
-    }
 
-    gamebook.addSection = function(nr, element) {
-        var section = {'element' : element, 'nr' : nr};
-        this.sections[nr] = section;
-    };
-
-    gamebook.takeItem = function(nr, item) {
-        this.addAutoRun(nr, function() {
-            gamebook.player.take(item);
-        });
-    };
-
-    gamebook.setCodeword = function(nr, codeword) {
-        this.addAutoRun(nr, function() {
-            gamebook.player.set(codeword);
-        });
-    };
-
-    gamebook.turnTo = function(nr) {
-        console.log("Turning to " + nr + ".");
-        if (!nr in this.sections) {
-            throw new Exception("Can not turn to non-existing section "
-                                + nr + ".");
-        }
-        if (this.player.currentSection) {
-            this.player.currentSection.element.style.display = 'none';
-        }
-        this.sections[nr].element.style.display = 'block';
-        this.player.currentSection = gamebook.sections[nr];
-        gamebook.runAutoRuns(nr);
-    };
-
-    gamebook.updateInventory = function() {
-        // FIXME obviously, this should be better written and do more
-        var e = document.getElementById('inventoryitems');
-        e.innerHTML = gamebook.player.inventory.join(', ');
-    };
-
-    gamebook.updateCodewords = function() {
-        // FIXME obviously, this should be better written and do more
-        var e = document.getElementById('codewordslist');
-        e.innerHTML = Object.keys(gamebook.player.codewords).sort().join(', ');
     };
 
     </script>
   <style>
-    .sectionref {font-weight: bold; cursor: pointer;}
+    .enabledsectionref {font-weight: bold; cursor: pointer;}
+    .disabledsectionref {font-weight: bold; color: #aaa; cursor: not-allowed;}
     .itemfound {font-weight: bold; cursor: pointer;}
     .sectionnumber {font-weight: bolder;
                     margin-left: 50%%;
@@ -111,6 +186,7 @@
     .codewordsheading {}
     .codewordslist {}
     .setcodeword {color: #f55;}
+    .hascodeword {color: #f55;}
   </style>
   </head>
   <body>
