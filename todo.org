@@ -1,4 +1,4 @@
-* TODO [14/44] [31%]
+* TODO [15/45] [33%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -15,10 +15,11 @@
 - [X] Parse wiki-style tags used to mark up sections
 - [X] New text formatting style for section references
 - [X] Inventory pick up items
-- [ ] Codewords set
+- [X] Codewords set
 - [ ] Check if has inventory item
 - [ ] Check if has codeword
 - [ ] Remove item from inventory (forced by instructions)
+- [ ] Make sure removed items can not be picked up again.
 - [ ] Optionally remove inventory item to make a choice
 - [ ] Fix problem with map file from other book sometimes crashing formatter
 - [ ] Keys from formatted book should be added to map file, not replace it

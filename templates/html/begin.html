@@ -15,11 +15,21 @@
             if (this.inventory.indexOf(item) == -1) {
                 this.inventory.push(item);
             }
+            this.inventory.sort();
             gamebook.updateInventory();
         },
 
         'carries' : function(item) {
-            return gamebook.player.inventory.indexOf(item) >= 0;
+            return this.inventory.indexOf(item) >= 0;
+        },
+
+        'set' : function(codeword) {
+            this.codewords[codeword] = true;
+            gamebook.updateCodewords();
+        },
+
+        'has' : function(codeword) {
+            return codeword in this.codewords;
         }
     };
     gamebook.sections = {};
@@ -31,7 +41,6 @@
         } else {
             this.autoRun[nr] = [f];
         }
-        console.log("autoRun " + nr + " " + this.autoRun[nr].length);
     };
 
     gamebook.runAutoRuns = function(nr) {
@@ -53,6 +62,12 @@
         });
     };
 
+    gamebook.setCodeword = function(nr, codeword) {
+        this.addAutoRun(nr, function() {
+            gamebook.player.set(codeword);
+        });
+    };
+
     gamebook.turnTo = function(nr) {
         console.log("Turning to " + nr + ".");
         if (!nr in this.sections) {
@@ -69,25 +84,33 @@
 
     gamebook.updateInventory = function() {
         // FIXME obviously, this should be better written and do more
-        console.log("update inventory");
         var e = document.getElementById('inventoryitems');
-        if (gamebook.player.inventory.length > 0) {
-            e.innerHTML = gamebook.player.inventory.join(', ');
-        } else {
-            e.innerHTML = "(nothing)";
-        }
+        e.innerHTML = gamebook.player.inventory.join(', ');
+    };
+
+    gamebook.updateCodewords = function() {
+        // FIXME obviously, this should be better written and do more
+        var e = document.getElementById('codewordslist');
+        e.innerHTML = Object.keys(gamebook.player.codewords).sort().join(', ');
     };
 
     </script>
   <style>
     .sectionref {font-weight: bold; cursor: pointer;}
     .itemfound {font-weight: bold; cursor: pointer;}
-    .sectionnumber {font-weight: bolder; align: center;}
+    .sectionnumber {font-weight: bolder;
+                    margin-left: 50%%;
+                    margin-right: 50%%;}
     .section {display: none;}
+    .sectiontext {margin-top: 0.5em;}
     .gamebook {max-width: 40em; border: solid 1px; padding: 1em;}
-    .inventory {background: #ccc; margin-top: 5em;}
+    .inventory {background: #cfc; margin-top: 5em;}
     .inventoryheading {}
     .inventoryitems {}
+    .codewords {background: #fcc; margin-top: 0.5em;}
+    .codewordsheading {}
+    .codewordslist {}
+    .setcodeword {color: #f55;}
   </style>
   </head>
   <body>
