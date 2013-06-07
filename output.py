@@ -103,7 +103,7 @@ class ReferenceFormatter (object):
         self.shuffled_sections = shuffled_sections
         self.found = set()
         self.ref_template = ref_template
-        self.items = {}
+        self.items = {'nr' : shuffled_sections.to_nr[section]}
 
     def __getitem__(self, key):
         if key in self.items:

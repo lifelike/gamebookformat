@@ -1,2 +1,13 @@
+    <div class="inventory">
+      <span class="inventoryheading">Carrying: </span>
+      <span class="inventoryitems" id="inventoryitems"></span>
+    </div>
+    </div>
+    <script>
+if (this.gamebook) {
+    gamebook.updateInventory();
+    gamebook.turnTo(1);
+}
+    </script>
   </body>
 </html>

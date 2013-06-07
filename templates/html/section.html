@@ -1,5 +1,10 @@
-<div class="paragraph">
-<span class="paragraphnumber" id="para%(nr)d">%(nr)d</span>
--
+<div class="section" id="section%(nr)d">
+<span class="sectionnumber" id="para%(nr)d">%(nr)d</span>
+<br>
 %(text)s
 </div>
+<script>
+if (this.gamebook) {
+   gamebook.addSection(%(nr)d, document.getElementById('section%(nr)d'));
+}
+</script>

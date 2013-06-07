@@ -1,4 +1,4 @@
-* TODO [13/43] [30%]
+* TODO [14/44] [31%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -14,7 +14,7 @@
   Look at how some existing gamebooks are formatted.
 - [X] Parse wiki-style tags used to mark up sections
 - [X] New text formatting style for section references
-- [ ] Inventory pick up items
+- [X] Inventory pick up items
 - [ ] Codewords set
 - [ ] Check if has inventory item
 - [ ] Check if has codeword
@@ -29,6 +29,7 @@
 - [ ] Book option to set title
 - [ ] Book option to set author
 - [ ] Book option to set date
+- [ ] Quote strings to not break formatting.
 - [ ] Template for book introduction (including rules etc)
 - [ ] Some way to insert character sheet in book introduction
 - [ ] Some way to insert dice at bottom of pages for LaTeX
@@ -43,5 +44,5 @@
 - [ ] Counters increase/decrease
 - [ ] Counters check
 - [ ] Document Gamebook format
-- [ ] Playable HTML (javascript) output
+- [ ] HTML CSS
 - [ ] Higher level text-language for Gamebooks

@@ -1,11 +1,95 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset='utf-8'>
     <title>Gamebook Title Here</title>
     <script>
-      // inline js to make it easier to distribute book?
+    var gamebook = {};
+    gamebook.player = {
+        'currentSection' : null,
+        'inventory' : [],
+        'codewords' : {},
+
+        'take' : function(item) {
+            console.log("player take " + item);
+            if (this.inventory.indexOf(item) == -1) {
+                this.inventory.push(item);
+            }
+            gamebook.updateInventory();
+        },
+
+        'carries' : function(item) {
+            return gamebook.player.inventory.indexOf(item) >= 0;
+        }
+    };
+    gamebook.sections = {};
+    gamebook.autoRun = {};
+
+    gamebook.addAutoRun = function(nr, f) {
+        if (nr in this.autoRun) {
+            this.autoRun[nr].push(f);
+        } else {
+            this.autoRun[nr] = [f];
+        }
+        console.log("autoRun " + nr + " " + this.autoRun[nr].length);
+    };
+
+    gamebook.runAutoRuns = function(nr) {
+        if (nr in gamebook.autoRun) {
+            gamebook.autoRun[nr].forEach(function (f) {
+                f();
+            });
+        }
+    }
+
+    gamebook.addSection = function(nr, element) {
+        var section = {'element' : element, 'nr' : nr};
+        this.sections[nr] = section;
+    };
+
+    gamebook.takeItem = function(nr, item) {
+        this.addAutoRun(nr, function() {
+            gamebook.player.take(item);
+        });
+    };
+
+    gamebook.turnTo = function(nr) {
+        console.log("Turning to " + nr + ".");
+        if (!nr in this.sections) {
+            throw new Exception("Can not turn to non-existing section "
+                                + nr + ".");
+        }
+        if (this.player.currentSection) {
+            this.player.currentSection.element.style.display = 'none';
+        }
+        this.sections[nr].element.style.display = 'block';
+        this.player.currentSection = gamebook.sections[nr];
+        gamebook.runAutoRuns(nr);
+    };
+
+    gamebook.updateInventory = function() {
+        // FIXME obviously, this should be better written and do more
+        console.log("update inventory");
+        var e = document.getElementById('inventoryitems');
+        if (gamebook.player.inventory.length > 0) {
+            e.innerHTML = gamebook.player.inventory.join(', ');
+        } else {
+            e.innerHTML = "(nothing)";
+        }
+    };
+
     </script>
+  <style>
+    .sectionref {font-weight: bold; cursor: pointer;}
+    .itemfound {font-weight: bold; cursor: pointer;}
+    .sectionnumber {font-weight: bolder; align: center;}
+    .section {display: none;}
+    .gamebook {max-width: 40em; border: solid 1px; padding: 1em;}
+    .inventory {background: #ccc; margin-top: 5em;}
+    .inventoryheading {}
+    .inventoryitems {}
+  </style>
   </head>
   <body>
 <!-- TODO definitely need to add content here, but mostly book specific? -->
-
+  <div class="gamebook">
