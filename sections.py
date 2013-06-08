@@ -19,9 +19,9 @@ class Section:
 
     def format(self, references):
         pass
-    
+
 class ShuffledSections:
-    def __init__(self, as_list, from_nr, to_nr, from_name):
+    def __init__(self, as_list, from_nr, to_nr, from_name, nr_sections):
         self.as_list = as_list
         self.from_nr = from_nr
         self.to_nr = to_nr
@@ -29,6 +29,8 @@ class ShuffledSections:
         self.name_to_nr = {}
         for n in from_name:
             self.name_to_nr[n] = to_nr[from_name[n]]
+        for nr in nr_sections:
+            self.name_to_nr[nr_sections[nr]] = nr
 
 class Book:
     def __init__(self):
@@ -61,10 +63,12 @@ class Book:
         to_nr = {}
         shuffled = self.sections[:]
         for p in self.nr_sections.values():
-            shuffled.remove(self.from_name[p])
+            if p in self.from_name:
+                shuffled.remove(self.from_name[p])
         random.shuffle(shuffled)
         for nr in range(1, self.max + 1):
-            if self.nr_sections.has_key(nr):
+            if (self.nr_sections.has_key(nr)
+                and self.nr_sections[nr] in self.from_name):
                 section = self.from_name[self.nr_sections[nr]]
             elif len(shuffled):
                 section = shuffled.pop()
@@ -74,7 +78,8 @@ class Book:
             from_nr[nr] = section
             if section:
                 to_nr[section] = nr
-        return ShuffledSections(as_list, from_nr, to_nr, self.from_name.copy())
+        return ShuffledSections(as_list, from_nr, to_nr, self.from_name.copy(),
+                                self.nr_sections)
 
 class Item (object):
     def __init__(self, name):

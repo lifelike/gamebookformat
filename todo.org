@@ -1,4 +1,4 @@
-* TODO [21/47] [44%]
+* TODO [23/47] [48%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -22,11 +22,8 @@
 - [X] Enable link if not having an item
 - [X] Enable link if not having a codeword
 - [X] Make sure dropped items can not be picked up again
-- [ ] Make inventory and codewords generic
-  They are the same, sort of, and it might be good to be able to
-  add other similar entities as well, like skills or spells or whatever.
-- [ ] Fix problem with map file from other book sometimes crashing formatter
-- [ ] Keys from formatted book should be added to map file, not replace it
+- [X] Fix problem with map file from other book sometimes crashing formatter
+- [X] Keys from formatted book should be added to map file, not replace it
 - [ ] More formatting possibilities in sections
   Look at existing gamebooks to get ideas.
 - [ ] Book option to set max section number to use
@@ -51,3 +48,6 @@
 - [ ] Document Gamebook format
 - [ ] HTML CSS
 - [ ] Higher level text-language for Gamebooks
+- [ ] Make inventory and codewords generic
+  They are the same, sort of, and it might be good to be able to
+  add other similar entities as well, like skills or spells or whatever.
