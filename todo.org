@@ -27,10 +27,7 @@
 - [X] Make inventory and codewords generic
   They are the same, sort of, and it might be good to be able to
   add other similar entities as well, like skills or spells or whatever.
-- [ ] More formatting possibilities in sections
-  Look at existing gamebooks to get ideas.
 - [ ] Otherwise/else handling for has (or has not).
-- [ ] Book option to set max section number to use
 - [ ] Book option to set pdf layout (page size and number of columns)
 - [ ] Book option to set title
 - [ ] Book option to set author
@@ -39,9 +36,9 @@
 - [ ] Template for book introduction (including rules etc)
   Sections with some markup (has number 0?) are added as chapters
   of introduction, otherwise formatted identical to other sections.
-- [ ] Some way to insert character sheet in book introduction
-- [ ] Some way to insert dice at bottom of pages for LaTeX
-- [ ] Some way to insert optional random numbers table at end of book
+- [ ] More formatting possibilities in sections
+  Look at existing gamebooks to get ideas.
+- [ ] Random pick of link to follow from a section.
 - [ ] Possibility to make predictable random numbers and shuffling for testing
 - [ ] Test generate examples and compare to expected output in all formats
 - [ ] Unit tests (finally...)
@@ -51,8 +48,17 @@
 - [ ] Counters (life, money, whatever) create and set
   count tag to declare new counter, text in tag is display name
   optional argument sets the starting value of the tag
+  display somewhere on page (in HTML output)
 - [ ] Counters increase/decrease
 - [ ] Counters check
+- [ ] Trade (optionally drop something from collection to add something new).
+- [ ] Buy (optionally decrease a counter to add something to a collection)
+- [ ] Sell (optionally increase a counter to drop something to a collection)
+- [ ] Pick a (maximum) number of things from those found in a section
+- [ ] Some way to insert character sheet in book introduction
+- [ ] Some way to insert dice at bottom of pages for LaTeX
+- [ ] Some way to insert optional random numbers table at end of book
 - [ ] Document Gamebook format
 - [ ] HTML CSS
 - [ ] Higher level text-language for Gamebooks
+- [ ] Book option to set max section number to use
