@@ -1,4 +1,4 @@
-* TODO [20/47] [42%]
+* TODO [21/47] [44%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -21,7 +21,7 @@
 - [X] Remove item from inventory (forced by instructions)
 - [X] Enable link if not having an item
 - [X] Enable link if not having a codeword
-- [ ] Make sure dropped items can not be picked up again
+- [X] Make sure dropped items can not be picked up again
 - [ ] Make inventory and codewords generic
   They are the same, sort of, and it might be good to be able to
   add other similar entities as well, like skills or spells or whatever.

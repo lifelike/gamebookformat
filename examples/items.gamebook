@@ -5,7 +5,8 @@ Turn to [[tjunction]].
 
 * tjunction
 You have reached a t-junction.
-Here you find a [found]key[/found]. You can go west to [[door]], or
+Here you find a [found]key[/found] and a [found]stick[/found].
+You can go west to [[door]], or
 east to [[curse]].
 
 * door
@@ -26,7 +27,14 @@ Turn to [[inside]].
 
 * curse
 There is a [found]cursed bracelet[/found] here. You can go on to
-[[portal]] or go back to [[tjunction]].
+[[portal]] or go back to [[tjunction]]. You can also drop the
+stick for no particular reason, see [[drop_stick]].
+
+* drop_stick
+OK [drop]stick[/drop] dropped. Turn back to [[tjunction]] to confirm
+stick can not be picked up again even if the text says it is there
+(books work that way, although ideally this dynamic version should
+provide some hints that it is no longer there).
 
 * portal
 A magic portal ahead will only allow you to pass if you did not pick up the

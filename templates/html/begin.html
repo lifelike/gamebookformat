@@ -13,7 +13,8 @@
             'codewords' : {},
 
             'take' : function(item) {
-                if (this.inventory.indexOf(item) === -1) {
+                if (this.inventory.indexOf(item) === -1
+                    && !(item in gamebook.droppedItems)) {
                     this.inventory.push(item);
                     this.inventory.sort();
                     gamebook.updateInventory();
@@ -24,6 +25,7 @@
                 var i = this.inventory.indexOf(item);
                 if (i >= 0) {
                     this.inventory.splice(i, 1);
+                    gamebook.droppedItems[item] = true;
                     gamebook.updateInventory();
                 }
             },
@@ -47,6 +49,8 @@
         'turnToFunctions' : {},
 
         'autoRun' : {},
+
+        'droppedItems' : {},
 
         'addAutoRun' : function(nr, f) {
             if (nr in this.autoRun) {
