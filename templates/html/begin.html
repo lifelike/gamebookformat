@@ -110,7 +110,7 @@
             // FIXME handle auto links that must be followed if possible
             var enableNextLink = true;
             Array.prototype.forEach.call(e.childNodes, function(c) {
-                if ('className' in c && c.className.endsWith('sectionref')) {
+                if ('className' in c && /sectionref$/.test(c.className)) {
                     if (enableNextLink) {
                         gamebook.enableLink(c);
                     } else {
