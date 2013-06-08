@@ -112,7 +112,7 @@
             // FIXME handle auto links that must be followed if possible
             var enableNextLink = true;
             Array.prototype.forEach.call(e.childNodes, function(c) {
-                if ('className' in c && /sectionref$/.test(c.className)) {
+                if (/sectionref$/.test(c.className)) {
                     if (enableNextLink) {
                         gamebook.enableLink(c);
                     } else {
@@ -121,11 +121,12 @@
                     enableNextLink = true;
                 } else if (c.className === 'itemcarried') {
                     var item = c.dataset.carried;
-                    console.log("carries? " + item);
                     enableNextLink = gamebook.player.carries(item);
+                } else if (c.className === 'itemnotcarried') {
+                    var item = c.dataset.carried;
+                    enableNextLink = !gamebook.player.carries(item);
                 } else if (c.className === 'hascodeword') {
                     var codeword = c.dataset.has;
-                    console.log("has? " + codeword);
                     enableNextLink = gamebook.player.has(codeword);
                 }
             });

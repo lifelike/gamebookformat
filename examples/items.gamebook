@@ -1,10 +1,12 @@
 * 1 start
 Demonstrating how to manage player inventory. You start
 the book carrying a [take]sword[/take] and a [take]shield[/take].
-Turn to [[continue]].
+Turn to [[tjunction]].
 
-* continue
-Here you find a [found]key[/found]. Go on to [[door]].
+* tjunction
+You have reached a t-junction.
+Here you find a [found]key[/found]. You can go west to [[door]], or
+east to [[curse]].
 
 * door
 There is a locked door here.
@@ -16,11 +18,26 @@ Else you can try to open with the [carries]sword[/carries],
 if you have it, see [[attempt_break_door_with_sword]].
 Hopefully the magic is good enough to pair
 pre-conditions to links, or more markup must be added later.
-You could also try to go back to pick up the key, see [[continue]].
+You could also try to go back to pick up the key, see [[tjunction]].
 
 * attempt_break_door_with_sword
 OK. The door is broken, but so is the [drop]sword[/drop].
 Turn to [[inside]].
+
+* curse
+There is a [found]cursed bracelet[/found] here. You can go on to
+[[portal]] or go back to [[tjunction]].
+
+* portal
+A magic portal ahead will only allow you to pass if you did not pick up the
+[notcarries]cursed bracelet[/notcarries], leading you to [[treasure]].
+If you have the [carries]cursed bracelet[/carries]
+you have to go back to [[tjunction]] instead.
+Actually feel free to head back to [[tjunction]] either way.
+
+* treasure
+You found [found]something valuable[/found], but there is no way forward,
+so you head back to [[tjunction]].
 
 * inside
 There is a rope here that can be cut using a [carries]sword[/carries].

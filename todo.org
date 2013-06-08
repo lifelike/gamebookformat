@@ -1,4 +1,4 @@
-* TODO [18/45] [40%]
+* TODO [19/47] [40%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -19,7 +19,7 @@
 - [X] Check if has inventory item
 - [X] Check if has codeword
 - [X] Remove item from inventory (forced by instructions)
-- [ ] Enable link if not having an item
+- [X] Enable link if not having an item
 - [ ] Enable link if not having a codeword
 - [ ] Make sure dropped items can not be picked up again
 - [ ] Make inventory and codewords generic
