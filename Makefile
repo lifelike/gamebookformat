@@ -1,10 +1,12 @@
 examples=$(wildcard examples/*.gamebook)
 
-all: $(examples:.gamebook=.rtf) \
-	$(examples:.gamebook=.pdf) \
-	$(examples:.gamebook=.html) \
-	$(examples:.gamebook=.debug) \
-	$(examples:.gamebook=.png)
+all: rtf pdf html debug png
+
+rtf: $(examples:.gamebook=.rtf)
+pdf: $(examples:.gamebook=.pdf)
+html: $(examples:.gamebook=.html)
+debug: $(examples:.gamebook=.debug)
+png: $(examples:.gamebook=.png)
 
 %.rtf: %.gamebook formatgamebook.py
 	./formatgamebook.py --verify $< $@
