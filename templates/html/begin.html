@@ -9,38 +9,46 @@
     var gamebook = {
         'player' : {
             'currentSection' : null,
-            'inventory' : [],
-            'codewords' : {},
+            'collections' : {},
 
-            'take' : function(item) {
-                if (this.inventory.indexOf(item) === -1
-                    && !(item in gamebook.droppedItems)) {
-                    this.inventory.push(item);
-                    this.inventory.sort();
-                    gamebook.updateInventory();
-                }
+            'collect' : function(type, name) {
+                this.collections[type] = {
+                    'name' : name,
+                    'contents' : [],
+                    'add' : function(what) {
+                        if (this.contents.indexOf(what) === -1
+                            && !(what in gamebook.dropped[type])) {
+                            this.contents.push(what);
+                            this.contents.sort();
+                        }
+                    },
+                    'drop' : function(what) {
+                        var i = this.contents.indexOf(what);
+                        if (i >= 0) {
+                            this.contents.splice(i, 1);
+                            gamebook.dropped[type][what] = true;
+                        }
+                    },
+                    'has' : function(what) {
+                        return this.contents.indexOf(what) >= 0;
+                    }
+                };
+                gamebook.dropped[type] = {};
+                gamebook.addCollectionView(type, name);
             },
 
-            'drop' : function(item) {
-                var i = this.inventory.indexOf(item);
-                if (i >= 0) {
-                    this.inventory.splice(i, 1);
-                    gamebook.droppedItems[item] = true;
-                    gamebook.updateInventory();
-                }
+            'add' : function(type, what) {
+                this.collections[type].add(what);
+                gamebook.updateCollectionsView();
             },
 
-            'carries' : function(item) {
-                return this.inventory.indexOf(item) >= 0;
+            'drop' : function(type, what) {
+                this.collections[type].drop(what);
+                gamebook.updateCollectionsView();
             },
 
-            'set' : function(codeword) {
-                this.codewords[codeword] = true;
-                gamebook.updateCodewords();
-            },
-
-            'has' : function(codeword) {
-                return codeword in this.codewords;
+            'has' : function(type, what) {
+                return this.collections[type].has(what);
             }
         },
 
@@ -48,47 +56,11 @@
 
         'turnToFunctions' : {},
 
-        'autoRun' : {},
-
-        'droppedItems' : {},
-
-        'addAutoRun' : function(nr, f) {
-            if (nr in this.autoRun) {
-                this.autoRun[nr].push(f);
-            } else {
-                this.autoRun[nr] = [f];
-            }
-        },
-
-        'runAutoRuns' : function(nr) {
-            if (nr in gamebook.autoRun) {
-                gamebook.autoRun[nr].forEach(function (f) {
-                    f();
-                });
-            }
-        },
+        'dropped' : {},
 
         'addSection' : function(nr, element) {
             var section = {'element' : element, 'nr' : nr};
             this.sections[nr] = section;
-        },
-
-        'takeItem' : function(nr, item) {
-            this.addAutoRun(nr, function() {
-                gamebook.player.take(item);
-            });
-        },
-
-        'dropItem' : function(nr, item) {
-            this.addAutoRun(nr, function() {
-                gamebook.player.drop(item);
-            });
-        },
-
-        'setCodeword' : function(nr, codeword) {
-            this.addAutoRun(nr, function() {
-                gamebook.player.set(codeword);
-            });
         },
 
         'turnTo' : function(nr) {
@@ -105,14 +77,12 @@
                 this.player.currentSection.element.style.display = 'none';
             }
             var e = this.sections[nr].element;
-            this.enableDisableSectionLinks(
-                e.getElementsByClassName('sectiontext')[0]);
+            this.runActions(e.getElementsByClassName('sectiontext')[0]);
             e.style.display = 'block';
             this.player.currentSection = gamebook.sections[nr];
-            gamebook.runAutoRuns(nr);
         },
 
-        'enableDisableSectionLinks' : function(e) {
+        'runActions' : function(e) {
             // FIXME handle auto links that must be followed if possible
             var enableNextLink = true;
             Array.prototype.forEach.call(e.childNodes, function(c) {
@@ -123,18 +93,22 @@
                         gamebook.disableLink(c);
                     }
                     enableNextLink = true;
-                } else if (c.className === 'itemcarried') {
-                    var item = c.dataset.carried;
-                    enableNextLink = gamebook.player.carries(item);
-                } else if (c.className === 'itemnotcarried') {
-                    var item = c.dataset.carried;
-                    enableNextLink = !gamebook.player.carries(item);
-                } else if (c.className === 'hascodeword') {
-                    var codeword = c.dataset.has;
-                    enableNextLink = gamebook.player.has(codeword);
-                } else if (c.className === 'hasnotcodeword') {
-                    var codeword = c.dataset.has;
-                    enableNextLink = !gamebook.player.has(codeword);
+                } else if (c.className === 'collect') {
+                    gamebook.player.collect(c.dataset.type, c.dataset.name);
+                } else if (c.className === 'add') {
+                    gamebook.player.add(c.dataset.type, c.dataset.what);
+                } else if (c.className === 'drop') {
+                    gamebook.player.drop(c.dataset.type, c.dataset.what);
+                } else if (c.className === 'has') {
+                    enableNextLink = gamebook.player.has(c.dataset.type,
+                                                         c.dataset.what);
+                    console.log("has " + c.dataset.type +
+                                " " + c.dataset.what + " " + enableNextLink);
+                } else if (c.className === 'hasnot') {
+                    enableNextLink = !gamebook.player.has(c.dataset.type,
+                                                          c.dataset.what);
+                    console.log("has not " + c.dataset.type +
+                                " " + c.dataset.what + " " + enableNextLink);
                 }
             });
         },
@@ -151,17 +125,26 @@
             e.className = "disabledsectionref";
         },
 
-        'updateInventory' : function() {
-            // FIXME obviously, this should be better written and do more
-            var e = document.getElementById('inventoryitems');
-            e.innerHTML = gamebook.player.inventory.join(', ');
+        'addCollectionView' : function(type, name) {
+            var ce = document.getElementById('collections');
+            var template = document.getElementById('collectionTemplate');
+            var e = template.cloneNode(true);
+            e.className = "collection";
+            e.getElementsByClassName('collectionheading')[0].innerHTML = name;
+            e.dataset.type = type;
+            ce.appendChild(e);
         },
 
-        'updateCodewords' : function() {
-            // FIXME obviously, this should be better written and do more
-            var e = document.getElementById('codewordslist');
-            e.innerHTML = Object.keys(gamebook.player.codewords
-                                     ).sort().join(', ');
+        'updateCollectionsView' : function() {
+            var ce = document.getElementById('collections');
+            Array.prototype.forEach.call(ce.childNodes, function(c) {
+                if (c.className === 'collection') {
+                    var type = c.dataset.type;
+                    var collection = gamebook.player.collections[type];
+                    var cc = c.getElementsByClassName('collectioncontents')[0];
+                    cc.innerHTML = collection.contents.join(', ');
+                }
+            });
         },
 
         'getTurnToFunction' : function(nr) {
@@ -182,21 +165,24 @@
   <style>
     .enabledsectionref {font-weight: bold; cursor: pointer;}
     .disabledsectionref {font-weight: bold; color: #aaa; cursor: not-allowed;}
-    .itemfound {font-weight: bold; cursor: pointer;}
     .sectionnumber {font-weight: bolder;
                     margin-left: 50%%;
                     margin-right: 50%%;}
     .section {display: none; width: 90%%; margin-left: 5%%; margin-right: 5%%;}
     .sectiontext {margin-top: 0.5em;}
     .gamebook {max-width: 30em; padding: 1em; width: 100%%; font-size: 133%%;}
-    .inventory {background: #cfc; margin-top: 5em;}
-    .inventoryheading {}
-    .inventoryitems {}
-    .codewords {background: #fcc; margin-top: 0.5em;}
-    .codewordsheading {}
-    .codewordslist {}
-    .setcodeword {color: #f55;}
-    .hascodeword {color: #f55;}
+    .collections {margin-top: 4em;}
+    .collection {background: #ddd; margin-top: 1em;}
+    .collectionheading {}
+    .collectionheading::after {content: ": ";}
+    .collectioncontents {}
+    .collect {}
+    .add {font-weight: bold;}
+    .found {font-weight: bold; cursor: pointer;}
+    .drop {font-style: italic;}
+    .has {font-style: italic;}
+    .hasnot {font-style: italic;}
+    .collectionTemplate {display: none;}
   </style>
   </head>
   <body>

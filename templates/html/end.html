@@ -1,15 +1,12 @@
-    <div class="inventory">
-      <span class="inventoryheading">Carrying: </span>
-      <span class="inventoryitems" id="inventoryitems"></span>
+    <div id="collections" class="collections">
     </div>
-    <div class="codewords">
-      <span class="codewordsheading">Codewords: </span>
-      <span class="codewordslist" id="codewordslist"></span>
+    <div id="collectionTemplate" class="collectionTemplate">
+      <span class="collectionheading"></span>
+      <span class="collectioncontents"></span>
     </div>
     </div>
     <script>
 if (this.gamebook) {
-    gamebook.updateInventory();
     gamebook.turnTo(1);
 }
     </script>

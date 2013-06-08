@@ -59,7 +59,8 @@ class OutputFormat (object):
                     raise Exception('Mismatched tag start [ in section %s' %
                                     self.name)
                 tag = section.text[tag_start+1:tag_end].strip()
-                tagname = tag.split()[0].strip()
+                tagparts = tag.split()
+                tagname = tagparts[0]
                 end_tag_start = section.text.find('[', tag_end)
                 if (not end_tag_start > tag_end
                     and section.text[end_tag_start].startswith('[/' + tagname
@@ -69,8 +70,10 @@ class OutputFormat (object):
                 inner = section.text[tag_end+1:end_tag_start]
                 # FIXME this pollutes the mutable references object
                 references['inner'] = inner
-                f = self.format_with_template(tag.replace(' ', '_'),
-                                                 references)
+                for i, arg in enumerate(tagparts[1:]):
+                    references['arg%d' % (i+1)] = arg
+                f = self.format_with_template(tagname,
+                                              references)
                 if len(f) > 0:
                     res += f
                 else:

@@ -1,16 +1,17 @@
 * 1 start
-Demonstrating how codewords (AKA sightings) can be used.
+Demonstrating how [collect code]Codewords[/collect]
+(AKA sightings) can be used.
 Go to [[second]].
 
 * 2 second
-[set]warrior[/set]
+Got codeword [add code]warrior[/add].
 Simple enough to set a codeword. Turn to [[choice]].
 
 * choice
-If you have the codeword [has]warrior[/has] you may
+If you have the codeword [has code]warrior[/has] you may
 turn to [[the_end]]. If you do not have the codeword
-[hasnot]fun[/hasnot], you may turn to [[notsofun]].
-If you have the codeword [has]fun[/has], you may instead
+[hasnot code]fun[/hasnot], you may turn to [[notsofun]].
+If you have the codeword [has code]fun[/has], you may instead
 turn to [[cheater]].
 Otherwise see [[forced]].
 
@@ -22,7 +23,7 @@ having a codeword. Now go on to [[forced]].
 Cheater! There is no way you can have codeword fun.
 
 * forced
-OK, if you have the codeword [has]warrior[/has], turn to
+OK, if you have the codeword [has code]warrior[/has], turn to
 [[auto the_end]] otherwise go back to [[second]]. Although
 we both know you have that codeword.
 

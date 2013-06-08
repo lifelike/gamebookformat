@@ -1,4 +1,4 @@
-* TODO [23/47] [48%]
+* TODO [24/48] [50%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -24,8 +24,12 @@
 - [X] Make sure dropped items can not be picked up again
 - [X] Fix problem with map file from other book sometimes crashing formatter
 - [X] Keys from formatted book should be added to map file, not replace it
+- [X] Make inventory and codewords generic
+  They are the same, sort of, and it might be good to be able to
+  add other similar entities as well, like skills or spells or whatever.
 - [ ] More formatting possibilities in sections
   Look at existing gamebooks to get ideas.
+- [ ] Otherwise/else handling for has (or has not).
 - [ ] Book option to set max section number to use
 - [ ] Book option to set pdf layout (page size and number of columns)
 - [ ] Book option to set title
@@ -33,6 +37,8 @@
 - [ ] Book option to set date
 - [ ] Quote strings to not break formatting.
 - [ ] Template for book introduction (including rules etc)
+  Sections with some markup (has number 0?) are added as chapters
+  of introduction, otherwise formatted identical to other sections.
 - [ ] Some way to insert character sheet in book introduction
 - [ ] Some way to insert dice at bottom of pages for LaTeX
 - [ ] Some way to insert optional random numbers table at end of book
@@ -43,11 +49,10 @@
 - [ ] Verify gamebook for debug and dot outputs
 - [ ] Dummy sections (handle properly when verifying)
 - [ ] Counters (life, money, whatever) create and set
+  count tag to declare new counter, text in tag is display name
+  optional argument sets the starting value of the tag
 - [ ] Counters increase/decrease
 - [ ] Counters check
 - [ ] Document Gamebook format
 - [ ] HTML CSS
 - [ ] Higher level text-language for Gamebooks
-- [ ] Make inventory and codewords generic
-  They are the same, sort of, and it might be good to be able to
-  add other similar entities as well, like skills or spells or whatever.
