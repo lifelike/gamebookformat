@@ -33,6 +33,7 @@ import os.path
 import sys
 import json
 
+import quote
 import sections
 import templates
 import verifygamebook
@@ -40,18 +41,19 @@ from output import OutputFormat
 
 USAGE = "usage: %prog [options] inputfile(s)... outputfile"
 
-def of(extension, name):
+def of(extension, name, quote):
     return {'extension' : extension,
             'name' : name,
+            'quote' : quote
     }
 
 OUTPUT_FORMATS = [
-    of('tex', 'LaTeX'),
-    of('rtf', 'Rich Text Format'),
-    of('dot', 'Graphviz section flowchart'),
-    of('html', 'HTML+JS playable in browser'),
-    of('txt', 'Plain text'),
-    of('debug', 'Gamebook Debug Output'),
+    of('tex', 'LaTeX', quote.latex),
+    of('rtf', 'Rich Text Format', quote.rtf),
+    of('dot', 'Graphviz section flowchart', quote.no),
+    of('html', 'HTML+JS playable in browser', quote.html),
+    of('txt', 'Plain text', quote.no),
+    of('debug', 'Gamebook Debug Output', quote.no),
 ]
 
 def make_supported_formats_list_string():
@@ -123,7 +125,8 @@ def make_output(outputfilename, templatedirs):
     for of in OUTPUT_FORMATS:
         extension = of['extension']
         if outputfilename.endswith('.' + extension):
-            return OutputFormat(templates.Templates(templatedirs, extension))
+            return OutputFormat(templates.Templates(templatedirs, extension),
+                                of['quote'])
     raise Exception("Unsupported or unknown output format for %s."
                     % outputfilename)
 

@@ -4,10 +4,12 @@ import sys
 
 class OutputFormat (object):
     "Handles book output. Big FIXME required to make sense."
-    def __init__(self, templates):
+    def __init__(self, templates, quote):
         self.templates = templates
+        self.quote = quote
 
     def write_begin(self, book, output):
+        # FIXME make sure book config is properly quoted
         print >> output, self.format_with_template("begin", book.config)
 
     def write_shuffled_sections(self, shuffled_sections, output):
@@ -20,7 +22,8 @@ class OutputFormat (object):
     def write_section(self, section, shuffled_sections, output):
         refs = []
         refsdict = ReferenceFormatter(section, shuffled_sections,
-                                      self.format_with_template("section_ref"))
+                                      self.format_with_template("section_ref"),
+                                      self.quote)
         formatted_text = self.format_section(section, refsdict)
         print >> output, self.format_with_template("section", {
             'nr' : shuffled_sections.to_nr[section],
@@ -37,7 +40,7 @@ class OutputFormat (object):
             ref_start = section.text.find('[[', i)
             tag_start = section.text.find('[', i)
             if ref_start >= 0 and ref_start <= tag_start:
-                res += section.text[i:ref_start]
+                res += self.quote(section.text[i:ref_start])
                 ref_end = section.text.find(']]', ref_start)
                 if ref_end > ref_start:
                     ref = section.text[ref_start+2:ref_end]
@@ -52,7 +55,7 @@ class OutputFormat (object):
                     raise Exception('Mismatched ref start [[ in section %s' %
                                     self.name)
             elif tag_start >= 0:
-                res += section.text[i:tag_start]
+                res += self.quote(section.text[i:tag_start])
                 tag_end = section.text.find(']', tag_start)
                 if tag_end < 0:
                     raise Exception('Mismatched tag start [ in section %s' %
@@ -68,18 +71,18 @@ class OutputFormat (object):
                         tag, self.name))
                 inner = section.text[tag_end+1:end_tag_start]
                 # FIXME this pollutes the mutable references object
-                references['inner'] = inner
+                references['inner'] = self.quote(self.quote(inner))
                 for i, arg in enumerate(tagparts[1:]):
-                    references['arg%d' % (i+1)] = arg
+                    references['arg%d' % (i+1)] = self.quote(arg)
                 f = self.format_with_template(tagname,
                                               references)
                 if len(f) > 0:
                     res += f
                 else:
-                    res += inner
+                    res += self.quote(inner)
                 i = section.text.find(']', end_tag_start) + 1
             else:
-                res += section.text[i:]
+                res += self.quote(section.text[i:])
                 break
         return res
 
@@ -100,16 +103,17 @@ class OutputFormat (object):
 
 class ReferenceFormatter (object):
     "There is probably a better way, but this hack seems to work."
-    def __init__(self, section, shuffled_sections, ref_template):
+    def __init__(self, section, shuffled_sections, ref_template, quote):
         self.section = section
         self.shuffled_sections = shuffled_sections
         self.found = set()
         self.ref_template = ref_template
         self.items = {'nr' : shuffled_sections.to_nr[section]}
+        self.quote = quote
 
     def __getitem__(self, key):
         if key in self.items:
-            return self.items[key]
+            return self.quote(self.items[key])
         to_section = self.shuffled_sections.from_name[key]
         res = self.ref_template % {
             'nr' : self.shuffled_sections.to_nr[to_section],

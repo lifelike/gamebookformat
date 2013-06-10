@@ -1,4 +1,4 @@
-* TODO [32/57] [56%]
+* TODO [33/59] [55%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -34,13 +34,15 @@
 - [X] Book option to set title
 - [X] Book option to set author
 - [X] Book option to set max section number to use
-- [ ] Quote strings to not break formatting.
+- [X] Quote strings to not break formatting.
 - [X] Include other templates from a template.
 - [ ] Template for book introduction (including rules etc)
   Sections with some markup (has number 0?) are added as chapters
   of introduction, otherwise formatted identical to other sections.
 - [ ] More formatting possibilities in sections
   Look at existing gamebooks to get ideas.
+- [ ] Only accept specific characters in identifiers (eg section names)
+  eg [a-z][a-z_0-9]+
 - [ ] Random pick of link to follow from a section.
 - [ ] Possibility to make predictable random numbers and shuffling for testing
 - [ ] Test generate examples and compare to expected output in all formats
@@ -63,6 +65,8 @@
 - [ ] Some way to insert character sheet in book introduction
 - [ ] Some way to insert dice at bottom of pages for LaTeX
 - [ ] Some way to insert optional random numbers table at end of book
+- [ ] Defensive removal of any weird unicode not handled by quoting.
+- [ ] Somewhat user-friendly error messages
 - [ ] Document Gamebook format
 - [ ] HTML CSS
 - [ ] Higher level text-language for Gamebooks
