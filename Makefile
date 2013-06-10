@@ -1,6 +1,6 @@
 examples=$(wildcard examples/*.gamebook)
 
-all: rtf pdf html debug png
+all: rtf pdf html debug png txt
 
 rtf: $(examples:.gamebook=.rtf)
 pdf: $(examples:.gamebook=.pdf)
