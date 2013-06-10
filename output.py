@@ -12,7 +12,7 @@ class OutputFormat (object):
 
     def write_shuffled_sections(self, shuffled_sections, output):
         for i, p in enumerate(shuffled_sections.as_list):
-            if p:
+            if p and not p.hastag('dummy'):
                 self.write_section(p, shuffled_sections, output)
             elif i > 0:
                 self.write_empty_section(i, output)

@@ -1,4 +1,4 @@
-* TODO [31/58] [53%]
+* TODO [32/57] [56%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -33,6 +33,7 @@
 - [X] Default templates. (templates/default?)
 - [X] Book option to set title
 - [X] Book option to set author
+- [X] Book option to set max section number to use
 - [ ] Quote strings to not break formatting.
 - [X] Include other templates from a template.
 - [ ] Template for book introduction (including rules etc)
@@ -65,4 +66,3 @@
 - [ ] Document Gamebook format
 - [ ] HTML CSS
 - [ ] Higher level text-language for Gamebooks
-- [ ] Book option to set max section number to use

@@ -17,9 +17,6 @@ class Section:
         return "Section(%s, %s, %s)" % (repr(self.name), repr(self.text),
                                         repr(self.tags))
 
-    def format(self, references):
-        pass
-
 class ShuffledSections:
     def __init__(self, as_list, from_nr, to_nr, from_name, nr_sections):
         self.as_list = as_list
@@ -32,6 +29,9 @@ class ShuffledSections:
         for nr in nr_sections:
             self.name_to_nr[nr_sections[nr]] = nr
 
+STR_BOOK_CONFIG = set(['title', 'author'])
+INT_BOOK_CONFIG = set(['max'])
+
 class Book:
     def __init__(self):
         self.sections = []
@@ -43,7 +43,12 @@ class Book:
                        'author' : ''}
 
     def configure(self, name, value):
-        self.config[name] = value
+        if name in INT_BOOK_CONFIG:
+            self.config[name] = int(value)
+        elif name in STR_BOOK_CONFIG:
+            self.config[name] = value
+        else:
+            raise Exception("Unknown book option '%s'." % name)
 
     def add(self, section):
         if section.name in self.from_name:
@@ -67,6 +72,10 @@ class Book:
         from_nr = {}
         to_nr = {}
         shuffled = self.sections[:]
+        while len(shuffled) < self.config['max']:
+            dummy = Section('Dummy', '')
+            dummy.add_tags(['dummy'])
+            shuffled.append(dummy)
         for p in self.nr_sections.values():
             if p in self.from_name:
                 shuffled.remove(self.from_name[p])

@@ -2,3 +2,7 @@ title = Format
 * 1 start
 This examples tests gamebook formatting, not so much game mechanics or
 references. Currently there is nothing here really.
+
+* dum :dummy:
+Sections tagged as dummy will not be
+visible in output at all.
