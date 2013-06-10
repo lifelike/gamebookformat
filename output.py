@@ -8,9 +8,7 @@ class OutputFormat (object):
         self.templates = templates
 
     def write_begin(self, book, output):
-        print >> output, self.format_with_template("begin", {
-            'max' : book.max
-        }),
+        print >> output, self.format_with_template("begin", book.config)
 
     def write_shuffled_sections(self, shuffled_sections, output):
         for i, p in enumerate(shuffled_sections.as_list):

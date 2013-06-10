@@ -74,12 +74,18 @@ def format_gamebook(inputfilenames,
     write_book(book, output_format, outputfilename)
 
 def parse_file_to_book(inputfile, book):
+    before_first_section = True
     name = None
     number = None
     text = ""
     tags = None
     for line in inputfile.readlines():
+        if before_first_section:
+            if '=' in line:
+                config = line.split('=')
+                book.configure(config[0].strip(), config[1].strip())
         if line.startswith('*'):
+            before_first_section = False
             if name:
                 add_section_to_book(book, name, text, number)
             number = None

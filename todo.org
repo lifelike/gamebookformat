@@ -1,4 +1,4 @@
-* TODO [28/59] [47%]
+* TODO [31/58] [53%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -30,11 +30,9 @@
 - [X] Otherwise/else handling for has.
 - [X] Redesign otherwise/else to use xor tag on section reference.
 - [X] Disable all links after finding an auto link (that is enabled).
-- [ ] Default templates. (templates/default?)
-- [ ] Book option to set pdf layout (page size and number of columns)
-- [ ] Book option to set title
-- [ ] Book option to set author
-- [ ] Book option to set date
+- [X] Default templates. (templates/default?)
+- [X] Book option to set title
+- [X] Book option to set author
 - [ ] Quote strings to not break formatting.
 - [X] Include other templates from a template.
 - [ ] Template for book introduction (including rules etc)

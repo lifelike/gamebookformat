@@ -1,2 +1,3 @@
 BEGIN DEBUG OUTPUT
+Book title: %(title)s
 Number of sections: %(max)d

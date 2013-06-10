@@ -37,8 +37,13 @@ class Book:
         self.sections = []
         self.from_name = {}
         self.nr_sections = {}
-        self.max = 0
         self.codewords = set()
+        self.config = {'max' : 0,
+                       'title' : 'Gamebook',
+                       'author' : ''}
+
+    def configure(self, name, value):
+        self.config[name] = value
 
     def add(self, section):
         if section.name in self.from_name:
@@ -46,16 +51,16 @@ class Book:
                             section.name)
         self.sections.append(section)
         self.from_name[section.name] = section
-        if len(self.sections) > self.max:
-            self.max = len(self.sections)
+        if len(self.sections) > self.config['max']:
+            self.config['max'] = len(self.sections)
 
     def add_codeword(self, word):
         self.codewords.add(word)
 
     def force_section_nr(self, name, nr):
         self.nr_sections[nr] = name
-        if nr > self.max:
-            self.max = nr
+        if nr > self.config['max']:
+            self.config['max'] = nr
 
     def shuffle(self):
         as_list = [None]
@@ -66,7 +71,7 @@ class Book:
             if p in self.from_name:
                 shuffled.remove(self.from_name[p])
         random.shuffle(shuffled)
-        for nr in range(1, self.max + 1):
+        for nr in range(1, self.config['max'] + 1):
             if (self.nr_sections.has_key(nr)
                 and self.nr_sections[nr] in self.from_name):
                 section = self.from_name[self.nr_sections[nr]]
