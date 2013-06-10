@@ -50,6 +50,7 @@ OUTPUT_FORMATS = [
     of('rtf', 'Rich Text Format'),
     of('dot', 'Graphviz section flowchart'),
     of('html', 'HTML+JS playable in browser'),
+    of('txt', 'Plain text'),
     of('debug', 'Gamebook Debug Output'),
 ]
 

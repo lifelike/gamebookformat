@@ -7,20 +7,24 @@ pdf: $(examples:.gamebook=.pdf)
 html: $(examples:.gamebook=.html)
 debug: $(examples:.gamebook=.debug)
 png: $(examples:.gamebook=.png)
+txt: $(examples:.gamebook=.txt)
 
-%.rtf: %.gamebook formatgamebook.py
+%.rtf: %.gamebook *.py templates/rtf/*.rtf
 	./formatgamebook.py --verify $< $@
 
-%.html: %.gamebook formatgamebook.py
+%.html: %.gamebook *.py templates/html/*.html
 	./formatgamebook.py --verify $< $@
 
-%.tex: %.gamebook formatgamebook.py
+%.tex: %.gamebook *.py templates/tex/*.tex
 	./formatgamebook.py --verify $< $@
 
-%.dot: %.gamebook formatgamebook.py
+%.dot: %.gamebook *.py templates/dot/*.dot
 	./formatgamebook.py --verify $< $@
 
-%.debug: %.gamebook formatgamebook.py
+%.debug: %.gamebook *.py templates/debug/*.debug
+	./formatgamebook.py --verify $< $@
+
+%.txt:  %.gamebook *.py templates/txt/*.txt
 	./formatgamebook.py --verify $< $@
 
 %.pdf: %.tex

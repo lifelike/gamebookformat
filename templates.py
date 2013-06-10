@@ -18,14 +18,18 @@ class Templates (object):
         for templatedir in self.templatedirs:
             if self.has_template_in(templatedir, name):
                 return self.get_in(templatedir, name)
+            elif self.has_template_in(templatedir, name, 'DEFAULT', 'txt'):
+                return self.get_in(templatedir, name, 'DEFAULT', 'txt')
         return ""
 
-    def has_template_in(self, templatedir, name):
+    def has_template_in(self, templatedir, name, subdir=None, extension=None):
         # FIXME better test
-        return os.path.exists(self.get_template_filename(templatedir, name))
+        return os.path.exists(self.get_template_filename(templatedir, name,
+                                                         subdir,
+                                                         extension))
 
-    def get_in(self, templatedir, name):
-        filename = self.get_template_filename(templatedir, name)
+    def get_in(self, templatedir, name, subdir=None, extension=None):
+        filename = self.get_template_filename(templatedir, name, subdir, extension)
         f = open(filename, "r")
         template = self.read_template(f);
         f.close()
@@ -48,7 +52,9 @@ class Templates (object):
         else:
             raise Exception("Bad preprocessor line '%s' in template." % line)
 
-    def get_template_filename(self, templatedir, name):
-        return os.path.join(templatedir,
-                            self.extension,
-                            name + "." + self.extension)
+    def get_template_filename(self, templatedir, name, subdir=None, extension=None):
+        if not subdir:
+            subdir = self.extension
+        if not extension:
+            extension = self.extension
+        return os.path.join(templatedir, subdir, name + "." + extension)
