@@ -1,0 +1,168 @@
+    var gamebook = {
+        'player' : {
+            'currentSection' : null,
+            'collections' : {},
+
+            'collect' : function(type, name) {
+                this.collections[type] = {
+                    'name' : name,
+                    'contents' : [],
+                    'add' : function(what) {
+                        if (this.contents.indexOf(what) === -1
+                            && !(what in gamebook.dropped[type])) {
+                            this.contents.push(what);
+                            this.contents.sort();
+                        }
+                    },
+                    'drop' : function(what) {
+                        var i = this.contents.indexOf(what);
+                        if (i >= 0) {
+                            this.contents.splice(i, 1);
+                            gamebook.dropped[type][what] = true;
+                        }
+                    },
+                    'has' : function(what) {
+                        return this.contents.indexOf(what) >= 0;
+                    }
+                };
+                gamebook.dropped[type] = {};
+                gamebook.addCollectionView(type, name);
+            },
+
+            'add' : function(type, what) {
+                this.collections[type].add(what);
+                gamebook.updateCollectionsView();
+            },
+
+            'drop' : function(type, what) {
+                this.collections[type].drop(what);
+                gamebook.updateCollectionsView();
+            },
+
+            'has' : function(type, what) {
+                return this.collections[type].has(what);
+            }
+        },
+
+        'sections' : {},
+
+        'turnToFunctions' : {},
+
+        'dropped' : {},
+
+        'addSection' : function(nr, element) {
+            var section = {'element' : element, 'nr' : nr};
+            this.sections[nr] = section;
+        },
+
+        'turnTo' : function(nr) {
+            console.log("Turning to " + nr + ".");
+            if (!nr in this.sections) {
+                throw new Exception("Can not turn to non-existing section "
+                                    + nr + ".");
+            }
+            this.displaySection(nr);
+        },
+
+        'displaySection' : function(nr) {
+            if (this.player.currentSection) {
+                this.player.currentSection.element.style.display = 'none';
+            }
+            var e = this.sections[nr].element;
+            this.runActions(e.getElementsByClassName('sectiontext')[0]);
+            e.style.display = 'block';
+            this.player.currentSection = gamebook.sections[nr];
+        },
+
+        'runActions' : function(e) {
+            var enableNextLink = true;
+            var hasXorScope = false;
+            var hasAutoScope = false;
+            var xorEnableNext = false;
+            var autoDisableAllRemainingLinks = false;
+            Array.prototype.forEach.call(e.childNodes, function(c) {
+                if (/sectionref$/.test(c.className)) {
+                    if (enableNextLink && !autoDisableAllRemainingLinks) {
+                        gamebook.enableLink(c);
+                        if (hasAutoScope) {
+                            autoDisableAllRemainingLinks = true;
+                        }
+                    } else {
+                        gamebook.disableLink(c);
+                    }
+                    enableNextLink = !(hasXorScope && !xorEnableNext);
+                    hasAutoScope = false;
+                    hasXorScope = false;
+                } else if (c.className === 'collect') {
+                    gamebook.player.collect(c.dataset.type, c.dataset.name);
+                } else if (c.className === 'add') {
+                    gamebook.player.add(c.dataset.type, c.dataset.what);
+                } else if (c.className === 'drop') {
+                    gamebook.player.drop(c.dataset.type, c.dataset.what);
+                } else if (c.className === 'has') {
+                    enableNextLink = gamebook.player.has(c.dataset.type,
+                                                         c.dataset.what);
+                    console.log("has " + c.dataset.type +
+                                " " + c.dataset.what + " " + enableNextLink);
+                } else if (c.className === 'hasnot') {
+                    enableNextLink = !gamebook.player.has(c.dataset.type,
+                                                          c.dataset.what);
+                    console.log("has not " + c.dataset.type +
+                                " " + c.dataset.what + " " + enableNextLink);
+                } else if (c.className === 'xor') {
+                    hasXorScope = true;
+                    xorEnableNext = !enableNextLink;
+                } else if (c.className === 'auto') {
+                    hasAutoScope = true;
+                }
+            });
+        },
+
+        'enableLink' : function(e) {
+            e.addEventListener('click',
+                               gamebook.getTurnToFunction(e.dataset.ref));
+            e.className = "enabledsectionref";
+        },
+
+        'disableLink' : function(e) {
+            e.removeEventListener('click',
+                               gamebook.getTurnToFunction(e.dataset.ref));
+            e.className = "disabledsectionref";
+        },
+
+        'addCollectionView' : function(type, name) {
+            var ce = document.getElementById('collections');
+            var template = document.getElementById('collectionTemplate');
+            var e = template.cloneNode(true);
+            e.className = "collection";
+            e.getElementsByClassName('collectionheading')[0].innerHTML = name;
+            e.dataset.type = type;
+            ce.appendChild(e);
+        },
+
+        'updateCollectionsView' : function() {
+            var ce = document.getElementById('collections');
+            Array.prototype.forEach.call(ce.childNodes, function(c) {
+                if (c.className === 'collection') {
+                    var type = c.dataset.type;
+                    var collection = gamebook.player.collections[type];
+                    var cc = c.getElementsByClassName('collectioncontents')[0];
+                    cc.innerHTML = collection.contents.join(', ');
+                }
+            });
+        },
+
+        'getTurnToFunction' : function(nr) {
+            if (nr in this.turnToFunctions) {
+                return this.turnToFunctions[nr];
+            } else {
+                var f = function () {
+                    gamebook.turnTo(nr);
+                };
+                this.turnToFunctions[nr] = f;
+                return f;
+            }
+        }
+
+    };
+

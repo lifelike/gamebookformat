@@ -1,4 +1,4 @@
-* TODO [27/59] [45%]
+* TODO [28/59] [47%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -36,7 +36,7 @@
 - [ ] Book option to set author
 - [ ] Book option to set date
 - [ ] Quote strings to not break formatting.
-- [ ] Include other templates from a template.
+- [X] Include other templates from a template.
 - [ ] Template for book introduction (including rules etc)
   Sections with some markup (has number 0?) are added as chapters
   of introduction, otherwise formatted identical to other sections.

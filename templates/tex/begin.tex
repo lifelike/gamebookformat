@@ -1,10 +1,9 @@
-\documentclass[A5,twocolumn]{article}
+#include "documentclass"
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[hidelinks]{hyperref}
 
-\usepackage[top=3.3cm, bottom=3.3cm, left=2cm, right=2cm]{geometry}
-
+#include "geometry"
 \newif\ifpdf
 \ifx\pdfoutput\undefined
   \pdffalse
@@ -16,7 +15,7 @@
   \fi
 \fi
 
-\title{Gamebook}
+#include "title"
 \author{}
 \date{}
 
