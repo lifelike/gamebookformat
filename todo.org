@@ -39,6 +39,7 @@
 - [ ] Template for book introduction (including rules etc)
   Sections with some markup (has number 0?) are added as chapters
   of introduction, otherwise formatted identical to other sections.
+- [ ] Inserting images
 - [ ] More formatting possibilities in sections
   Look at existing gamebooks to get ideas.
 - [ ] Only accept specific characters in identifiers (eg section names)
@@ -47,9 +48,8 @@
 - [ ] Possibility to make predictable random numbers and shuffling for testing
 - [ ] Test generate examples and compare to expected output in all formats
 - [ ] Unit tests (finally...)
-- [ ] Inserting images
-- [ ] Verify gamebook for debug and dot outputs
-- [ ] Dummy sections (handle properly when verifying)
+- [ ] Verify gamebook with --verify (but how?)
+- [ ] Dummy and fake sections (handle properly when verifying)
 - [ ] Counters (life, money, whatever) create and set
   count tag to declare new counter, text in tag is display name
   optional argument sets the starting value of the tag
@@ -58,8 +58,14 @@
 - [ ] Counters check
 - [ ] Trade (optionally drop something from collection to add something new).
 - [ ] Buy (optionally decrease a counter to add something to a collection)
-- [ ] Sell (optionally increase a counter to drop something to a collection)
+- [ ] Sell (optionally increase a counter to drop something from a collection)
 - [ ] Pick a (maximum) number of things from those found in a section
+- [ ] Javascript tests running in nodejs (no GUI)
+  The big scripts in html templates are split out into separate files
+  already (script.html and endscript.html). It should be possible to
+  test those from nodejs?
+- [ ] Javascript GUI tests running in a browser
+  Preferably headless (in nodejs?). Run tests on gamebook html example(s).
 - [ ] Macros for input(quests etc etc). Generate one or more sections.
 - [ ] Macros that can add content to sections (pre or post).
 - [ ] Some way to insert character sheet in book introduction
