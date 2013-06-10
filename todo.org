@@ -1,4 +1,4 @@
-* TODO [24/48] [50%]
+* TODO [25/53] [47%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -27,7 +27,8 @@
 - [X] Make inventory and codewords generic
   They are the same, sort of, and it might be good to be able to
   add other similar entities as well, like skills or spells or whatever.
-- [ ] Otherwise/else handling for has (or has not).
+- [X] Otherwise/else handling for has.
+- [ ] Disable all links after finding an auto link (that is enabled).
 - [ ] Book option to set pdf layout (page size and number of columns)
 - [ ] Book option to set title
 - [ ] Book option to set author

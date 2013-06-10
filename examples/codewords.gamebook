@@ -13,19 +13,22 @@ turn to [[the_end]]. If you do not have the codeword
 [hasnot code]fun[/hasnot], you may turn to [[notsofun]].
 If you have the codeword [has code]fun[/has], you may instead
 turn to [[cheater]].
-Otherwise see [[forced]].
+Otherwise see [[haselsetest]].
 
 * notsofun
 This is just to demonstrate choices allowed when not
-having a codeword. Now go on to [[forced]].
+having a codeword. Now go on to [[haselsetest]].
 
 * cheater
 Cheater! There is no way you can have codeword fun.
 
-* forced
-OK, if you have the codeword [has code]warrior[/has], turn to
-[[auto the_end]] otherwise go back to [[second]]. Although
+* haselsetest
+OK, if you have the codeword [haselse code]warrior[/has],
+you may turn to
+[[auto the_end]] otherwise you may go back to [[second]]. Although
 we both know you have that codeword.
+If you have the codeword [haselse code]fun[/has] you may turn
+to [[cheater]], without it you can go to [[notsofun]].
 
 * the_end
 That was easy.

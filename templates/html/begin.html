@@ -83,8 +83,9 @@
         },
 
         'runActions' : function(e) {
-            // FIXME handle auto links that must be followed if possible
             var enableNextLink = true;
+            var hasElseScope = false;
+            var hasElseEnable = false;
             Array.prototype.forEach.call(e.childNodes, function(c) {
                 if (/sectionref$/.test(c.className)) {
                     if (enableNextLink) {
@@ -92,7 +93,12 @@
                     } else {
                         gamebook.disableLink(c);
                     }
-                    enableNextLink = true;
+                    if (hasElseScope) {
+                        enableNextLink = hasElseEnable;
+                        hasElseScope = false;
+                    } else {
+                        enableNextLink = true;
+                    }
                 } else if (c.className === 'collect') {
                     gamebook.player.collect(c.dataset.type, c.dataset.name);
                 } else if (c.className === 'add') {
@@ -109,6 +115,11 @@
                                                           c.dataset.what);
                     console.log("has not " + c.dataset.type +
                                 " " + c.dataset.what + " " + enableNextLink);
+                } else if (c.className === 'haselse') {
+                    enableNextLink = gamebook.player.has(c.dataset.type,
+                                                         c.dataset.what);
+                    hasElseScope = true;
+                    hasElseEnable = !enableNextLink;
                 }
             });
         },
