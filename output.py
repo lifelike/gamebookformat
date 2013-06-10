@@ -34,6 +34,7 @@ class OutputFormat (object):
     def format_section(self, section, references):
         i = 0
         res = ""
+        # FIXME refactor for readability once good tests are in place
         while i < len(section.text):
             ref_start = section.text.find('[[', i)
             tag_start = section.text.find('[', i)

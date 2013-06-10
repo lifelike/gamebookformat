@@ -84,21 +84,23 @@
 
         'runActions' : function(e) {
             var enableNextLink = true;
-            var hasElseScope = false;
-            var hasElseEnable = false;
+            var hasXorScope = false;
+            var hasAutoScope = false;
+            var xorEnableNext = false;
+            var autoDisableAllRemainingLinks = false;
             Array.prototype.forEach.call(e.childNodes, function(c) {
                 if (/sectionref$/.test(c.className)) {
-                    if (enableNextLink) {
+                    if (enableNextLink && !autoDisableAllRemainingLinks) {
                         gamebook.enableLink(c);
+                        if (hasAutoScope) {
+                            autoDisableAllRemainingLinks = true;
+                        }
                     } else {
                         gamebook.disableLink(c);
                     }
-                    if (hasElseScope) {
-                        enableNextLink = hasElseEnable;
-                        hasElseScope = false;
-                    } else {
-                        enableNextLink = true;
-                    }
+                    enableNextLink = !(hasXorScope && !xorEnableNext);
+                    hasAutoScope = false;
+                    hasXorScope = false;
                 } else if (c.className === 'collect') {
                     gamebook.player.collect(c.dataset.type, c.dataset.name);
                 } else if (c.className === 'add') {
@@ -115,11 +117,11 @@
                                                           c.dataset.what);
                     console.log("has not " + c.dataset.type +
                                 " " + c.dataset.what + " " + enableNextLink);
-                } else if (c.className === 'haselse') {
-                    enableNextLink = gamebook.player.has(c.dataset.type,
-                                                         c.dataset.what);
-                    hasElseScope = true;
-                    hasElseEnable = !enableNextLink;
+                } else if (c.className === 'xor') {
+                    hasXorScope = true;
+                    xorEnableNext = !enableNextLink;
+                } else if (c.className === 'auto') {
+                    hasAutoScope = true;
                 }
             });
         },

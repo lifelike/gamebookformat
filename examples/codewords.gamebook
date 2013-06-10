@@ -13,22 +13,35 @@ turn to [[the_end]]. If you do not have the codeword
 [hasnot code]fun[/hasnot], you may turn to [[notsofun]].
 If you have the codeword [has code]fun[/has], you may instead
 turn to [[cheater]].
-Otherwise see [[haselsetest]].
+Otherwise see [[xortest]].
 
 * notsofun
 This is just to demonstrate choices allowed when not
-having a codeword. Now go on to [[haselsetest]].
+having a codeword. Now go on to [[autotest]] (autotest)
+or [[xortest]] (xor test).
+
+* autotest
+If you have codeword [has code]warrior[/has] turn to
+[[auto noautotest]].
+Otherwise you can go to the end at [[the_end]] or back to
+[[start]].
+
+* noautotest
+If you have the codeword [has code]fun[/has] turn
+to [[auto cheater]].
+Otherwise you can go to the end at [[the_end]] or to the
+xortest at [[xortest]].
 
 * cheater
 Cheater! There is no way you can have codeword fun.
 
-* haselsetest
-OK, if you have the codeword [haselse code]warrior[/has],
+* xortest
+OK, if you have the codeword [has code]warrior[/has],
 you may turn to
-[[auto the_end]] otherwise you may go back to [[second]]. Although
+[[xor the_end]] otherwise you may go back to [[second]]. Although
 we both know you have that codeword.
-If you have the codeword [haselse code]fun[/has] you may turn
-to [[cheater]], without it you can go to [[notsofun]].
+If you have the codeword [has code]fun[/has] you may turn
+to [[xor cheater]], without it you can go to [[notsofun]].
 
 * the_end
 That was easy.
