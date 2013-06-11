@@ -14,3 +14,4 @@ test.html
 .lein*
 target
 *.map
+.uploadto
