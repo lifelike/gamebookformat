@@ -1,5 +1,6 @@
     var gamebook = {
         'player' : {
+            'started' : false,
             'currentSection' : null,
             'collections' : {},
 
@@ -56,7 +57,9 @@
         },
 
         'turnTo' : function(nr) {
-            console.log("Turning to " + nr + ".");
+            if (!gamebook.player.started) {
+                gamebook.start();
+            }
             if (!nr in this.sections) {
                 throw new Exception("Can not turn to non-existing section "
                                     + nr + ".");
@@ -67,7 +70,7 @@
         'start' : function() {
             this.hideIntroSections();
             this.addClassToClass('startlink', 'nodisplay');
-            this.turnTo(1);
+            gamebook.player.started = true;
         },
 
         'displaySection' : function(nr) {
@@ -87,10 +90,17 @@
         },
 
         'showIntroSections' : function() {
+            this.runActionsInIntroSections();
             this.removeClassFromClass('introsection', 'nodisplay');
             this.addClassToClass('displayintrolink', 'nodisplay');
             this.removeClassFromClass('hideintrolink', 'nodisplay');
             document.body.scrollIntoView();
+        },
+
+        'runActionsInIntroSections' : function() {
+            Array.prototype.forEach.call(
+                document.getElementsByClassName('introsectionbody'),
+                gamebook.runActions);
         },
 
         'addClassToClass' : function(className, addClass) {
@@ -114,9 +124,13 @@
             var hasXorScope = false;
             var hasAutoScope = false;
             var xorEnableNext = false;
-            var autoDisableAllRemainingLinks = false;
+            var autoDisableAllRemainingLinks = (
+                gamebook.player.started && e.classList.contains('introsectionbody'));
             Array.prototype.forEach.call(e.childNodes, function(c) {
-                if (/sectionref$/.test(c.className)) {
+                if (!c.classList) {
+                    return;
+                }
+                if (c.classList.contains('sectionref')) {
                     if (enableNextLink && !autoDisableAllRemainingLinks) {
                         gamebook.enableLink(c);
                         if (hasAutoScope) {
@@ -137,18 +151,20 @@
                 } else if (c.className === 'has') {
                     enableNextLink = gamebook.player.has(c.dataset.type,
                                                          c.dataset.what);
-                    console.log("has " + c.dataset.type +
-                                " " + c.dataset.what + " " + enableNextLink);
                 } else if (c.className === 'hasnot') {
                     enableNextLink = !gamebook.player.has(c.dataset.type,
                                                           c.dataset.what);
-                    console.log("has not " + c.dataset.type +
-                                " " + c.dataset.what + " " + enableNextLink);
                 } else if (c.className === 'xor') {
                     hasXorScope = true;
                     xorEnableNext = !enableNextLink;
                 } else if (c.className === 'auto') {
                     hasAutoScope = true;
+                } else if (c.classList.contains('random')) {
+                    c.addEventListener('click',
+                                       gamebook.enableRandomLinkAfter);
+                    c.classList.add("enabledlink");
+                    c.classList.remove("disabledlink");
+                    autoDisableAllRemainingLinks = true;
                 }
             });
         },
@@ -156,13 +172,35 @@
         'enableLink' : function(e) {
             e.addEventListener('click',
                                gamebook.getTurnToFunction(e.dataset.ref));
-            e.className = "enabledsectionref";
+            e.classList.add("enabledLink");
+            e.classList.remove("disabledlink");
         },
 
         'disableLink' : function(e) {
             e.removeEventListener('click',
                                gamebook.getTurnToFunction(e.dataset.ref));
-            e.className = "disabledsectionref";
+            e.classList.remove("enabledLink");
+            e.classList.add("disabledlink");
+        },
+
+        'enableRandomLinkAfter' : function(event) {
+            this.classList.remove("enabledlink");
+            this.classList.add("disabledlink");
+            var links = [];
+            var e = this.nextSibling;
+            while (e) {
+                if (e.classList && e.classList.contains('sectionref')) {
+                    links.push(e);
+                }
+                e = e.nextSibling;
+            }
+            if (links.length > 0) {
+                var selected = links[Math.floor(Math.random()*links.length)]
+                gamebook.enableLink(selected);
+            } else {
+                console.log("Random with nothing to select?");
+            }
+            event.preventDefault();
         },
 
         'addCollectionView' : function(type, name) {

@@ -8,14 +8,18 @@ section at [[next]].
 
 * 1 start
 This is where the adventure begins. You can go on to the
-next section, see [[next]] or try the other instead, see [[other]].
+next section, see [[next]] or try the random selection
+feature at [[random]].
 
 * next
 This is the next section. Go on to the end at [[end]].
 
-* other
-This is another section. You can try the next section now,
-see [[next]], or go on to the end, see [[end]].
+* random
+[random]Pick a destination at random[/random] from
+[[next]] or [[end]] or [[altend]].
+
+* altend
+Alternative ending.
 
 * end
 The end.

@@ -1,4 +1,4 @@
-* TODO [37/65] [56%]
+* TODO [38/65] [58%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -43,7 +43,7 @@
 - [X] HTML hide intro sections with link to display again
 - [X] Only accept specific characters in section names
   eg [a-z][a-z_0-9]+
-- [ ] Random pick of link to follow from a section.
+- [X] Random pick of link to follow from a section.
 - [ ] Possibility to make predictable random numbers and shuffling for testing
 - [ ] Test generate examples and compare to expected output in all formats
 - [ ] Unit tests (finally...)

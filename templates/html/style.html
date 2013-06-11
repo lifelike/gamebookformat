@@ -1,5 +1,17 @@
-    .enabledsectionref {font-weight: bold; cursor: pointer;}
-    .disabledsectionref {font-weight: bold; color: #aaa; cursor: not-allowed;}
+    .startlink,.sectionref,.displayintrolink,.hideintrolink {
+                   font-weight: bold;
+                   padding-left: 1.5em;
+                   padding-right: 1.5em;
+                   margin: 0.2em;
+                   vertical-align: middle;
+                   white-space: nowrap;
+    }
+    .startlink,.enabledlink,.displayintrolink,.hideintrolink {cursor: pointer;
+                                                              background: #eef;}
+    .startlink:hover,.enabledlink:hover,.displayintrolink:hover,
+       .hideintrolink:hover {background: #a9f;}
+    .disabledlink {color: #bbb; cursor: not-allowed; background: #fee;}
+    .disabledlink:hover {background: #fee;}
     .sectionnumber {font-weight: bolder;
                     margin-left: 50%%;
                     margin-right: 50%%;}
