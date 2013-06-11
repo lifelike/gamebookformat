@@ -4,3 +4,5 @@
 *.dot
 *.debug
 *.txt
+*.png
+!testimage.png

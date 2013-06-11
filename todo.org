@@ -1,4 +1,4 @@
-* TODO [33/59] [55%]
+* TODO [37/65] [56%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -36,13 +36,12 @@
 - [X] Book option to set max section number to use
 - [X] Quote strings to not break formatting.
 - [X] Include other templates from a template.
-- [ ] Template for book introduction (including rules etc)
+- [X] Template for book introduction (including rules etc)
   Sections with some markup (has number 0?) are added as chapters
   of introduction, otherwise formatted identical to other sections.
-- [ ] Inserting images
-- [ ] More formatting possibilities in sections
-  Look at existing gamebooks to get ideas.
-- [ ] Only accept specific characters in identifiers (eg section names)
+- [X] Inserting images
+- [X] HTML hide intro sections with link to display again
+- [X] Only accept specific characters in section names
   eg [a-z][a-z_0-9]+
 - [ ] Random pick of link to follow from a section.
 - [ ] Possibility to make predictable random numbers and shuffling for testing
@@ -73,6 +72,27 @@
 - [ ] Some way to insert optional random numbers table at end of book
 - [ ] Defensive removal of any weird unicode not handled by quoting.
 - [ ] Somewhat user-friendly error messages
+- [ ] More formatting possibilities in sections
+  Look at existing gamebooks to get ideas.
 - [ ] Document Gamebook format
 - [ ] HTML CSS
 - [ ] Higher level text-language for Gamebooks
+- [ ] BGG forum output (.bgg)
+- [ ] Make sure HTML output works with javascript disabled and in inferior browsers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

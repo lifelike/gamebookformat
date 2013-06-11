@@ -17,30 +17,57 @@ class Section:
         return "Section(%s, %s, %s)" % (repr(self.name), repr(self.text),
                                         repr(self.tags))
 
+class ShuffledSection (Section):
+    def __init__(self, nr, section):
+        self.nr = nr
+        self.name = section.name
+        self.text = section.text
+        self.tags = section.tags.copy()
+
+    def __repr__(self):
+        return "ShuffledSection(%d, %s, %s, %s)" % (self.nr,
+                                                    repr(self.name), repr(self.text),
+                                                    repr(self.tags))
+
+class IntroSection (Section):
+    def __init__(self, section):
+        self.nr = -1
+        self.name = section.name
+        self.text = section.text
+        self.tags = section.tags.copy()
+
+    def __repr__(self):
+        return "IntroSection(%d, %s, %s, %s)" % (repr(self.name), repr(self.text),
+                                                 repr(self.tags))
+
 class ShuffledSections:
-    def __init__(self, as_list, from_nr, to_nr, from_name, nr_sections):
+    def __init__(self, as_list, from_nr, from_name, nr_sections):
         self.as_list = as_list
         self.from_nr = from_nr
-        self.to_nr = to_nr
         self.from_name = from_name
         self.name_to_nr = {}
         for n in from_name:
-            self.name_to_nr[n] = to_nr[from_name[n]]
+            self.name_to_nr[n] = from_name[n].nr
         for nr in nr_sections:
             self.name_to_nr[nr_sections[nr]] = nr
 
-STR_BOOK_CONFIG = set(['title', 'author'])
+STR_BOOK_CONFIG = set(['title', 'author', 'starttext', 'hideintrotext',
+                       'showintrotext'])
 INT_BOOK_CONFIG = set(['max'])
 
 class Book:
     def __init__(self):
         self.sections = []
+        self.introsections = []
         self.from_name = {}
         self.nr_sections = {}
         self.codewords = set()
         self.config = {'max' : 0,
                        'title' : 'Gamebook',
-                       'author' : ''}
+                       'author' : '',
+                       'starttext' : 'Turn to 1 to begin.',
+                       'hideintrotext' : '(hide instructions)',
+                       'showintrotext' : '(show instructions)'}
 
     def configure(self, name, value):
         if name in INT_BOOK_CONFIG:
@@ -59,6 +86,9 @@ class Book:
         if len(self.sections) > self.config['max']:
             self.config['max'] = len(self.sections)
 
+    def addintro(self, section):
+        self.introsections.append(IntroSection(section))
+
     def add_codeword(self, word):
         self.codewords.add(word)
 
@@ -70,8 +100,8 @@ class Book:
     def shuffle(self):
         as_list = [None]
         from_nr = {}
-        to_nr = {}
         shuffled = self.sections[:]
+        shuffled_from_name = {}
         while len(shuffled) < self.config['max']:
             dummy = Section('Dummy', '')
             dummy.add_tags(['dummy'])
@@ -83,16 +113,16 @@ class Book:
         for nr in range(1, self.config['max'] + 1):
             if (self.nr_sections.has_key(nr)
                 and self.nr_sections[nr] in self.from_name):
-                section = self.from_name[self.nr_sections[nr]]
+                section = ShuffledSection(nr, self.from_name[self.nr_sections[nr]])
             elif len(shuffled):
-                section = shuffled.pop()
+                section = ShuffledSection(nr, shuffled.pop())
             else:
                 section = None
             as_list.append(section)
             from_nr[nr] = section
             if section:
-                to_nr[section] = nr
-        return ShuffledSections(as_list, from_nr, to_nr, self.from_name.copy(),
+                shuffled_from_name[section.name] = section
+        return ShuffledSections(as_list, from_nr, shuffled_from_name,
                                 self.nr_sections)
 
 class Item (object):

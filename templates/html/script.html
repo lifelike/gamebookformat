@@ -64,6 +64,12 @@
             this.displaySection(nr);
         },
 
+        'start' : function() {
+            this.hideIntroSections();
+            this.addClassToClass('startlink', 'nodisplay');
+            this.turnTo(1);
+        },
+
         'displaySection' : function(nr) {
             if (this.player.currentSection) {
                 this.player.currentSection.element.style.display = 'none';
@@ -72,6 +78,35 @@
             this.runActions(e.getElementsByClassName('sectiontext')[0]);
             e.style.display = 'block';
             this.player.currentSection = gamebook.sections[nr];
+        },
+
+        'hideIntroSections' : function() {
+            this.addClassToClass('introsection', 'nodisplay');
+            this.removeClassFromClass('displayintrolink', 'nodisplay');
+            this.addClassToClass('hideintrolink', 'nodisplay');
+        },
+
+        'showIntroSections' : function() {
+            this.removeClassFromClass('introsection', 'nodisplay');
+            this.addClassToClass('displayintrolink', 'nodisplay');
+            this.removeClassFromClass('hideintrolink', 'nodisplay');
+            document.body.scrollIntoView();
+        },
+
+        'addClassToClass' : function(className, addClass) {
+            Array.prototype.forEach.call(
+                document.getElementsByClassName(className),
+                function(e) {
+                    e.classList.add(addClass);
+                });
+        },
+
+        'removeClassFromClass' : function(className, removeClass) {
+            Array.prototype.forEach.call(
+                document.getElementsByClassName(className),
+                function(e) {
+                    e.classList.remove(removeClass);
+                });
         },
 
         'runActions' : function(e) {

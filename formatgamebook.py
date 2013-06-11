@@ -28,6 +28,7 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
 
+import re
 import os
 import os.path
 import sys
@@ -40,6 +41,8 @@ import verifygamebook
 from output import OutputFormat
 
 USAGE = "usage: %prog [options] inputfile(s)... outputfile"
+
+SECTION_NAME_RE = re.compile("^[a-z][a-z_0-9]*$")
 
 def of(extension, name, quote):
     return {'extension' : extension,
@@ -81,17 +84,15 @@ def parse_file_to_book(inputfile, book):
     number = None
     text = ""
     tags = None
+    intro_section = False
     for line in inputfile.readlines():
-        if before_first_section:
-            if '=' in line:
-                config = line.split('=')
-                book.configure(config[0].strip(), config[1].strip())
         if line.startswith('*'):
             before_first_section = False
             if name:
-                add_section_to_book(book, name, text, number)
+                add_section_to_book(book, name, text, intro_section, number)
             number = None
             text = ""
+            intro_section = False
             heading = [h.strip() for h in line[1:].strip().split()]
             if len(heading) > 1 and heading[-1].startswith(':'):
                 if not heading[-1].endswith(':'):
@@ -106,20 +107,34 @@ def parse_file_to_book(inputfile, book):
             elif len(heading) == 2:
                 number = int(heading[0])
                 name = heading[1]
-            else:
-                raise Exception("bad section heading %s" % str(heading))
-        else:
+            if not name or not SECTION_NAME_RE.match(name):
+                raise Exception("bad section heading: %s" % str(heading))
+        elif line.startswith('='):
+            if name:
+                add_section_to_book(book, name, text, intro_section, number)
+            name = line[1:].strip()
+            intro_section = True
+            text = ""
+        elif before_first_section and '=' in line:
+            config = line.split('=')
+            book.configure(config[0].strip(), config[1].strip())
+        elif name:
             text = text + " " + line.strip()
+        elif len(line.strip()):
+            raise Exception("unknown content before sections: %s" % line.strip())
     if name:
-        add_section_to_book(book, name, text, number, tags)
+        add_section_to_book(book, name, text, intro_section, number, tags)
 
-def add_section_to_book(book, name, text, number=None, tags=None):
+def add_section_to_book(book, name, text, intro_section=False, number=None, tags=None):
     section = sections.Section(name, text)
     if tags:
         section.add_tags(tags)
-    book.add(section)
-    if number:
-        book.force_section_nr(name, number)
+    if intro_section:
+        book.addintro(section)
+    else:
+        book.add(section)
+        if number:
+            book.force_section_nr(name, number)
 
 def make_output(outputfilename, templatedirs):
     for of in OUTPUT_FORMATS:
@@ -134,6 +149,8 @@ def write_book(book, output_format, outputfilename):
     shuffled_sections = book.shuffle()
     output = open(outputfilename, 'w')
     output_format.write_begin(book, output)
+    output_format.write_intro_sections(book, shuffled_sections, output)
+    output_format.write_sections_begin(book, output)
     output_format.write_shuffled_sections(shuffled_sections, output)
     output_format.write_end(book, output)
     save_section_mapping(shuffled_sections, outputfilename)

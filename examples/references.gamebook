@@ -1,4 +1,11 @@
 max = 400
+
+= Introduction
+This gamebook demonstrates simple references between sections.
+Also notice that an intro section like this one can
+reference sections, like the start at [[start]] or the next
+section at [[next]].
+
 * 1 start
 This is where the adventure begins. You can go on to the
 next section, see [[next]] or try the other instead, see [[other]].

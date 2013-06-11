@@ -8,7 +8,6 @@ test.dot
 *.toc
 *.pdf
 test.rtf
-*.png
 *.out
 test.html
 .lein*

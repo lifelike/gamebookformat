@@ -12,6 +12,27 @@ class OutputFormat (object):
         # FIXME make sure book config is properly quoted
         print >> output, self.format_with_template("begin", book.config)
 
+    def write_intro_sections(self, book, shuffled_sections, output):
+        for s in book.introsections:
+            if not s.hastag('dummy'):
+                self.write_intro_section(s, shuffled_sections, output)
+
+    def write_intro_section(self, section, shuffled_sections, output):
+        # FIXME some serious code-duplication here
+        refs = []
+        refsdict = ReferenceFormatter(section, shuffled_sections,
+                                      self.format_with_template("section_ref"),
+                                      self.quote)
+        formatted_text = self.format_section(section, refsdict)
+        print >> output, self.format_with_template("introsection", {
+            'name' : section.name,
+            'text' : formatted_text,
+            'refs' : '\n'.join(refsdict.getfound()) # hack for DOT output
+        }),
+
+    def write_sections_begin(self, book, output):
+        print >> output, self.format_with_template("sections_begin", book.config);
+
     def write_shuffled_sections(self, shuffled_sections, output):
         for i, p in enumerate(shuffled_sections.as_list):
             if p and not p.hastag('dummy'):
@@ -26,7 +47,7 @@ class OutputFormat (object):
                                       self.quote)
         formatted_text = self.format_section(section, refsdict)
         print >> output, self.format_with_template("section", {
-            'nr' : shuffled_sections.to_nr[section],
+            'nr' : section.nr,
             'name' : section.name,
             'text' : formatted_text,
             'refs' : '\n'.join(refsdict.getfound()) # hack for DOT output
@@ -92,7 +113,7 @@ class OutputFormat (object):
         }),
 
     def write_end(self, book, output):
-        print >> output, self.format_with_template("end"),
+        print >> output, self.format_with_template("end", book.config),
 
     def format_with_template(self, name, values=None):
         template = self.templates.get(name)
@@ -108,7 +129,7 @@ class ReferenceFormatter (object):
         self.shuffled_sections = shuffled_sections
         self.found = set()
         self.ref_template = ref_template
-        self.items = {'nr' : shuffled_sections.to_nr[section]}
+        self.items = {'nr' : section.nr}
         self.quote = quote
 
     def __getitem__(self, key):
@@ -116,8 +137,8 @@ class ReferenceFormatter (object):
             return self.quote(self.items[key])
         to_section = self.shuffled_sections.from_name[key]
         res = self.ref_template % {
-            'nr' : self.shuffled_sections.to_nr[to_section],
-            'from_nr' : self.shuffled_sections.to_nr[self.section]
+            'nr' : to_section.nr,
+            'from_nr' : self.section.nr
         }
         if key in self.shuffled_sections.name_to_nr:
             self.found.add(res)
