@@ -142,22 +142,22 @@
                     enableNextLink = !(hasXorScope && !xorEnableNext);
                     hasAutoScope = false;
                     hasXorScope = false;
-                } else if (c.className === 'collect') {
+                } else if (c.classList.contains('collect')) {
                     gamebook.player.collect(c.dataset.type, c.dataset.name);
-                } else if (c.className === 'add') {
+                } else if (c.classList.contains('add')) {
                     gamebook.player.add(c.dataset.type, c.dataset.what);
-                } else if (c.className === 'drop') {
+                } else if (c.classList.contains('drop')) {
                     gamebook.player.drop(c.dataset.type, c.dataset.what);
-                } else if (c.className === 'has') {
+                } else if (c.classList.contains('has')) {
                     enableNextLink = gamebook.player.has(c.dataset.type,
                                                          c.dataset.what);
-                } else if (c.className === 'hasnot') {
+                } else if (c.classList.contains('hasnot')) {
                     enableNextLink = !gamebook.player.has(c.dataset.type,
                                                           c.dataset.what);
-                } else if (c.className === 'xor') {
+                } else if (c.classList.contains('xor')) {
                     hasXorScope = true;
                     xorEnableNext = !enableNextLink;
-                } else if (c.className === 'auto') {
+                } else if (c.classList.contains('auto')) {
                     hasAutoScope = true;
                 } else if (c.classList.contains('random')) {
                     c.addEventListener('click',
@@ -172,14 +172,14 @@
         'enableLink' : function(e) {
             e.addEventListener('click',
                                gamebook.getTurnToFunction(e.dataset.ref));
-            e.classList.add("enabledLink");
+            e.classList.add("enabledlink");
             e.classList.remove("disabledlink");
         },
 
         'disableLink' : function(e) {
             e.removeEventListener('click',
                                gamebook.getTurnToFunction(e.dataset.ref));
-            e.classList.remove("enabledLink");
+            e.classList.remove("enabledlink");
             e.classList.add("disabledlink");
         },
 

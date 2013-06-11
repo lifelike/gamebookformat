@@ -1,17 +1,25 @@
-    .startlink,.sectionref,.displayintrolink,.hideintrolink {
+    .startlink,.sectionref,.displayintrolink,.hideintrolink,.found,.add,.random {
                    font-weight: bold;
-                   padding-left: 1.5em;
-                   padding-right: 1.5em;
                    margin: 0.2em;
                    vertical-align: middle;
                    white-space: nowrap;
     }
-    .startlink,.enabledlink,.displayintrolink,.hideintrolink {cursor: pointer;
-                                                              background: #eef;}
+
+    .sectionref.enabledlink {
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+    }
+
+    .startlink,.enabledlink,.displayintrolink,.hideintrolink,.found,.random {
+        cursor: pointer;}
+
+    .startlink,.enabledlink,.displayintrolink,.hideintrolink,.found,
+    .random {background: #eef;
+    }
     .startlink:hover,.enabledlink:hover,.displayintrolink:hover,
        .hideintrolink:hover {background: #a9f;}
-    .disabledlink {color: #bbb; cursor: not-allowed; background: #fee;}
-    .disabledlink:hover {background: #fee;}
+    .disabledlink {color: #bbb; cursor: not-allowed; background: inherit;}
+    .disabledlink:hover {background: inherit;}
     .sectionnumber {font-weight: bolder;
                     margin-left: 50%%;
                     margin-right: 50%%;}
@@ -25,13 +33,9 @@
     .collectioncontents {}
     .collect {}
     .add {font-weight: bold;}
-    .found {font-weight: bold; cursor: pointer;}
     .drop {font-style: italic;}
     .has {font-style: italic;}
     .hasnot {font-style: italic;}
     .collectionTemplate {display: none;}
     .sectionimage {width: 100%%; padding: 1em;}
     .nodisplay {display: none;}
-    .startlink {font-weight: bold; cursor: pointer;}
-    .displayintrolink {cursor: pointer;}
-    .hideintrolink {cursor: pointer;}
