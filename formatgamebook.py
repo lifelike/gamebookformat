@@ -67,7 +67,8 @@ def format_gamebook(inputfilenames,
                     outputfilename,
                     import_default_map_file,
                     templatedirs,
-                    verify):
+                    verify,
+                    seed):
     output_format = make_output(outputfilename, templatedirs)
     book = sections.Book()
     for inputfilename in inputfilenames:
@@ -76,7 +77,7 @@ def format_gamebook(inputfilenames,
         import_default_nr_map(outputfilename, book)
     if verify:
         verifygamebook.verify(book)
-    write_book(book, output_format, outputfilename)
+    write_book(book, seed, output_format, outputfilename)
 
 def parse_file_to_book(inputfile, book):
     before_first_section = True
@@ -145,8 +146,8 @@ def make_output(outputfilename, templatedirs):
     raise Exception("Unsupported or unknown output format for %s."
                     % outputfilename)
 
-def write_book(book, output_format, outputfilename):
-    shuffled_sections = book.shuffle()
+def write_book(book, seed, output_format, outputfilename):
+    shuffled_sections = book.shuffle(seed)
     output = open(outputfilename, 'w')
     output_format.write_begin(book, output)
     output_format.write_intro_sections(book, shuffled_sections, output)
@@ -187,6 +188,8 @@ if __name__ == '__main__':
                     action='append', help='add custom template dir')
     ap.add_argument('-y', '--verify', action='store_true',
                     help='verify gamebook structure')
+    ap.add_argument('-s', '--seed', action='store', default=None,
+                    help='random seed for shuffling sections')
     args = ap.parse_args()
     templatedirs = ['templates',
                     os.path.join(os.path.dirname(sys.argv[0]), 'templates')]
@@ -197,4 +200,5 @@ if __name__ == '__main__':
                     args.outputfile,
                     args.import_default_map_file,
                     templatedirs,
-                    args.verify)
+                    args.verify,
+                    args.seed)

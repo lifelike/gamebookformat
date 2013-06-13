@@ -1,4 +1,4 @@
-* TODO [38/65] [58%]
+* TODO [39/67] [58%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -44,11 +44,15 @@
 - [X] Only accept specific characters in section names
   eg [a-z][a-z_0-9]+
 - [X] Random pick of link to follow from a section.
-- [ ] Possibility to make predictable random numbers and shuffling for testing
+- [X] Possibility to make predictable random numbers and shuffling for testing
 - [ ] Test generate examples and compare to expected output in all formats
 - [ ] Unit tests (finally...)
-- [ ] Verify gamebook with --verify (but how?)
+- [ ] Verify gamebook (always; drop the --verify option)
 - [ ] Dummy and fake sections (handle properly when verifying)
+- [ ] Inline sections
+  Inline prefix on link or :inline: tag on target section itself.
+  If tagged or all links to a section are marked inline the section
+  itself is removed.
 - [ ] Counters (life, money, whatever) create and set
   count tag to declare new counter, text in tag is display name
   optional argument sets the starting value of the tag
@@ -65,16 +69,27 @@
   test those from nodejs?
 - [ ] Javascript GUI tests running in a browser
   Preferably headless (in nodejs?). Run tests on gamebook html example(s).
+- [ ] Combat
+  Tag to mark up the link to use to trigger next round.
+  Tag to mark up the enemy and its values.
+  Fixed set of combat abilities handled by javascript
+    (some way to configure ability names, but in that case javascript
+     for combat, in a separate file, must be overridden)
 - [ ] Macros for input(quests etc etc). Generate one or more sections.
 - [ ] Macros that can add content to sections (pre or post).
 - [ ] Some way to insert character sheet in book introduction
-- [ ] Some way to insert dice at bottom of pages for LaTeX
+- [ ] Some way to insert optional dice at bottom of pages for LaTeX
 - [ ] Some way to insert optional random numbers table at end of book
 - [ ] Defensive removal of any weird unicode not handled by quoting.
 - [ ] Somewhat user-friendly error messages
 - [ ] More formatting possibilities in sections
   Look at existing gamebooks to get ideas.
 - [ ] Document Gamebook format
+  - Basic gamebook (static, nothing about magic needed for dynamic; tutorial)
+  - Advanced (more complex layout options, but still static)
+  - Dynamic (markup needed to make playable (HTML) version)
+  - Standard output formats reference
+  - Customization (make new output formats or override existing)
 - [ ] HTML CSS
 - [ ] Higher level text-language for Gamebooks
 - [ ] BGG forum output (.bgg)
