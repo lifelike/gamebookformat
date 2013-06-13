@@ -61,7 +61,8 @@ OUTPUT_FORMATS = [
 
 def make_supported_formats_list_string():
     return "Supported Output Formats:\n" + "\n".join(
-        [str(f) for f in OUTPUT_FORMATS])
+        [' %-8s%s' % (f['extension'], f['name'])
+         for f in OUTPUT_FORMATS])
 
 def format_gamebook(inputfilenames,
                     outputfilename,
