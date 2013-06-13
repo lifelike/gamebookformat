@@ -1,0 +1,80 @@
+\documentclass[a5,onecolumn]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+
+\usepackage[top=3.3cm, bottom=3.3cm, left=2cm, right=2cm]{geometry}
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+  \pdffalse
+\else
+  \ifnum\pdfoutput=1
+    \pdftrue
+  \else
+    \pdffalse
+  \fi
+\fi
+
+\title{Gamebook}
+\author{}
+\date{}
+
+\newcounter{sectionnr}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\pagestyle{empty}
+
+\clearpage
+
+
+
+Turn to 1 to begin.
+
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section1}
+\subsection*{\begin{center} \textbf{1} \end{center}}
+
+ \noindent
+ It starts here. You can get to \textbf{\autoref{section4}}. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section2}
+\subsection*{\begin{center} \textbf{2} \end{center}}
+
+ \noindent
+ Another fake section that is also ignored. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section3}
+\subsection*{\begin{center} \textbf{3} \end{center}}
+
+ \noindent
+ You can not get here either, but because it is tagged as fake there will be no warning generated. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section4}
+\subsection*{\begin{center} \textbf{4} \end{center}}
+
+ \noindent
+ You can get here. Congratulations! 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section5}
+\subsection*{\begin{center} \textbf{5} \end{center}}
+
+ \noindent
+ You can not get here. Verification should warn you about that, if enabled (with the --verify option). 
+\vspace{1em}
+\end{document}

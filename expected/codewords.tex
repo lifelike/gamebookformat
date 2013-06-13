@@ -1,0 +1,112 @@
+\documentclass[a5,onecolumn]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+
+\usepackage[top=3.3cm, bottom=3.3cm, left=2cm, right=2cm]{geometry}
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+  \pdffalse
+\else
+  \ifnum\pdfoutput=1
+    \pdftrue
+  \else
+    \pdffalse
+  \fi
+\fi
+
+\title{Gamebook}
+\author{}
+\date{}
+
+\newcounter{sectionnr}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\pagestyle{empty}
+
+\clearpage
+
+
+
+Turn to 1 to begin.
+
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section1}
+\subsection*{\begin{center} \textbf{1} \end{center}}
+
+ \noindent
+ Demonstrating how Codewords (AKA sightings) can be used. Go to \textbf{\autoref{section2}}. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section2}
+\subsection*{\begin{center} \textbf{2} \end{center}}
+
+ \noindent
+ Got codeword \textbf{warrior}. Simple enough to set a codeword. Turn to \textbf{\autoref{section5}}. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section3}
+\subsection*{\begin{center} \textbf{3} \end{center}}
+
+ \noindent
+ OK, if you have the codeword \textit{warrior}, you may turn to \textbf{\autoref{section4}} otherwise you may go back to \textbf{\autoref{section2}}. Although we both know you have that codeword. If you have the codeword \textit{fun} you may turn to \textbf{\autoref{section6}}, without it you can go to \textbf{\autoref{section8}}. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section4}
+\subsection*{\begin{center} \textbf{4} \end{center}}
+
+ \noindent
+ That was easy.    
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section5}
+\subsection*{\begin{center} \textbf{5} \end{center}}
+
+ \noindent
+ If you have the codeword \textit{warrior} you may turn to \textbf{\autoref{section4}}. If you do not have the codeword \textit{fun}, you may turn to \textbf{\autoref{section8}}. If you have the codeword \textit{fun}, you may instead turn to \textbf{\autoref{section6}}. Otherwise see \textbf{\autoref{section3}}. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section6}
+\subsection*{\begin{center} \textbf{6} \end{center}}
+
+ \noindent
+ Cheater! There is no way you can have codeword fun. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section7}
+\subsection*{\begin{center} \textbf{7} \end{center}}
+
+ \noindent
+ If you have the codeword \textit{fun} turn to \textbf{\autoref{section6}}. Otherwise you can go to the end at \textbf{\autoref{section4}} or to the xortest at \textbf{\autoref{section3}}. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section8}
+\subsection*{\begin{center} \textbf{8} \end{center}}
+
+ \noindent
+ This is just to demonstrate choices allowed when not having a codeword. Now go on to \textbf{\autoref{section9}} (autotest) or \textbf{\autoref{section3}} (xor test). 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section9}
+\subsection*{\begin{center} \textbf{9} \end{center}}
+
+ \noindent
+ If you have codeword \textit{warrior} turn to \textbf{\autoref{section7}}. Otherwise you can go to the end at \textbf{\autoref{section4}} or back to \textbf{\autoref{section1}}. 
+\vspace{1em}
+\end{document}

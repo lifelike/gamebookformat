@@ -1,0 +1,88 @@
+\documentclass[a5,onecolumn]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+
+\usepackage[top=3.3cm, bottom=3.3cm, left=2cm, right=2cm]{geometry}
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+  \pdffalse
+\else
+  \ifnum\pdfoutput=1
+    \pdftrue
+  \else
+    \pdffalse
+  \fi
+\fi
+
+\title{Format}
+\author{}
+\date{}
+
+\newcounter{sectionnr}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\pagestyle{empty}
+
+\clearpage
+
+
+\subsection*{\begin{center} \textbf{Introduction} \end{center}}
+
+
+ \noindent
+ Adding an introduction to the gamebook here. This will create a section, but it will not be shuffled nor numbered with the gamebook sections below. 
+\vspace{1em}
+\subsection*{\begin{center} \textbf{Another Heading} \end{center}}
+
+
+ \noindent
+ This starts another non-shuffled section. 
+\vspace{1em}
+
+Adventure begins in section 1.
+
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section1}
+\subsection*{\begin{center} \textbf{1} \end{center}}
+
+ \noindent
+ This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like \} and \{ and " and ' and \textbackslash. HTML will probably not like <div> or \&boom;. There should be an image below as well. If something broke, turn to \textbf{\autoref{section2}}, otherwise turn to \textbf{\autoref{section4}}. \begin{center}
+\includegraphics[width=.9\textwidth]{testimage.png}
+\end{center}
+ 
+ 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section2}
+\subsection*{\begin{center} \textbf{2} \end{center}}
+
+ \noindent
+ Bad.
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section3}
+\subsection*{\begin{center} \textbf{3} \end{center}}
+
+ \noindent
+ Sections tagged as dummy will not be visible in output at all. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section4}
+\subsection*{\begin{center} \textbf{4} \end{center}}
+
+ \noindent
+ Good! 
+\vspace{1em}
+\end{document}

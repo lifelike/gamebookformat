@@ -1,4 +1,4 @@
-* TODO [39/67] [58%]
+* TODO [40/67] [59%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -45,7 +45,7 @@
   eg [a-z][a-z_0-9]+
 - [X] Random pick of link to follow from a section.
 - [X] Possibility to make predictable random numbers and shuffling for testing
-- [ ] Test generate examples and compare to expected output in all formats
+- [X] Test generate examples and compare to expected output in all formats
 - [ ] Unit tests (finally...)
 - [ ] Verify gamebook (always; drop the --verify option)
 - [ ] Dummy and fake sections (handle properly when verifying)

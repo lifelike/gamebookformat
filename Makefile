@@ -35,6 +35,14 @@ uploadto=$(shell cat .uploadto)
 %.png: %.dot
 	dot -Tpng $< > $@
 
+expected: all
+	$(RM) expected/* && cp examples/*.{rtf,tex,html,debug,txt,dot,map} \
+		 expected
+
+checkexpected: all
+	diff -r -x "*.aux" -x "*.gamebook" -x "*.log" -x "*.out" -x "*.png" \
+		-x "*.pdf" -x .gitignore -q examples expected
+
 upload: html png pdf rtf
 	if [ -n "$(uploadto)" ]; then \
 	 scp examples/*.html examples/*.png examples/*.pdf examples/*.rtf $(uploadto);\

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>Items</title>
+    <script>
+    var gamebook = {
+        'player' : {
+            'started' : false,
+            'currentSection' : null,
+            'collections' : {},
+
+            'collect' : function(type, name) {
+                this.collections[type] = {
+                    'name' : name,
+                    'contents' : [],
+                    'add' : function(what) {
+                        if (this.contents.indexOf(what) === -1
+                            && !(what in gamebook.dropped[type])) {
+                            this.contents.push(what);
+                            this.contents.sort();
+                        }
+                    },
+                    'drop' : function(what) {
+                        var i = this.contents.indexOf(what);
+                        if (i >= 0) {
+                            this.contents.splice(i, 1);
+                            gamebook.dropped[type][what] = true;
+                        }
+                    },
+                    'has' : function(what) {
+                        return this.contents.indexOf(what) >= 0;
+                    }
+                };
+                gamebook.dropped[type] = {};
+                gamebook.addCollectionView(type, name);
+            },
+
+            'add' : function(type, what) {
+                this.collections[type].add(what);
+                gamebook.updateCollectionsView();
+            },
+
+            'drop' : function(type, what) {
+                this.collections[type].drop(what);
+                gamebook.updateCollectionsView();
+            },
+
+            'has' : function(type, what) {
+                return this.collections[type].has(what);
+            }
+        },
+
+        'sections' : {},
+
+        'turnToFunctions' : {},
+
+        'dropped' : {},
+
+        'addSection' : function(nr, element) {
+            var section = {'element' : element, 'nr' : nr};
+            this.sections[nr] = section;
+        },
+
+        'turnTo' : function(nr) {
+            if (!gamebook.player.started) {
+                gamebook.start();
+            }
+            if (!nr in this.sections) {
+                throw new Exception("Can not turn to non-existing section "
+                                    + nr + ".");
+            }
+            this.displaySection(nr);
+        },
+
+        'start' : function() {
+            this.hideIntroSections();
+            this.addClassToClass('startlink', 'nodisplay');
+            gamebook.player.started = true;
+        },
+
+        'displaySection' : function(nr) {
+            if (this.player.currentSection) {
+                this.player.currentSection.element.style.display = 'none';
+            }
+            var e = this.sections[nr].element;
+            this.runActions(e.getElementsByClassName('sectiontext')[0]);
+            e.style.display = 'block';
+            this.player.currentSection = gamebook.sections[nr];
+        },
+
+        'hideIntroSections' : function() {
+            this.addClassToClass('introsection', 'nodisplay');
+            this.removeClassFromClass('displayintrolink', 'nodisplay');
+            this.addClassToClass('hideintrolink', 'nodisplay');
+        },
+
+        'showIntroSections' : function() {
+            this.runActionsInIntroSections();
+            this.removeClassFromClass('introsection', 'nodisplay');
+            this.addClassToClass('displayintrolink', 'nodisplay');
+            this.removeClassFromClass('hideintrolink', 'nodisplay');
+            document.body.scrollIntoView();
+        },
+
+        'runActionsInIntroSections' : function() {
+            Array.prototype.forEach.call(
+                document.getElementsByClassName('introsectionbody'),
+                gamebook.runActions);
+        },
+
+        'addClassToClass' : function(className, addClass) {
+            Array.prototype.forEach.call(
+                document.getElementsByClassName(className),
+                function(e) {
+                    e.classList.add(addClass);
+                });
+        },
+
+        'removeClassFromClass' : function(className, removeClass) {
+            Array.prototype.forEach.call(
+                document.getElementsByClassName(className),
+                function(e) {
+                    e.classList.remove(removeClass);
+                });
+        },
+
+        'runActions' : function(e) {
+            var enableNextLink = true;
+            var hasXorScope = false;
+            var hasAutoScope = false;
+            var xorEnableNext = false;
+            var autoDisableAllRemainingLinks = (
+                gamebook.player.started && e.classList.contains('introsectionbody'));
+            Array.prototype.forEach.call(e.childNodes, function(c) {
+                if (!c.classList) {
+                    return;
+                }
+                if (c.classList.contains('sectionref')) {
+                    if (enableNextLink && !autoDisableAllRemainingLinks) {
+                        gamebook.enableLink(c);
+                        if (hasAutoScope) {
+                            autoDisableAllRemainingLinks = true;
+                        }
+                    } else {
+                        gamebook.disableLink(c);
+                    }
+                    enableNextLink = !(hasXorScope && !xorEnableNext);
+                    hasAutoScope = false;
+                    hasXorScope = false;
+                } else if (c.classList.contains('collect')) {
+                    gamebook.player.collect(c.dataset.type, c.dataset.name);
+                } else if (c.classList.contains('add')) {
+                    gamebook.player.add(c.dataset.type, c.dataset.what);
+                } else if (c.classList.contains('drop')) {
+                    gamebook.player.drop(c.dataset.type, c.dataset.what);
+                } else if (c.classList.contains('has')) {
+                    enableNextLink = gamebook.player.has(c.dataset.type,
+                                                         c.dataset.what);
+                } else if (c.classList.contains('hasnot')) {
+                    enableNextLink = !gamebook.player.has(c.dataset.type,
+                                                          c.dataset.what);
+                } else if (c.classList.contains('xor')) {
+                    hasXorScope = true;
+                    xorEnableNext = !enableNextLink;
+                } else if (c.classList.contains('auto')) {
+                    hasAutoScope = true;
+                } else if (c.classList.contains('random')) {
+                    c.addEventListener('click',
+                                       gamebook.enableRandomLinkAfter);
+                    c.classList.add("enabledlink");
+                    c.classList.remove("disabledlink");
+                    autoDisableAllRemainingLinks = true;
+                }
+            });
+        },
+
+        'enableLink' : function(e) {
+            e.addEventListener('click',
+                               gamebook.getTurnToFunction(e.dataset.ref));
+            e.classList.add("enabledlink");
+            e.classList.remove("disabledlink");
+        },
+
+        'disableLink' : function(e) {
+            e.removeEventListener('click',
+                               gamebook.getTurnToFunction(e.dataset.ref));
+            e.classList.remove("enabledlink");
+            e.classList.add("disabledlink");
+        },
+
+        'enableRandomLinkAfter' : function(event) {
+            this.classList.remove("enabledlink");
+            this.classList.add("disabledlink");
+            var links = [];
+            var e = this.nextSibling;
+            while (e) {
+                if (e.classList && e.classList.contains('sectionref')) {
+                    links.push(e);
+                }
+                e = e.nextSibling;
+            }
+            if (links.length > 0) {
+                var selected = links[Math.floor(Math.random()*links.length)]
+                gamebook.enableLink(selected);
+            } else {
+                console.log("Random with nothing to select?");
+            }
+            event.preventDefault();
+        },
+
+        'addCollectionView' : function(type, name) {
+            var ce = document.getElementById('collections');
+            var template = document.getElementById('collectionTemplate');
+            var e = template.cloneNode(true);
+            e.className = "collection";
+            e.getElementsByClassName('collectionheading')[0].innerHTML = name;
+            e.dataset.type = type;
+            ce.appendChild(e);
+        },
+
+        'updateCollectionsView' : function() {
+            var ce = document.getElementById('collections');
+            Array.prototype.forEach.call(ce.childNodes, function(c) {
+                if (c.className === 'collection') {
+                    var type = c.dataset.type;
+                    var collection = gamebook.player.collections[type];
+                    var cc = c.getElementsByClassName('collectioncontents')[0];
+                    cc.innerHTML = collection.contents.join(', ');
+                }
+            });
+        },
+
+        'getTurnToFunction' : function(nr) {
+            if (nr in this.turnToFunctions) {
+                return this.turnToFunctions[nr];
+            } else {
+                var f = function () {
+                    gamebook.turnTo(nr);
+                };
+                this.turnToFunctions[nr] = f;
+                return f;
+            }
+        }
+
+    };
+
+    </script>
+  <style>
+    .startlink,.sectionref,.displayintrolink,.hideintrolink,.found,.add,.random {
+                   font-weight: bold;
+                   margin: 0.2em;
+                   vertical-align: middle;
+                   white-space: nowrap;
+    }
+
+    .sectionref.enabledlink {
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+    }
+
+    .startlink,.enabledlink,.displayintrolink,.hideintrolink,.found,.random {
+        cursor: pointer;}
+
+    .startlink,.enabledlink,.displayintrolink,.hideintrolink,.found,
+    .random {background: #eef;
+    }
+    .startlink:hover,.enabledlink:hover,.displayintrolink:hover,
+       .hideintrolink:hover {background: #a9f;}
+    .disabledlink {color: #bbb; cursor: not-allowed; background: inherit;}
+    .disabledlink:hover {background: inherit;}
+    .sectionnumber {font-weight: bolder;
+                    margin-left: 50%;
+                    margin-right: 50%;}
+    .section {display: none; width: 90%; margin-left: 5%; margin-right: 5%;}
+    .sectiontext {margin-top: 0.5em;}
+    .gamebook {max-width: 30em; padding: 1em; width: 100%; font-size: 133%;}
+    .collections {margin-top: 4em;}
+    .collection {background: #ddd; margin-top: 1em;}
+    .collectionheading {}
+    .collectionheading::after {content: ": ";}
+    .collectioncontents {}
+    .collect {}
+    .add {font-weight: bold;}
+    .drop {font-style: italic;}
+    .has {font-style: italic;}
+    .hasnot {font-style: italic;}
+    .collectionTemplate {display: none;}
+    .sectionimage {width: 100%; padding: 1em;}
+    .nodisplay {display: none;}
+  </style>
+  </head>
+  <body>
+<div class="hideintrolink nodisplay"
+    onclick="gamebook.hideIntroSections()">(hide instructions)</div>
+  <div class="gamebook">
+
+<div class="startlink"
+  onclick="gamebook.turnTo(1)">Turn to 1 to begin.</div>
+
+<div class="section" id="section1">
+<span class="sectionnumber" id="para1">1</span>
+<div class="sectiontext">
+ Demonstrating how to manage player <span class="collect" data-type="item"
+    data-name="Inventory">Inventory</span>. You start the book carrying a <span class="add" data-type="item"
+      data-what="sword">sword</span> and a <span class="add" data-type="item"
+      data-what="shield">shield</span>. Turn to <a class="sectionref enabledlink" data-ref="2">2</a>. 
+</div>
+</div>
+<script>
+if (this.gamebook) {
+   gamebook.addSection(1, document.getElementById('section1'));
+}
+</script> <div class="section" id="section2">
+<span class="sectionnumber" id="para2">2</span>
+<div class="sectiontext">
+ You have reached a t-junction. Here you find a <span class="found enabledlink"
+    onclick="gamebook.player.add('item', 'key')"
+>key</span>
+ and a <span class="found enabledlink"
+    onclick="gamebook.player.add('item', 'stick')"
+>stick</span>
+. You can go west to <a class="sectionref enabledlink" data-ref="7">7</a>, or east to <a class="sectionref enabledlink" data-ref="4">4</a>. 
+</div>
+</div>
+<script>
+if (this.gamebook) {
+   gamebook.addSection(2, document.getElementById('section2'));
+}
+</script> <div class="section" id="section3">
+<span class="sectionnumber" id="para3">3</span>
+<div class="sectiontext">
+ OK. That was fun. Turn to <a class="sectionref enabledlink" data-ref="10">10</a>. 
+</div>
+</div>
+<script>
+if (this.gamebook) {
+   gamebook.addSection(3, document.getElementById('section3'));
+}
+</script> <div class="section" id="section4">
+<span class="sectionnumber" id="para4">4</span>
+<div class="sectiontext">
+ There is a <span class="found enabledlink"
+    onclick="gamebook.player.add('item', 'cursed bracelet')"
+>cursed bracelet</span>
+ here. You can go on to <a class="sectionref enabledlink" data-ref="6">6</a> or go back to <a class="sectionref enabledlink" data-ref="2">2</a>. You can also drop the <span class="has" data-type="item" data-what="stick">stick</span> for no particular reason if you have it, see <a class="sectionref enabledlink" data-ref="11">11</a>. 
+</div>
+</div>
+<script>
+if (this.gamebook) {
+   gamebook.addSection(4, document.getElementById('section4'));
+}
+</script> <div class="section" id="section5">
+<span class="sectionnumber" id="para5">5</span>
+<div class="sectiontext">
+ You found <span class="found enabledlink"
+    onclick="gamebook.player.add('item', 'something valuable')"
+>something valuable</span>
+, but there is no way forward, so you head back to <a class="sectionref enabledlink" data-ref="2">2</a>. 
+</div>
+</div>
+<script>
+if (this.gamebook) {
+   gamebook.addSection(5, document.getElementById('section5'));
+}
+</script> <div class="section" id="section6">
+<span class="sectionnumber" id="para6">6</span>
+<div class="sectiontext">
+ A magic portal ahead will only allow you to pass if you did not pick up the <span class="hasnot" data-type="item"
+      data-what="cursed bracelet">cursed bracelet</span>, leading you to <a class="sectionref enabledlink" data-ref="5">5</a>. If you have the <span class="has" data-type="item" data-what="cursed bracelet">cursed bracelet</span> you have to go back to <a class="sectionref enabledlink" data-ref="2">2</a> instead. Actually feel free to head back to <a class="sectionref enabledlink" data-ref="2">2</a> either way. 
+</div>
+</div>
+<script>
+if (this.gamebook) {
+   gamebook.addSection(6, document.getElementById('section6'));
+}
+</script> <div class="section" id="section7">
+<span class="sectionnumber" id="para7">7</span>
+<div class="sectiontext">
+ There is a locked door here.eh If you have a <span class="has" data-type="item" data-what="key">key</span> you can use that to open the door, see <a class="sectionref enabledlink" data-ref="8">8</a>. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the <span class="has" data-type="item" data-what="sword">sword</span>, if you have it, see <a class="sectionref enabledlink" data-ref="9">9</a>. Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see <a class="sectionref enabledlink" data-ref="2">2</a>. 
+</div>
+</div>
+<script>
+if (this.gamebook) {
+   gamebook.addSection(7, document.getElementById('section7'));
+}
+</script> <div class="section" id="section8">
+<span class="sectionnumber" id="para8">8</span>
+<div class="sectiontext">
+ There is a rope here that can be cut using a <span class="has" data-type="item" data-what="sword">sword</span>. If you have one and want to do that, see <a class="sectionref enabledlink" data-ref="3">3</a>. Otherwise turn to <a class="sectionref enabledlink" data-ref="10">10</a>. 
+</div>
+</div>
+<script>
+if (this.gamebook) {
+   gamebook.addSection(8, document.getElementById('section8'));
+}
+</script> <div class="section" id="section9">
+<span class="sectionnumber" id="para9">9</span>
+<div class="sectiontext">
+ OK. The door is broken, but so is the <span class="drop" data-type="item"
+      data-what="sword">sword</span>. Turn to <a class="sectionref enabledlink" data-ref="8">8</a>. 
+</div>
+</div>
+<script>
+if (this.gamebook) {
+   gamebook.addSection(9, document.getElementById('section9'));
+}
+</script> <div class="section" id="section10">
+<span class="sectionnumber" id="para10">10</span>
+<div class="sectiontext">
+ Congratulations, you won.
+</div>
+</div>
+<script>
+if (this.gamebook) {
+   gamebook.addSection(10, document.getElementById('section10'));
+}
+</script> <div class="section" id="section11">
+<span class="sectionnumber" id="para11">11</span>
+<div class="sectiontext">
+ OK <span class="drop" data-type="item"
+      data-what="stick">stick</span> dropped. Turn back to <a class="sectionref enabledlink" data-ref="2">2</a> to confirm stick can not be picked up again even if the text says it is there (books work that way, although ideally this dynamic version should provide some hints that it is no longer there). 
+</div>
+</div>
+<script>
+if (this.gamebook) {
+   gamebook.addSection(11, document.getElementById('section11'));
+}
+</script>     <div id="collections" class="collections">
+    </div>
+    <div id="collectionTemplate" class="collectionTemplate">
+      <span class="collectionheading"></span>
+      <span class="collectioncontents"></span>
+    </div>
+    </div>
+    <script>
+if (this.gamebook) {
+    gamebook.runActionsInIntroSections();
+}
+    </script>
+<div class="displayintrolink nodisplay"
+    onclick="gamebook.showIntroSections()">(show instructions)</div>
+  </body>
+</html>

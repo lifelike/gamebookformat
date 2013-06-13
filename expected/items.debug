@@ -1,0 +1,19 @@
+BEGIN DEBUG OUTPUT
+Book title: Items
+Number of sections: 11
+
+
+Turn to 1 to begin.
+
+1 (start) -  Demonstrating how to manage player [COLLECT item]Inventory[/COLLECT]. You start the book carrying a [ADD item]sword[/ADD] and a [ADD item]shield[/ADD]. Turn to 2. 
+2 (tjunction) -  You have reached a t-junction. Here you find a [FOUND item]key[/FOUND] and a [FOUND item]stick[/FOUND]. You can go west to 7, or east to 4. 
+3 (cut_rope) -  OK. That was fun. Turn to 10. 
+4 (curse) -  There is a [FOUND item]cursed bracelet[/FOUND] here. You can go on to 6 or go back to 2. You can also drop the [HAS item]stick[/HAS] for no particular reason if you have it, see 11. 
+5 (treasure) -  You found [FOUND item]something valuable[/FOUND], but there is no way forward, so you head back to 2. 
+6 (portal) -  A magic portal ahead will only allow you to pass if you did not pick up the [HAS NOT item]cursed bracelet[/HAS NOT], leading you to 5. If you have the [HAS item]cursed bracelet[/HAS] you have to go back to 2 instead. Actually feel free to head back to 2 either way. 
+7 (door) -  There is a locked door here.eh If you have a [HAS item]key[/HAS] you can use that to open the door, see 8. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the [HAS item]sword[/HAS], if you have it, see 9. Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see 2. 
+8 (inside) -  There is a rope here that can be cut using a [HAS item]sword[/HAS]. If you have one and want to do that, see 3. Otherwise turn to 10. 
+9 (attempt_break_door_with_sword) -  OK. The door is broken, but so is the [DROP item]sword[/DROP]. Turn to 8. 
+10 (won) -  Congratulations, you won.
+11 (drop_stick) -  OK [DROP item]stick[/DROP] dropped. Turn back to 2 to confirm stick can not be picked up again even if the text says it is there (books work that way, although ideally this dynamic version should provide some hints that it is no longer there). 
+END DEBUG OUTPUT
