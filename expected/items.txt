@@ -8,32 +8,32 @@ Turn to 1 to begin.
  Demonstrating how to manage player Inventory. You start the book carrying a sword and a shield. Turn to 2. 
 
 2
- You have reached a t-junction. Here you find a key and a stick. You can go west to 7, or east to 4. 
+ You have reached a t-junction. Here you find a key and a stick. You can go west to 11, or east to 7. 
 
 3
- OK. That was fun. Turn to 10. 
+ OK. The door is broken, but so is the sword. Turn to 6. 
 
 4
- There is a cursed bracelet here. You can go on to 6 or go back to 2. You can also drop the stick for no particular reason if you have it, see 11. 
-
-5
  You found something valuable, but there is no way forward, so you head back to 2. 
 
+5
+ OK. That was fun. Turn to 9. 
+
 6
- A magic portal ahead will only allow you to pass if you did not pick up the cursed bracelet, leading you to 5. If you have the cursed bracelet you have to go back to 2 instead. Actually feel free to head back to 2 either way. 
+ There is a rope here that can be cut using a sword. If you have one and want to do that, see 5. Otherwise turn to 9. 
 
 7
- There is a locked door here. If you have a key you can use that to open the door, see 8. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the sword, if you have it, see 9. Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see 2. 
+ There is a cursed bracelet here. You can go on to 10 or go back to 2. You can also drop the stick for no particular reason if you have it, see 8. 
 
 8
- There is a rope here that can be cut using a sword. If you have one and want to do that, see 3. Otherwise turn to 10. 
+ OK stick dropped. Turn back to 2 to confirm stick can not be picked up again even if the text says it is there (books work that way, although ideally this dynamic version should provide some hints that it is no longer there). 
 
 9
- OK. The door is broken, but so is the sword. Turn to 8. 
-
-10
  Congratulations, you won.
 
+10
+ A magic portal ahead will only allow you to pass if you did not pick up the cursed bracelet, leading you to 4. If you have the cursed bracelet you have to go back to 2 instead. Actually feel free to head back to 2 either way. 
+
 11
- OK stick dropped. Turn back to 2 to confirm stick can not be picked up again even if the text says it is there (books work that way, although ideally this dynamic version should provide some hints that it is no longer there). 
+ There is a locked door here. If you have a key you can use that to open the door, see 6. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the sword, if you have it, see 3. Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see 2. 
 

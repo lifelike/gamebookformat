@@ -59,6 +59,8 @@
   display somewhere on page (in HTML output)
 - [ ] Counters increase/decrease
 - [ ] Counters check
+- [ ] Make sure HTML output works with javascript disabled
+    and in inferior browsers
 - [ ] Trade (optionally drop something from collection to add something new).
 - [ ] Buy (optionally decrease a counter to add something to a collection)
 - [ ] Sell (optionally increase a counter to drop something from a collection)
@@ -93,13 +95,6 @@
 - [ ] HTML CSS
 - [ ] Higher level text-language for Gamebooks
 - [ ] BGG forum output (.bgg)
-- [ ] Make sure HTML output works with javascript disabled and in inferior browsers
-
-
-
-
-
-
 
 
 

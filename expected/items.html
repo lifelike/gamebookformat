@@ -322,7 +322,7 @@ if (this.gamebook) {
  and a <span class="found enabledlink"
     onclick="gamebook.player.add('item', 'stick')"
 >stick</span>
-. You can go west to <a class="sectionref enabledlink" data-ref="7">7</a>, or east to <a class="sectionref enabledlink" data-ref="4">4</a>. 
+. You can go west to <a class="sectionref enabledlink" data-ref="11">11</a>, or east to <a class="sectionref enabledlink" data-ref="7">7</a>. 
 </div>
 </div>
 <script>
@@ -332,7 +332,8 @@ if (this.gamebook) {
 </script> <div class="section" id="section3">
 <span class="sectionnumber" id="para3">3</span>
 <div class="sectiontext">
- OK. That was fun. Turn to <a class="sectionref enabledlink" data-ref="10">10</a>. 
+ OK. The door is broken, but so is the <span class="drop" data-type="item"
+      data-what="sword">sword</span>. Turn to <a class="sectionref enabledlink" data-ref="6">6</a>. 
 </div>
 </div>
 <script>
@@ -342,10 +343,10 @@ if (this.gamebook) {
 </script> <div class="section" id="section4">
 <span class="sectionnumber" id="para4">4</span>
 <div class="sectiontext">
- There is a <span class="found enabledlink"
-    onclick="gamebook.player.add('item', 'cursed bracelet')"
->cursed bracelet</span>
- here. You can go on to <a class="sectionref enabledlink" data-ref="6">6</a> or go back to <a class="sectionref enabledlink" data-ref="2">2</a>. You can also drop the <span class="has" data-type="item" data-what="stick">stick</span> for no particular reason if you have it, see <a class="sectionref enabledlink" data-ref="11">11</a>. 
+ You found <span class="found enabledlink"
+    onclick="gamebook.player.add('item', 'something valuable')"
+>something valuable</span>
+, but there is no way forward, so you head back to <a class="sectionref enabledlink" data-ref="2">2</a>. 
 </div>
 </div>
 <script>
@@ -355,10 +356,7 @@ if (this.gamebook) {
 </script> <div class="section" id="section5">
 <span class="sectionnumber" id="para5">5</span>
 <div class="sectiontext">
- You found <span class="found enabledlink"
-    onclick="gamebook.player.add('item', 'something valuable')"
->something valuable</span>
-, but there is no way forward, so you head back to <a class="sectionref enabledlink" data-ref="2">2</a>. 
+ OK. That was fun. Turn to <a class="sectionref enabledlink" data-ref="9">9</a>. 
 </div>
 </div>
 <script>
@@ -368,8 +366,7 @@ if (this.gamebook) {
 </script> <div class="section" id="section6">
 <span class="sectionnumber" id="para6">6</span>
 <div class="sectiontext">
- A magic portal ahead will only allow you to pass if you did not pick up the <span class="hasnot" data-type="item"
-      data-what="cursed bracelet">cursed bracelet</span>, leading you to <a class="sectionref enabledlink" data-ref="5">5</a>. If you have the <span class="has" data-type="item" data-what="cursed bracelet">cursed bracelet</span> you have to go back to <a class="sectionref enabledlink" data-ref="2">2</a> instead. Actually feel free to head back to <a class="sectionref enabledlink" data-ref="2">2</a> either way. 
+ There is a rope here that can be cut using a <span class="has" data-type="item" data-what="sword">sword</span>. If you have one and want to do that, see <a class="sectionref enabledlink" data-ref="5">5</a>. Otherwise turn to <a class="sectionref enabledlink" data-ref="9">9</a>. 
 </div>
 </div>
 <script>
@@ -379,7 +376,10 @@ if (this.gamebook) {
 </script> <div class="section" id="section7">
 <span class="sectionnumber" id="para7">7</span>
 <div class="sectiontext">
- There is a locked door here. If you have a <span class="has" data-type="item" data-what="key">key</span> you can use that to open the door, see <a class="sectionref enabledlink" data-ref="8">8</a>. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the <span class="has" data-type="item" data-what="sword">sword</span>, if you have it, see <a class="sectionref enabledlink" data-ref="9">9</a>. Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see <a class="sectionref enabledlink" data-ref="2">2</a>. 
+ There is a <span class="found enabledlink"
+    onclick="gamebook.player.add('item', 'cursed bracelet')"
+>cursed bracelet</span>
+ here. You can go on to <a class="sectionref enabledlink" data-ref="10">10</a> or go back to <a class="sectionref enabledlink" data-ref="2">2</a>. You can also drop the <span class="has" data-type="item" data-what="stick">stick</span> for no particular reason if you have it, see <a class="sectionref enabledlink" data-ref="8">8</a>. 
 </div>
 </div>
 <script>
@@ -389,7 +389,8 @@ if (this.gamebook) {
 </script> <div class="section" id="section8">
 <span class="sectionnumber" id="para8">8</span>
 <div class="sectiontext">
- There is a rope here that can be cut using a <span class="has" data-type="item" data-what="sword">sword</span>. If you have one and want to do that, see <a class="sectionref enabledlink" data-ref="3">3</a>. Otherwise turn to <a class="sectionref enabledlink" data-ref="10">10</a>. 
+ OK <span class="drop" data-type="item"
+      data-what="stick">stick</span> dropped. Turn back to <a class="sectionref enabledlink" data-ref="2">2</a> to confirm stick can not be picked up again even if the text says it is there (books work that way, although ideally this dynamic version should provide some hints that it is no longer there). 
 </div>
 </div>
 <script>
@@ -399,8 +400,7 @@ if (this.gamebook) {
 </script> <div class="section" id="section9">
 <span class="sectionnumber" id="para9">9</span>
 <div class="sectiontext">
- OK. The door is broken, but so is the <span class="drop" data-type="item"
-      data-what="sword">sword</span>. Turn to <a class="sectionref enabledlink" data-ref="8">8</a>. 
+ Congratulations, you won.
 </div>
 </div>
 <script>
@@ -410,7 +410,8 @@ if (this.gamebook) {
 </script> <div class="section" id="section10">
 <span class="sectionnumber" id="para10">10</span>
 <div class="sectiontext">
- Congratulations, you won.
+ A magic portal ahead will only allow you to pass if you did not pick up the <span class="hasnot" data-type="item"
+      data-what="cursed bracelet">cursed bracelet</span>, leading you to <a class="sectionref enabledlink" data-ref="4">4</a>. If you have the <span class="has" data-type="item" data-what="cursed bracelet">cursed bracelet</span> you have to go back to <a class="sectionref enabledlink" data-ref="2">2</a> instead. Actually feel free to head back to <a class="sectionref enabledlink" data-ref="2">2</a> either way. 
 </div>
 </div>
 <script>
@@ -420,8 +421,7 @@ if (this.gamebook) {
 </script> <div class="section" id="section11">
 <span class="sectionnumber" id="para11">11</span>
 <div class="sectiontext">
- OK <span class="drop" data-type="item"
-      data-what="stick">stick</span> dropped. Turn back to <a class="sectionref enabledlink" data-ref="2">2</a> to confirm stick can not be picked up again even if the text says it is there (books work that way, although ideally this dynamic version should provide some hints that it is no longer there). 
+ There is a locked door here. If you have a <span class="has" data-type="item" data-what="key">key</span> you can use that to open the door, see <a class="sectionref enabledlink" data-ref="6">6</a>. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the <span class="has" data-type="item" data-what="sword">sword</span>, if you have it, see <a class="sectionref enabledlink" data-ref="3">3</a>. Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see <a class="sectionref enabledlink" data-ref="2">2</a>. 
 </div>
 </div>
 <script>

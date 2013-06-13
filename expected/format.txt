@@ -11,13 +11,13 @@ Another Heading
 Adventure begins in section 1.
 
 1
- This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like } and { and " and ' and \. HTML will probably not like <div> or &boom;. There should be an image below as well. If something broke, turn to 2, otherwise turn to 4. testimage.png 
+ This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like } and { and " and ' and \. HTML will probably not like <div> or &boom;. There should be an image below as well. If something broke, turn to 3, otherwise turn to 4. testimage.png 
 
 2
- Bad.
+ Sections tagged as dummy will not be visible in output at all. 
 
 3
- Sections tagged as dummy will not be visible in output at all. 
+ Bad.
 
 4
  Good! 

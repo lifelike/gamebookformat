@@ -3,11 +3,11 @@ Book title: Gamebook
 Number of sections: 400
 
 Introduction
- This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at 1 or the next section at 202. 
+ This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at 1 or the next section at 55. 
 
 Turn to 1 to begin.
 
-1 (start) -  This is where the adventure begins. You can go on to the next section, see 202 or try the random selection feature at 76. 
+1 (start) -  This is where the adventure begins. You can go on to the next section, see 55 or try the random selection feature at 201. 
 2 () - (EMPTY)
 3 () - (EMPTY)
 4 () - (EMPTY)
@@ -19,7 +19,7 @@ Turn to 1 to begin.
 10 () - (EMPTY)
 11 () - (EMPTY)
 12 () - (EMPTY)
-13 () - (EMPTY)
+13 (altend) -  Alternative ending. 
 14 () - (EMPTY)
 15 () - (EMPTY)
 16 () - (EMPTY)
@@ -61,7 +61,7 @@ Turn to 1 to begin.
 52 () - (EMPTY)
 53 () - (EMPTY)
 54 () - (EMPTY)
-55 () - (EMPTY)
+55 (next) -  This is the next section. Go on to the end at 247. 
 56 () - (EMPTY)
 57 () - (EMPTY)
 58 () - (EMPTY)
@@ -73,7 +73,7 @@ Turn to 1 to begin.
 64 () - (EMPTY)
 65 () - (EMPTY)
 66 () - (EMPTY)
-67 (altend) -  Alternative ending. 
+67 () - (EMPTY)
 68 () - (EMPTY)
 69 () - (EMPTY)
 70 () - (EMPTY)
@@ -82,7 +82,7 @@ Turn to 1 to begin.
 73 () - (EMPTY)
 74 () - (EMPTY)
 75 () - (EMPTY)
-76 (random) -  [RANDOM]Pick a destination at random[/RANDOM] from 202 or 345 or 67. 
+76 () - (EMPTY)
 77 () - (EMPTY)
 78 () - (EMPTY)
 79 () - (EMPTY)
@@ -207,8 +207,8 @@ Turn to 1 to begin.
 198 () - (EMPTY)
 199 () - (EMPTY)
 200 () - (EMPTY)
-201 () - (EMPTY)
-202 (next) -  This is the next section. Go on to the end at 345. 
+201 (random) -  [RANDOM]Pick a destination at random[/RANDOM] from 55 or 247 or 13. 
+202 () - (EMPTY)
 203 () - (EMPTY)
 204 () - (EMPTY)
 205 () - (EMPTY)
@@ -253,7 +253,7 @@ Turn to 1 to begin.
 244 () - (EMPTY)
 245 () - (EMPTY)
 246 () - (EMPTY)
-247 () - (EMPTY)
+247 (end) -  The end. 
 248 () - (EMPTY)
 249 () - (EMPTY)
 250 () - (EMPTY)
@@ -351,7 +351,7 @@ Turn to 1 to begin.
 342 () - (EMPTY)
 343 () - (EMPTY)
 344 () - (EMPTY)
-345 (end) -  The end. 
+345 () - (EMPTY)
 346 () - (EMPTY)
 347 () - (EMPTY)
 348 () - (EMPTY)

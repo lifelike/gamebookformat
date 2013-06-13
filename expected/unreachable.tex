@@ -43,7 +43,7 @@ Turn to 1 to begin.
 \subsection*{\begin{center} \textbf{1} \end{center}}
 
  \noindent
- It starts here. You can get to \textbf{\autoref{section4}}. 
+ It starts here. You can get to \textbf{\autoref{section2}}. 
 \vspace{1em}
 \phantomsection
 \refstepcounter{sectionnr}
@@ -51,7 +51,7 @@ Turn to 1 to begin.
 \subsection*{\begin{center} \textbf{2} \end{center}}
 
  \noindent
- Another fake section that is also ignored. 
+ You can get here. Congratulations! 
 \vspace{1em}
 \phantomsection
 \refstepcounter{sectionnr}
@@ -59,7 +59,7 @@ Turn to 1 to begin.
 \subsection*{\begin{center} \textbf{3} \end{center}}
 
  \noindent
- You can not get here either, but because it is tagged as fake there will be no warning generated. 
+ Another fake section that is also ignored. 
 \vspace{1em}
 \phantomsection
 \refstepcounter{sectionnr}
@@ -67,7 +67,7 @@ Turn to 1 to begin.
 \subsection*{\begin{center} \textbf{4} \end{center}}
 
  \noindent
- You can get here. Congratulations! 
+ You can not get here. Verification should warn you about that, if enabled (with the --verify option). 
 \vspace{1em}
 \phantomsection
 \refstepcounter{sectionnr}
@@ -75,6 +75,6 @@ Turn to 1 to begin.
 \subsection*{\begin{center} \textbf{5} \end{center}}
 
  \noindent
- You can not get here. Verification should warn you about that, if enabled (with the --verify option). 
+ You can not get here either, but because it is tagged as fake there will be no warning generated. 
 \vspace{1em}
 \end{document}
