@@ -35,6 +35,8 @@ uploadto=$(shell cat .uploadto)
 %.png: %.dot
 	dot -Tpng $< > $@
 
+test: unittest checkexpected
+
 expected: all
 	$(RM) expected/* && cp examples/*.{rtf,tex,html,debug,txt,dot,map} \
 		 expected
@@ -42,6 +44,11 @@ expected: all
 checkexpected: all
 	diff -r -x "*.aux" -x "*.gamebook" -x "*.log" -x "*.out" -x "*.png" \
 		-x "*.pdf" -x .gitignore -q examples expected
+
+unittests=test_sections
+
+unittest: *.py
+	python2.7 -m unittest $(unittests)
 
 upload: html png pdf rtf
 	if [ -n "$(uploadto)" ]; then \
@@ -57,7 +64,7 @@ clean:
 fixmes:
 	grep FIXME *.py
 
-.PHONY: all clean fixmes uploadto
+.PHONY: all clean fixmes uploadto expected checkexpected test unittest
 
 .PRECIOUS: %.tex %.dot
 

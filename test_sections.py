@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python2.7
 
 import unittest
 from unittest import TestCase
@@ -33,7 +33,7 @@ class TestBook(TestCase):
         b = sections.Book()
         self.assertEqual(b.sections, [])
         self.assertEqual(b.nr_sections, {})
-        self.assertEqual(b.max, 0)
+        self.assertEqual(b.config['max'], 0)
 
 class TestItem(TestCase):
     def setUp(self):
