@@ -23,7 +23,7 @@ Turn to 1 to begin.
  A magic portal ahead will only allow you to pass if you did not pick up the cursed bracelet, leading you to 5. If you have the cursed bracelet you have to go back to 2 instead. Actually feel free to head back to 2 either way. 
 
 7
- There is a locked door here.eh If you have a key you can use that to open the door, see 8. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the sword, if you have it, see 9. Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see 2. 
+ There is a locked door here. If you have a key you can use that to open the door, see 8. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the sword, if you have it, see 9. Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see 2. 
 
 8
  There is a rope here that can be cut using a sword. If you have one and want to do that, see 3. Otherwise turn to 10. 
