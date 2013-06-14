@@ -2,9 +2,7 @@ BEGIN DEBUG OUTPUT
 Book title: Gamebook
 Number of sections: 9
 
-
 Turn to 1 to begin.
-
 1 (start) -  Demonstrating how [COLLECT code]Codewords[/COLLECT] (AKA sightings) can be used. Go to 2. 
 2 (second) -  Got codeword [ADD code]warrior[/ADD]. Simple enough to set a codeword. Turn to 3. 
 3 (choice) -  If you have the codeword [HAS code]warrior[/HAS] you may turn to 9. If you do not have the codeword [HAS NOT code]fun[/HAS NOT], you may turn to 4. If you have the codeword [HAS code]fun[/HAS], you may instead turn to 5. Otherwise see 6. 

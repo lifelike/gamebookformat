@@ -8,12 +8,12 @@ class OutputFormat (object):
         self.templates = templates
         self.quote = quote
 
-    def write_begin(self, book, output):
+    def write_begin(self, bookconfig, output):
         # FIXME make sure book config is properly quoted
-        print >> output, self.format_with_template("begin", book.config)
+        print >> output, self.format_with_template("begin", bookconfig),
 
-    def write_intro_sections(self, book, shuffled_sections, output):
-        for s in book.introsections:
+    def write_intro_sections(self, introsections, shuffled_sections, output):
+        for s in introsections:
             if not s.hastag('dummy'):
                 self.write_intro_section(s, shuffled_sections, output)
 
@@ -31,8 +31,9 @@ class OutputFormat (object):
             'refs' : '\n'.join(refsdict.getfound()) # hack for DOT output
         }),
 
-    def write_sections_begin(self, book, output):
-        print >> output, self.format_with_template("sections_begin", book.config);
+    def write_sections_begin(self, bookconfig, output):
+        print >> output, self.format_with_template("sections_begin",
+                                                   bookconfig),
 
     def write_shuffled_sections(self, shuffled_sections, output):
         for i, p in enumerate(shuffled_sections.as_list):
@@ -114,8 +115,8 @@ class OutputFormat (object):
             'nr' : nr,
         }),
 
-    def write_end(self, book, output):
-        print >> output, self.format_with_template("end", book.config),
+    def write_end(self, bookconfig, output):
+        print >> output, self.format_with_template("end", bookconfig),
 
     def format_with_template(self, name, values=None):
         template = self.templates.get(name)
