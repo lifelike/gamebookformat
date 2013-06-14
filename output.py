@@ -8,16 +8,18 @@ class OutputFormat (object):
         self.templates = templates
         self.quote = quote
 
-    def write_begin(self, bookconfig, output):
+    def format_begin(self, bookconfig):
         # FIXME make sure book config is properly quoted
-        print >> output, self.format_with_template("begin", bookconfig),
+        return self.format_with_template("begin", bookconfig)
 
-    def write_intro_sections(self, introsections, shuffled_sections, output):
+    def format_intro_sections(self, introsections, shuffled_sections):
+        res = ""
         for s in introsections:
             if not s.hastag('dummy'):
-                self.write_intro_section(s, shuffled_sections, output)
+                res += self.format_intro_section(s, shuffled_sections)
+        return res
 
-    def write_intro_section(self, section, shuffled_sections, output):
+    def format_intro_section(self, section, shuffled_sections):
         # FIXME some serious code-duplication here
         refs = []
         refsdict = ReferenceFormatter(section.nr,
@@ -25,38 +27,40 @@ class OutputFormat (object):
                                       self.format_with_template("section_ref"),
                                       self.quote)
         formatted_text = self.format_section(section, refsdict)
-        print >> output, self.format_with_template("introsection", {
+        return self.format_with_template("introsection", {
             'name' : section.name,
             'text' : formatted_text,
             'refs' : '\n'.join(refsdict.getfound()) # hack for DOT output
-        }),
+        })
 
-    def write_sections_begin(self, bookconfig, output):
-        print >> output, self.format_with_template("sections_begin",
-                                                   bookconfig),
+    def format_sections_begin(self, bookconfig):
+        return self.format_with_template("sections_begin",
+                                         bookconfig)
 
-    def write_shuffled_sections(self, shuffled_sections, output):
+    def format_shuffled_sections(self, shuffled_sections):
+        res = ""
         for i, p in enumerate(shuffled_sections.as_list):
             if p and not p.hastag('dummy'):
-                self.write_section(p, shuffled_sections, output)
+                res += self.format_section(p, shuffled_sections)
             elif i > 0:
-                self.write_empty_section(i, output)
+                res += self.format_empty_section(i)
+        return res
 
-    def write_section(self, section, shuffled_sections, output):
+    def format_section(self, section, shuffled_sections):
         refs = []
         refsdict = ReferenceFormatter(section.nr,
                                       shuffled_sections.name_to_nr,
                                       self.format_with_template("section_ref"),
                                       self.quote)
-        formatted_text = self.format_section(section, refsdict)
-        print >> output, self.format_with_template("section", {
+        formatted_text = self.format_section_body(section, refsdict)
+        return self.format_with_template("section", {
             'nr' : section.nr,
             'name' : section.name,
             'text' : formatted_text,
             'refs' : '\n'.join(refsdict.getfound()) # hack for DOT output
-        }),
+        })
 
-    def format_section(self, section, references):
+    def format_section_body(self, section, references):
         i = 0
         res = ""
         # FIXME refactor for readability once good tests are in place
@@ -110,13 +114,13 @@ class OutputFormat (object):
                 break
         return res
 
-    def write_empty_section(self, nr, output):
-        print >> output, self.format_with_template("empty_section", {
+    def format_empty_section(self, nr):
+        return self.format_with_template("empty_section", {
             'nr' : nr,
-        }),
+        })
 
-    def write_end(self, bookconfig, output):
-        print >> output, self.format_with_template("end", bookconfig),
+    def format_end(self, bookconfig):
+        return self.format_with_template("end", bookconfig)
 
     def format_with_template(self, name, values=None):
         template = self.templates.get(name)

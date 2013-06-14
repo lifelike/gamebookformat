@@ -150,12 +150,12 @@ def make_output(outputfilename, templatedirs):
 def write_book(book, seed, output_format, outputfilename):
     shuffled_sections = book.shuffle(seed)
     output = open(outputfilename, 'w')
-    output_format.write_begin(book.config, output)
-    output_format.write_intro_sections(book.introsections,
-                                       shuffled_sections, output)
-    output_format.write_sections_begin(book.config, output)
-    output_format.write_shuffled_sections(shuffled_sections, output)
-    output_format.write_end(book.config, output)
+    print >> output, output_format.format_begin(book.config),
+    print >> output, output_format.format_intro_sections(book.introsections,
+                                                  shuffled_sections)
+    print >> output, output_format.format_sections_begin(book.config),
+    print >> output, output_format.format_shuffled_sections(shuffled_sections),
+    print >> output, output_format.format_end(book.config),
     save_section_mapping(shuffled_sections, outputfilename)
 
 def import_default_nr_map(outputfilename, book):

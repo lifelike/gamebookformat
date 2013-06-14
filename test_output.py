@@ -1,6 +1,5 @@
 #!/usr/bin/env python2.7
 
-import StringIO
 import unittest
 from unittest import TestCase
 
@@ -23,11 +22,9 @@ class TestOutputFormat(TestCase):
     def test_create(self):
         of = output.OutputFormat(FakeTemplates({}), str)
 
-    def test_write_empty_begin(self):
+    def test_format_begin(self):
         of = output.OutputFormat(FakeTemplates({'begin' : 'b %(max)d'}), str)
-        out = StringIO.StringIO()
-        of.write_begin({'max' : 2}, out)
-        self.assertEqual(out.getvalue(), 'b 2')
+        self.assertEqual(of.format_begin({'max' : 2}), 'b 2')
 
 class TestReferenceFormatter(TestCase):
     def setUp(self):
