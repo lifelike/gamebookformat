@@ -35,13 +35,5 @@ class TestBook(TestCase):
         self.assertEqual(b.nr_sections, {})
         self.assertEqual(b.config['max'], 0)
 
-class TestItem(TestCase):
-    def setUp(self):
-        pass
-
-    def test_create(self):
-        i = sections.Item("nn")
-        self.assertEqual(i.name, "nn")
-
 if __name__ == '__main__':
     unittest.main()

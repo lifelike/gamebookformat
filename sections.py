@@ -126,13 +126,3 @@ class Book:
                 shuffled_from_name[section.name] = section
         return ShuffledSections(as_list, from_nr, shuffled_from_name,
                                 self.nr_sections)
-
-class Item (object):
-    def __init__(self, name):
-        self.name = name
-
-class Hero (object):
-    "The hero (player character) of a Book."
-    def __init__(self):
-        self.carrying_capacity = 10
-        self.skills = set()
