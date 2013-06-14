@@ -4,7 +4,7 @@ import os.path
 import sys
 
 PREPROCESS_RE = re.compile("^\s*#")
-INCLUDE_RE = re.compile('^\s*#include\s*"(\w+)"')
+INCLUDE_RE = re.compile('^\s*#include\s*"([-\w]+)"')
 
 class Templates (object):
     def __init__(self, templatedirs, extension):

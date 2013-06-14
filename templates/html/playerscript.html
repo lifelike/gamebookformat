@@ -1,0 +1,43 @@
+            'started' : false,
+            'currentSection' : null,
+            'collections' : {},
+
+            'collect' : function(type, name) {
+                this.collections[type] = {
+                    'name' : name,
+                    'contents' : [],
+                    'add' : function(what) {
+                        if (this.contents.indexOf(what) === -1
+                            && !(what in gamebook.dropped[type])) {
+                            this.contents.push(what);
+                            this.contents.sort();
+                        }
+                    },
+                    'drop' : function(what) {
+                        var i = this.contents.indexOf(what);
+                        if (i >= 0) {
+                            this.contents.splice(i, 1);
+                            gamebook.dropped[type][what] = true;
+                        }
+                    },
+                    'has' : function(what) {
+                        return this.contents.indexOf(what) >= 0;
+                    }
+                };
+                gamebook.dropped[type] = {};
+                gamebook.addCollectionView(type, name);
+            },
+
+            'add' : function(type, what) {
+                this.collections[type].add(what);
+                gamebook.updateCollectionsView();
+            },
+
+            'drop' : function(type, what) {
+                this.collections[type].drop(what);
+                gamebook.updateCollectionsView();
+            },
+
+            'has' : function(type, what) {
+                return this.collections[type].has(what);
+            }
