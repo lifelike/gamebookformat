@@ -299,9 +299,20 @@
 <div class="introsection">
 <span class="introsectionheading">Introduction</span>
 <div class="introsectionbody">
+<div class="section" id="section-1">
+<span class="sectionnumber" id="para-1">-1</span>
+<div class="sectiontext">
  This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at <a class="sectionref enabledlink" data-ref="1">1</a> or the next section at <a class="sectionref enabledlink" data-ref="55">55</a>. 
 </div>
 </div>
+<script>
+if (this.gamebook) {
+   gamebook.addSection(-1, document.getElementById('section-1'));
+}
+</script>
+</div>
+</div>
+
 <div class="startlink"
   onclick="gamebook.turnTo(1)">Turn to 1 to begin.</div>
 <div class="section" id="section1">
@@ -314,7 +325,7 @@
 if (this.gamebook) {
    gamebook.addSection(1, document.getElementById('section1'));
 }
-</script>            <div class="section" id="section13">
+</script><div class="section" id="section13">
 <span class="sectionnumber" id="para13">13</span>
 <div class="sectiontext">
  Alternative ending. 
@@ -324,7 +335,7 @@ if (this.gamebook) {
 if (this.gamebook) {
    gamebook.addSection(13, document.getElementById('section13'));
 }
-</script>                                          <div class="section" id="section55">
+</script><div class="section" id="section55">
 <span class="sectionnumber" id="para55">55</span>
 <div class="sectiontext">
  This is the next section. Go on to the end at <a class="sectionref enabledlink" data-ref="247">247</a>. 
@@ -334,7 +345,7 @@ if (this.gamebook) {
 if (this.gamebook) {
    gamebook.addSection(55, document.getElementById('section55'));
 }
-</script>                                                                                                                                                  <div class="section" id="section201">
+</script><div class="section" id="section201">
 <span class="sectionnumber" id="para201">201</span>
 <div class="sectiontext">
  <span class="random enabledlink">Pick a destination at random</span> from <a class="sectionref enabledlink" data-ref="55">55</a> or <a class="sectionref enabledlink" data-ref="247">247</a> or <a class="sectionref enabledlink" data-ref="13">13</a>. 
@@ -344,7 +355,7 @@ if (this.gamebook) {
 if (this.gamebook) {
    gamebook.addSection(201, document.getElementById('section201'));
 }
-</script>                                              <div class="section" id="section247">
+</script><div class="section" id="section247">
 <span class="sectionnumber" id="para247">247</span>
 <div class="sectiontext">
  The end. 
@@ -354,7 +365,7 @@ if (this.gamebook) {
 if (this.gamebook) {
    gamebook.addSection(247, document.getElementById('section247'));
 }
-</script>                                                                                                                                                              <div id="collections" class="collections">
+</script>     <div id="collections" class="collections">
     </div>
     <div id="collectionTemplate" class="collectionTemplate">
       <span class="collectionheading"></span>

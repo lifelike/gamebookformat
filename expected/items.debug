@@ -2,6 +2,7 @@ BEGIN DEBUG OUTPUT
 Book title: Items
 Number of sections: 11
 
+
 Turn to 1 to begin.
 1 (start) -  Demonstrating how to manage player [COLLECT item]Inventory[/COLLECT]. You start the book carrying a [ADD item]sword[/ADD] and a [ADD item]shield[/ADD]. Turn to 2. 
 2 (tjunction) -  You have reached a t-junction. Here you find a [FOUND item]key[/FOUND] and a [FOUND item]stick[/FOUND]. You can go west to 11, or east to 7. 

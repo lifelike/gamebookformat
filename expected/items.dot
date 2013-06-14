@@ -1,4 +1,5 @@
 digraph gamebook {
+
  1->2
 2->7
 
@@ -15,7 +16,7 @@ digraph gamebook {
 
 7->10
 8->2
- 10->2
+10->2
 
 10->4
 11->2

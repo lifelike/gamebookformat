@@ -299,15 +299,36 @@
 <div class="introsection">
 <span class="introsectionheading">Introduction</span>
 <div class="introsectionbody">
+<div class="section" id="section-1">
+<span class="sectionnumber" id="para-1">-1</span>
+<div class="sectiontext">
  Adding an introduction to the gamebook here. This will create a section, but it will not be shuffled nor numbered with the gamebook sections below. 
+</div>
+</div>
+<script>
+if (this.gamebook) {
+   gamebook.addSection(-1, document.getElementById('section-1'));
+}
+</script>
 </div>
 </div>
 <div class="introsection">
 <span class="introsectionheading">Another Heading</span>
 <div class="introsectionbody">
+<div class="section" id="section-1">
+<span class="sectionnumber" id="para-1">-1</span>
+<div class="sectiontext">
  This starts another non-shuffled section. 
 </div>
 </div>
+<script>
+if (this.gamebook) {
+   gamebook.addSection(-1, document.getElementById('section-1'));
+}
+</script>
+</div>
+</div>
+
 <div class="startlink"
   onclick="gamebook.turnTo(1)">Adventure begins in section 1.</div>
 <div class="section" id="section1">
@@ -320,7 +341,7 @@
 if (this.gamebook) {
    gamebook.addSection(1, document.getElementById('section1'));
 }
-</script> <div class="section" id="section2">
+</script><div class="section" id="section2">
 <span class="sectionnumber" id="para2">2</span>
 <div class="sectiontext">
  Sections tagged as dummy will not be visible in output at all. 
@@ -330,7 +351,7 @@ if (this.gamebook) {
 if (this.gamebook) {
    gamebook.addSection(2, document.getElementById('section2'));
 }
-</script> <div class="section" id="section3">
+</script><div class="section" id="section3">
 <span class="sectionnumber" id="para3">3</span>
 <div class="sectiontext">
  Bad.
@@ -340,7 +361,7 @@ if (this.gamebook) {
 if (this.gamebook) {
    gamebook.addSection(3, document.getElementById('section3'));
 }
-</script> <div class="section" id="section4">
+</script><div class="section" id="section4">
 <span class="sectionnumber" id="para4">4</span>
 <div class="sectiontext">
  Good! 

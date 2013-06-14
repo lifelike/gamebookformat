@@ -1,6 +1,7 @@
     Items
 
 
+
 Turn to 1 to begin.
 1
  Demonstrating how to manage player Inventory. You start the book carrying a sword and a shield. Turn to 2. 
