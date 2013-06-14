@@ -1,4 +1,4 @@
-* TODO [40/67] [59%]
+* TODO [40/69] [57%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -49,10 +49,10 @@
 - [ ] Unit tests (finally...)
 - [ ] Verify gamebook (always; drop the --verify option)
 - [ ] Dummy and fake sections (handle properly when verifying)
-- [ ] Inline sections
-  Inline prefix on link or :inline: tag on target section itself.
-  If tagged or all links to a section are marked inline the section
-  itself is removed.
+- [ ] Flag to select what tag(s) to include (eg for demo/preview/short...)
+ Allow sections with same name as long as only one is included.
+ Add book config for what section to use for references to excluded sections
+  (eg links to outside of demo version can lead to section explaining that)
 - [ ] Counters (life, money, whatever) create and set
   count tag to declare new counter, text in tag is display name
   optional argument sets the starting value of the tag
@@ -64,7 +64,10 @@
 - [ ] Trade (optionally drop something from collection to add something new).
 - [ ] Buy (optionally decrease a counter to add something to a collection)
 - [ ] Sell (optionally increase a counter to drop something from a collection)
-- [ ] Pick a (maximum) number of things from those found in a section
+- [ ] Pick a (maximum) number of things from those found in a(n intro) section
+- [ ] Remove something from collection when following link (implies "has" that)
+- [ ] Subtract from counter when following link (implies has at least that)
+- [ ] Add keyword when following link
 - [ ] Javascript tests running in nodejs (no GUI)
   The big scripts in html templates are split out into separate files
   already (script.html and endscript.html). It should be possible to
