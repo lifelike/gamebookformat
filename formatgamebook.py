@@ -189,8 +189,9 @@ if __name__ == '__main__':
                     action='append', help='add custom template dir')
     ap.add_argument('-y', '--verify', action='store_true',
                     help='verify gamebook structure')
-    ap.add_argument('-s', '--seed', action='store', default=None,
-                    help='random seed for shuffling sections')
+    ap.add_argument('-r', '--random', action='store', default=None,
+                    metavar='R',
+                    help='random number seed for shuffling sections')
     args = ap.parse_args()
     templatedirs = ['templates',
                     os.path.join(os.path.dirname(sys.argv[0]), 'templates')]
@@ -202,4 +203,4 @@ if __name__ == '__main__':
                     args.import_default_map_file,
                     templatedirs,
                     args.verify,
-                    args.seed)
+                    args.random)

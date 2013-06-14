@@ -12,22 +12,22 @@ txt: $(examples:.gamebook=.txt)
 uploadto=$(shell cat .uploadto)
 
 %.rtf: %.gamebook *.py templates/rtf/*.rtf
-	./formatgamebook.py --seed=1 $< $@
+	./formatgamebook.py --random=1 $< $@
 
 %.html: %.gamebook *.py templates/html/*.html
-	./formatgamebook.py --seed=1 $< $@
+	./formatgamebook.py --random=1 $< $@
 
 %.tex: %.gamebook *.py templates/tex/*.tex
-	./formatgamebook.py --seed=1 $< $@
+	./formatgamebook.py --random=1 $< $@
 
 %.dot: %.gamebook *.py templates/dot/*.dot
-	./formatgamebook.py --seed=1 $< $@
+	./formatgamebook.py --random=1 $< $@
 
 %.debug: %.gamebook *.py templates/debug/*.debug
-	./formatgamebook.py --seed=1 $< $@
+	./formatgamebook.py --random=1 $< $@
 
 %.txt:  %.gamebook *.py templates/txt/*.txt
-	./formatgamebook.py --seed=1 $< $@
+	./formatgamebook.py --random=1 $< $@
 
 %.pdf: %.tex
 	cd $(dir $<) &&	pdflatex $(notdir $<) && pdflatex $(notdir $<)

@@ -15,7 +15,7 @@ gamebook on paper or a screen (or for debugging it).
 :   -M, --no-default-map  ignore default map file
 :   -t D, --template D    add custom template dir
 :   -y, --verify          verify gamebook structure
-:   -s SEED, --seed=SEED  random seed for shuffling sections
+:   -r R, --random=R      random number seed for shuffling sections
 
 ** Supported Output Formats
 
