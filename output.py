@@ -20,7 +20,8 @@ class OutputFormat (object):
     def write_intro_section(self, section, shuffled_sections, output):
         # FIXME some serious code-duplication here
         refs = []
-        refsdict = ReferenceFormatter(section, shuffled_sections,
+        refsdict = ReferenceFormatter(section.nr,
+                                      shuffled_sections.name_to_nr,
                                       self.format_with_template("section_ref"),
                                       self.quote)
         formatted_text = self.format_section(section, refsdict)
@@ -42,7 +43,8 @@ class OutputFormat (object):
 
     def write_section(self, section, shuffled_sections, output):
         refs = []
-        refsdict = ReferenceFormatter(section, shuffled_sections,
+        refsdict = ReferenceFormatter(section.nr,
+                                      shuffled_sections.name_to_nr,
                                       self.format_with_template("section_ref"),
                                       self.quote)
         formatted_text = self.format_section(section, refsdict)
@@ -124,23 +126,23 @@ class OutputFormat (object):
 
 class ReferenceFormatter (object):
     "There is probably a better way, but this hack seems to work."
-    def __init__(self, section, shuffled_sections, ref_template, quote):
-        self.section = section
-        self.shuffled_sections = shuffled_sections
+    def __init__(self, from_nr, name_to_nr, ref_template, quote):
+        self.from_nr = from_nr
+        self.name_to_nr = name_to_nr
         self.found = set()
         self.ref_template = ref_template
-        self.items = {'nr' : section.nr}
+        self.items = {'nr' : from_nr}
         self.quote = quote
 
     def __getitem__(self, key):
         if key in self.items:
             return self.quote(self.items[key])
-        to_section = self.shuffled_sections.from_name[key]
+        to_nr = self.name_to_nr[key]
         res = self.ref_template % {
-            'nr' : to_section.nr,
-            'from_nr' : self.section.nr
+            'nr' : to_nr,
+            'from_nr' : self.from_nr
         }
-        if key in self.shuffled_sections.name_to_nr:
+        if key in self.name_to_nr:
             self.found.add(res)
         return res
 

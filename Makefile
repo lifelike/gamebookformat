@@ -45,10 +45,10 @@ checkexpected: clean all
 	diff -r -x "*.aux" -x "*.gamebook" -x "*.log" -x "*.out" -x "*.png" \
 		-x "*.pdf" -x .gitignore -q examples expected
 
-unittests=test_sections
+unittests=$(wildcard test_*.py)
 
 unittest: *.py
-	python2.7 -m unittest $(unittests)
+	python2.7 -m unittest $(unittests:.py=)
 
 upload: html png pdf rtf
 	if [ -n "$(uploadto)" ]; then \
