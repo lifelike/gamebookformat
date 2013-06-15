@@ -11,6 +11,9 @@ txt: $(examples:.gamebook=.txt)
 
 uploadto=$(shell cat .uploadto)
 
+readme.html: readme.org
+	emacs -Q --batch --visit=readme.org --funcall org-export-as-html-batch
+
 %.rtf: %.gamebook *.py templates/rtf/*.rtf
 	./formatgamebook.py --random=1 $< $@
 
@@ -61,7 +64,7 @@ clean:
 	examples/*.pdf examples/*.out *~ examples/*~ *.pyc \
 	examples/*.dot examples/*.aux examples/*.toc $(png) \
 	examples/*.map templates/*~ templates/*/*~ \
-	$(examples:.gamebook=.png)
+	$(examples:.gamebook=.png) readme.html
 
 fixmes:
 	grep FIXME *.py
