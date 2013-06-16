@@ -37,7 +37,6 @@ import json
 import quote
 import sections
 import templates
-import verifygamebook
 from output import OutputFormat
 
 USAGE = "usage: %prog [options] inputfile(s)... outputfile"
@@ -68,7 +67,6 @@ def format_gamebook(inputfilenames,
                     outputfilename,
                     import_default_map_file,
                     templatedirs,
-                    verify,
                     shuffle):
     output_format = make_output(outputfilename, templatedirs)
     book = sections.Book(make_bookid(outputfilename))
@@ -76,8 +74,6 @@ def format_gamebook(inputfilenames,
         parse_file_to_book(open(inputfilename, 'r'), book)
     if import_default_map_file:
         import_default_nr_map(outputfilename, book)
-    if verify:
-        verifygamebook.verify(book)
     write_book(book, shuffle, output_format, outputfilename)
 
 def make_bookid(filename):
@@ -191,8 +187,6 @@ if __name__ == '__main__':
                     help='ignore default map file')
     ap.add_argument('-t', '--template', metavar='D', dest='templatedirs',
                     action='append', help='add custom template dir')
-    ap.add_argument('-y', '--verify', action='store_true',
-                    help='verify gamebook structure')
     ap.add_argument('-S', '--no-shuffle', action='store_false',
                     dest='shuffle',
                     help='do not shuffle sections')
@@ -206,5 +200,4 @@ if __name__ == '__main__':
                     args.outputfile,
                     args.import_default_map_file,
                     templatedirs,
-                    args.verify,
                     args.shuffle)
