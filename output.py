@@ -26,7 +26,7 @@ class OutputFormat (object):
                                       shuffled_sections.name_to_nr,
                                       self.format_with_template("section_ref"),
                                       self.quote)
-        formatted_text = self.format_section(section, refsdict)
+        formatted_text = self.format_section_body(section, refsdict)
         return self.format_with_template("introsection", {
             'name' : section.name,
             'text' : formatted_text,

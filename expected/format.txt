@@ -1,16 +1,10 @@
     Format
 
 Introduction
--1
  Adding an introduction to the gamebook here. This will create a section, but it will not be shuffled nor numbered with the gamebook sections below. 
 
-
-
 Another Heading
--1
  This starts another non-shuffled section. 
-
-
 
 
 

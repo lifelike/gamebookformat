@@ -335,9 +335,9 @@ if (typeof exports !== 'undefined') {
        .hideintrolink:hover,.resumelink:hover {background: #a9f;}
     .disabledlink {color: #bbb; cursor: not-allowed; background: inherit;}
     .disabledlink:hover {background: inherit;}
-    .sectionnumber {font-weight: bolder;
-                    margin-left: 50%;
-                    margin-right: 50%;}
+    .sectionnumber,.introsectionheading {font-weight: bolder;
+                    width: 100%;
+                    text-align: center;}
     .section {display: none; width: 90%; margin-left: 5%; margin-right: 5%;}
     .sectiontext {margin-top: 0.5em;}
     .gamebook {max-width: 30em; padding: 1em; width: 100%; font-size: 133%;}
@@ -376,7 +376,7 @@ if (typeof exports !== 'undefined') {
     }
 </script>
 <div class="section" id="section1">
-<span class="sectionnumber" id="para1">1</span>
+<div class="sectionnumber" id="para1">1</div>
 <div class="sectiontext">
  It starts here. You can get to <a class="sectionref enabledlink" data-ref="5">5</a>. 
 </div>
@@ -386,7 +386,7 @@ if (this.gamebook) {
    gamebook.addSection(1, document.getElementById('section1'));
 }
 </script><div class="section" id="section2">
-<span class="sectionnumber" id="para2">2</span>
+<div class="sectionnumber" id="para2">2</div>
 <div class="sectiontext">
  Another fake section that is also ignored. 
 </div>
@@ -396,7 +396,7 @@ if (this.gamebook) {
    gamebook.addSection(2, document.getElementById('section2'));
 }
 </script><div class="section" id="section3">
-<span class="sectionnumber" id="para3">3</span>
+<div class="sectionnumber" id="para3">3</div>
 <div class="sectiontext">
  You can not get here either, but because it is tagged as fake there will be no warning generated. 
 </div>
@@ -406,7 +406,7 @@ if (this.gamebook) {
    gamebook.addSection(3, document.getElementById('section3'));
 }
 </script><div class="section" id="section4">
-<span class="sectionnumber" id="para4">4</span>
+<div class="sectionnumber" id="para4">4</div>
 <div class="sectiontext">
  You can not get here. Verification should warn you about that, if enabled (with the --verify option). 
 </div>
@@ -416,7 +416,7 @@ if (this.gamebook) {
    gamebook.addSection(4, document.getElementById('section4'));
 }
 </script><div class="section" id="section5">
-<span class="sectionnumber" id="para5">5</span>
+<div class="sectionnumber" id="para5">5</div>
 <div class="sectiontext">
  You can get here. Congratulations! 
 </div>

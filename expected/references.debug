@@ -2,8 +2,7 @@ BEGIN DEBUG OUTPUT
 Book title: Gamebook
 Number of sections: 400
 Introduction
--1 (Introduction) -  This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at 1 or the next section at 400. 
-
+ This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at 1 or the next section at 400. 
 
 
 Turn to 1 to begin.
