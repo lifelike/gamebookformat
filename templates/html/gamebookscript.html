@@ -7,8 +7,6 @@
 
         'turnToFunctions' : {},
 
-        'dropped' : {},
-
         'addSection' : function(nr, element) {
             var section = {'element' : element, 'nr' : nr};
             this.sections[nr] = section;
@@ -32,13 +30,14 @@
         },
 
         'displaySection' : function(nr) {
-            if (this.player.currentSection) {
-                this.player.currentSection.element.style.display = 'none';
+            if (this.player.currentSection > 0) {
+                var section = this.sections[this.player.currentSection];
+                section.element.style.display = 'none';
             }
             var e = this.sections[nr].element;
             this.runActions(e.getElementsByClassName('sectiontext')[0]);
             e.style.display = 'block';
-            this.player.currentSection = gamebook.sections[nr];
+            this.player.currentSection = nr;
         },
 
         'hideIntroSections' : function() {

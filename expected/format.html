@@ -6,19 +6,22 @@
         content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>Format</title>
     <script>
+
+
     var gamebook = {
         'player' : {
             'started' : false,
-            'currentSection' : null,
+            'currentSection' : -1,
             'collections' : {},
 
             'collect' : function(type, name) {
                 this.collections[type] = {
                     'name' : name,
                     'contents' : [],
+                    'dropped' : {},
                     'add' : function(what) {
                         if (this.contents.indexOf(what) === -1
-                            && !(what in gamebook.dropped[type])) {
+                            && !(what in this.dropped)) {
                             this.contents.push(what);
                             this.contents.sort();
                         }
@@ -27,14 +30,13 @@
                         var i = this.contents.indexOf(what);
                         if (i >= 0) {
                             this.contents.splice(i, 1);
-                            gamebook.dropped[type][what] = true;
+                            this.dropped[what] = true;
                         }
                     },
                     'has' : function(what) {
                         return this.contents.indexOf(what) >= 0;
                     }
                 };
-                gamebook.dropped[type] = {};
                 gamebook.addCollectionView(type, name);
             },
 
@@ -50,14 +52,23 @@
 
             'has' : function(type, what) {
                 return this.collections[type].has(what);
+            },
+
+            'getState' : function() {
+                return JSON.stringify({
+                    'collections' : this.collections,
+                    'currentSection' : this.currentSection,
+                    'started' : this.started
+                });
+            },
+
+            'setState' : function(state) {
             }
         },
 
         'sections' : {},
 
         'turnToFunctions' : {},
-
-        'dropped' : {},
 
         'addSection' : function(nr, element) {
             var section = {'element' : element, 'nr' : nr};
@@ -82,13 +93,14 @@
         },
 
         'displaySection' : function(nr) {
-            if (this.player.currentSection) {
-                this.player.currentSection.element.style.display = 'none';
+            if (this.player.currentSection > 0) {
+                var section = this.sections[this.player.currentSection];
+                section.element.style.display = 'none';
             }
             var e = this.sections[nr].element;
             this.runActions(e.getElementsByClassName('sectiontext')[0]);
             e.style.display = 'block';
-            this.player.currentSection = gamebook.sections[nr];
+            this.player.currentSection = nr;
         },
 
         'hideIntroSections' : function() {
@@ -246,6 +258,12 @@
         }
 
     };
+
+// little hack to make easy to test from node.js
+if (typeof exports !== 'undefined') {
+    exports.gamebook = gamebook;
+}
+
 
     </script>
   <style>
