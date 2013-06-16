@@ -3,15 +3,14 @@
   <head>
     <meta charset='utf-8'>
 #include "viewport"
-        <title>%(title)s</title>
+    <title>%(title)s</title>
+    <script type="text/javascript" src="gamebookformatplay.js"></script>
+    <link rel="stylesheet" href="gamebookformat.css"
+          type="text/css" />
     <script>
-#include "script"
-#include "override-script"
+      gamebook.id = '%(id)s';
     </script>
-  <style>
-#include "style"
-#include "override-style"
-  </style>
+#include "head-overrides"
   </head>
   <body>
 #include "hideintro"

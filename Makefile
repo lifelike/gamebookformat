@@ -4,7 +4,8 @@ all: rtf pdf html debug png txt
 
 rtf: $(examples:.gamebook=.rtf)
 pdf: $(examples:.gamebook=.pdf)
-html: $(examples:.gamebook=.html)
+html: $(examples:.gamebook=.html) examples/gamebookformatplay.js \
+	examples/gamebookformat.css
 debug: $(examples:.gamebook=.debug)
 png: $(examples:.gamebook=.png)
 txt: $(examples:.gamebook=.txt)
@@ -13,6 +14,12 @@ uploadto=$(shell cat .uploadto)
 
 readme.html: readme.org
 	emacs -Q --batch --visit=readme.org --funcall org-export-as-html-batch
+
+examples/gamebookformatplay.js:
+	cp gamebookformatplay.js $@
+
+examples/gamebookformat.css:
+	cp gamebookformat.css $@
 
 %.rtf: %.gamebook *.py templates/rtf/*.rtf
 	./formatgamebook.py --no-shuffle $< $@
@@ -41,7 +48,8 @@ readme.html: readme.org
 test: unittest checkexpected templatejstest
 
 expected: all
-	$(RM) expected/* && cp examples/*.{rtf,tex,html,debug,txt,dot,map} \
+	$(RM) expected/* && \
+		cp examples/*.{rtf,tex,html,debug,txt,dot,map} \
 		 expected
 
 checkexpected: clean all
@@ -72,7 +80,8 @@ clean:
 	examples/*.pdf examples/*.out *~ examples/*~ *.pyc \
 	examples/*.dot examples/*.aux examples/*.toc $(png) \
 	examples/*.map templates/*~ templates/*/*~ \
-	$(examples:.gamebook=.png) readme.html
+	$(examples:.gamebook=.png) readme.html \
+	examples/*.js examples/*.css
 
 fixmes:
 	grep FIXME *.py
