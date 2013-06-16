@@ -67,11 +67,7 @@ upload: html png pdf rtf
 	   $(uploadto);\
 	fi
 
-test/templatejs/htmlscripts.js: $(wildcard templates/html/*script.html)
-	./templates.py html script > $@
-
-templatejstest: test/templatejs/htmlscripts.js \
-	test/templatejs/testhtmlscripts.js
+templatejstest:
 	node test/templatejs/testhtmlscripts.js
 
 clean:
@@ -86,7 +82,8 @@ clean:
 fixmes:
 	grep FIXME *.py
 
-.PHONY: all clean fixmes uploadto expected checkexpected test unittest
+.PHONY: all clean fixmes uploadto expected checkexpected test unittest \
+	templatejstest
 
 .PRECIOUS: %.tex %.dot
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var htmlscriptsfile = './htmlscripts.js';
+var htmlscriptsfile = '../../gamebookformatplay.js';
 
 exports.setUp = function(cb) {
     delete require.cache[require.resolve(htmlscriptsfile)];
