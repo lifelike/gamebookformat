@@ -7,26 +7,26 @@ Turn to 1 to begin.
  Demonstrating how Codewords (AKA sightings) can be used. Go to 2. 
 
 2
- Got codeword warrior. Simple enough to set a codeword. Turn to 3. 
+ Got codeword warrior. Simple enough to set a codeword. Turn to 5. 
 
 3
- If you have the codeword warrior you may turn to 9. If you do not have the codeword fun, you may turn to 4. If you have the codeword fun, you may instead turn to 5. Otherwise see 6. 
+ That was easy.    
 
 4
- This is just to demonstrate choices allowed when not having a codeword. Now go on to 8 (autotest) or 6 (xor test). 
+ OK, if you have the codeword warrior, you may turn to 3 otherwise you may go back to 2. Although we both know you have that codeword. If you have the codeword fun you may turn to 7, without it you can go to 6. 
 
 5
- Cheater! There is no way you can have codeword fun. 
+ If you have the codeword warrior you may turn to 3. If you do not have the codeword fun, you may turn to 6. If you have the codeword fun, you may instead turn to 7. Otherwise see 4. 
 
 6
- OK, if you have the codeword warrior, you may turn to 9 otherwise you may go back to 2. Although we both know you have that codeword. If you have the codeword fun you may turn to 5, without it you can go to 4. 
+ This is just to demonstrate choices allowed when not having a codeword. Now go on to 8 (autotest) or 4 (xor test). 
 
 7
- If you have the codeword fun turn to 5. Otherwise you can go to the end at 9 or to the xortest at 6. 
+ Cheater! There is no way you can have codeword fun. 
 
 8
- If you have codeword warrior turn to 7. Otherwise you can go to the end at 9 or back to 1. 
+ If you have codeword warrior turn to 9. Otherwise you can go to the end at 3 or back to 1. 
 
 9
- That was easy.    
+ If you have the codeword fun turn to 7. Otherwise you can go to the end at 3 or to the xortest at 4. 
 

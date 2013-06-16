@@ -42,7 +42,6 @@ exports.testPlayerEmptyState = function(test) {
     st = JSON.parse(stStr);
     test.deepEqual(st.collections, {});
     test.equal(st.currentSection, -1);
-    test.equal(st.started, false);
     test.done();
 };
 
@@ -56,13 +55,6 @@ exports.testPlayerCollectionStateOneItem = function(test) {
     test.done();
 };
 
-exports.testPlayerStateStarted = function(test) {
-    this.player.started = true;
-    st = JSON.parse(this.player.getState());
-    test.equal(st.started, true);
-    test.done();
-};
-
 exports.testPlayerStateCurrentSection = function(test) {
     this.player.currentSection = 2;
     st = JSON.parse(this.player.getState());
@@ -70,6 +62,20 @@ exports.testPlayerStateCurrentSection = function(test) {
     test.done();
 };
 
+exports.testPlayerSetState = function(test) {
+    this.player.setState('{"currentSection":3}');
+    test.equal(this.player.currentSection, 3);
+    test.done();
+};
+
+exports.testPlayerSetStateCollection = function(test) {
+    this.player.setState(
+        '{"collections":{"a":{"name":"A","contents":[],"dropped":{}}}}');
+    test.equal(this.player.collections.a.name, 'A');
+    test.deepEqual(this.player.collections.a.contents, []);
+    test.deepEqual(this.player.collections.a.dropped, {});
+    test.done();
+};
 
 var reporter = require('nodeunit').reporters['default'];
 

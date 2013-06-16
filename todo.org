@@ -1,4 +1,4 @@
-* TODO [40/69] [57%]
+* TODO [44/72] [61%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -46,7 +46,9 @@
 - [X] Random pick of link to follow from a section.
 - [X] Possibility to make predictable random numbers and shuffling for testing
 - [X] Test generate examples and compare to expected output in all formats
-- [ ] Unit tests (finally...)
+- [X] Unit tests (finally...)
+- [X] Save game (ie player) state
+- [X] Load game (ie player) state
 - [ ] Verify gamebook (always; drop the --verify option)
 - [ ] Dummy and fake sections (handle properly when verifying)
 - [ ] Flag to select what tag(s) to include (eg for demo/preview/short...)
@@ -68,7 +70,7 @@
 - [ ] Remove something from collection when following link (implies "has" that)
 - [ ] Subtract from counter when following link (implies has at least that)
 - [ ] Add keyword when following link
-- [ ] Javascript tests running in nodejs (no GUI)
+- [X] Javascript tests running in nodejs (no GUI)
   The big scripts in html templates are split out into separate files
   already (script.html and endscript.html). It should be possible to
   test those from nodejs?

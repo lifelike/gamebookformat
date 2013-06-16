@@ -2,7 +2,7 @@
 
 Introduction
 -1
- This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at 1 or the next section at 55. 
+ This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at 1 or the next section at 231. 
 
 
 
@@ -10,17 +10,17 @@ Introduction
 
 Turn to 1 to begin.
 1
- This is where the adventure begins. You can go on to the next section, see 55 or try the random selection feature at 201. 
+ This is where the adventure begins. You can go on to the next section, see 231 or try the random selection feature at 208. 
 
-13
+193
  Alternative ending. 
 
-55
- This is the next section. Go on to the end at 247. 
+208
+ Pick a destination at random from 231 or 336 or 193. 
 
-201
- Pick a destination at random from 55 or 247 or 13. 
+231
+ This is the next section. Go on to the end at 336. 
 
-247
+336
  The end. 
 

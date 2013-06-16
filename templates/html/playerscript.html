@@ -3,6 +3,9 @@
             'collections' : {},
 
             'collect' : function(type, name) {
+                if (type in this.collections) {
+                    return;
+                }
                 this.collections[type] = {
                     'name' : name,
                     'contents' : [],
@@ -45,10 +48,21 @@
             'getState' : function() {
                 return JSON.stringify({
                     'collections' : this.collections,
-                    'currentSection' : this.currentSection,
-                    'started' : this.started
+                    'currentSection' : this.currentSection
                 });
             },
 
             'setState' : function(state) {
+                var parsedState = JSON.parse(state);
+                this.currentSection = parsedState.currentSection;
+                for (var c in parsedState.collections) {
+                    var collection = parsedState.collections[c];
+                    if (!(c in this.collections)) {
+                        this.collect(c, collection.name);
+                    } else {
+                        this.collections[c].name = collection.name;
+                    }
+                    this.collections[c].contents = collection.contents;
+                    this.collections[c].dropped = collection.dropped;
+                }
             }

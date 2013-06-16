@@ -15,6 +15,9 @@
             'collections' : {},
 
             'collect' : function(type, name) {
+                if (type in this.collections) {
+                    return;
+                }
                 this.collections[type] = {
                     'name' : name,
                     'contents' : [],
@@ -57,12 +60,23 @@
             'getState' : function() {
                 return JSON.stringify({
                     'collections' : this.collections,
-                    'currentSection' : this.currentSection,
-                    'started' : this.started
+                    'currentSection' : this.currentSection
                 });
             },
 
             'setState' : function(state) {
+                var parsedState = JSON.parse(state);
+                this.currentSection = parsedState.currentSection;
+                for (var c in parsedState.collections) {
+                    var collection = parsedState.collections[c];
+                    if (!(c in this.collections)) {
+                        this.collect(c, collection.name);
+                    } else {
+                        this.collections[c].name = collection.name;
+                    }
+                    this.collections[c].contents = collection.contents;
+                    this.collections[c].dropped = collection.dropped;
+                }
             }
         },
 
@@ -89,6 +103,7 @@
         'start' : function() {
             this.hideIntroSections();
             this.addClassToClass('startlink', 'nodisplay');
+            this.addClassToClass('resumelink', 'nodisplay');
             gamebook.player.started = true;
         },
 
@@ -101,6 +116,36 @@
             this.runActions(e.getElementsByClassName('sectiontext')[0]);
             e.style.display = 'block';
             this.player.currentSection = nr;
+            this.saveGame();
+        },
+
+        //FIXME move out from gamebook object
+        'saveGame' : function() {
+            if (typeof window !== 'undefined' && 'localStorage' in window) {
+                window.localStorage.setItem('savedGamebookPlayer',
+                                            this.player.getState());
+            }
+        },
+
+        //FIXME move out from gamebook object
+        'hasSavedGame' : function() {
+            if (typeof window !== 'undefined' && 'localStorage' in window) {
+                return window.localStorage.getItem('savedGamebookPlayer');
+            } else {
+                return false;
+            }
+        },
+
+        //FIXME move out from gamebook object
+        'loadGame' : function() {
+            if (typeof window !== 'undefined' && 'localStorage' in window) {
+                var state = window.localStorage.getItem('savedGamebookPlayer');
+                this.player.setState(state);
+                this.turnTo(this.player.currentSection);
+                this.updateCollectionsView();
+            } else {
+                //FIXME some kind of error, because we should never get here
+            }
         },
 
         'hideIntroSections' : function() {
@@ -267,7 +312,8 @@ if (typeof exports !== 'undefined') {
 
     </script>
   <style>
-    .startlink,.sectionref,.displayintrolink,.hideintrolink,.found,.add,.random {
+    .startlink,.sectionref,.displayintrolink,.hideintrolink,.found,.add,.random,
+    .resumelink{
                    font-weight: bold;
                    margin: 0.2em;
                    vertical-align: middle;
@@ -279,14 +325,14 @@ if (typeof exports !== 'undefined') {
         padding-right: 1.5em;
     }
 
-    .startlink,.enabledlink,.displayintrolink,.hideintrolink,.found,.random {
-        cursor: pointer;}
+    .startlink,.enabledlink,.displayintrolink,.hideintrolink,.found,.random,
+    .resumelink {cursor: pointer;}
 
     .startlink,.enabledlink,.displayintrolink,.hideintrolink,.found,
-    .random {background: #eef;
+    .random,.resumelink {background: #eef;
     }
     .startlink:hover,.enabledlink:hover,.displayintrolink:hover,
-       .hideintrolink:hover {background: #a9f;}
+       .hideintrolink:hover,.resumelink:hover {background: #a9f;}
     .disabledlink {color: #bbb; cursor: not-allowed; background: inherit;}
     .disabledlink:hover {background: inherit;}
     .sectionnumber {font-weight: bolder;
@@ -308,6 +354,7 @@ if (typeof exports !== 'undefined') {
     .collectionTemplate {display: none;}
     .sectionimage {width: 100%; padding: 1em;}
     .nodisplay {display: none;}
+    .resumenr {font-weight: bold;}
   </style>
   </head>
   <body>
@@ -347,12 +394,23 @@ if (this.gamebook) {
 </div>
 </div>
 
+<div class="resumelink nodisplay"
+  onclick="gamebook.loadGame()">Resume saved game.</div>
+
 <div class="startlink"
   onclick="gamebook.turnTo(1)">Adventure begins in section 1.</div>
+<script>
+    if (gamebook.hasSavedGame()) {
+        var resumeLinks = document.getElementsByClassName('resumelink');
+        Array.prototype.forEach.call(resumeLinks, function(e) {
+            e.classList.remove('nodisplay');
+        });
+    }
+</script>
 <div class="section" id="section1">
 <span class="sectionnumber" id="para1">1</span>
 <div class="sectiontext">
- This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like } and { and " and ' and \. HTML will probably not like &lt;div&gt; or &amp;boom;. There should be an image below as well. If something broke, turn to <a class="sectionref enabledlink" data-ref="3">3</a>, otherwise turn to <a class="sectionref enabledlink" data-ref="4">4</a>. <img src="testimage.png" class="sectionimage"></img> 
+ This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like } and { and " and ' and \. HTML will probably not like &lt;div&gt; or &amp;boom;. There should be an image below as well. If something broke, turn to <a class="sectionref enabledlink" data-ref="2">2</a>, otherwise turn to <a class="sectionref enabledlink" data-ref="3">3</a>. <img src="testimage.png" class="sectionimage"></img> 
 </div>
 </div>
 <script>
@@ -362,7 +420,7 @@ if (this.gamebook) {
 </script><div class="section" id="section2">
 <span class="sectionnumber" id="para2">2</span>
 <div class="sectiontext">
- Sections tagged as dummy will not be visible in output at all. 
+ Bad.
 </div>
 </div>
 <script>
@@ -372,7 +430,7 @@ if (this.gamebook) {
 </script><div class="section" id="section3">
 <span class="sectionnumber" id="para3">3</span>
 <div class="sectiontext">
- Bad.
+ Good! 
 </div>
 </div>
 <script>
@@ -382,7 +440,7 @@ if (this.gamebook) {
 </script><div class="section" id="section4">
 <span class="sectionnumber" id="para4">4</span>
 <div class="sectiontext">
- Good! 
+ Sections tagged as dummy will not be visible in output at all. 
 </div>
 </div>
 <script>

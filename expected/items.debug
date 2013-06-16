@@ -4,15 +4,15 @@ Number of sections: 11
 
 
 Turn to 1 to begin.
-1 (start) -  Demonstrating how to manage player [COLLECT item]Inventory[/COLLECT]. You start the book carrying a [ADD item]sword[/ADD] and a [ADD item]shield[/ADD]. Turn to 2. 
-2 (tjunction) -  You have reached a t-junction. Here you find a [FOUND item]key[/FOUND] and a [FOUND item]stick[/FOUND]. You can go west to 11, or east to 7. 
-3 (attempt_break_door_with_sword) -  OK. The door is broken, but so is the [DROP item]sword[/DROP]. Turn to 6. 
-4 (treasure) -  You found [FOUND item]something valuable[/FOUND], but there is no way forward, so you head back to 2. 
-5 (cut_rope) -  OK. That was fun. Turn to 9. 
-6 (inside) -  There is a rope here that can be cut using a [HAS item]sword[/HAS]. If you have one and want to do that, see 5. Otherwise turn to 9. 
-7 (curse) -  There is a [FOUND item]cursed bracelet[/FOUND] here. You can go on to 10 or go back to 2. You can also drop the [HAS item]stick[/HAS] for no particular reason if you have it, see 8. 
-8 (drop_stick) -  OK [DROP item]stick[/DROP] dropped. Turn back to 2 to confirm stick can not be picked up again even if the text says it is there (books work that way, although ideally this dynamic version should provide some hints that it is no longer there). 
-9 (won) -  Congratulations, you won.
-10 (portal) -  A magic portal ahead will only allow you to pass if you did not pick up the [HAS NOT item]cursed bracelet[/HAS NOT], leading you to 4. If you have the [HAS item]cursed bracelet[/HAS] you have to go back to 2 instead. Actually feel free to head back to 2 either way. 
-11 (door) -  There is a locked door here. If you have a [HAS item]key[/HAS] you can use that to open the door, see 6. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the [HAS item]sword[/HAS], if you have it, see 3. Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see 2. 
+1 (start) -  Demonstrating how to manage player [COLLECT item]Inventory[/COLLECT]. You start the book carrying a [ADD item]sword[/ADD] and a [ADD item]shield[/ADD]. Turn to 6. 
+2 (cut_rope) -  OK. That was fun. Turn to 8. 
+3 (inside) -  There is a rope here that can be cut using a [HAS item]sword[/HAS]. If you have one and want to do that, see 2. Otherwise turn to 8. 
+4 (door) -  There is a locked door here. If you have a [HAS item]key[/HAS] you can use that to open the door, see 3. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the [HAS item]sword[/HAS], if you have it, see 5. Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see 6. 
+5 (attempt_break_door_with_sword) -  OK. The door is broken, but so is the [DROP item]sword[/DROP]. Turn to 3. 
+6 (tjunction) -  You have reached a t-junction. Here you find a [FOUND item]key[/FOUND] and a [FOUND item]stick[/FOUND]. You can go west to 4, or east to 10. 
+7 (portal) -  A magic portal ahead will only allow you to pass if you did not pick up the [HAS NOT item]cursed bracelet[/HAS NOT], leading you to 11. If you have the [HAS item]cursed bracelet[/HAS] you have to go back to 6 instead. Actually feel free to head back to 6 either way. 
+8 (won) -  Congratulations, you won.
+9 (drop_stick) -  OK [DROP item]stick[/DROP] dropped. Turn back to 6 to confirm stick can not be picked up again even if the text says it is there (books work that way, although ideally this dynamic version should provide some hints that it is no longer there). 
+10 (curse) -  There is a [FOUND item]cursed bracelet[/FOUND] here. You can go on to 7 or go back to 6. You can also drop the [HAS item]stick[/HAS] for no particular reason if you have it, see 9. 
+11 (treasure) -  You found [FOUND item]something valuable[/FOUND], but there is no way forward, so you head back to 6. 
 END DEBUG OUTPUT

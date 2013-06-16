@@ -52,7 +52,7 @@ class ShuffledSections:
             self.name_to_nr[nr_sections[nr]] = nr
 
 STR_BOOK_CONFIG = set(['title', 'author', 'starttext', 'hideintrotext',
-                       'showintrotext'])
+                       'showintrotext', 'resumetext'])
 INT_BOOK_CONFIG = set(['max'])
 
 class Book:
@@ -67,7 +67,8 @@ class Book:
                        'author' : '',
                        'starttext' : 'Turn to 1 to begin.',
                        'hideintrotext' : '(hide instructions)',
-                       'showintrotext' : '(show instructions)'}
+                       'showintrotext' : '(show instructions)',
+                       'resumetext' : 'Resume saved game.'}
 
     def configure(self, name, value):
         if name in INT_BOOK_CONFIG:

@@ -15,6 +15,9 @@
             'collections' : {},
 
             'collect' : function(type, name) {
+                if (type in this.collections) {
+                    return;
+                }
                 this.collections[type] = {
                     'name' : name,
                     'contents' : [],
@@ -57,12 +60,23 @@
             'getState' : function() {
                 return JSON.stringify({
                     'collections' : this.collections,
-                    'currentSection' : this.currentSection,
-                    'started' : this.started
+                    'currentSection' : this.currentSection
                 });
             },
 
             'setState' : function(state) {
+                var parsedState = JSON.parse(state);
+                this.currentSection = parsedState.currentSection;
+                for (var c in parsedState.collections) {
+                    var collection = parsedState.collections[c];
+                    if (!(c in this.collections)) {
+                        this.collect(c, collection.name);
+                    } else {
+                        this.collections[c].name = collection.name;
+                    }
+                    this.collections[c].contents = collection.contents;
+                    this.collections[c].dropped = collection.dropped;
+                }
             }
         },
 
@@ -89,6 +103,7 @@
         'start' : function() {
             this.hideIntroSections();
             this.addClassToClass('startlink', 'nodisplay');
+            this.addClassToClass('resumelink', 'nodisplay');
             gamebook.player.started = true;
         },
 
@@ -101,6 +116,36 @@
             this.runActions(e.getElementsByClassName('sectiontext')[0]);
             e.style.display = 'block';
             this.player.currentSection = nr;
+            this.saveGame();
+        },
+
+        //FIXME move out from gamebook object
+        'saveGame' : function() {
+            if (typeof window !== 'undefined' && 'localStorage' in window) {
+                window.localStorage.setItem('savedGamebookPlayer',
+                                            this.player.getState());
+            }
+        },
+
+        //FIXME move out from gamebook object
+        'hasSavedGame' : function() {
+            if (typeof window !== 'undefined' && 'localStorage' in window) {
+                return window.localStorage.getItem('savedGamebookPlayer');
+            } else {
+                return false;
+            }
+        },
+
+        //FIXME move out from gamebook object
+        'loadGame' : function() {
+            if (typeof window !== 'undefined' && 'localStorage' in window) {
+                var state = window.localStorage.getItem('savedGamebookPlayer');
+                this.player.setState(state);
+                this.turnTo(this.player.currentSection);
+                this.updateCollectionsView();
+            } else {
+                //FIXME some kind of error, because we should never get here
+            }
         },
 
         'hideIntroSections' : function() {
@@ -267,7 +312,8 @@ if (typeof exports !== 'undefined') {
 
     </script>
   <style>
-    .startlink,.sectionref,.displayintrolink,.hideintrolink,.found,.add,.random {
+    .startlink,.sectionref,.displayintrolink,.hideintrolink,.found,.add,.random,
+    .resumelink{
                    font-weight: bold;
                    margin: 0.2em;
                    vertical-align: middle;
@@ -279,14 +325,14 @@ if (typeof exports !== 'undefined') {
         padding-right: 1.5em;
     }
 
-    .startlink,.enabledlink,.displayintrolink,.hideintrolink,.found,.random {
-        cursor: pointer;}
+    .startlink,.enabledlink,.displayintrolink,.hideintrolink,.found,.random,
+    .resumelink {cursor: pointer;}
 
     .startlink,.enabledlink,.displayintrolink,.hideintrolink,.found,
-    .random {background: #eef;
+    .random,.resumelink {background: #eef;
     }
     .startlink:hover,.enabledlink:hover,.displayintrolink:hover,
-       .hideintrolink:hover {background: #a9f;}
+       .hideintrolink:hover,.resumelink:hover {background: #a9f;}
     .disabledlink {color: #bbb; cursor: not-allowed; background: inherit;}
     .disabledlink:hover {background: inherit;}
     .sectionnumber {font-weight: bolder;
@@ -308,6 +354,7 @@ if (typeof exports !== 'undefined') {
     .collectionTemplate {display: none;}
     .sectionimage {width: 100%; padding: 1em;}
     .nodisplay {display: none;}
+    .resumenr {font-weight: bold;}
   </style>
   </head>
   <body>
@@ -315,15 +362,26 @@ if (typeof exports !== 'undefined') {
     onclick="gamebook.hideIntroSections()">(hide instructions)</div>
   <div class="gamebook">
 
+<div class="resumelink nodisplay"
+  onclick="gamebook.loadGame()">Resume saved game.</div>
+
 <div class="startlink"
   onclick="gamebook.turnTo(1)">Turn to 1 to begin.</div>
+<script>
+    if (gamebook.hasSavedGame()) {
+        var resumeLinks = document.getElementsByClassName('resumelink');
+        Array.prototype.forEach.call(resumeLinks, function(e) {
+            e.classList.remove('nodisplay');
+        });
+    }
+</script>
 <div class="section" id="section1">
 <span class="sectionnumber" id="para1">1</span>
 <div class="sectiontext">
  Demonstrating how to manage player <span class="collect" data-type="item"
     data-name="Inventory">Inventory</span>. You start the book carrying a <span class="add" data-type="item"
       data-what="sword">sword</span> and a <span class="add" data-type="item"
-      data-what="shield">shield</span>. Turn to <a class="sectionref enabledlink" data-ref="2">2</a>. 
+      data-what="shield">shield</span>. Turn to <a class="sectionref enabledlink" data-ref="6">6</a>. 
 </div>
 </div>
 <script>
@@ -333,13 +391,7 @@ if (this.gamebook) {
 </script><div class="section" id="section2">
 <span class="sectionnumber" id="para2">2</span>
 <div class="sectiontext">
- You have reached a t-junction. Here you find a <span class="found enabledlink"
-    onclick="gamebook.player.add('item', 'key')"
->key</span>
- and a <span class="found enabledlink"
-    onclick="gamebook.player.add('item', 'stick')"
->stick</span>
-. You can go west to <a class="sectionref enabledlink" data-ref="11">11</a>, or east to <a class="sectionref enabledlink" data-ref="7">7</a>. 
+ OK. That was fun. Turn to <a class="sectionref enabledlink" data-ref="8">8</a>. 
 </div>
 </div>
 <script>
@@ -349,8 +401,7 @@ if (this.gamebook) {
 </script><div class="section" id="section3">
 <span class="sectionnumber" id="para3">3</span>
 <div class="sectiontext">
- OK. The door is broken, but so is the <span class="drop" data-type="item"
-      data-what="sword">sword</span>. Turn to <a class="sectionref enabledlink" data-ref="6">6</a>. 
+ There is a rope here that can be cut using a <span class="has" data-type="item" data-what="sword">sword</span>. If you have one and want to do that, see <a class="sectionref enabledlink" data-ref="2">2</a>. Otherwise turn to <a class="sectionref enabledlink" data-ref="8">8</a>. 
 </div>
 </div>
 <script>
@@ -360,10 +411,7 @@ if (this.gamebook) {
 </script><div class="section" id="section4">
 <span class="sectionnumber" id="para4">4</span>
 <div class="sectiontext">
- You found <span class="found enabledlink"
-    onclick="gamebook.player.add('item', 'something valuable')"
->something valuable</span>
-, but there is no way forward, so you head back to <a class="sectionref enabledlink" data-ref="2">2</a>. 
+ There is a locked door here. If you have a <span class="has" data-type="item" data-what="key">key</span> you can use that to open the door, see <a class="sectionref enabledlink" data-ref="3">3</a>. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the <span class="has" data-type="item" data-what="sword">sword</span>, if you have it, see <a class="sectionref enabledlink" data-ref="5">5</a>. Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see <a class="sectionref enabledlink" data-ref="6">6</a>. 
 </div>
 </div>
 <script>
@@ -373,7 +421,8 @@ if (this.gamebook) {
 </script><div class="section" id="section5">
 <span class="sectionnumber" id="para5">5</span>
 <div class="sectiontext">
- OK. That was fun. Turn to <a class="sectionref enabledlink" data-ref="9">9</a>. 
+ OK. The door is broken, but so is the <span class="drop" data-type="item"
+      data-what="sword">sword</span>. Turn to <a class="sectionref enabledlink" data-ref="3">3</a>. 
 </div>
 </div>
 <script>
@@ -383,7 +432,13 @@ if (this.gamebook) {
 </script><div class="section" id="section6">
 <span class="sectionnumber" id="para6">6</span>
 <div class="sectiontext">
- There is a rope here that can be cut using a <span class="has" data-type="item" data-what="sword">sword</span>. If you have one and want to do that, see <a class="sectionref enabledlink" data-ref="5">5</a>. Otherwise turn to <a class="sectionref enabledlink" data-ref="9">9</a>. 
+ You have reached a t-junction. Here you find a <span class="found enabledlink"
+    onclick="gamebook.player.add('item', 'key')"
+>key</span>
+ and a <span class="found enabledlink"
+    onclick="gamebook.player.add('item', 'stick')"
+>stick</span>
+. You can go west to <a class="sectionref enabledlink" data-ref="4">4</a>, or east to <a class="sectionref enabledlink" data-ref="10">10</a>. 
 </div>
 </div>
 <script>
@@ -393,10 +448,8 @@ if (this.gamebook) {
 </script><div class="section" id="section7">
 <span class="sectionnumber" id="para7">7</span>
 <div class="sectiontext">
- There is a <span class="found enabledlink"
-    onclick="gamebook.player.add('item', 'cursed bracelet')"
->cursed bracelet</span>
- here. You can go on to <a class="sectionref enabledlink" data-ref="10">10</a> or go back to <a class="sectionref enabledlink" data-ref="2">2</a>. You can also drop the <span class="has" data-type="item" data-what="stick">stick</span> for no particular reason if you have it, see <a class="sectionref enabledlink" data-ref="8">8</a>. 
+ A magic portal ahead will only allow you to pass if you did not pick up the <span class="hasnot" data-type="item"
+      data-what="cursed bracelet">cursed bracelet</span>, leading you to <a class="sectionref enabledlink" data-ref="11">11</a>. If you have the <span class="has" data-type="item" data-what="cursed bracelet">cursed bracelet</span> you have to go back to <a class="sectionref enabledlink" data-ref="6">6</a> instead. Actually feel free to head back to <a class="sectionref enabledlink" data-ref="6">6</a> either way. 
 </div>
 </div>
 <script>
@@ -406,8 +459,7 @@ if (this.gamebook) {
 </script><div class="section" id="section8">
 <span class="sectionnumber" id="para8">8</span>
 <div class="sectiontext">
- OK <span class="drop" data-type="item"
-      data-what="stick">stick</span> dropped. Turn back to <a class="sectionref enabledlink" data-ref="2">2</a> to confirm stick can not be picked up again even if the text says it is there (books work that way, although ideally this dynamic version should provide some hints that it is no longer there). 
+ Congratulations, you won.
 </div>
 </div>
 <script>
@@ -417,7 +469,8 @@ if (this.gamebook) {
 </script><div class="section" id="section9">
 <span class="sectionnumber" id="para9">9</span>
 <div class="sectiontext">
- Congratulations, you won.
+ OK <span class="drop" data-type="item"
+      data-what="stick">stick</span> dropped. Turn back to <a class="sectionref enabledlink" data-ref="6">6</a> to confirm stick can not be picked up again even if the text says it is there (books work that way, although ideally this dynamic version should provide some hints that it is no longer there). 
 </div>
 </div>
 <script>
@@ -427,8 +480,10 @@ if (this.gamebook) {
 </script><div class="section" id="section10">
 <span class="sectionnumber" id="para10">10</span>
 <div class="sectiontext">
- A magic portal ahead will only allow you to pass if you did not pick up the <span class="hasnot" data-type="item"
-      data-what="cursed bracelet">cursed bracelet</span>, leading you to <a class="sectionref enabledlink" data-ref="4">4</a>. If you have the <span class="has" data-type="item" data-what="cursed bracelet">cursed bracelet</span> you have to go back to <a class="sectionref enabledlink" data-ref="2">2</a> instead. Actually feel free to head back to <a class="sectionref enabledlink" data-ref="2">2</a> either way. 
+ There is a <span class="found enabledlink"
+    onclick="gamebook.player.add('item', 'cursed bracelet')"
+>cursed bracelet</span>
+ here. You can go on to <a class="sectionref enabledlink" data-ref="7">7</a> or go back to <a class="sectionref enabledlink" data-ref="6">6</a>. You can also drop the <span class="has" data-type="item" data-what="stick">stick</span> for no particular reason if you have it, see <a class="sectionref enabledlink" data-ref="9">9</a>. 
 </div>
 </div>
 <script>
@@ -438,7 +493,10 @@ if (this.gamebook) {
 </script><div class="section" id="section11">
 <span class="sectionnumber" id="para11">11</span>
 <div class="sectiontext">
- There is a locked door here. If you have a <span class="has" data-type="item" data-what="key">key</span> you can use that to open the door, see <a class="sectionref enabledlink" data-ref="6">6</a>. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the <span class="has" data-type="item" data-what="sword">sword</span>, if you have it, see <a class="sectionref enabledlink" data-ref="3">3</a>. Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see <a class="sectionref enabledlink" data-ref="2">2</a>. 
+ You found <span class="found enabledlink"
+    onclick="gamebook.player.add('item', 'something valuable')"
+>something valuable</span>
+, but there is no way forward, so you head back to <a class="sectionref enabledlink" data-ref="6">6</a>. 
 </div>
 </div>
 <script>

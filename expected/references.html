@@ -15,6 +15,9 @@
             'collections' : {},
 
             'collect' : function(type, name) {
+                if (type in this.collections) {
+                    return;
+                }
                 this.collections[type] = {
                     'name' : name,
                     'contents' : [],
@@ -57,12 +60,23 @@
             'getState' : function() {
                 return JSON.stringify({
                     'collections' : this.collections,
-                    'currentSection' : this.currentSection,
-                    'started' : this.started
+                    'currentSection' : this.currentSection
                 });
             },
 
             'setState' : function(state) {
+                var parsedState = JSON.parse(state);
+                this.currentSection = parsedState.currentSection;
+                for (var c in parsedState.collections) {
+                    var collection = parsedState.collections[c];
+                    if (!(c in this.collections)) {
+                        this.collect(c, collection.name);
+                    } else {
+                        this.collections[c].name = collection.name;
+                    }
+                    this.collections[c].contents = collection.contents;
+                    this.collections[c].dropped = collection.dropped;
+                }
             }
         },
 
@@ -89,6 +103,7 @@
         'start' : function() {
             this.hideIntroSections();
             this.addClassToClass('startlink', 'nodisplay');
+            this.addClassToClass('resumelink', 'nodisplay');
             gamebook.player.started = true;
         },
 
@@ -101,6 +116,36 @@
             this.runActions(e.getElementsByClassName('sectiontext')[0]);
             e.style.display = 'block';
             this.player.currentSection = nr;
+            this.saveGame();
+        },
+
+        //FIXME move out from gamebook object
+        'saveGame' : function() {
+            if (typeof window !== 'undefined' && 'localStorage' in window) {
+                window.localStorage.setItem('savedGamebookPlayer',
+                                            this.player.getState());
+            }
+        },
+
+        //FIXME move out from gamebook object
+        'hasSavedGame' : function() {
+            if (typeof window !== 'undefined' && 'localStorage' in window) {
+                return window.localStorage.getItem('savedGamebookPlayer');
+            } else {
+                return false;
+            }
+        },
+
+        //FIXME move out from gamebook object
+        'loadGame' : function() {
+            if (typeof window !== 'undefined' && 'localStorage' in window) {
+                var state = window.localStorage.getItem('savedGamebookPlayer');
+                this.player.setState(state);
+                this.turnTo(this.player.currentSection);
+                this.updateCollectionsView();
+            } else {
+                //FIXME some kind of error, because we should never get here
+            }
         },
 
         'hideIntroSections' : function() {
@@ -267,7 +312,8 @@ if (typeof exports !== 'undefined') {
 
     </script>
   <style>
-    .startlink,.sectionref,.displayintrolink,.hideintrolink,.found,.add,.random {
+    .startlink,.sectionref,.displayintrolink,.hideintrolink,.found,.add,.random,
+    .resumelink{
                    font-weight: bold;
                    margin: 0.2em;
                    vertical-align: middle;
@@ -279,14 +325,14 @@ if (typeof exports !== 'undefined') {
         padding-right: 1.5em;
     }
 
-    .startlink,.enabledlink,.displayintrolink,.hideintrolink,.found,.random {
-        cursor: pointer;}
+    .startlink,.enabledlink,.displayintrolink,.hideintrolink,.found,.random,
+    .resumelink {cursor: pointer;}
 
     .startlink,.enabledlink,.displayintrolink,.hideintrolink,.found,
-    .random {background: #eef;
+    .random,.resumelink {background: #eef;
     }
     .startlink:hover,.enabledlink:hover,.displayintrolink:hover,
-       .hideintrolink:hover {background: #a9f;}
+       .hideintrolink:hover,.resumelink:hover {background: #a9f;}
     .disabledlink {color: #bbb; cursor: not-allowed; background: inherit;}
     .disabledlink:hover {background: inherit;}
     .sectionnumber {font-weight: bolder;
@@ -308,6 +354,7 @@ if (typeof exports !== 'undefined') {
     .collectionTemplate {display: none;}
     .sectionimage {width: 100%; padding: 1em;}
     .nodisplay {display: none;}
+    .resumenr {font-weight: bold;}
   </style>
   </head>
   <body>
@@ -320,7 +367,7 @@ if (typeof exports !== 'undefined') {
 <div class="section" id="section-1">
 <span class="sectionnumber" id="para-1">-1</span>
 <div class="sectiontext">
- This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at <a class="sectionref enabledlink" data-ref="1">1</a> or the next section at <a class="sectionref enabledlink" data-ref="55">55</a>. 
+ This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at <a class="sectionref enabledlink" data-ref="1">1</a> or the next section at <a class="sectionref enabledlink" data-ref="231">231</a>. 
 </div>
 </div>
 <script>
@@ -331,57 +378,68 @@ if (this.gamebook) {
 </div>
 </div>
 
+<div class="resumelink nodisplay"
+  onclick="gamebook.loadGame()">Resume saved game.</div>
+
 <div class="startlink"
   onclick="gamebook.turnTo(1)">Turn to 1 to begin.</div>
+<script>
+    if (gamebook.hasSavedGame()) {
+        var resumeLinks = document.getElementsByClassName('resumelink');
+        Array.prototype.forEach.call(resumeLinks, function(e) {
+            e.classList.remove('nodisplay');
+        });
+    }
+</script>
 <div class="section" id="section1">
 <span class="sectionnumber" id="para1">1</span>
 <div class="sectiontext">
- This is where the adventure begins. You can go on to the next section, see <a class="sectionref enabledlink" data-ref="55">55</a> or try the random selection feature at <a class="sectionref enabledlink" data-ref="201">201</a>. 
+ This is where the adventure begins. You can go on to the next section, see <a class="sectionref enabledlink" data-ref="231">231</a> or try the random selection feature at <a class="sectionref enabledlink" data-ref="208">208</a>. 
 </div>
 </div>
 <script>
 if (this.gamebook) {
    gamebook.addSection(1, document.getElementById('section1'));
 }
-</script><div class="section" id="section13">
-<span class="sectionnumber" id="para13">13</span>
+</script><div class="section" id="section193">
+<span class="sectionnumber" id="para193">193</span>
 <div class="sectiontext">
  Alternative ending. 
 </div>
 </div>
 <script>
 if (this.gamebook) {
-   gamebook.addSection(13, document.getElementById('section13'));
+   gamebook.addSection(193, document.getElementById('section193'));
 }
-</script><div class="section" id="section55">
-<span class="sectionnumber" id="para55">55</span>
+</script><div class="section" id="section208">
+<span class="sectionnumber" id="para208">208</span>
 <div class="sectiontext">
- This is the next section. Go on to the end at <a class="sectionref enabledlink" data-ref="247">247</a>. 
+ <span class="random enabledlink">Pick a destination at random</span> from <a class="sectionref enabledlink" data-ref="231">231</a> or <a class="sectionref enabledlink" data-ref="336">336</a> or <a class="sectionref enabledlink" data-ref="193">193</a>. 
 </div>
 </div>
 <script>
 if (this.gamebook) {
-   gamebook.addSection(55, document.getElementById('section55'));
+   gamebook.addSection(208, document.getElementById('section208'));
 }
-</script><div class="section" id="section201">
-<span class="sectionnumber" id="para201">201</span>
+</script><div class="section" id="section231">
+<span class="sectionnumber" id="para231">231</span>
 <div class="sectiontext">
- <span class="random enabledlink">Pick a destination at random</span> from <a class="sectionref enabledlink" data-ref="55">55</a> or <a class="sectionref enabledlink" data-ref="247">247</a> or <a class="sectionref enabledlink" data-ref="13">13</a>. 
+ This is the next section. Go on to the end at <a class="sectionref enabledlink" data-ref="336">336</a>. 
 </div>
 </div>
 <script>
 if (this.gamebook) {
-   gamebook.addSection(201, document.getElementById('section201'));
+   gamebook.addSection(231, document.getElementById('section231'));
 }
-</script><div class="section" id="section247">
-<span class="sectionnumber" id="para247">247</span>
+</script><div class="section" id="section336">
+<span class="sectionnumber" id="para336">336</span>
 <div class="sectiontext">
  The end. 
 </div>
 </div>
 <script>
 if (this.gamebook) {
-   gamebook.addSection(247, document.getElementById('section247'));
+   gamebook.addSection(336, document.getElementById('section336'));
 }
 </script>     <div id="collections" class="collections">
     </div>
