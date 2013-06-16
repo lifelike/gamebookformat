@@ -58,12 +58,13 @@ STR_BOOK_CONFIG = set(['id', 'title', 'author', 'starttext', 'hideintrotext',
 INT_BOOK_CONFIG = set(['max'])
 
 class Book:
-    def __init__(self, bookid="gamebook"):
+    def __init__(self, bookid='gamebook', includetag=None):
         self.sections = []
         self.introsections = []
         self.from_name = {}
         self.nr_sections = {}
         self.codewords = set()
+        self.includetag = includetag
         self.config = {'max' : 0,
                        'title' : 'Gamebook',
                        'author' : '',
@@ -82,6 +83,8 @@ class Book:
             raise Exception("Unknown book option '%s'." % name)
 
     def add(self, section):
+        if self.includetag and not section.hastag(self.includetag):
+            return
         if section.name in self.from_name:
             raise Exception('Duplicate section names (%s) not allowed.' %
                             section.name)

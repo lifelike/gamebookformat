@@ -18,6 +18,3 @@ Adventure begins in section 1.
 3
  Good! 
 
-4
- Sections tagged as dummy will not be visible in output at all. 
-

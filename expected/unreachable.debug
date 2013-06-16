@@ -1,12 +1,13 @@
 BEGIN DEBUG OUTPUT
 Book title: Gamebook
-Number of sections: 5
+Number of sections: 6
 
 
 Turn to 1 to begin.
-1 (start) -  It starts here. You can get to 5. 
-2 (seconddummy) -  Another fake section that is also ignored. 
+1 (start) -  It starts here. You can get to 6. 
+2 (secondfake) -  Another fake section that is also ignored. 
 3 (nothereeither) -  You can not get here either, but because it is tagged as fake there will be no warning generated. 
-4 (nothere) -  You can not get here. Verification should warn you about that, if enabled (with the --verify option). 
-5 (here) -  You can get here. Congratulations! 
+4 () - (EMPTY)
+5 (nothere) -  You can not get here. Verification should warn you about that. 
+6 (here) -  You can get here. Congratulations! 
 END DEBUG OUTPUT

@@ -42,7 +42,7 @@ Turn to 1 to begin.
 \subsection*{\begin{center} \textbf{1} \end{center}}
 
  \noindent
- It starts here. You can get to \textbf{\autoref{section5}}. 
+ It starts here. You can get to \textbf{\autoref{section6}}. 
 \vspace{1em}
 \phantomsection
 \refstepcounter{sectionnr}
@@ -60,18 +60,19 @@ Turn to 1 to begin.
  \noindent
  You can not get here either, but because it is tagged as fake there will be no warning generated. 
 \vspace{1em}
-\phantomsection
 \refstepcounter{sectionnr}
-\label{section4}
-\subsection*{\begin{center} \textbf{4} \end{center}}
-
- \noindent
- You can not get here. Verification should warn you about that, if enabled (with the --verify option). 
-\vspace{1em}
 \phantomsection
 \refstepcounter{sectionnr}
 \label{section5}
 \subsection*{\begin{center} \textbf{5} \end{center}}
+
+ \noindent
+ You can not get here. Verification should warn you about that. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section6}
+\subsection*{\begin{center} \textbf{6} \end{center}}
 
  \noindent
  You can get here. Congratulations! 

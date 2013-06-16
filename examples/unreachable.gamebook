@@ -6,12 +6,17 @@ You can get here. Congratulations!
 
 * nothere
 You can not get here. Verification
-should warn you about that, if enabled (with the --verify option).
+should warn you about that.
 
-* nothereeither :fake:
+* notevenincluded                                                     :dummy:
+This section is not even included in the output. Definitely
+ignored when verifying. The section numbering is affected though.
+That might be a bug.
+
+* nothereeither                                                        :fake:
 You can not get here either, but because it is tagged as
 fake there will be no warning generated.
 
-* seconddummy                                                         :fake:
+* secondfake                                                           :fake:
 Another fake section that is also ignored.
 

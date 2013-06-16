@@ -35,5 +35,19 @@ class TestBook(TestCase):
         self.assertEqual(b.nr_sections, {})
         self.assertEqual(b.config['max'], 0)
 
+    def test_includetag(self):
+        b = sections.Book(includetag='test')
+        sec = sections.Section("nnn", "text")
+        sec.add_tags(['some', 'test', 'other'])
+        b.add(sec)
+        self.assertEqual(b.sections, [sec])
+
+    def test_excludetag(self):
+        b = sections.Book(includetag='test')
+        sec = sections.Section("nnn", "text")
+        sec.add_tags(['some', 'other'])
+        b.add(sec)
+        self.assertEqual(b.sections, [])
+
 if __name__ == '__main__':
     unittest.main()
