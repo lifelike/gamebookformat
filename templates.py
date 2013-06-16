@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 import re
 import os
 import os.path
@@ -58,3 +60,7 @@ class Templates (object):
         if not extension:
             extension = self.extension
         return os.path.join(templatedir, subdir, name + "." + extension)
+
+if __name__ == '__main__':
+    templates = Templates(['templates'], sys.argv[1])
+    print templates.get(sys.argv[2])
