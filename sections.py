@@ -51,12 +51,12 @@ class ShuffledSections:
         for nr in nr_sections:
             self.name_to_nr[nr_sections[nr]] = nr
 
-STR_BOOK_CONFIG = set(['title', 'author', 'starttext', 'hideintrotext',
+STR_BOOK_CONFIG = set(['id', 'title', 'author', 'starttext', 'hideintrotext',
                        'showintrotext', 'resumetext'])
 INT_BOOK_CONFIG = set(['max'])
 
 class Book:
-    def __init__(self):
+    def __init__(self, bookid="gamebook"):
         self.sections = []
         self.introsections = []
         self.from_name = {}
@@ -68,7 +68,8 @@ class Book:
                        'starttext' : 'Turn to 1 to begin.',
                        'hideintrotext' : '(hide instructions)',
                        'showintrotext' : '(show instructions)',
-                       'resumetext' : 'Resume saved game.'}
+                       'resumetext' : 'Resume saved game.',
+                       'id' : bookid}
 
     def configure(self, name, value):
         if name in INT_BOOK_CONFIG:

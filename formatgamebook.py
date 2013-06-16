@@ -71,7 +71,7 @@ def format_gamebook(inputfilenames,
                     verify,
                     shuffle):
     output_format = make_output(outputfilename, templatedirs)
-    book = sections.Book()
+    book = sections.Book(make_bookid(outputfilename))
     for inputfilename in inputfilenames:
         parse_file_to_book(open(inputfilename, 'r'), book)
     if import_default_map_file:
@@ -79,6 +79,9 @@ def format_gamebook(inputfilenames,
     if verify:
         verifygamebook.verify(book)
     write_book(book, shuffle, output_format, outputfilename)
+
+def make_bookid(filename):
+    return os.path.splitext(os.path.basename(filename))[0]
 
 def parse_file_to_book(inputfile, book):
     before_first_section = True

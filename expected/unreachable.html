@@ -9,6 +9,8 @@
 
 
     var gamebook = {
+        'id' : 'unreachable',
+
         'player' : {
             'started' : false,
             'currentSection' : -1,
@@ -122,7 +124,7 @@
         //FIXME move out from gamebook object
         'saveGame' : function() {
             if (typeof window !== 'undefined' && 'localStorage' in window) {
-                window.localStorage.setItem('savedGamebookPlayer',
+                window.localStorage.setItem(this.getSavedGameName(),
                                             this.player.getState());
             }
         },
@@ -130,7 +132,7 @@
         //FIXME move out from gamebook object
         'hasSavedGame' : function() {
             if (typeof window !== 'undefined' && 'localStorage' in window) {
-                return window.localStorage.getItem('savedGamebookPlayer');
+                return window.localStorage.getItem(this.getSavedGameName());
             } else {
                 return false;
             }
@@ -139,13 +141,17 @@
         //FIXME move out from gamebook object
         'loadGame' : function() {
             if (typeof window !== 'undefined' && 'localStorage' in window) {
-                var state = window.localStorage.getItem('savedGamebookPlayer');
+                var state = window.localStorage.getItem(this.getSavedGameName());
                 this.player.setState(state);
                 this.turnTo(this.player.currentSection);
                 this.updateCollectionsView();
             } else {
                 //FIXME some kind of error, because we should never get here
             }
+        },
+
+        'getSavedGameName' : function() {
+            return 'savedGamebookPlayer-' + this.id;
         },
 
         'hideIntroSections' : function() {

@@ -1,4 +1,5 @@
 title = Format
+id = format2
 starttext = Adventure begins in section 1.
 hideintrotext = HIDE THE INTRO
 showintrotext = SHOW THE INTRO
