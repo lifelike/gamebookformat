@@ -90,7 +90,8 @@ def parse_file_to_book(inputfile, book):
         if line.startswith('*'):
             before_first_section = False
             if name:
-                add_section_to_book(book, name, text, intro_section, number)
+                add_section_to_book(book, name, text, intro_section, number,
+                                    tags)
             number = None
             text = ""
             intro_section = False
