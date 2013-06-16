@@ -122,11 +122,13 @@ def parse_file_to_book(inputfile, book):
         elif name:
             text = text + " " + line.strip()
         elif len(line.strip()):
-            raise Exception("unknown content before sections: %s" % line.strip())
+            raise Exception("unknown content before sections: %s"
+                            % line.strip())
     if name:
         add_section_to_book(book, name, text, intro_section, number, tags)
 
-def add_section_to_book(book, name, text, intro_section=False, number=None, tags=None):
+def add_section_to_book(book, name, text, intro_section=False,
+                        number=None, tags=None):
     section = sections.Section(name, text)
     if tags:
         section.add_tags(tags)

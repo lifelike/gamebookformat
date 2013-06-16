@@ -180,7 +180,8 @@ var gamebook = {
         var hasAutoScope = false;
         var xorEnableNext = false;
         var autoDisableAllRemainingLinks = (
-            gamebook.player.started && e.classList.contains('introsectionbody'));
+            gamebook.player.started
+            && e.classList.contains('introsectionbody'));
         Array.prototype.forEach.call(e.childNodes, function(c) {
             if (!c.classList) {
                 return;

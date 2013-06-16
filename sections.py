@@ -26,7 +26,8 @@ class ShuffledSection (Section):
 
     def __repr__(self):
         return "ShuffledSection(%d, %s, %s, %s)" % (self.nr,
-                                                    repr(self.name), repr(self.text),
+                                                    repr(self.name),
+                                                    repr(self.text),
                                                     repr(self.tags))
 
 class IntroSection (Section):
@@ -37,7 +38,8 @@ class IntroSection (Section):
         self.tags = section.tags.copy()
 
     def __repr__(self):
-        return "IntroSection(%d, %s, %s, %s)" % (repr(self.name), repr(self.text),
+        return "IntroSection(%d, %s, %s, %s)" % (repr(self.name),
+                                                 repr(self.text),
                                                  repr(self.tags))
 
 class ShuffledSections:
