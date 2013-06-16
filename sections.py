@@ -98,7 +98,7 @@ class Book:
         if nr > self.config['max']:
             self.config['max'] = nr
 
-    def shuffle(self, seed=None):
+    def shuffle(self, reallyshuffle=True):
         as_list = [None]
         from_nr = {}
         shuffled = self.sections[:]
@@ -110,8 +110,8 @@ class Book:
         for p in self.nr_sections.values():
             if p in self.from_name:
                 shuffled.remove(self.from_name[p])
-        rnd = random.Random(seed)
-        rnd.shuffle(shuffled)
+        if reallyshuffle:
+            random.shuffle(shuffled)
         for nr in range(1, self.config['max'] + 1):
             if (self.nr_sections.has_key(nr)
                 and self.nr_sections[nr] in self.from_name):

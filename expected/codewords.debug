@@ -5,12 +5,12 @@ Number of sections: 9
 
 Turn to 1 to begin.
 1 (start) -  Demonstrating how [COLLECT code]Codewords[/COLLECT] (AKA sightings) can be used. Go to 2. 
-2 (second) -  Got codeword [ADD code]warrior[/ADD]. Simple enough to set a codeword. Turn to 5. 
+2 (second) -  Got codeword [ADD code]warrior[/ADD]. Simple enough to set a codeword. Turn to 9. 
 3 (the_end) -  That was easy.    
-4 (xortest) -  OK, if you have the codeword [HAS code]warrior[/HAS], you may turn to 3 otherwise you may go back to 2. Although we both know you have that codeword. If you have the codeword [HAS code]fun[/HAS] you may turn to 7, without it you can go to 6. 
-5 (choice) -  If you have the codeword [HAS code]warrior[/HAS] you may turn to 3. If you do not have the codeword [HAS NOT code]fun[/HAS NOT], you may turn to 6. If you have the codeword [HAS code]fun[/HAS], you may instead turn to 7. Otherwise see 4. 
-6 (notsofun) -  This is just to demonstrate choices allowed when not having a codeword. Now go on to 8 (autotest) or 4 (xor test). 
-7 (cheater) -  Cheater! There is no way you can have codeword fun. 
-8 (autotest) -  If you have codeword [HAS code]warrior[/HAS] turn to ((automatic))9. Otherwise you can go to the end at 3 or back to 1. 
-9 (noautotest) -  If you have the codeword [HAS code]fun[/HAS] turn to ((automatic))7. Otherwise you can go to the end at 3 or to the xortest at 4. 
+4 (xortest) -  OK, if you have the codeword [HAS code]warrior[/HAS], you may turn to 3 otherwise you may go back to 2. Although we both know you have that codeword. If you have the codeword [HAS code]fun[/HAS] you may turn to 5, without it you can go to 8. 
+5 (cheater) -  Cheater! There is no way you can have codeword fun. 
+6 (noautotest) -  If you have the codeword [HAS code]fun[/HAS] turn to ((automatic))5. Otherwise you can go to the end at 3 or to the xortest at 4. 
+7 (autotest) -  If you have codeword [HAS code]warrior[/HAS] turn to ((automatic))6. Otherwise you can go to the end at 3 or back to 1. 
+8 (notsofun) -  This is just to demonstrate choices allowed when not having a codeword. Now go on to 7 (autotest) or 4 (xor test). 
+9 (choice) -  If you have the codeword [HAS code]warrior[/HAS] you may turn to 3. If you do not have the codeword [HAS NOT code]fun[/HAS NOT], you may turn to 8. If you have the codeword [HAS code]fun[/HAS], you may instead turn to 5. Otherwise see 4. 
 END DEBUG OUTPUT

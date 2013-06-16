@@ -15,22 +15,22 @@ readme.html: readme.org
 	emacs -Q --batch --visit=readme.org --funcall org-export-as-html-batch
 
 %.rtf: %.gamebook *.py templates/rtf/*.rtf
-	./formatgamebook.py --random=1 $< $@
+	./formatgamebook.py --no-shuffle $< $@
 
 %.html: %.gamebook *.py templates/html/*.html
-	./formatgamebook.py --random=1 $< $@
+	./formatgamebook.py --no-shuffle $< $@
 
 %.tex: %.gamebook *.py templates/tex/*.tex
-	./formatgamebook.py --random=1 $< $@
+	./formatgamebook.py --no-shuffle $< $@
 
 %.dot: %.gamebook *.py templates/dot/*.dot
-	./formatgamebook.py --random=1 $< $@
+	./formatgamebook.py --no-shuffle $< $@
 
 %.debug: %.gamebook *.py templates/debug/*.debug
-	./formatgamebook.py --random=1 $< $@
+	./formatgamebook.py --no-shuffle $< $@
 
 %.txt:  %.gamebook *.py templates/txt/*.txt
-	./formatgamebook.py --random=1 $< $@
+	./formatgamebook.py --no-shuffle $< $@
 
 %.pdf: %.tex
 	cd $(dir $<) &&	pdflatex $(notdir $<) && pdflatex $(notdir $<)

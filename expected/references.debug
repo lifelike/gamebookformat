@@ -2,12 +2,12 @@ BEGIN DEBUG OUTPUT
 Book title: Gamebook
 Number of sections: 400
 Introduction
--1 (Introduction) -  This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at 1 or the next section at 231. 
+-1 (Introduction) -  This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at 1 or the next section at 400. 
 
 
 
 Turn to 1 to begin.
-1 (start) -  This is where the adventure begins. You can go on to the next section, see 231 or try the random selection feature at 208. 
+1 (start) -  This is where the adventure begins. You can go on to the next section, see 400 or try the random selection feature at 399. 
 2 () - (EMPTY)
 3 () - (EMPTY)
 4 () - (EMPTY)
@@ -199,7 +199,7 @@ Turn to 1 to begin.
 190 () - (EMPTY)
 191 () - (EMPTY)
 192 () - (EMPTY)
-193 (altend) -  Alternative ending. 
+193 () - (EMPTY)
 194 () - (EMPTY)
 195 () - (EMPTY)
 196 () - (EMPTY)
@@ -214,7 +214,7 @@ Turn to 1 to begin.
 205 () - (EMPTY)
 206 () - (EMPTY)
 207 () - (EMPTY)
-208 (random) -  [RANDOM]Pick a destination at random[/RANDOM] from 231 or 336 or 193. 
+208 () - (EMPTY)
 209 () - (EMPTY)
 210 () - (EMPTY)
 211 () - (EMPTY)
@@ -237,7 +237,7 @@ Turn to 1 to begin.
 228 () - (EMPTY)
 229 () - (EMPTY)
 230 () - (EMPTY)
-231 (next) -  This is the next section. Go on to the end at 336. 
+231 () - (EMPTY)
 232 () - (EMPTY)
 233 () - (EMPTY)
 234 () - (EMPTY)
@@ -342,7 +342,7 @@ Turn to 1 to begin.
 333 () - (EMPTY)
 334 () - (EMPTY)
 335 () - (EMPTY)
-336 (end) -  The end. 
+336 () - (EMPTY)
 337 () - (EMPTY)
 338 () - (EMPTY)
 339 () - (EMPTY)
@@ -403,8 +403,8 @@ Turn to 1 to begin.
 394 () - (EMPTY)
 395 () - (EMPTY)
 396 () - (EMPTY)
-397 () - (EMPTY)
-398 () - (EMPTY)
-399 () - (EMPTY)
-400 () - (EMPTY)
+397 (end) -  The end. 
+398 (altend) -  Alternative ending. 
+399 (random) -  [RANDOM]Pick a destination at random[/RANDOM] from 400 or 397 or 398. 
+400 (next) -  This is the next section. Go on to the end at 397. 
 END DEBUG OUTPUT

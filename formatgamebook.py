@@ -69,7 +69,7 @@ def format_gamebook(inputfilenames,
                     import_default_map_file,
                     templatedirs,
                     verify,
-                    seed):
+                    shuffle):
     output_format = make_output(outputfilename, templatedirs)
     book = sections.Book()
     for inputfilename in inputfilenames:
@@ -78,7 +78,7 @@ def format_gamebook(inputfilenames,
         import_default_nr_map(outputfilename, book)
     if verify:
         verifygamebook.verify(book)
-    write_book(book, seed, output_format, outputfilename)
+    write_book(book, shuffle, output_format, outputfilename)
 
 def parse_file_to_book(inputfile, book):
     before_first_section = True
@@ -147,8 +147,8 @@ def make_output(outputfilename, templatedirs):
     raise Exception("Unsupported or unknown output format for %s."
                     % outputfilename)
 
-def write_book(book, seed, output_format, outputfilename):
-    shuffled_sections = book.shuffle(seed)
+def write_book(book, shuffle, output_format, outputfilename):
+    shuffled_sections = book.shuffle(shuffle)
     output = open(outputfilename, 'w')
     print >> output, output_format.format_begin(book.config),
     print >> output, output_format.format_intro_sections(book.introsections,
@@ -190,9 +190,9 @@ if __name__ == '__main__':
                     action='append', help='add custom template dir')
     ap.add_argument('-y', '--verify', action='store_true',
                     help='verify gamebook structure')
-    ap.add_argument('-r', '--random', action='store', default=None,
-                    metavar='R',
-                    help='random number seed for shuffling sections')
+    ap.add_argument('-S', '--no-shuffle', action='store_false',
+                    dest='shuffle',
+                    help='do not shuffle sections')
     args = ap.parse_args()
     templatedirs = ['templates',
                     os.path.join(os.path.dirname(sys.argv[0]), 'templates')]
@@ -204,4 +204,4 @@ if __name__ == '__main__':
                     args.import_default_map_file,
                     templatedirs,
                     args.verify,
-                    args.random)
+                    args.shuffle)
