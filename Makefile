@@ -54,7 +54,8 @@ expected: all
 
 checkexpected: clean all
 	diff -r -x "*.aux" -x "*.gamebook" -x "*.log" -x "*.out" -x "*.png" \
-		-x "*.pdf" -x .gitignore -q examples expected
+		-x "*.pdf" -x .gitignore -x "*.js" -x "*.css" \
+		-q examples expected
 
 unittests=$(wildcard test_*.py)
 
