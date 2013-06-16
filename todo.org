@@ -49,8 +49,6 @@
 - [X] Unit tests (finally...)
 - [X] Save game (ie player) state
 - [X] Load game (ie player) state
-- [ ] Verify gamebook (always; drop the --verify option)
-- [ ] Dummy and fake sections (handle properly when verifying)
 - [ ] Flag to select what tag(s) to include (eg for demo/preview/short...)
  Allow sections with same name as long as only one is included.
  Add book config for what section to use for references to excluded sections
@@ -100,6 +98,8 @@
 - [ ] HTML CSS
 - [ ] Higher level text-language for Gamebooks
 - [ ] BGG forum output (.bgg)
+- [ ] Verify gamebook
+- [ ] Dummy and fake sections (handle properly when verifying)
 
 
 
