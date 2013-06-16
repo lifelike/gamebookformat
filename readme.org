@@ -43,6 +43,25 @@ configuration (eg /C-c C-q/ to edit section tags).
 References to sections can be followed using
 /C-c C-o/ while editing the book in org-mode.
 
+** Dependencies
+
+*** Required
+- Python 2.7 :: To run formatgamebook.py.
+
+*** Optional
+To make something useful from some of the outputted files.
+- pdflatex :: Make pdf from tex files.
+- Graphviz :: Includes the dot command that can make images from dot files.
+
+*** Development
+The following are only needed for working on improving
+the scripts (and even then you can proabbly do without all or most).
+- GNU make :: Runs tests and various other useful development tasks.
+              (This in turn depends on some tools like diff, but if you
+              have make installed you probably have them as well.)
+- node.js :: To run some tests of HTML (JavaScript) templates.
+- nodeunit :: Unit test framework for node.js.
+
 ** License
 
 Copyright (c) 2013 Pelle Nilsson

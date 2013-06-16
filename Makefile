@@ -38,7 +38,7 @@ readme.html: readme.org
 %.png: %.dot
 	dot -Tpng $< > $@
 
-test: unittest checkexpected
+test: unittest checkexpected templatejstest
 
 expected: all
 	$(RM) expected/* && cp examples/*.{rtf,tex,html,debug,txt,dot,map} \
@@ -55,8 +55,16 @@ unittest: *.py
 
 upload: html png pdf rtf
 	if [ -n "$(uploadto)" ]; then \
-	 scp examples/*.html examples/*.png examples/*.pdf examples/*.rtf $(uploadto);\
+	 scp examples/*.html examples/*.png examples/*.pdf examples/*.rtf \
+	   $(uploadto);\
 	fi
+
+test/templatejs/htmlscripts.js: $(wildcard templates/html/*script.html)
+	./templates.py html script > $@
+
+templatejstest: test/templatejs/htmlscripts.js \
+	test/templatejs/testhtmlscripts.js
+	node test/templatejs/testhtmlscripts.js
 
 clean:
 	$(RM) examples/*rtf examples/*.html examples/*.tex \
