@@ -12,8 +12,11 @@ Go to [[getgold]] to get more Gold or [[dangerous]] to lose some Life Points.
 
 * getgold
 Congratulations, you found [inc gold]2[/gold].
+If you have less than [lessthan life]1[/lessthan], turn to [[auto death]].
 You can go to [[dangerous]] to lose some life or to [[losegold]] to drop
-some gold.
+some gold. If you have at least [atleast gold]16[/atleast] you
+can turn to [[hurrah]]. If you have even more than
+[morethan gold]16[/morethan] you can turn to [[rich]].
 
 * dangerous
 You lose [dec life]1[/dec].
@@ -22,3 +25,13 @@ You can go to [[getgold]] to get some Gold.
 * losegold
 You drop [dec gold]5[/dec]. It should not be possible to
 go below 0. Then go on to get gold at [[getgold]] or lose life at [[dangerous]].
+
+* rich
+You have more than 16 Gold. How nice.
+ Go back to get some more at [[getgold]].
+
+* hurrah
+You have at least 16 gold. Go back to get some more at [[getgold]].
+
+* death
+Less than 1 Life Point means the adventure ends now.

@@ -1,4 +1,4 @@
-* TODO [47/72] [65%]
+* TODO [48/72] [66%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -58,7 +58,7 @@
   optional argument sets the starting value of the tag
   display somewhere on page (in HTML output)
 - [X] Counters increase/decrease
-- [ ] Counters check
+- [X] Counters check
 - [ ] Make sure HTML output works with javascript disabled
     and in inferior browsers
 - [ ] Trade (optionally drop something from collection to add something new).

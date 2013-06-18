@@ -98,6 +98,14 @@ var gamebook = {
             gamebook.updateCountersView();
         },
 
+        'hasMoreThan' : function(type, amount) {
+            return this.counters[type].value > amount;
+        },
+
+        'hasLessThan' : function(type, amount) {
+            return this.counters[type].value < amount;
+        },
+
         'getState' : function() {
             return JSON.stringify({
                 'collections' : this.collections,
@@ -283,6 +291,15 @@ var gamebook = {
             } else if (c.classList.contains('has')) {
                 enableNextLink = gamebook.player.has(c.dataset.type,
                                                      c.dataset.what);
+            } else if (c.classList.contains('morethan')) {
+                enableNextLink = gamebook.player.hasMoreThan(
+                    c.dataset.type, parseInt(c.dataset.amount));
+            } else if (c.classList.contains('lessthan')) {
+                enableNextLink = gamebook.player.hasLessThan(
+                    c.dataset.type, parseInt(c.dataset.amount));
+            } else if (c.classList.contains('atleast')) {
+                enableNextLink = gamebook.player.hasMoreThan(
+                    c.dataset.type, parseInt(c.dataset.amount) - 1);
             } else if (c.classList.contains('hasnot')) {
                 enableNextLink = !gamebook.player.has(c.dataset.type,
                                                       c.dataset.what);

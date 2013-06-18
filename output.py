@@ -3,7 +3,8 @@ import os.path
 import sys
 
 COUNTER_CREATE_TAG = 'count'
-COUNTER_USE_TAGS = set(['set', 'inc', 'dec', 'min'])
+COUNTER_USE_TAGS = set(['set', 'inc', 'dec', 'min',
+                        'lessthan', 'morethan', 'atleast'])
 
 class OutputFormat (object):
     "Handles book output. Big FIXME required to make sense."
