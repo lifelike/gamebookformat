@@ -1,0 +1,24 @@
+title = Counters Example
+= Introduction
+This example gamebook shows how to use counters.
+* 1 start
+This is where the gamebook starts.
+We have counters for [count life]Life Points[/count] and for
+[count gold]Gold[/count]. You start the adventure with
+[set life]10[/set] and [set gold]12[/set].
+You can never have less than [min gold]0[/min]. FIXME need to
+figure out best syntax for death when life points go below 1.
+Go to [[getgold]] to get more Gold or [[dangerous]] to lose some Life Points.
+
+* getgold
+Congratulations, you found [inc gold]2[/gold].
+You can go to [[dangerous]] to lose some life or to [[losegold]] to drop
+some gold.
+
+* dangerous
+You lose [dec life]1[/dec].
+You can go to [[getgold]] to get some Gold.
+
+* losegold
+You drop [dec gold]5[/dec]. It should not be possible to
+go below 0. Then go on to get gold at [[getgold]] or lose life at [[dangerous]].

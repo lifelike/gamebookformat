@@ -32,12 +32,19 @@
 .collectionheading {}
 .collectionheading::after {content: ": ";}
 .collectioncontents {}
+.counters {margin-top: 4em;}
+.counter {background: #eee;}
+.counterheading {}
+.counterheading::after {content: ": ";}
+.countercontents {}
 .collect {}
 .add {font-weight: bold;}
 .drop {font-style: italic;}
 .has {font-style: italic;}
 .hasnot {font-style: italic;}
 .collectionTemplate {display: none;}
+.counterTemplate {display: none;}
 .sectionimage {width: 100%; padding: 1em;}
 .nodisplay {display: none;}
 .resumenr {font-weight: bold;}
+.counterChange {font-weight: bold;}

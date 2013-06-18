@@ -17,10 +17,10 @@ uploadto=$(shell cat .uploadto)
 readme.html: readme.org
 	emacs -Q --batch --visit=readme.org --funcall org-export-as-html-batch
 
-examples/gamebookformatplay.js:
+examples/gamebookformatplay.js: gamebookformatplay.js
 	cp gamebookformatplay.js $@
 
-examples/gamebookformat.css:
+examples/gamebookformat.css: gamebookformat.css
 	cp gamebookformat.css $@
 
 %.rtf: %.gamebook *.py templates/rtf/*.rtf
@@ -57,7 +57,7 @@ expected: all
 checkexpected: clean rtf tex html debug dot txt
 	diff -r -x "*.aux" -x "*.gamebook" -x "*.log" -x "*.out" -x "*.png" \
 		-x "*.pdf" -x .gitignore -x "*.js" -x "*.css" \
-		-q examples expected
+		-x "*.options" -q examples expected
 
 unittests=$(wildcard test_*.py)
 

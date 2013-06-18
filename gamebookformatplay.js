@@ -3,6 +3,7 @@ var gamebook = {
         'started' : false,
         'currentSection' : -1,
         'collections' : {},
+        counters : {},
 
         'collect' : function(type, name) {
             if (type in this.collections) {
@@ -33,6 +34,37 @@ var gamebook = {
             gamebook.addCollectionView(type, name);
         },
 
+        count : function(type, name) {
+            if (type in this.counters) {
+                return;
+            };
+            this.counters[type] = {
+                name : name,
+                value : 0,
+                minValue : null, //no minimum set
+                inc : function(amount) {
+                    this.value += amount;
+                },
+                dec : function(amount) {
+                    this.value -= amount;
+                    this.ensureNotBelowMin();
+                },
+                set : function(value) {
+                    this.value = value;
+                    this.ensureNotBelowMin();
+                },
+                min : function(limit) {
+                    this.minValue = limit;
+                },
+                ensureNotBelowMin : function() {
+                    if (this.minValue !== null && this.value < this.minValue) {
+                        this.value = this.minValue;
+                    }
+                }
+            };
+            gamebook.addCounterView(type, name);
+        },
+
         'add' : function(type, what) {
             this.collections[type].add(what);
             gamebook.updateCollectionsView();
@@ -47,10 +79,30 @@ var gamebook = {
             return this.collections[type].has(what);
         },
 
+        inc : function(type, amount) {
+            this.counters[type].inc(amount);
+            gamebook.updateCountersView();
+        },
+
+        dec : function(type, amount) {
+            this.counters[type].dec(amount);
+            gamebook.updateCountersView();
+        },
+
+        min : function(type, limit) {
+            this.counters[type].min(limit);
+        },
+
+        set : function(type, amount) {
+            this.counters[type].set(amount);
+            gamebook.updateCountersView();
+        },
+
         'getState' : function() {
             return JSON.stringify({
                 'collections' : this.collections,
-                'currentSection' : this.currentSection
+                'currentSection' : this.currentSection,
+                'counters' : this.counters
             });
         },
 
@@ -66,6 +118,16 @@ var gamebook = {
                 }
                 this.collections[c].contents = collection.contents;
                 this.collections[c].dropped = collection.dropped;
+            }
+            for (var c in parsedState.counters) {
+                var counter = parsedState.counters[c];
+                if (c in this.counters) {
+                    this.counters[c].name = counter.name;
+                } else {
+                    this.count(c, counter.name);
+                }
+                this.counters[c].minValue = counter.minValue;
+                this.counters[c].value = counter.value;
             }
         }
     },
@@ -102,11 +164,11 @@ var gamebook = {
             var section = this.sections[this.player.currentSection];
             section.element.style.display = 'none';
         }
+        this.player.currentSection = nr;
+        this.saveGame();
         var e = this.sections[nr].element;
         this.runActions(e.getElementsByClassName('sectiontext')[0]);
         e.style.display = 'block';
-        this.player.currentSection = nr;
-        this.saveGame();
     },
 
     //FIXME move out from gamebook object
@@ -204,6 +266,20 @@ var gamebook = {
                 gamebook.player.add(c.dataset.type, c.dataset.what);
             } else if (c.classList.contains('drop')) {
                 gamebook.player.drop(c.dataset.type, c.dataset.what);
+            } else if (c.classList.contains('count')) {
+                gamebook.player.count(c.dataset.type, c.dataset.name);
+            } else if (c.classList.contains('set')) {
+                gamebook.player.set(c.dataset.type,
+                                    parseInt(c.dataset.amount));
+            } else if (c.classList.contains('inc')) {
+                gamebook.player.inc(c.dataset.type,
+                                    parseInt(c.dataset.amount));
+            } else if (c.classList.contains('dec')) {
+                gamebook.player.dec(c.dataset.type,
+                                    parseInt(c.dataset.amount));
+            } else if (c.classList.contains('min')) {
+                gamebook.player.min(c.dataset.type,
+                                    parseInt(c.dataset.limit));
             } else if (c.classList.contains('has')) {
                 enableNextLink = gamebook.player.has(c.dataset.type,
                                                      c.dataset.what);
@@ -260,11 +336,19 @@ var gamebook = {
     },
 
     'addCollectionView' : function(type, name) {
-        var ce = document.getElementById('collections');
-        var template = document.getElementById('collectionTemplate');
+        this.addView('collection', type, name);
+    },
+
+    addCounterView : function(type, name) {
+        this.addView('counter', type, name);
+    },
+
+    addView : function(view, type, name) {
+        var ce = document.getElementById(view + 's');
+        var template = document.getElementById(view + 'Template');
         var e = template.cloneNode(true);
-        e.className = "collection";
-        e.getElementsByClassName('collectionheading')[0].innerHTML = name;
+        e.className = view;
+        e.getElementsByClassName(view + 'heading')[0].innerHTML = name;
         e.dataset.type = type;
         ce.appendChild(e);
     },
@@ -277,6 +361,18 @@ var gamebook = {
                 var collection = gamebook.player.collections[type];
                 var cc = c.getElementsByClassName('collectioncontents')[0];
                 cc.innerHTML = collection.contents.join(', ');
+            }
+        });
+    },
+
+    'updateCountersView' : function() {
+        var ce = document.getElementById('counters');
+        Array.prototype.forEach.call(ce.childNodes, function(c) {
+            if (c.className === 'counter') {
+                var type = c.dataset.type;
+                var counter = gamebook.player.counters[type];
+                var cc = c.getElementsByClassName('countercontents')[0];
+                cc.innerHTML = counter.value;
             }
         });
     },

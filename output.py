@@ -2,11 +2,15 @@ import os
 import os.path
 import sys
 
+COUNTER_CREATE_TAG = 'count'
+COUNTER_USE_TAGS = set(['set', 'inc', 'dec', 'min'])
+
 class OutputFormat (object):
     "Handles book output. Big FIXME required to make sense."
     def __init__(self, templates, quote):
         self.templates = templates
         self.quote = quote
+        self.counter_names = {}
 
     def format_begin(self, bookconfig):
         # FIXME make sure book config is properly quoted
@@ -99,9 +103,15 @@ class OutputFormat (object):
                         tag, self.name))
                 inner = section.text[tag_end+1:end_tag_start]
                 # FIXME this pollutes the mutable references object
-                references['inner'] = self.quote(self.quote(inner))
+                references['inner'] = self.quote(inner)
                 for i, arg in enumerate(tagparts[1:]):
                     references['arg%d' % (i+1)] = self.quote(arg)
+                if tagname == COUNTER_CREATE_TAG and len(tagparts) > 1:
+                    self.counter_names[tagparts[1]] = self.quote(inner)
+                    references['counter'] = self.quote(inner)
+                elif tagname in COUNTER_USE_TAGS and len(tagparts) > 1:
+                    if tagparts[1] in self.counter_names:
+                        references['counter'] = self.counter_names[tagparts[1]]
                 f = self.format_with_template(tagname,
                                               references)
                 if len(f) > 0:

@@ -1,4 +1,4 @@
-* TODO [45/72] [62%]
+* TODO [47/72] [65%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -53,11 +53,11 @@
  Allow sections with same name as long as only one is included.
  Add book config for what section to use for references to excluded sections
   (eg links to outside of demo version can lead to section explaining that)
-- [ ] Counters (life, money, whatever) create and set
+- [X] Counters (life, money, whatever) create and set
   count tag to declare new counter, text in tag is display name
   optional argument sets the starting value of the tag
   display somewhere on page (in HTML output)
-- [ ] Counters increase/decrease
+- [X] Counters increase/decrease
 - [ ] Counters check
 - [ ] Make sure HTML output works with javascript disabled
     and in inferior browsers
