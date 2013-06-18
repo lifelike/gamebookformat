@@ -18,5 +18,5 @@ if __name__ == '__main__':
         optionsfile = open(optionsfilename)
         options += ' ' + ' '.join(optionsfile.readlines())
         optionsfile.close()
-    os.system("python ./formatgamebook.py %s %s %s" % (
+    os.system("python2.7 ./formatgamebook.py %s %s %s" % (
         options, infile, outfile))

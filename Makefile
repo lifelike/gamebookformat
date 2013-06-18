@@ -24,22 +24,22 @@ examples/gamebookformat.css: gamebookformat.css
 	cp gamebookformat.css $@
 
 %.rtf: %.gamebook *.py templates/rtf/*.rtf
-	python ./buildexamplegamebook.py $< $@
+	python2.7 ./buildexamplegamebook.py $< $@
 
 %.html: %.gamebook *.py templates/html/*.html
-	python ./buildexamplegamebook.py $< $@
+	python2.7 ./buildexamplegamebook.py $< $@
 
 %.tex: %.gamebook *.py templates/tex/*.tex
-	python ./buildexamplegamebook.py $< $@
+	python2.7 ./buildexamplegamebook.py $< $@
 
 %.dot: %.gamebook *.py templates/dot/*.dot
-	python ./buildexamplegamebook.py $< $@
+	python2.7 ./buildexamplegamebook.py $< $@
 
 %.debug: %.gamebook *.py templates/debug/*.debug
-	python ./buildexamplegamebook.py $< $@
+	python2.7 ./buildexamplegamebook.py $< $@
 
 %.txt:  %.gamebook *.py templates/txt/*.txt
-	python ./buildexamplegamebook.py $< $@
+	python2.7 ./buildexamplegamebook.py $< $@
 
 %.pdf: %.tex
 	cd $(dir $<) &&	pdflatex $(notdir $<) && pdflatex $(notdir $<)
