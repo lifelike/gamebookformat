@@ -61,13 +61,36 @@
 - [X] Counters check
 - [X] Make sure HTML output works with javascript disabled
     and in inferior browsers
-- [ ] Trade (optionally drop something from collection to add something new).
 - [ ] Buy (optionally decrease a counter to add something to a collection)
+  buy tag to specify what can be bought, eg [buy item]sword[/buy]
+  followed by cost tag to specify what it will cost, eg [cost gold]3[/cost]
 - [ ] Sell (optionally increase a counter to drop something from a collection)
-- [ ] Pick a (maximum) number of things from those found in a(n intro) section
-- [ ] Remove something from collection when following link (implies "has" that)
+  sell tag to specify what can be bought, eg [sell item]sword[/sell]
+  followed by cost tag to specify what it will cost, eg [cost gold]2[/cost]
+- [ ] Pick a specific  number of things from those found in a(n intro) section
+  Used to pick up one or more of something found, or before starting.
+  Create counter and set to how many are allowed to be picked.
+  Add buy (and cost) tags for what can be taken.
+    Need to make sure it is rendered in a good way (might need more tags).
+  Set max of the counter used to 0 and never allow navigation while
+   some counter is above its max.
+  Without setting the max player can decide to pick up fewer (or none) which
+   might of course also be ok at times.
+  This will also work for picking eg starting skills.
 - [ ] Subtract from counter when following link (implies has at least that)
+  This is the cost tag again, when it immediately follows a reference.
 - [ ] Add keyword when following link
+  This is a new tag that follows a reference similar to a cost tag.
+- [ ] Use points to buy values for counters
+ Eg to buy starting values for some attributes in introsection.
+  Create a counter in that introsection, set to some value.
+  Use cost tag following inc tag to set price for increasing a counter.
+  Set max for points to 0.
+  Do not allow navigation until all points are spent (ie never allows
+   following links while a counter is above its max value).
+  The same mechanism can of course be used in-game at any section to
+   allow the player to buy increases in different counters.
+- [ ] Tag to indicate HTML counter not to be visible outside of one section.
 - [X] Javascript tests running in nodejs (no GUI)
   The big scripts in html templates are split out into separate files
   already (script.html and endscript.html). It should be possible to
