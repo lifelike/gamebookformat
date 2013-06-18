@@ -1,0 +1,36 @@
+missingto = demoinfo
+
+* 1 start :demo:
+This gamebook contains a few sections tagged as demo, that will
+be included when building the example
+(see withdemo.gamebook.options file). There are also some sections
+without the demo tag that will be ignored.
+Go on to [[demo1]] or [[demo2]] or [[notindemo1]].
+
+* notindemo1
+This section is not included in the demo. Turn to [[notindemo2]].
+
+* demo1 :demo:
+This is the first demo section (not counting the start section).
+You can go on to the end at [[theend]].
+
+* notindemo2
+This section is not included in the demo. You can go on to
+[[demo2]] or [[theend]] or [[altend]].
+
+* demo2 :demo:
+This is the second demo section.
+You can go on to the end at [[theend]] or alternative (not in demo)
+end at [[altend]].
+
+* theend :demo:
+This is the end. It is also included in the demo.
+
+* demoinfo :demo:
+This is where references to non-demo sections will lead you.
+It is configured at the top of the gamebook file.
+Remember to tag this section correctly to be included.
+Go on to [[demo2]].
+
+* altend
+Alternative end. Not included in the demo.

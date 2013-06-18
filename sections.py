@@ -43,7 +43,8 @@ class IntroSection (Section):
                                                  repr(self.tags))
 
 class ShuffledSections:
-    def __init__(self, as_list, from_nr, from_name, nr_sections):
+    def __init__(self, as_list, from_nr, from_name, nr_sections,
+                 skipped_names, missingto):
         self.as_list = as_list
         self.from_nr = from_nr
         self.from_name = from_name
@@ -52,9 +53,11 @@ class ShuffledSections:
             self.name_to_nr[n] = from_name[n].nr
         for nr in nr_sections:
             self.name_to_nr[nr_sections[nr]] = nr
+        for name in skipped_names:
+            self.name_to_nr[name] = self.name_to_nr[missingto]
 
 STR_BOOK_CONFIG = set(['id', 'title', 'author', 'starttext', 'hideintrotext',
-                       'showintrotext', 'resumetext'])
+                       'showintrotext', 'resumetext', 'missingto'])
 INT_BOOK_CONFIG = set(['max'])
 
 class Book:
@@ -65,6 +68,7 @@ class Book:
         self.nr_sections = {}
         self.codewords = set()
         self.includetag = includetag
+        self.skipped_names = set()
         self.config = {'max' : 0,
                        'title' : 'Gamebook',
                        'author' : '',
@@ -72,6 +76,7 @@ class Book:
                        'hideintrotext' : '(hide instructions)',
                        'showintrotext' : '(show instructions)',
                        'resumetext' : 'Resume saved game.',
+                       'missingto' : None,
                        'id' : bookid}
 
     def configure(self, name, value):
@@ -84,6 +89,7 @@ class Book:
 
     def add(self, section):
         if self.includetag and not section.hastag(self.includetag):
+            self.skipped_names.add(section.name)
             return
         if section.name in self.from_name:
             raise Exception('Duplicate section names (%s) not allowed.' %
@@ -132,4 +138,5 @@ class Book:
             if section:
                 shuffled_from_name[section.name] = section
         return ShuffledSections(as_list, from_nr, shuffled_from_name,
-                                self.nr_sections)
+                                self.nr_sections, self.skipped_names,
+                                self.config['missingto'])

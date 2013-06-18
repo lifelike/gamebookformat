@@ -3,10 +3,12 @@ examples=$(wildcard examples/*.gamebook)
 all: rtf pdf html debug png txt
 
 rtf: $(examples:.gamebook=.rtf)
+tex: $(examples:.gamebook=.tex)
 pdf: $(examples:.gamebook=.pdf)
 html: $(examples:.gamebook=.html) examples/gamebookformatplay.js \
 	examples/gamebookformat.css
 debug: $(examples:.gamebook=.debug)
+dot: $(examples:.gamebook=.dot)
 png: $(examples:.gamebook=.png)
 txt: $(examples:.gamebook=.txt)
 
@@ -22,22 +24,22 @@ examples/gamebookformat.css:
 	cp gamebookformat.css $@
 
 %.rtf: %.gamebook *.py templates/rtf/*.rtf
-	./formatgamebook.py --no-shuffle $< $@
+	python ./buildexamplegamebook.py $< $@
 
 %.html: %.gamebook *.py templates/html/*.html
-	./formatgamebook.py --no-shuffle $< $@
+	python ./buildexamplegamebook.py $< $@
 
 %.tex: %.gamebook *.py templates/tex/*.tex
-	./formatgamebook.py --no-shuffle $< $@
+	python ./buildexamplegamebook.py $< $@
 
 %.dot: %.gamebook *.py templates/dot/*.dot
-	./formatgamebook.py --no-shuffle $< $@
+	python ./buildexamplegamebook.py $< $@
 
 %.debug: %.gamebook *.py templates/debug/*.debug
-	./formatgamebook.py --no-shuffle $< $@
+	python ./buildexamplegamebook.py $< $@
 
 %.txt:  %.gamebook *.py templates/txt/*.txt
-	./formatgamebook.py --no-shuffle $< $@
+	python ./buildexamplegamebook.py $< $@
 
 %.pdf: %.tex
 	cd $(dir $<) &&	pdflatex $(notdir $<) && pdflatex $(notdir $<)
@@ -52,7 +54,7 @@ expected: all
 		cp examples/*.{rtf,tex,html,debug,txt,dot,map} \
 		 expected
 
-checkexpected: clean all
+checkexpected: clean rtf tex html debug dot txt
 	diff -r -x "*.aux" -x "*.gamebook" -x "*.log" -x "*.out" -x "*.png" \
 		-x "*.pdf" -x .gitignore -x "*.js" -x "*.css" \
 		-q examples expected
