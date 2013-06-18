@@ -5,7 +5,7 @@ Demonstrating how to manage player [collect item]Inventory[/collect].
 You start
 the book carrying a [add item]sword[/add]
 and a [add item]shield[/add].
-Turn to [[tjunction]].
+Turn to [[tjunction]] or go to the autotest at [[autotest]].
 
 * tjunction
 You have reached a t-junction.
@@ -56,6 +56,7 @@ so you head back to [[tjunction]].
 * inside
 There is a rope here that can be cut using a [has item]sword[/has].
 If you have one and want to do that, see [[cut_rope]].
+You can also run to the autotest at [[autotest]].
 Otherwise turn to [[won]].
 
 * cut_rope
@@ -63,3 +64,11 @@ OK. That was fun. Turn to [[won]].
 
 * won
 Congratulations, you won.
+* autotest
+If you have the [has item]stick[/has] then you must turn
+immediately to [[auto tjunction]], and everything else in this
+section is ignored. You find a [add item]book[/add] here.
+If you have the [has item]sword[/has] you must turn
+immediately to [[auto inside]], again ignoring everything
+that follows. You drop the [drop item]something valuable[/drop]
+here if you have it, then go on to [[portal]].

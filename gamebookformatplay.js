@@ -254,7 +254,7 @@ var gamebook = {
         var hasXorScope = false;
         var hasAutoScope = false;
         var xorEnableNext = false;
-        var autoDisableAllRemainingLinks = (
+        var autoDisableAllRemaining = (
             gamebook.player.started
             && e.classList.contains('introsectionbody'));
         Array.prototype.forEach.call(e.childNodes, function(c) {
@@ -262,10 +262,10 @@ var gamebook = {
                 return;
             }
             if (c.classList.contains('sectionref')) {
-                if (enableNextLink && !autoDisableAllRemainingLinks) {
+                if (enableNextLink && !autoDisableAllRemaining) {
                     gamebook.enableLink(c);
                     if (hasAutoScope) {
-                        autoDisableAllRemainingLinks = true;
+                        autoDisableAllRemaining = true;
                     }
                 } else {
                     gamebook.disableLink(c);
@@ -273,6 +273,8 @@ var gamebook = {
                 enableNextLink = !(hasXorScope && !xorEnableNext);
                 hasAutoScope = false;
                 hasXorScope = false;
+            } else if (autoDisableAllRemaining) {
+                return; // no further actions will be taken after enabled auto
             } else if (c.classList.contains('collect')) {
                 gamebook.player.collect(c.dataset.type, c.dataset.name);
             } else if (c.classList.contains('add')) {
@@ -318,7 +320,7 @@ var gamebook = {
                                    gamebook.enableRandomLinkAfter);
                 c.classList.add("enabledlink");
                 c.classList.remove("disabledlink");
-                autoDisableAllRemainingLinks = true;
+                autoDisableAllRemaining = true;
             }
         });
     },
