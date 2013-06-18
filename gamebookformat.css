@@ -24,7 +24,7 @@
 .sectionnumber,.introsectionheading {font-weight: bolder;
                 width: 100%;
                 text-align: center;}
-.section {display: none; width: 90%; margin-left: 5%; margin-right: 5%;}
+.section {width: 90%; margin-left: 5%; margin-right: 5%;}
 .sectiontext {margin-top: 0.5em;}
 .gamebook {max-width: 30em; padding: 1em; width: 100%; font-size: 133%;}
 .collections {margin-top: 4em;}
@@ -48,3 +48,5 @@
 .nodisplay {display: none;}
 .resumenr {font-weight: bold;}
 .counterChange {font-weight: bold;}
+
+a {text-decoration: none; color: black;}

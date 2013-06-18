@@ -160,6 +160,11 @@ var gamebook = {
         this.displaySection(nr);
     },
 
+    prepare : function() {
+        this.addClassToClass('section', 'nodisplay');
+        this.runActionsInIntroSections();
+    },
+
     'start' : function() {
         this.hideIntroSections();
         this.addClassToClass('startlink', 'nodisplay');

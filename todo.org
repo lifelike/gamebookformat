@@ -1,4 +1,4 @@
-* TODO [48/72] [66%]
+* TODO [49/72] [68%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -59,7 +59,7 @@
   display somewhere on page (in HTML output)
 - [X] Counters increase/decrease
 - [X] Counters check
-- [ ] Make sure HTML output works with javascript disabled
+- [X] Make sure HTML output works with javascript disabled
     and in inferior browsers
 - [ ] Trade (optionally drop something from collection to add something new).
 - [ ] Buy (optionally decrease a counter to add something to a collection)

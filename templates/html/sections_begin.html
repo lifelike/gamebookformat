@@ -4,7 +4,7 @@
 <div class="startlink"
   onclick="gamebook.turnTo(1)">%(starttext)s</div>
 <script>
-    if (gamebook.hasSavedGame()) {
+    if (typeof gamebook !== 'undefined' && gamebook.hasSavedGame()) {
         var resumeLinks = document.getElementsByClassName('resumelink');
         Array.prototype.forEach.call(resumeLinks, function(e) {
             e.classList.remove('nodisplay');
