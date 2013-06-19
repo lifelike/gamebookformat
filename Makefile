@@ -67,6 +67,7 @@ unittest: *.py
 upload: html png pdf rtf
 	if [ -n "$(uploadto)" ]; then \
 	 scp examples/*.html examples/*.png examples/*.pdf examples/*.rtf \
+		*.js *.css \
 	   $(uploadto);\
 	fi
 
