@@ -61,6 +61,8 @@
 - [X] Counters check
 - [X] Make sure HTML output works with javascript disabled
     and in inferior browsers
+- [ ] Make sure counters start at 0 (not 1).
+- [ ] Remove the counter names from counter-tags output (and templates).
 - [ ] Buy (optionally decrease a counter to add something to a collection)
   buy tag to specify what can be bought, eg [buy item]sword[/buy]
   followed by cost tag to specify what it will cost, eg [cost gold]3[/cost]
@@ -118,6 +120,7 @@
   - Dynamic (markup needed to make playable (HTML) version)
   - Standard output formats reference
   - Customization (make new output formats or override existing)
+- [ ] HTML with javascript active, do not make new URLs (that break history)
 - [ ] HTML CSS
 - [ ] Higher level text-language for Gamebooks
 - [ ] BGG forum output (.bgg)
