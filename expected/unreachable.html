@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="gamebookformat.css"
           type="text/css" />
     <script>
-      gamebook.id = 'unreachable';
+      if (typeof gamebook !== 'undefined') {
+         gamebook.id = 'unreachable';
+      }
     </script>
   </head>
   <body>
@@ -23,7 +25,7 @@
 <div class="startlink"
   onclick="gamebook.turnTo(1)">Turn to 1 to begin.</div>
 <script>
-    if (gamebook.hasSavedGame()) {
+    if (typeof gamebook !== 'undefined' && gamebook.hasSavedGame()) {
         var resumeLinks = document.getElementsByClassName('resumelink');
         Array.prototype.forEach.call(resumeLinks, function(e) {
             e.classList.remove('nodisplay');
@@ -33,7 +35,8 @@
 <div class="section" id="section1">
 <div class="sectionnumber" id="para1">1</div>
 <div class="sectiontext">
- It starts here. You can get to <a class="sectionref enabledlink" data-ref="6">6</a>. 
+ It starts here. You can get to <a class="sectionref enabledlink" data-ref="6"
+href="#section6">6</a>. 
 </div>
 </div>
 <script>
@@ -95,8 +98,8 @@ if (this.gamebook) {
     </div>
     </div>
     <script>
-if (this.gamebook) {
-    gamebook.runActionsInIntroSections();
+if (typeof gamebook !== 'undefined') {
+   gamebook.prepare();
 }
     </script>
 <div class="displayintrolink nodisplay"

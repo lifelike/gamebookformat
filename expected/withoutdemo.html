@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="gamebookformat.css"
           type="text/css" />
     <script>
-      gamebook.id = 'withoutdemo';
+      if (typeof gamebook !== 'undefined') {
+         gamebook.id = 'withoutdemo';
+      }
     </script>
   </head>
   <body>
@@ -23,7 +25,7 @@
 <div class="startlink"
   onclick="gamebook.turnTo(1)">Turn to 1 to begin.</div>
 <script>
-    if (gamebook.hasSavedGame()) {
+    if (typeof gamebook !== 'undefined' && gamebook.hasSavedGame()) {
         var resumeLinks = document.getElementsByClassName('resumelink');
         Array.prototype.forEach.call(resumeLinks, function(e) {
             e.classList.remove('nodisplay');
@@ -33,7 +35,10 @@
 <div class="section" id="section1">
 <div class="sectionnumber" id="para1">1</div>
 <div class="sectiontext">
- This gamebook contains a few sections tagged as demo, that will be included when building the example as withdemo.gamebook (see withdemo.gamebook.options file). There are also some sections without the demo tag that will be ignored. This version is built without options and includes all sections. Go on to <a class="sectionref enabledlink" data-ref="7">7</a> or <a class="sectionref enabledlink" data-ref="5">5</a> or <a class="sectionref enabledlink" data-ref="8">8</a>. 
+ This gamebook contains a few sections tagged as demo, that will be included when building the example as withdemo.gamebook (see withdemo.gamebook.options file). There are also some sections without the demo tag that will be ignored. This version is built without options and includes all sections. Go on to <a class="sectionref enabledlink" data-ref="7"
+href="#section7">7</a> or <a class="sectionref enabledlink" data-ref="5"
+href="#section5">5</a> or <a class="sectionref enabledlink" data-ref="8"
+href="#section8">8</a>. 
 </div>
 </div>
 <script>
@@ -53,7 +58,8 @@ if (this.gamebook) {
 </script><div class="section" id="section3">
 <div class="sectionnumber" id="para3">3</div>
 <div class="sectiontext">
- This is where references to non-demo sections will lead you. It is configured at the top of the gamebook file. Remember to tag this section correctly to be included. Nothing should lead to this section when building without the demo tag option. Go on to <a class="sectionref enabledlink" data-ref="5">5</a>. 
+ This is where references to non-demo sections will lead you. It is configured at the top of the gamebook file. Remember to tag this section correctly to be included. Nothing should lead to this section when building without the demo tag option. Go on to <a class="sectionref enabledlink" data-ref="5"
+href="#section5">5</a>. 
 </div>
 </div>
 <script>
@@ -73,7 +79,9 @@ if (this.gamebook) {
 </script><div class="section" id="section5">
 <div class="sectionnumber" id="para5">5</div>
 <div class="sectiontext">
- This is the second demo section. You can go on to the end at <a class="sectionref enabledlink" data-ref="4">4</a> or alternative (not in demo) end at <a class="sectionref enabledlink" data-ref="2">2</a>. 
+ This is the second demo section. You can go on to the end at <a class="sectionref enabledlink" data-ref="4"
+href="#section4">4</a> or alternative (not in demo) end at <a class="sectionref enabledlink" data-ref="2"
+href="#section2">2</a>. 
 </div>
 </div>
 <script>
@@ -83,7 +91,10 @@ if (this.gamebook) {
 </script><div class="section" id="section6">
 <div class="sectionnumber" id="para6">6</div>
 <div class="sectiontext">
- This section is not included in the demo. You can go on to <a class="sectionref enabledlink" data-ref="5">5</a> or <a class="sectionref enabledlink" data-ref="4">4</a> or <a class="sectionref enabledlink" data-ref="2">2</a>. 
+ This section is not included in the demo. You can go on to <a class="sectionref enabledlink" data-ref="5"
+href="#section5">5</a> or <a class="sectionref enabledlink" data-ref="4"
+href="#section4">4</a> or <a class="sectionref enabledlink" data-ref="2"
+href="#section2">2</a>. 
 </div>
 </div>
 <script>
@@ -93,7 +104,8 @@ if (this.gamebook) {
 </script><div class="section" id="section7">
 <div class="sectionnumber" id="para7">7</div>
 <div class="sectiontext">
- This is the first demo section (not counting the start section). You can go on to the end at <a class="sectionref enabledlink" data-ref="4">4</a>. 
+ This is the first demo section (not counting the start section). You can go on to the end at <a class="sectionref enabledlink" data-ref="4"
+href="#section4">4</a>. 
 </div>
 </div>
 <script>
@@ -103,7 +115,8 @@ if (this.gamebook) {
 </script><div class="section" id="section8">
 <div class="sectionnumber" id="para8">8</div>
 <div class="sectiontext">
- This section is not included in the demo. Turn to <a class="sectionref enabledlink" data-ref="6">6</a>. 
+ This section is not included in the demo. Turn to <a class="sectionref enabledlink" data-ref="6"
+href="#section6">6</a>. 
 </div>
 </div>
 <script>
@@ -125,8 +138,8 @@ if (this.gamebook) {
     </div>
     </div>
     <script>
-if (this.gamebook) {
-    gamebook.runActionsInIntroSections();
+if (typeof gamebook !== 'undefined') {
+   gamebook.prepare();
 }
     </script>
 <div class="displayintrolink nodisplay"

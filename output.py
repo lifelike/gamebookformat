@@ -29,6 +29,7 @@ class OutputFormat (object):
         refs = []
         refsdict = ReferenceFormatter(section.nr,
                                       shuffled_sections.name_to_nr,
+                                      shuffled_sections.missingto,
                                       self.format_with_template("section_ref"),
                                       self.quote)
         formatted_text = self.format_section_body(section, refsdict)
@@ -55,6 +56,7 @@ class OutputFormat (object):
         refs = []
         refsdict = ReferenceFormatter(section.nr,
                                       shuffled_sections.name_to_nr,
+                                      shuffled_sections.missingto,
                                       self.format_with_template("section_ref"),
                                       self.quote)
         formatted_text = self.format_section_body(section, refsdict)
@@ -142,18 +144,22 @@ class OutputFormat (object):
 
 class ReferenceFormatter (object):
     "There is probably a better way, but this hack seems to work."
-    def __init__(self, from_nr, name_to_nr, ref_template, quote):
+    def __init__(self, from_nr, name_to_nr, missingto, ref_template, quote):
         self.from_nr = from_nr
         self.name_to_nr = name_to_nr
         self.found = set()
         self.ref_template = ref_template
         self.items = {'nr' : from_nr}
         self.quote = quote
+        self.missingto = missingto
 
     def __getitem__(self, key):
         if key in self.items:
             return self.quote(self.items[key])
-        to_nr = self.name_to_nr[key]
+        if key in self.name_to_nr:
+            to_nr = self.name_to_nr[key]
+        else:
+            to_nr = self.name_to_nr[self.missingto]
         res = self.ref_template % {
             'nr' : to_nr,
             'from_nr' : self.from_nr

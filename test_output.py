@@ -31,18 +31,20 @@ class TestReferenceFormatter(TestCase):
         pass
 
     def test_create(self):
-        rf = output.ReferenceFormatter(1, {}, "", str)
+        rf = output.ReferenceFormatter(1, {}, None, "", str)
 
     def test_get_item(self):
-        rf = output.ReferenceFormatter(1, {'a' : 1, 'b' : 2}, "%(nr)d", int)
+        rf = output.ReferenceFormatter(1, {'a' : 1, 'b' : 2}, None,
+                                       "%(nr)d", int)
         self.assertEqual(rf['nr'], 1)
 
     def test_get_quoted_item(self):
-        rf = output.ReferenceFormatter(1, {'a' : 1, 'b' : 2}, "%(nr)d", str)
+        rf = output.ReferenceFormatter(1, {'a' : 1, 'b' : 2}, None,
+                                       "%(nr)d", str)
         self.assertEqual(rf['nr'], '1')
 
     def test_get_reference(self):
-        rf = output.ReferenceFormatter(1, {'a' : 1, 'b' : 2},
+        rf = output.ReferenceFormatter(1, {'a' : 1, 'b' : 2}, None,
                                        "%(from_nr)d to %(nr)d", None)
         self.assertEqual(rf['b'], '1 to 2')
         self.assertEquals(rf.found, set(['1 to 2']))

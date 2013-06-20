@@ -8,6 +8,7 @@
 
 \b \qc Counters Example
 \b0\
+\
 \b \qc Introduction
 \b0\
 
@@ -24,39 +25,64 @@
 \ql  This is where the gamebook starts. We have counters for Life Points and for Gold. You start the adventure with 10 Life Points
  and 12 Gold
 . You can never have less than 0 Gold
-. FIXME need to figure out best syntax for death when life points go below 1. Go to \b 4
+. FIXME need to figure out best syntax for death when life points go below 1. Go to \b 7
 \b0
- to get more Gold or \b 3
+ to get more Gold or \b 6
 \b0
  to lose some Life Points.  \
 \
 
 \b \qc 2
 \b0\
-\ql  You drop 5 Gold
-. It should not be possible to go below 0. Then go on to get gold at \b 4
-\b0
- or lose life at \b 3
-\b0
-. \
+\ql  Less than 1 Life Point means the adventure ends now. \
 \
 
 \b \qc 3
 \b0\
-\ql  You lose 1 Life Points
-. You can go to \b 4
+\ql  You have at least 16 gold. Go back to get some more at \b 7
 \b0
- to get some Gold.  \
+.  \
 \
 
 \b \qc 4
 \b0\
+\ql  You have more than 16 Gold. How nice. Go back to get some more at \b 7
+\b0
+.  \
+\
+
+\b \qc 5
+\b0\
+\ql  You drop 5 Gold
+. It should not be possible to go below 0. Then go on to get gold at \b 7
+\b0
+ or lose life at \b 6
+\b0
+.  \
+\
+
+\b \qc 6
+\b0\
+\ql  You lose 1 Life Points
+. You can go to \b 7
+\b0
+ to get some Gold.  \
+\
+
+\b \qc 7
+\b0\
 \ql  Congratulations, you found 2 Gold
-. You can go to \b 3
+. If you have less than 1, turn to \b 2
 \b0
- to lose some life or to \b 2
+. You can go to \b 6
 \b0
- to drop some gold.  \
+ to lose some life or to \b 5
+\b0
+ to drop some gold. If you have at least 16 you can turn to \b 3
+\b0
+. If you have even more than 16 you can turn to \b 4
+\b0
+.  \
 \
 
 }

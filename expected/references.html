@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="gamebookformat.css"
           type="text/css" />
     <script>
-      gamebook.id = 'references';
+      if (typeof gamebook !== 'undefined') {
+         gamebook.id = 'references';
+      }
     </script>
   </head>
   <body>
@@ -19,7 +21,9 @@
 <div class="introsection">
 <div class="introsectionheading">Introduction</div>
 <div class="introsectionbody">
- This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at <a class="sectionref enabledlink" data-ref="1">1</a> or the next section at <a class="sectionref enabledlink" data-ref="400">400</a>. 
+ This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at <a class="sectionref enabledlink" data-ref="1"
+href="#section1">1</a> or the next section at <a class="sectionref enabledlink" data-ref="400"
+href="#section400">400</a>. 
 </div>
 </div>
 
@@ -29,7 +33,7 @@
 <div class="startlink"
   onclick="gamebook.turnTo(1)">Turn to 1 to begin.</div>
 <script>
-    if (gamebook.hasSavedGame()) {
+    if (typeof gamebook !== 'undefined' && gamebook.hasSavedGame()) {
         var resumeLinks = document.getElementsByClassName('resumelink');
         Array.prototype.forEach.call(resumeLinks, function(e) {
             e.classList.remove('nodisplay');
@@ -39,7 +43,9 @@
 <div class="section" id="section1">
 <div class="sectionnumber" id="para1">1</div>
 <div class="sectiontext">
- This is where the adventure begins. You can go on to the next section, see <a class="sectionref enabledlink" data-ref="400">400</a> or try the random selection feature at <a class="sectionref enabledlink" data-ref="399">399</a>. 
+ This is where the adventure begins. You can go on to the next section, see <a class="sectionref enabledlink" data-ref="400"
+href="#section400">400</a> or try the random selection feature at <a class="sectionref enabledlink" data-ref="399"
+href="#section399">399</a>. 
 </div>
 </div>
 <script>
@@ -69,7 +75,10 @@ if (this.gamebook) {
 </script><div class="section" id="section399">
 <div class="sectionnumber" id="para399">399</div>
 <div class="sectiontext">
- <span class="random enabledlink">Pick a destination at random</span> from <a class="sectionref enabledlink" data-ref="400">400</a> or <a class="sectionref enabledlink" data-ref="397">397</a> or <a class="sectionref enabledlink" data-ref="398">398</a>. 
+ <span class="random enabledlink">Pick a destination at random</span> from <a class="sectionref enabledlink" data-ref="400"
+href="#section400">400</a> or <a class="sectionref enabledlink" data-ref="397"
+href="#section397">397</a> or <a class="sectionref enabledlink" data-ref="398"
+href="#section398">398</a>. 
 </div>
 </div>
 <script>
@@ -79,7 +88,8 @@ if (this.gamebook) {
 </script><div class="section" id="section400">
 <div class="sectionnumber" id="para400">400</div>
 <div class="sectiontext">
- This is the next section. Go on to the end at <a class="sectionref enabledlink" data-ref="397">397</a>. 
+ This is the next section. Go on to the end at <a class="sectionref enabledlink" data-ref="397"
+href="#section397">397</a>. 
 </div>
 </div>
 <script>
@@ -101,8 +111,8 @@ if (this.gamebook) {
     </div>
     </div>
     <script>
-if (this.gamebook) {
-    gamebook.runActionsInIntroSections();
+if (typeof gamebook !== 'undefined') {
+   gamebook.prepare();
 }
     </script>
 <div class="displayintrolink nodisplay"

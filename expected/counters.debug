@@ -1,19 +1,16 @@
 BEGIN DEBUG OUTPUT
 Book title: Counters Example
-Number of sections: 4
+Number of sections: 7
 Introduction
  This example gamebook shows how to use counters.
 
 
 Turn to 1 to begin.
-1 (start) -  This is where the gamebook starts. We have counters for Life Points and for Gold. You start the adventure with 10 Life Points
- and 12 Gold
-. You can never have less than 0 Gold
-. FIXME need to figure out best syntax for death when life points go below 1. Go to 4 to get more Gold or 3 to lose some Life Points. 
-2 (losegold) -  You drop 5 Gold
-. It should not be possible to go below 0. Then go on to get gold at 4 or lose life at 3.
-3 (dangerous) -  You lose 1 Life Points
-. You can go to 4 to get some Gold. 
-4 (getgold) -  Congratulations, you found 2 Gold
-. You can go to 3 to lose some life or to 2 to drop some gold. 
+1 (start) -  This is where the gamebook starts. We have counters for [COUNT life]Life Points[/COUNT] and for [COUNT gold]Gold[/COUNT]. You start the adventure with [SET life]10[/SET] and [SET gold]12[/SET]. You can never have less than [MIN gold]0[/MIN]. FIXME need to figure out best syntax for death when life points go below 1. Go to 7 to get more Gold or 6 to lose some Life Points. 
+2 (death) -  Less than 1 Life Point means the adventure ends now.
+3 (hurrah) -  You have at least 16 gold. Go back to get some more at 7. 
+4 (rich) -  You have more than 16 Gold. How nice. Go back to get some more at 7. 
+5 (losegold) -  You drop [DEC gold]5[/DEC]. It should not be possible to go below 0. Then go on to get gold at 7 or lose life at 6. 
+6 (dangerous) -  You lose [DEC life]1[/DEC]. You can go to 7 to get some Gold. 
+7 (getgold) -  Congratulations, you found [INC gold]2[/INC]. If you have less than 1, turn to ((automatic))2. You can go to 6 to lose some life or to 5 to drop some gold. If you have at least 16 you can turn to 3. If you have even more than 16 you can turn to 4. 
 END DEBUG OUTPUT

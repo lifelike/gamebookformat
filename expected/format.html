@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="gamebookformat.css"
           type="text/css" />
     <script>
-      gamebook.id = 'format2';
+      if (typeof gamebook !== 'undefined') {
+         gamebook.id = 'format2';
+      }
     </script>
   </head>
   <body>
@@ -35,7 +37,7 @@
 <div class="startlink"
   onclick="gamebook.turnTo(1)">Adventure begins in section 1.</div>
 <script>
-    if (gamebook.hasSavedGame()) {
+    if (typeof gamebook !== 'undefined' && gamebook.hasSavedGame()) {
         var resumeLinks = document.getElementsByClassName('resumelink');
         Array.prototype.forEach.call(resumeLinks, function(e) {
             e.classList.remove('nodisplay');
@@ -45,7 +47,9 @@
 <div class="section" id="section1">
 <div class="sectionnumber" id="para1">1</div>
 <div class="sectiontext">
- This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like } and { and " and ' and \. HTML will probably not like &lt;div&gt; or &amp;boom;. There should be an image below as well. If something broke, turn to <a class="sectionref enabledlink" data-ref="2">2</a>, otherwise turn to <a class="sectionref enabledlink" data-ref="3">3</a>. <img src="testimage.png" class="sectionimage"></img> 
+ This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like } and { and " and ' and \. HTML will probably not like &lt;div&gt; or &amp;boom;. There should be an image below as well. If something broke, turn to <a class="sectionref enabledlink" data-ref="2"
+href="#section2">2</a>, otherwise turn to <a class="sectionref enabledlink" data-ref="3"
+href="#section3">3</a>. <img src="testimage.png" class="sectionimage"></img> 
 </div>
 </div>
 <script>
@@ -87,8 +91,8 @@ if (this.gamebook) {
     </div>
     </div>
     <script>
-if (this.gamebook) {
-    gamebook.runActionsInIntroSections();
+if (typeof gamebook !== 'undefined') {
+   gamebook.prepare();
 }
     </script>
 <div class="displayintrolink nodisplay"

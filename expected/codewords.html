@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="gamebookformat.css"
           type="text/css" />
     <script>
-      gamebook.id = 'codewords';
+      if (typeof gamebook !== 'undefined') {
+         gamebook.id = 'codewords';
+      }
     </script>
   </head>
   <body>
@@ -23,7 +25,7 @@
 <div class="startlink"
   onclick="gamebook.turnTo(1)">Turn to 1 to begin.</div>
 <script>
-    if (gamebook.hasSavedGame()) {
+    if (typeof gamebook !== 'undefined' && gamebook.hasSavedGame()) {
         var resumeLinks = document.getElementsByClassName('resumelink');
         Array.prototype.forEach.call(resumeLinks, function(e) {
             e.classList.remove('nodisplay');
@@ -34,7 +36,8 @@
 <div class="sectionnumber" id="para1">1</div>
 <div class="sectiontext">
  Demonstrating how <span class="collect" data-type="code"
-    data-name="Codewords">Codewords</span> (AKA sightings) can be used. Go to <a class="sectionref enabledlink" data-ref="2">2</a>. 
+    data-name="Codewords">Codewords</span> (AKA sightings) can be used. Go to <a class="sectionref enabledlink" data-ref="2"
+href="#section2">2</a>. 
 </div>
 </div>
 <script>
@@ -45,7 +48,8 @@ if (this.gamebook) {
 <div class="sectionnumber" id="para2">2</div>
 <div class="sectiontext">
  Got codeword <span class="add" data-type="code"
-      data-what="warrior">warrior</span>. Simple enough to set a codeword. Turn to <a class="sectionref enabledlink" data-ref="9">9</a>. 
+      data-what="warrior">warrior</span>. Simple enough to set a codeword. Turn to <a class="sectionref enabledlink" data-ref="9"
+href="#section9">9</a>. 
 </div>
 </div>
 <script>
@@ -65,7 +69,11 @@ if (this.gamebook) {
 </script><div class="section" id="section4">
 <div class="sectionnumber" id="para4">4</div>
 <div class="sectiontext">
- OK, if you have the codeword <span class="has" data-type="code" data-what="warrior">warrior</span>, you may turn to <span class="xor"></span><a class="sectionref enabledlink" data-ref="3">3</a> otherwise you may go back to <a class="sectionref enabledlink" data-ref="2">2</a>. Although we both know you have that codeword. If you have the codeword <span class="has" data-type="code" data-what="fun">fun</span> you may turn to <span class="xor"></span><a class="sectionref enabledlink" data-ref="5">5</a>, without it you can go to <a class="sectionref enabledlink" data-ref="8">8</a>. 
+ OK, if you have the codeword <span class="has" data-type="code" data-what="warrior">warrior</span>, you may turn to <span class="xor"></span><a class="sectionref enabledlink" data-ref="3"
+href="#section3">3</a> otherwise you may go back to <a class="sectionref enabledlink" data-ref="2"
+href="#section2">2</a>. Although we both know you have that codeword. If you have the codeword <span class="has" data-type="code" data-what="fun">fun</span> you may turn to <span class="xor"></span><a class="sectionref enabledlink" data-ref="5"
+href="#section5">5</a>, without it you can go to <a class="sectionref enabledlink" data-ref="8"
+href="#section8">8</a>. 
 </div>
 </div>
 <script>
@@ -85,7 +93,10 @@ if (this.gamebook) {
 </script><div class="section" id="section6">
 <div class="sectionnumber" id="para6">6</div>
 <div class="sectiontext">
- If you have the codeword <span class="has" data-type="code" data-what="fun">fun</span> turn to <span class="auto"></span><a class="sectionref enabledlink" data-ref="5">5</a>. Otherwise you can go to the end at <a class="sectionref enabledlink" data-ref="3">3</a> or to the xortest at <a class="sectionref enabledlink" data-ref="4">4</a>. 
+ If you have the codeword <span class="has" data-type="code" data-what="fun">fun</span> turn to <span class="auto"></span><a class="sectionref enabledlink" data-ref="5"
+href="#section5">5</a>. Otherwise you can go to the end at <a class="sectionref enabledlink" data-ref="3"
+href="#section3">3</a> or to the xortest at <a class="sectionref enabledlink" data-ref="4"
+href="#section4">4</a>. 
 </div>
 </div>
 <script>
@@ -95,7 +106,10 @@ if (this.gamebook) {
 </script><div class="section" id="section7">
 <div class="sectionnumber" id="para7">7</div>
 <div class="sectiontext">
- If you have codeword <span class="has" data-type="code" data-what="warrior">warrior</span> turn to <span class="auto"></span><a class="sectionref enabledlink" data-ref="6">6</a>. Otherwise you can go to the end at <a class="sectionref enabledlink" data-ref="3">3</a> or back to <a class="sectionref enabledlink" data-ref="1">1</a>. 
+ If you have codeword <span class="has" data-type="code" data-what="warrior">warrior</span> turn to <span class="auto"></span><a class="sectionref enabledlink" data-ref="6"
+href="#section6">6</a>. Otherwise you can go to the end at <a class="sectionref enabledlink" data-ref="3"
+href="#section3">3</a> or back to <a class="sectionref enabledlink" data-ref="1"
+href="#section1">1</a>. 
 </div>
 </div>
 <script>
@@ -105,7 +119,9 @@ if (this.gamebook) {
 </script><div class="section" id="section8">
 <div class="sectionnumber" id="para8">8</div>
 <div class="sectiontext">
- This is just to demonstrate choices allowed when not having a codeword. Now go on to <a class="sectionref enabledlink" data-ref="7">7</a> (autotest) or <a class="sectionref enabledlink" data-ref="4">4</a> (xor test). 
+ This is just to demonstrate choices allowed when not having a codeword. Now go on to <a class="sectionref enabledlink" data-ref="7"
+href="#section7">7</a> (autotest) or <a class="sectionref enabledlink" data-ref="4"
+href="#section4">4</a> (xor test). 
 </div>
 </div>
 <script>
@@ -115,8 +131,12 @@ if (this.gamebook) {
 </script><div class="section" id="section9">
 <div class="sectionnumber" id="para9">9</div>
 <div class="sectiontext">
- If you have the codeword <span class="has" data-type="code" data-what="warrior">warrior</span> you may turn to <a class="sectionref enabledlink" data-ref="3">3</a>. If you do not have the codeword <span class="hasnot" data-type="code"
-      data-what="fun">fun</span>, you may turn to <a class="sectionref enabledlink" data-ref="8">8</a>. If you have the codeword <span class="has" data-type="code" data-what="fun">fun</span>, you may instead turn to <a class="sectionref enabledlink" data-ref="5">5</a>. Otherwise see <a class="sectionref enabledlink" data-ref="4">4</a>. 
+ If you have the codeword <span class="has" data-type="code" data-what="warrior">warrior</span> you may turn to <a class="sectionref enabledlink" data-ref="3"
+href="#section3">3</a>. If you do not have the codeword <span class="hasnot" data-type="code"
+      data-what="fun">fun</span>, you may turn to <a class="sectionref enabledlink" data-ref="8"
+href="#section8">8</a>. If you have the codeword <span class="has" data-type="code" data-what="fun">fun</span>, you may instead turn to <a class="sectionref enabledlink" data-ref="5"
+href="#section5">5</a>. Otherwise see <a class="sectionref enabledlink" data-ref="4"
+href="#section4">4</a>. 
 </div>
 </div>
 <script>
@@ -138,8 +158,8 @@ if (this.gamebook) {
     </div>
     </div>
     <script>
-if (this.gamebook) {
-    gamebook.runActionsInIntroSections();
+if (typeof gamebook !== 'undefined') {
+   gamebook.prepare();
 }
     </script>
 <div class="displayintrolink nodisplay"
