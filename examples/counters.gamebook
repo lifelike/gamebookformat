@@ -5,25 +5,26 @@ This example gamebook shows how to use counters.
 This is where the gamebook starts.
 We have counters for [count life]Life Points[/count] and for
 [count gold]Gold[/count]. You start the adventure with
-[set life]10[/set] and [set gold]12[/set].
-You can never have less than [min gold]0[/min]. FIXME need to
+[set life]10[/set] Life Points and [set gold]12[/set] Gold.
+You can never have less than [min gold]0[/min] Gold. FIXME need to
 figure out best syntax for death when life points go below 1.
 Go to [[getgold]] to get more Gold or [[dangerous]] to lose some Life Points.
 
 * getgold
-Congratulations, you found [inc gold]2[/gold].
-If you have less than [lessthan life]1[/lessthan], turn to [[auto death]].
+Congratulations, you found [inc gold]2[/gold] Gold.
+If you have less than [lessthan life]1[/lessthan] Life Points,
+turn to [[auto death]].
 You can go to [[dangerous]] to lose some life or to [[losegold]] to drop
-some gold. If you have at least [atleast gold]16[/atleast] you
+some gold. If you have at least [atleast gold]16[/atleast] Gold you
 can turn to [[hurrah]]. If you have even more than
-[morethan gold]16[/morethan] you can turn to [[rich]].
+[morethan gold]16[/morethan] Gold you can turn to [[rich]].
 
 * dangerous
-You lose [dec life]1[/dec].
+You lose [dec life]1[/dec] Life Points.
 You can go to [[getgold]] to get some Gold.
 
 * losegold
-You drop [dec gold]5[/dec]. It should not be possible to
+You drop [dec gold]5[/dec] Gold. It should not be possible to
 go below 0. Then go on to get gold at [[getgold]] or lose life at [[dangerous]].
 
 * rich

@@ -1,4 +1,4 @@
-* TODO [49/72] [68%]
+* TODO [51/75] [68%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -61,8 +61,8 @@
 - [X] Counters check
 - [X] Make sure HTML output works with javascript disabled
     and in inferior browsers
-- [ ] Make sure counters start at 0 (not 1).
-- [ ] Remove the counter names from counter-tags output (and templates).
+- [X] Make sure counters start at 0 (not 1).
+- [X] Remove the counter names from counter-tags output (and templates).
 - [ ] Buy (optionally decrease a counter to add something to a collection)
   buy tag to specify what can be bought, eg [buy item]sword[/buy]
   followed by cost tag to specify what it will cost, eg [cost gold]3[/cost]

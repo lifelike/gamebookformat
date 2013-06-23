@@ -8,9 +8,9 @@ Introduction
 Turn to 1 to begin.
 1
  This is where the gamebook starts. We have counters for Life Points and for Gold. You start the adventure with 10 Life Points
- and 12 Gold
-. You can never have less than 0 Gold
-. FIXME need to figure out best syntax for death when life points go below 1. Go to 7 to get more Gold or 6 to lose some Life Points. 
+ Life Points and 12 Gold
+ Gold. You can never have less than 0 Gold
+ Gold. FIXME need to figure out best syntax for death when life points go below 1. Go to 7 to get more Gold or 6 to lose some Life Points. 
 
 2
  Less than 1 Life Point means the adventure ends now.
@@ -23,13 +23,13 @@ Turn to 1 to begin.
 
 5
  You drop 5 Gold
-. It should not be possible to go below 0. Then go on to get gold at 7 or lose life at 6. 
+ Gold. It should not be possible to go below 0. Then go on to get gold at 7 or lose life at 6. 
 
 6
  You lose 1 Life Points
-. You can go to 7 to get some Gold. 
+ Life Points. You can go to 7 to get some Gold. 
 
 7
  Congratulations, you found 2 Gold
-. If you have less than 1, turn to 2. You can go to 6 to lose some life or to 5 to drop some gold. If you have at least 16 you can turn to 3. If you have even more than 16 you can turn to 4. 
+ Gold. If you have less than 1 Life Points, turn to 2. You can go to 6 to lose some life or to 5 to drop some gold. If you have at least 16 Gold you can turn to 3. If you have even more than 16 Gold you can turn to 4. 
 

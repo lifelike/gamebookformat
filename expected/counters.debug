@@ -6,11 +6,11 @@ Introduction
 
 
 Turn to 1 to begin.
-1 (start) -  This is where the gamebook starts. We have counters for [COUNT life]Life Points[/COUNT] and for [COUNT gold]Gold[/COUNT]. You start the adventure with [SET life]10[/SET] and [SET gold]12[/SET]. You can never have less than [MIN gold]0[/MIN]. FIXME need to figure out best syntax for death when life points go below 1. Go to 7 to get more Gold or 6 to lose some Life Points. 
+1 (start) -  This is where the gamebook starts. We have counters for [COUNT life]Life Points[/COUNT] and for [COUNT gold]Gold[/COUNT]. You start the adventure with [SET life]10[/SET] Life Points and [SET gold]12[/SET] Gold. You can never have less than [MIN gold]0[/MIN] Gold. FIXME need to figure out best syntax for death when life points go below 1. Go to 7 to get more Gold or 6 to lose some Life Points. 
 2 (death) -  Less than 1 Life Point means the adventure ends now.
 3 (hurrah) -  You have at least 16 gold. Go back to get some more at 7. 
 4 (rich) -  You have more than 16 Gold. How nice. Go back to get some more at 7. 
-5 (losegold) -  You drop [DEC gold]5[/DEC]. It should not be possible to go below 0. Then go on to get gold at 7 or lose life at 6. 
-6 (dangerous) -  You lose [DEC life]1[/DEC]. You can go to 7 to get some Gold. 
-7 (getgold) -  Congratulations, you found [INC gold]2[/INC]. If you have less than 1, turn to ((automatic))2. You can go to 6 to lose some life or to 5 to drop some gold. If you have at least 16 you can turn to 3. If you have even more than 16 you can turn to 4. 
+5 (losegold) -  You drop [DEC gold]5[/DEC] Gold. It should not be possible to go below 0. Then go on to get gold at 7 or lose life at 6. 
+6 (dangerous) -  You lose [DEC life]1[/DEC] Life Points. You can go to 7 to get some Gold. 
+7 (getgold) -  Congratulations, you found [INC gold]2[/INC] Gold. If you have less than 1 Life Points, turn to ((automatic))2. You can go to 6 to lose some life or to 5 to drop some gold. If you have at least 16 Gold you can turn to 3. If you have even more than 16 Gold you can turn to 4. 
 END DEBUG OUTPUT
