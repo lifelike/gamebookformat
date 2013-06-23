@@ -1,0 +1,61 @@
+\documentclass[a5paper,onecolumn]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+
+\usepackage[top=3.3cm, bottom=3.3cm, left=2cm, right=2cm]{geometry}
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+  \pdffalse
+\else
+  \ifnum\pdfoutput=1
+    \pdftrue
+  \else
+    \pdffalse
+  \fi
+\fi
+
+\title{Gamebook}
+\author{}
+\date{}
+
+\newcounter{sectionnr}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\pagestyle{empty}
+
+\clearpage
+
+\subsection*{\begin{center} \textbf{Introduction} \end{center}}
+
+
+ \noindent
+ Testing trade of things. You can buy things using Gold of which you start with 100. You also have an Inventory. At start you carry a \textbf{sword}. 
+\vspace{1em}
+
+
+Turn to 1 to begin.
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section1}
+\subsection*{\begin{center} \textbf{1} \end{center}}
+
+ \noindent
+ You can buy a \textbf{shield} here for 50 Gold. There is also a \textbf{chain mail} costing 150. You can pick up some \textbf{spiderweb} for free. You can go on to the end at \textbf{\autoref{section2}}. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section2}
+\subsection*{\begin{center} \textbf{2} \end{center}}
+
+ \noindent
+ It ends here.
+\vspace{1em}
+\end{document}

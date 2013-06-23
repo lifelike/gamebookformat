@@ -1,0 +1,14 @@
+= Introduction
+Testing trade of things. You can buy things using
+[count gold]Gold[/count] of which you start with [set gold]100[/set].
+You also have an [collect item]Inventory[/item]. At start you carry
+a [add item]sword[/add].
+
+* 1 start
+You can buy a [found item]shield[/found] here for [cost gold]50[/cost] Gold.
+There is also a [found item]chain mail[/found] costing [cost gold]150[/cost].
+You can pick up some [found item]spiderweb[/found] for free.
+You can go on to the end at [[theend]].
+
+* theend
+It ends here.

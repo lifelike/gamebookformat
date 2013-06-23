@@ -254,6 +254,7 @@ var gamebook = {
         var hasXorScope = false;
         var hasAutoScope = false;
         var xorEnableNext = false;
+        var lastCanHaveCost = null;
         var autoDisableAllRemaining = (
             gamebook.player.started
             && e.classList.contains('introsectionbody'));
@@ -261,6 +262,7 @@ var gamebook = {
             if (!c.classList) {
                 return;
             }
+            // FIXME yes, this must be split up
             if (c.classList.contains('sectionref')) {
                 if (enableNextLink && !autoDisableAllRemaining) {
                     gamebook.enableLink(c);
@@ -321,8 +323,27 @@ var gamebook = {
                 c.classList.add("enabledlink");
                 c.classList.remove("disabledlink");
                 autoDisableAllRemaining = true;
+            } else if (c.classList.contains('found')) {
+                lastCanHaveCost = c;
+                c.addEventListener('click', gamebook.takeFound);
+            } else if (c.classList.contains('cost')) {
+                gamebook.addCost(c, lastCanHaveCost);
             }
         });
+    },
+
+    addCost : function(c, e) {
+        var cost = parseInt(c.dataset.amount);
+        var counter = gamebook.player.counters[c.dataset.type];
+        if (counter.value - cost >= counter.minValue) {
+            e.classList.add("enabledlink");
+            e.classList.remove("disabledlink");
+            e.dataset.cost = c.dataset.amount;
+            e.dataset.costtype = c.dataset.type;
+        } else {
+            e.classList.add("disabledlink");
+            e.classList.remove("enabledlink");
+        }
     },
 
     'enableLink' : function(e) {
@@ -411,6 +432,25 @@ var gamebook = {
             this.turnToFunctions[nr] = f;
             return f;
         }
+    },
+
+    'takeFound' : function(evt) {
+        evt.preventDefault();
+        this.classList.remove("enabledlink");
+        this.classList.add("disabledlink");
+        var what = this.dataset.what;
+        var type = this.dataset.type;
+        if ('cost' in this.dataset && 'costtype' in this.dataset) {
+            var cost = parseInt(this.dataset.cost);
+            var counter = gamebook.player.counters[this.dataset.costtype];
+            if (counter.value - cost < counter.minValue) {
+                // this should not happen, link should be disabled
+                return;
+            }
+            counter.dec(cost);
+            gamebook.updateCountersView();
+        }
+        gamebook.player.add(type, what);
     }
 
 };

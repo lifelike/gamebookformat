@@ -1,4 +1,4 @@
-* TODO [51/75] [68%]
+* TODO [52/75] [69%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -63,12 +63,16 @@
     and in inferior browsers
 - [X] Make sure counters start at 0 (not 1).
 - [X] Remove the counter names from counter-tags output (and templates).
-- [ ] Buy (optionally decrease a counter to add something to a collection)
+- [X] Buy (optionally decrease a counter to add something to a collection)
   buy tag to specify what can be bought, eg [buy item]sword[/buy]
   followed by cost tag to specify what it will cost, eg [cost gold]3[/cost]
+  Implemented by adding cost to the old found tag (put cost tag after it).
+  Might reconsider and make explicit buy tag for clarity?
 - [ ] Sell (optionally increase a counter to drop something from a collection)
   sell tag to specify what can be bought, eg [sell item]sword[/sell]
   followed by cost tag to specify what it will cost, eg [cost gold]2[/cost]
+  Might want to wait with this and add normal drop function first?
+- [ ] Trade decrease on counter to increase another counter.
 - [ ] Pick a specific  number of things from those found in a(n intro) section
   Used to pick up one or more of something found, or before starting.
   Create counter and set to how many are allowed to be picked.

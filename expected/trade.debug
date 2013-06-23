@@ -1,0 +1,11 @@
+BEGIN DEBUG OUTPUT
+Book title: Gamebook
+Number of sections: 2
+Introduction
+ Testing trade of things. You can buy things using [COUNT gold]Gold[/COUNT] of which you start with [SET gold]100[/SET]. You also have an [COLLECT item]Inventory[/COLLECT]. At start you carry a [ADD item]sword[/ADD]. 
+
+
+Turn to 1 to begin.
+1 (start) -  You can buy a [FOUND item]shield[/FOUND] here for 50 Gold. There is also a [FOUND item]chain mail[/FOUND] costing 150. You can pick up some [FOUND item]spiderweb[/FOUND] for free. You can go on to the end at 2. 
+2 (theend) -  It ends here.
+END DEBUG OUTPUT
