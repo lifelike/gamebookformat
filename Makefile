@@ -11,6 +11,7 @@ debug: $(examples:.gamebook=.debug)
 dot: $(examples:.gamebook=.dot)
 png: $(examples:.gamebook=.png)
 txt: $(examples:.gamebook=.txt)
+map: $(examples:.gamebook=.map)
 
 uploadto=$(shell cat .uploadto)
 
@@ -49,7 +50,7 @@ examples/gamebookformat.css: gamebookformat.css
 
 test: unittest checkexpected templatejstest
 
-expected: all
+expected: rtf tex html debug txt dot map
 	$(RM) expected/* && \
 		cp examples/*.{rtf,tex,html,debug,txt,dot,map} \
 		 expected

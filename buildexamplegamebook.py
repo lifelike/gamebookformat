@@ -3,7 +3,7 @@
 import os
 import sys
 
-DEFAULT_OPTIONS = '--no-shuffle'
+DEFAULT_OPTIONS = '--no-shuffle --no-default-map'
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
