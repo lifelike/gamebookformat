@@ -1,4 +1,4 @@
-* TODO [52/75] [69%]
+* TODO [53/79] [67%]
 - [X] Debug output
 - [X] DOT output
 - [X] LaTeX output
@@ -68,10 +68,11 @@
   followed by cost tag to specify what it will cost, eg [cost gold]3[/cost]
   Implemented by adding cost to the old found tag (put cost tag after it).
   Might reconsider and make explicit buy tag for clarity?
-- [ ] Sell (optionally increase a counter to drop something from a collection)
-  sell tag to specify what can be bought, eg [sell item]sword[/sell]
-  followed by cost tag to specify what it will cost, eg [cost gold]2[/cost]
-  Might want to wait with this and add normal drop function first?
+- [X] Add text template used for outputting non-tagged (plain) text.
+- [ ] Make debug output more useful with a stricter format easy to parse.
+- [ ] Add json output file containing sections, counters, collections etc.
+- [ ] Javascript GUI tests running in a browser
+  Preferably headless (in nodejs?). Run tests on gamebook html example(s).
 - [ ] Trade decrease on counter to increase another counter.
 - [ ] Pick a specific  number of things from those found in a(n intro) section
   Used to pick up one or more of something found, or before starting.
@@ -101,8 +102,6 @@
   The big scripts in html templates are split out into separate files
   already (script.html and endscript.html). It should be possible to
   test those from nodejs?
-- [ ] Javascript GUI tests running in a browser
-  Preferably headless (in nodejs?). Run tests on gamebook html example(s).
 - [ ] Combat
   Tag to mark up the link to use to trigger next round.
   Tag to mark up the enemy and its values.
@@ -129,6 +128,10 @@
 - [ ] Higher level text-language for Gamebooks
 - [ ] BGG forum output (.bgg)
 - [ ] Verify gamebook
+- [ ] Sell (optionally increase a counter to drop something from a collection)
+  sell tag to specify what can be bought, eg [sell item]sword[/sell]
+  followed by cost tag to specify what it will cost, eg [cost gold]2[/cost]
+  Might want to wait with this and add normal drop function first?
 - [ ] Dummy and fake sections (handle properly when verifying)
 
 

@@ -75,7 +75,7 @@ class OutputFormat (object):
             ref_start = section.text.find('[[', i)
             tag_start = section.text.find('[', i)
             if ref_start >= 0 and ref_start <= tag_start:
-                res += self.quote(section.text[i:ref_start])
+                res += self.format_text(section.text[i:ref_start])
                 ref_end = section.text.find(']]', ref_start)
                 if ref_end > ref_start:
                     ref = section.text[ref_start+2:ref_end]
@@ -90,7 +90,7 @@ class OutputFormat (object):
                     raise Exception('Mismatched ref start [[ in section %s' %
                                     self.name)
             elif tag_start >= 0:
-                res += self.quote(section.text[i:tag_start])
+                res += self.format_text(section.text[i:tag_start])
                 tag_end = section.text.find(']', tag_start)
                 if tag_end < 0:
                     raise Exception('Mismatched tag start [ in section %s' %
@@ -123,9 +123,12 @@ class OutputFormat (object):
                     res += self.quote(inner)
                 i = section.text.find(']', end_tag_start) + 1
             else:
-                res += self.quote(section.text[i:])
+                res += self.format_text(section.text[i:])
                 break
         return res
+
+    def format_text(self, text):
+        return self.format_with_template('text', {'text' : self.quote(text)})
 
     def format_empty_section(self, nr):
         return self.format_with_template("empty_section", {
