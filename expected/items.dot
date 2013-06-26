@@ -1,36 +1,26 @@
 digraph gamebook {
 
- 1->12
-
+ Inventoryswordshield1->12
 1->2
-2->7
-
-2->12
-
-2->5
+stick2->12
+booksword2->5
+something valuable2->7
 4->3
+sword5->4
 5->2
-
-5->4
-
 5->3
-6->12
-7->6
-
+something valuable6->12
+cursed bracelet7->6
+cursed bracelet7->12
 7->12
-8->12
+stick8->12
+cursed bracelet9->7
 9->12
-
-9->7
-
-9->8
-10->5
-11->10
-
-11->5
-
+stick9->8
+sword10->5
+key11->5
+sword11->10
 11->12
+keystick12->11
 12->9
-
-12->11
 }

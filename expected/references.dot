@@ -1,12 +1,9 @@
 digraph gamebook {
 
- 1->399
-
-1->400
+ 1->400
+1->399
+Pick a destination at random399->400
 399->397
-
-399->400
-
 399->398
 400->397
 }

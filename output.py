@@ -35,8 +35,7 @@ class OutputFormat (object):
         formatted_text = self.format_section_body(section, refsdict)
         return self.format_with_template("introsection", {
             'name' : section.name,
-            'text' : formatted_text,
-            'refs' : '\n'.join(refsdict.getfound()) # hack for DOT output
+            'text' : formatted_text
         })
 
     def format_sections_begin(self, bookconfig):
@@ -63,8 +62,7 @@ class OutputFormat (object):
         return self.format_with_template("section", {
             'nr' : section.nr,
             'name' : section.name,
-            'text' : formatted_text,
-            'refs' : '\n'.join(refsdict.getfound()) # hack for DOT output
+            'text' : formatted_text
         })
 
     def format_section_body(self, section, references):
@@ -115,8 +113,7 @@ class OutputFormat (object):
                 elif tagname in COUNTER_USE_TAGS and len(tagparts) > 1:
                     if tagparts[1] in self.counter_names:
                         references['counter'] = self.counter_names[tagparts[1]]
-                f = self.format_with_template(tagname,
-                                              references)
+                f = self.format_with_template(tagname, references)
                 if len(f) > 0:
                     res += f
                 else:
@@ -150,7 +147,6 @@ class ReferenceFormatter (object):
     def __init__(self, from_nr, name_to_nr, missingto, ref_template, quote):
         self.from_nr = from_nr
         self.name_to_nr = name_to_nr
-        self.found = set()
         self.ref_template = ref_template
         self.items = {'nr' : from_nr}
         self.quote = quote
@@ -167,12 +163,7 @@ class ReferenceFormatter (object):
             'nr' : to_nr,
             'from_nr' : self.from_nr
         }
-        if key in self.name_to_nr:
-            self.found.add(res)
         return res
-
-    def getfound(self):
-        return list(self.found)
 
     def __setitem__(self, key, value):
         self.items[key] = value
