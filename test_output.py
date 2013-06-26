@@ -47,7 +47,6 @@ class TestReferenceFormatter(TestCase):
         rf = output.ReferenceFormatter(1, {'a' : 1, 'b' : 2}, None,
                                        "%(from_nr)d to %(nr)d", None)
         self.assertEqual(rf['b'], '1 to 2')
-        self.assertEquals(rf.found, set(['1 to 2']))
 
 if __name__ == '__main__':
     unittest.main()
