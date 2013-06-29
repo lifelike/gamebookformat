@@ -193,15 +193,22 @@ if __name__ == '__main__':
                     help='ignore default map file')
     ap.add_argument('-t', '--template', metavar='D', dest='templatedirs',
                     action='append', help='add custom template dir')
+    ap.add_argument('-o', '--option', metavar='D', dest='optionsdirs',
+                    action='append', help='add template override options dir')
     ap.add_argument('-S', '--no-shuffle', action='store_false',
                     dest='shuffle',
                     help='do not shuffle sections')
     args = ap.parse_args()
     templatedirs = ['templates',
                     os.path.join(os.path.dirname(sys.argv[0]), 'templates')]
+    optionsbasedir = os.path.join(os.path.dirname(sys.argv[0]), 'options')
     if args.templatedirs:
         for t in args.templatedirs:
             templatedirs.insert(-2, t)
+    if args.optionsdirs:
+        for o in args.optionsdirs:
+            print os.path.join(optionsbasedir, o)
+            templatedirs.insert(-2, os.path.join(optionsbasedir, o))
     format_gamebook(args.inputfiles,
                     args.outputfile,
                     args.import_default_map_file,

@@ -15,6 +15,7 @@ gamebook on paper or a screen (or for debugging it).
 :   -i T, --include T     only include sections with tag
 :   -M, --no-default-map  ignore default map file
 :   -t D, --template D    add custom template dir
+:   -o D, --option D      add template override options dir
 :   -S, --no-shuffle      do not shuffle sections
 
 ** Supported Output Formats
@@ -28,7 +29,25 @@ gamebook on paper or a screen (or for debugging it).
 | Plain Text       | .txt      | Raw plain text without formatting.                                                            |
 | Debug Plain Text | .debug    | Plain text debug output of gamebook contents.                                                 |
 
-More to be added.
+More to be added. Custom output formats or modifications to the
+default formats can easily be added. Use the *-t* command-line
+option to add subdirectories containing new templates or
+overrides for default templates.
+
+** Included Optional Templates
+
+The *-o* command-line option is like *-t* but searches the *options*
+subdirectory (next to the default *templates* subdirectory) that
+contains useful overrides for some behavior of the default output
+formats. For example adding *-o letter* to the command-line will
+produce LaTeX files in Letter size rather than the default A5 size.
+
+| Name   | Formats | Description                          |
+|--------+---------+--------------------------------------|
+| a4     | tex     | A4 paper size documents (PDF).       |
+| a5     | tex     | A5 paper size documents (PDF).       |
+| letter | tex     | Letter paper size documents (PDF).   |
+| static | html    | Remove script link from HTML output. |
 
 ** Gamebook Format
 

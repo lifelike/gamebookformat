@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Letter</title>
+    <script type="text/javascript" src="gamebookformatplay.js"></script>
+    <link rel="stylesheet" href="gamebookformat.css"
+          type="text/css" />
+    <script>
+      if (typeof gamebook !== 'undefined') {
+         gamebook.id = 'letter';
+      }
+    </script>
+  </head>
+  <body>
+<div class="hideintrolink nodisplay"
+    onclick="gamebook.hideIntroSections()">(hide instructions)</div>
+  <div class="gamebook">
+
+<div class="resumelink nodisplay"
+  onclick="gamebook.loadGame()">Resume saved game.</div>
+
+<div class="startlink"
+  onclick="gamebook.turnTo(1)">Turn to 1 to begin.</div>
+<script>
+    if (typeof gamebook !== 'undefined' && gamebook.hasSavedGame()) {
+        var resumeLinks = document.getElementsByClassName('resumelink');
+        Array.prototype.forEach.call(resumeLinks, function(e) {
+            e.classList.remove('nodisplay');
+        });
+    }
+</script>
+<div class="section" id="section1">
+<div class="sectionnumber" id="para1">1</div>
+<div class="sectiontext">
+ LaTeX output (and this PDF output) from this book should be in letter size rather than the default A5 size (see command-line options used in letter.gamebook.options).
+</div>
+</div>
+<script>
+if (this.gamebook) {
+   gamebook.addSection(1, document.getElementById('section1'));
+}
+</script>     <div id="counters" class="counters">
+    </div>
+    <div id="counterTemplate" class="counterTemplate">
+      <span class="counterheading"></span>
+      <span class="countercontents"></span>
+    </div>
+    </div>
+    <div id="collections" class="collections">
+    </div>
+    <div id="collectionTemplate" class="collectionTemplate">
+      <span class="collectionheading"></span>
+      <span class="collectioncontents"></span>
+    </div>
+    </div>
+    <script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.prepare();
+}
+    </script>
+<div class="displayintrolink nodisplay"
+    onclick="gamebook.showIntroSections()">(show instructions)</div>
+    </div>
+  </body>
+</html>
