@@ -5,7 +5,7 @@
 </div>
 </div>
 <script>
-if (this.gamebook) {
+if (typeof gamebook !== 'undefined') {
    gamebook.addSection(%(nr)d, document.getElementById('section%(nr)d'));
 }
 </script>

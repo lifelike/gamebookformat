@@ -53,7 +53,7 @@ href="#section3">3</a>. <img src="testimage.png" class="sectionimage"></img>
 </div>
 </div>
 <script>
-if (this.gamebook) {
+if (typeof gamebook !== 'undefined') {
    gamebook.addSection(1, document.getElementById('section1'));
 }
 </script><div class="section" id="section2">
@@ -63,7 +63,7 @@ if (this.gamebook) {
 </div>
 </div>
 <script>
-if (this.gamebook) {
+if (typeof gamebook !== 'undefined') {
    gamebook.addSection(2, document.getElementById('section2'));
 }
 </script><div class="section" id="section3">
@@ -73,7 +73,7 @@ if (this.gamebook) {
 </div>
 </div>
 <script>
-if (this.gamebook) {
+if (typeof gamebook !== 'undefined') {
    gamebook.addSection(3, document.getElementById('section3'));
 }
 </script>     <div id="counters" class="counters">

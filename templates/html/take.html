@@ -1,6 +1,6 @@
 <span class="itemtake">%(inner)s</span>
 <script>
-if (this.gamebook) {
+if (typeof gamebook !== 'undefined') {
    gamebook.takeItem(%(nr)d, "%(inner)s");
 }
 </script>
