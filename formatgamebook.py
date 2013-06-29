@@ -207,7 +207,6 @@ if __name__ == '__main__':
             templatedirs.insert(-2, t)
     if args.optionsdirs:
         for o in args.optionsdirs:
-            print os.path.join(optionsbasedir, o)
             templatedirs.insert(-2, os.path.join(optionsbasedir, o))
     format_gamebook(args.inputfiles,
                     args.outputfile,
