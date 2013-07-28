@@ -19,6 +19,8 @@ references. Currently there is nothing here really.
 This section contains some tricky characters to quote,
 like } and { and " and ' and \.
 HTML will probably not like <div> or &boom;.
+You can make named references [[named1][like this]] (just happens
+to be exactly the same syntax as in emacs org-mode btw).
 There should be an image below as well.
 If something broke, turn to [[bad]],
 otherwise turn to [[good]].
@@ -27,6 +29,15 @@ otherwise turn to [[good]].
 * dum :dummy:
 Sections tagged as dummy will not be
 visible in output at all.
+
+* named1
+This is where you should end up when you follow the named
+reference from the starting section.
+From here you can go to [[named2][the second named section]] or
+to the [[good][good end]].
+
+* named2
+Very good. [[good][You win]].
 
 * good
 Good!

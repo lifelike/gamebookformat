@@ -31,22 +31,29 @@ class TestReferenceFormatter(TestCase):
         pass
 
     def test_create(self):
-        rf = output.ReferenceFormatter(1, {}, None, "", str)
+        rf = output.ReferenceFormatter(1, {}, None, "", "", str)
 
     def test_get_item(self):
         rf = output.ReferenceFormatter(1, {'a' : 1, 'b' : 2}, None,
-                                       "%(nr)d", int)
+                                       "%(nr)d", "", int)
         self.assertEqual(rf['nr'], 1)
 
     def test_get_quoted_item(self):
         rf = output.ReferenceFormatter(1, {'a' : 1, 'b' : 2}, None,
-                                       "%(nr)d", str)
+                                       "%(nr)d", "", str)
         self.assertEqual(rf['nr'], '1')
 
     def test_get_reference(self):
         rf = output.ReferenceFormatter(1, {'a' : 1, 'b' : 2}, None,
-                                       "%(from_nr)d to %(nr)d", None)
+                                       "%(from_nr)d to %(nr)d", "", str)
         self.assertEqual(rf['b'], '1 to 2')
+
+    def test_get_named_reference(self):
+        rf = output.ReferenceFormatter(1, {'a' : 1, 'b' : 2}, None,
+                                       "%(from_nr)d to %(nr)d",
+                                       "%(from_nr)d to %(name)s(%(nr)d)", str)
+        self.assertEqual(rf.ref('b', 'name'), '1 to name(2)')
+
 
 if __name__ == '__main__':
     unittest.main()

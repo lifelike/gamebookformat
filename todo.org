@@ -69,6 +69,8 @@
   Implemented by adding cost to the old found tag (put cost tag after it).
   Might reconsider and make explicit buy tag for clarity?
 - [X] Add text template used for outputting non-tagged (plain) text.
+- [X] Named references, when that style is wanted (especially for HTML).
+- [ ] Seems to be a bug in rtf template, inserting image filename.
 - [ ] Make debug output more useful with a stricter format easy to parse.
 - [ ] Add json output file containing sections, counters, collections etc.
 - [ ] Javascript GUI tests running in a browser

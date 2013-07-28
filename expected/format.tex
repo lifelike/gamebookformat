@@ -54,7 +54,8 @@ Adventure begins in section 1.
 \subsection*{\begin{center} \textbf{1} \end{center}}
 
  \noindent
- This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like \} and \{ and " and ' and \textbackslash. HTML will probably not like <div> or \&boom;. There should be an image below as well. If something broke, turn to \textbf{\autoref{section2}}, otherwise turn to \textbf{\autoref{section3}}. \begin{center}
+ This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like \} and \{ and " and ' and \textbackslash. HTML will probably not like <div> or \&boom;. You can make named references like this (\textbf{\autoref{section5}})
+ (just happens to be exactly the same syntax as in emacs org-mode btw). There should be an image below as well. If something broke, turn to \textbf{\autoref{section2}}, otherwise turn to \textbf{\autoref{section3}}. \begin{center}
 \includegraphics[width=.9\textwidth]{testimage.png}
 \end{center}
  
@@ -75,6 +76,25 @@ Adventure begins in section 1.
 
  \noindent
  Good! 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section4}
+\subsection*{\begin{center} \textbf{4} \end{center}}
+
+ \noindent
+ Very good. You win (\textbf{\autoref{section3}})
+. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section5}
+\subsection*{\begin{center} \textbf{5} \end{center}}
+
+ \noindent
+ This is where you should end up when you follow the named reference from the starting section. From here you can go to the second named section (\textbf{\autoref{section4}})
+ or to the good end (\textbf{\autoref{section3}})
+. 
 \vspace{1em}
 \refstepcounter{sectionnr}
 \end{document}

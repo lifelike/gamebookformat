@@ -1,7 +1,7 @@
     Gamebook
 
 Introduction
- This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at 1 or the next section at 400. 
+ This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at 1 or the next section at 400. References can include an optional name that is used in some formats, so the same links could also be rendered as start (1) and next (400). 
 
 
 

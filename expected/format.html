@@ -47,7 +47,8 @@
 <div class="section" id="section1">
 <div class="sectionnumber" id="para1">1</div>
 <div class="sectiontext">
- This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like } and { and " and ' and \. HTML will probably not like &lt;div&gt; or &amp;boom;. There should be an image below as well. If something broke, turn to <a class="sectionref enabledlink" data-ref="2"
+ This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like } and { and " and ' and \. HTML will probably not like &lt;div&gt; or &amp;boom;. You can make named references <a class="sectionref enabledlink" data-ref="5"
+href="#section5">like this</a> (just happens to be exactly the same syntax as in emacs org-mode btw). There should be an image below as well. If something broke, turn to <a class="sectionref enabledlink" data-ref="2"
 href="#section2">2</a>, otherwise turn to <a class="sectionref enabledlink" data-ref="3"
 href="#section3">3</a>. <img src="testimage.png" class="sectionimage"></img> 
 </div>
@@ -75,6 +76,29 @@ if (typeof gamebook !== 'undefined') {
 <script>
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(3, document.getElementById('section3'));
+}
+</script><div class="section" id="section4">
+<div class="sectionnumber" id="para4">4</div>
+<div class="sectiontext">
+ Very good. <a class="sectionref enabledlink" data-ref="3"
+href="#section3">You win</a>. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(4, document.getElementById('section4'));
+}
+</script><div class="section" id="section5">
+<div class="sectionnumber" id="para5">5</div>
+<div class="sectiontext">
+ This is where you should end up when you follow the named reference from the starting section. From here you can go to <a class="sectionref enabledlink" data-ref="4"
+href="#section4">the second named section</a> or to the <a class="sectionref enabledlink" data-ref="3"
+href="#section3">good end</a>. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(5, document.getElementById('section5'));
 }
 </script>     <div id="counters" class="counters">
     </div>
