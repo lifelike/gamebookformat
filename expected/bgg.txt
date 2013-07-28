@@ -16,7 +16,8 @@ Turn to 1 to begin.
  This is the end. There is nothing more in this gamebook.
 
 3
- Third section. Again, its number is not known. You can go to the end at 2. This section has an image to show the syntax for doing that (same as images in bgg forums really).   
+ Third section. Again, its number is not known. You can go to the end at 2. This section has an image to show the syntax for doing that (same as images in bgg forums really). 
+ 
 
 4
  This is the second section. It may or may not end up with number 2 in the generated gamebook. From here you can skip to the 2 or go to the third section at 3. 
