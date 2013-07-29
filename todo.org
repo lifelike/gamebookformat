@@ -75,8 +75,9 @@
 - [ ] Add json output file containing sections, counters, collections etc.
 - [ ] Javascript GUI tests running in a browser
   Preferably headless (in nodejs?). Run tests on gamebook html example(s).
-- [ ] Trade decrease on counter to increase another counter.
-- [ ] Pick a specific  number of things from those found in a(n intro) section
+  Work on laptop stashed as zombietest (using zombietest obviously).
+- [ ] Trade decrease one counter to increase another counter.
+- [ ] Pick a specific number of things from those found in a(n intro) section
   Used to pick up one or more of something found, or before starting.
   Create counter and set to how many are allowed to be picked.
   Add buy (and cost) tags for what can be taken.
@@ -110,8 +111,6 @@
   Fixed set of combat abilities handled by javascript
     (some way to configure ability names, but in that case javascript
      for combat, in a separate file, must be overridden)
-- [ ] Macros for input(quests etc etc). Generate one or more sections.
-- [ ] Macros that can add content to sections (pre or post).
 - [ ] Some way to insert character sheet in book introduction
 - [ ] Some way to insert optional dice at bottom of pages for LaTeX
 - [ ] Some way to insert optional random numbers table at end of book
