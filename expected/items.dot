@@ -1,9 +1,9 @@
 digraph gamebook {
 
- Inventoryswordshield1->12
+ Inventory  1->12
 1->2
 stick2->12
-booksword2->5
+ sword2->5
 something valuable2->7
 4->3
 sword5->4

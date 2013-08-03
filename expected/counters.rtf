@@ -22,59 +22,77 @@
 \
 \b \qc 1
 \b0\
-\ql  This is where the gamebook starts. We have counters for Life Points and for Gold. You start the adventure with 10 Life Points and 12 Gold. You can never have less than 0 Gold. FIXME need to figure out best syntax for death when life points go below 1. Go to \b 7
+\ql  This is where the gamebook starts. We have counters for Life Points and for Gold. You start the adventure with 10 Life Points and 12 Gold. You can never have less than 0 Gold. FIXME need to figure out best syntax for death when life points go below 1. Go to \b 9
 \b0
- to get more Gold or \b 6
+ to get more Gold or \b 8
 \b0
- to lose some Life Points.  \
+ to lose some Life Points. Go to \b 3
+\b0
+ for testing the init value markup.  \
 \
 
 \b \qc 2
 \b0\
-\ql  Less than 1 Life Point means the adventure ends now. \
+\ql  OK, we increase that something counter by 1 here, and also increase the other counter by 1. You can go back to see the difference between set and init here (
+\b 3
+\b0
+)
+, stuck in an infinite loop. \
 \
 
 \b \qc 3
 \b0\
-\ql  You have at least 16 gold. Go back to get some more at \b 7
+\ql  The Something Counter starts at 5, but when you come back here it will not reset to that, unlike the Other Counter that will reset to 5 every time you get here. If we try to init gold to 999 nothing will happen because it was already set to something before you came yere. Go on to \b 2
 \b0
 .  \
 \
 
 \b \qc 4
 \b0\
-\ql  You have more than 16 Gold. How nice. Go back to get some more at \b 7
-\b0
-.  \
+\ql  Less than 1 Life Point means the adventure ends now.  \
 \
 
 \b \qc 5
 \b0\
-\ql  You drop 5 Gold. It should not be possible to go below 0. Then go on to get gold at \b 7
-\b0
- or lose life at \b 6
+\ql  You have at least 16 gold. Go back to get some more at \b 9
 \b0
 .  \
 \
 
 \b \qc 6
 \b0\
-\ql  You lose 1 Life Points. You can go to \b 7
+\ql  You have more than 16 Gold. How nice. Go back to get some more at \b 9
 \b0
- to get some Gold.  \
+.  \
 \
 
 \b \qc 7
 \b0\
-\ql  Congratulations, you found 2 Gold. If you have less than 1 Life Points, turn to \b 2
+\ql  You drop 5 Gold. It should not be possible to go below 0. Then go on to get gold at \b 9
 \b0
-. You can go to \b 6
+ or lose life at \b 8
 \b0
- to lose some life or to \b 5
+.  \
+\
+
+\b \qc 8
+\b0\
+\ql  You lose 1 Life Points. You can go to \b 9
 \b0
- to drop some gold. If you have at least 16 Gold you can turn to \b 3
+ to get some Gold.  \
+\
+
+\b \qc 9
+\b0\
+\ql  Congratulations, you found 2 Gold. If you have less than 1 Life Points, turn to \b 4
 \b0
-. If you have even more than 16 Gold you can turn to \b 4
+. You can go to \b 8
+\b0
+ to lose some life or to \b 7
+\b0
+ to drop some gold. If you have at least 16 Gold you can turn to \b 5
+\b0
+. If you have even more than 16 Gold you can turn to \b 6
 \b0
 .  \
 \
