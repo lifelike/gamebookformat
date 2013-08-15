@@ -9,6 +9,7 @@ We have counters for [count life]Life Points[/count] and for
 You can never have less than [min gold]0[/min] Gold. FIXME need to
 figure out best syntax for death when life points go below 1.
 Go to [[getgold]] to get more Gold or [[dangerous]] to lose some Life Points.
+Go to [[inittest]] for testing the init value markup.
 
 * getgold
 Congratulations, you found [inc gold]2[/gold] Gold.
@@ -36,3 +37,19 @@ You have at least 16 gold. Go back to get some more at [[getgold]].
 
 * death
 Less than 1 Life Point means the adventure ends now.
+
+* inittest
+The [count something]Something Counter[/count]
+starts at [init something]5[/init], but when
+you come back here it will not reset to that, unlike the
+[count other]Other Counter[/count]
+that will reset to [set other]5[/set] every time you get
+here. If we try to init gold to [init gold]999[/init] nothing
+will happen because it was already set to something before you
+came yere. Go on to [[inittest2]].
+
+* inittest2
+OK, we increase that something counter by [inc something]1[/inc]
+here, and also increase the other counter by [inc other]1[/inc].
+You can go back to see the difference between set and init
+[[inittest][here]], stuck in an infinite loop.

@@ -39,22 +39,33 @@ var gamebook = {
                 return;
             };
             this.counters[type] = {
+                inited : false,
                 name : name,
                 value : 0,
                 minValue : null, //no minimum set
                 inc : function(amount) {
                     this.value += amount;
+                    this.inited = true;
                 },
                 dec : function(amount) {
                     this.value -= amount;
                     this.ensureNotBelowMin();
+                    this.inited = true;
                 },
                 set : function(value) {
                     this.value = value;
                     this.ensureNotBelowMin();
+                    this.inited = true;
+                },
+                init : function(value) {
+                    if (!this.inited) {
+                        this.value = value;
+                        this.inited = true;
+                    }
                 },
                 min : function(limit) {
                     this.minValue = limit;
+                    this.ensureNotBelowMin();
                 },
                 ensureNotBelowMin : function() {
                     if (this.minValue !== null && this.value < this.minValue) {
@@ -91,10 +102,16 @@ var gamebook = {
 
         min : function(type, limit) {
             this.counters[type].min(limit);
+            gamebook.updateCountersView();
         },
 
         set : function(type, amount) {
             this.counters[type].set(amount);
+            gamebook.updateCountersView();
+        },
+
+        init : function(type, amount) {
+            this.counters[type].init(amount);
             gamebook.updateCountersView();
         },
 
@@ -288,6 +305,9 @@ var gamebook = {
             } else if (c.classList.contains('set')) {
                 gamebook.player.set(c.dataset.type,
                                     parseInt(c.dataset.amount));
+            } else if (c.classList.contains('init')) {
+                gamebook.player.init(c.dataset.type,
+                                     parseInt(c.dataset.amount));
             } else if (c.classList.contains('inc')) {
                 gamebook.player.inc(c.dataset.type,
                                     parseInt(c.dataset.amount));

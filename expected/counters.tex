@@ -47,7 +47,7 @@ Turn to 1 to begin.
 \subsection*{\begin{center} \textbf{1} \end{center}}
 
  \noindent
- This is where the gamebook starts. We have counters for Life Points and for Gold. You start the adventure with 10 Life Points and 12 Gold. You can never have less than 0 Gold. FIXME need to figure out best syntax for death when life points go below 1. Go to \textbf{\autoref{section7}} to get more Gold or \textbf{\autoref{section6}} to lose some Life Points. 
+ This is where the gamebook starts. We have counters for Life Points and for Gold. You start the adventure with 10 Life Points and 12 Gold. You can never have less than 0 Gold. FIXME need to figure out best syntax for death when life points go below 1. Go to \textbf{\autoref{section9}} to get more Gold or \textbf{\autoref{section8}} to lose some Life Points. Go to \textbf{\autoref{section3}} for testing the init value markup. 
 \vspace{1em}
 \phantomsection
 \refstepcounter{sectionnr}
@@ -55,7 +55,8 @@ Turn to 1 to begin.
 \subsection*{\begin{center} \textbf{2} \end{center}}
 
  \noindent
- Less than 1 Life Point means the adventure ends now.
+ OK, we increase that something counter by 1 here, and also increase the other counter by 1. You can go back to see the difference between set and init here (\textbf{\autoref{section3}})
+, stuck in an infinite loop.
 \vspace{1em}
 \phantomsection
 \refstepcounter{sectionnr}
@@ -63,7 +64,7 @@ Turn to 1 to begin.
 \subsection*{\begin{center} \textbf{3} \end{center}}
 
  \noindent
- You have at least 16 gold. Go back to get some more at \textbf{\autoref{section7}}. 
+ The Something Counter starts at 5, but when you come back here it will not reset to that, unlike the Other Counter that will reset to 5 every time you get here. If we try to init gold to 999 nothing will happen because it was already set to something before you came yere. Go on to \textbf{\autoref{section2}}. 
 \vspace{1em}
 \phantomsection
 \refstepcounter{sectionnr}
@@ -71,7 +72,7 @@ Turn to 1 to begin.
 \subsection*{\begin{center} \textbf{4} \end{center}}
 
  \noindent
- You have more than 16 Gold. How nice. Go back to get some more at \textbf{\autoref{section7}}. 
+ Less than 1 Life Point means the adventure ends now. 
 \vspace{1em}
 \phantomsection
 \refstepcounter{sectionnr}
@@ -79,7 +80,7 @@ Turn to 1 to begin.
 \subsection*{\begin{center} \textbf{5} \end{center}}
 
  \noindent
- You drop 5 Gold. It should not be possible to go below 0. Then go on to get gold at \textbf{\autoref{section7}} or lose life at \textbf{\autoref{section6}}. 
+ You have at least 16 gold. Go back to get some more at \textbf{\autoref{section9}}. 
 \vspace{1em}
 \phantomsection
 \refstepcounter{sectionnr}
@@ -87,7 +88,7 @@ Turn to 1 to begin.
 \subsection*{\begin{center} \textbf{6} \end{center}}
 
  \noindent
- You lose 1 Life Points. You can go to \textbf{\autoref{section7}} to get some Gold. 
+ You have more than 16 Gold. How nice. Go back to get some more at \textbf{\autoref{section9}}. 
 \vspace{1em}
 \phantomsection
 \refstepcounter{sectionnr}
@@ -95,6 +96,22 @@ Turn to 1 to begin.
 \subsection*{\begin{center} \textbf{7} \end{center}}
 
  \noindent
- Congratulations, you found 2 Gold. If you have less than 1 Life Points, turn to \textbf{\autoref{section2}}. You can go to \textbf{\autoref{section6}} to lose some life or to \textbf{\autoref{section5}} to drop some gold. If you have at least 16 Gold you can turn to \textbf{\autoref{section3}}. If you have even more than 16 Gold you can turn to \textbf{\autoref{section4}}. 
+ You drop 5 Gold. It should not be possible to go below 0. Then go on to get gold at \textbf{\autoref{section9}} or lose life at \textbf{\autoref{section8}}. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section8}
+\subsection*{\begin{center} \textbf{8} \end{center}}
+
+ \noindent
+ You lose 1 Life Points. You can go to \textbf{\autoref{section9}} to get some Gold. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section9}
+\subsection*{\begin{center} \textbf{9} \end{center}}
+
+ \noindent
+ Congratulations, you found 2 Gold. If you have less than 1 Life Points, turn to \textbf{\autoref{section4}}. You can go to \textbf{\autoref{section8}} to lose some life or to \textbf{\autoref{section7}} to drop some gold. If you have at least 16 Gold you can turn to \textbf{\autoref{section5}}. If you have even more than 16 Gold you can turn to \textbf{\autoref{section6}}. 
 \vspace{1em}
 \end{document}

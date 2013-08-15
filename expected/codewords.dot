@@ -1,7 +1,7 @@
 digraph gamebook {
 
  Codewords1->2
-warrior2->9
+ 2->9
 warrior4->3
 4->2
 fun4->5

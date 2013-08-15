@@ -47,9 +47,10 @@
       data-amount="10">10</span> Life Points and <span class="set counterChange" data-type="gold"
       data-amount="12">12</span> Gold. You can never have less than <span class="min counterChange" data-type="gold"
       data-limit="0">0</span>
- Gold. FIXME need to figure out best syntax for death when life points go below 1. Go to <a class="sectionref enabledlink" data-ref="7"
-href="#section7">7</a> to get more Gold or <a class="sectionref enabledlink" data-ref="6"
-href="#section6">6</a> to lose some Life Points. 
+ Gold. FIXME need to figure out best syntax for death when life points go below 1. Go to <a class="sectionref enabledlink" data-ref="9"
+href="#section9">9</a> to get more Gold or <a class="sectionref enabledlink" data-ref="8"
+href="#section8">8</a> to lose some Life Points. Go to <a class="sectionref enabledlink" data-ref="3"
+href="#section3">3</a> for testing the init value markup. 
 </div>
 </div>
 <script>
@@ -59,7 +60,10 @@ if (typeof gamebook !== 'undefined') {
 </script><div class="section" id="section2">
 <div class="sectionnumber" id="para2">2</div>
 <div class="sectiontext">
- Less than 1 Life Point means the adventure ends now.
+ OK, we increase that something counter by <span class="inc counterChange" data-type="something"
+      data-amount="1">1</span> here, and also increase the other counter by <span class="inc counterChange" data-type="other"
+      data-amount="1">1</span>. You can go back to see the difference between set and init <a class="sectionref enabledlink" data-ref="3"
+href="#section3">here</a>, stuck in an infinite loop.
 </div>
 </div>
 <script>
@@ -69,8 +73,13 @@ if (typeof gamebook !== 'undefined') {
 </script><div class="section" id="section3">
 <div class="sectionnumber" id="para3">3</div>
 <div class="sectiontext">
- You have at least 16 gold. Go back to get some more at <a class="sectionref enabledlink" data-ref="7"
-href="#section7">7</a>. 
+ The <span class="count counterChange" data-type="something"
+    data-name="Something Counter">Something Counter</span> starts at <span class="init counterChange" data-type="something"
+      data-amount="5">5</span>, but when you come back here it will not reset to that, unlike the <span class="count counterChange" data-type="other"
+    data-name="Other Counter">Other Counter</span> that will reset to <span class="set counterChange" data-type="other"
+      data-amount="5">5</span> every time you get here. If we try to init gold to <span class="init counterChange" data-type="gold"
+      data-amount="999">999</span> nothing will happen because it was already set to something before you came yere. Go on to <a class="sectionref enabledlink" data-ref="2"
+href="#section2">2</a>. 
 </div>
 </div>
 <script>
@@ -80,8 +89,7 @@ if (typeof gamebook !== 'undefined') {
 </script><div class="section" id="section4">
 <div class="sectionnumber" id="para4">4</div>
 <div class="sectiontext">
- You have more than 16 Gold. How nice. Go back to get some more at <a class="sectionref enabledlink" data-ref="7"
-href="#section7">7</a>. 
+ Less than 1 Life Point means the adventure ends now. 
 </div>
 </div>
 <script>
@@ -91,10 +99,8 @@ if (typeof gamebook !== 'undefined') {
 </script><div class="section" id="section5">
 <div class="sectionnumber" id="para5">5</div>
 <div class="sectiontext">
- You drop <span class="dec counterChange" data-type="gold"
-      data-amount="5">5</span> Gold. It should not be possible to go below 0. Then go on to get gold at <a class="sectionref enabledlink" data-ref="7"
-href="#section7">7</a> or lose life at <a class="sectionref enabledlink" data-ref="6"
-href="#section6">6</a>. 
+ You have at least 16 gold. Go back to get some more at <a class="sectionref enabledlink" data-ref="9"
+href="#section9">9</a>. 
 </div>
 </div>
 <script>
@@ -104,9 +110,8 @@ if (typeof gamebook !== 'undefined') {
 </script><div class="section" id="section6">
 <div class="sectionnumber" id="para6">6</div>
 <div class="sectiontext">
- You lose <span class="dec counterChange" data-type="life"
-      data-amount="1">1</span> Life Points. You can go to <a class="sectionref enabledlink" data-ref="7"
-href="#section7">7</a> to get some Gold. 
+ You have more than 16 Gold. How nice. Go back to get some more at <a class="sectionref enabledlink" data-ref="9"
+href="#section9">9</a>. 
 </div>
 </div>
 <script>
@@ -116,21 +121,46 @@ if (typeof gamebook !== 'undefined') {
 </script><div class="section" id="section7">
 <div class="sectionnumber" id="para7">7</div>
 <div class="sectiontext">
- Congratulations, you found <span class="inc counterChange" data-type="gold"
-      data-amount="2">2</span> Gold. If you have less than <span class="lessthan" data-type="life" data-amount="1"
->1</span> Life Points, turn to <span class="auto"></span><a class="sectionref enabledlink" data-ref="2"
-href="#section2">2</a>. You can go to <a class="sectionref enabledlink" data-ref="6"
-href="#section6">6</a> to lose some life or to <a class="sectionref enabledlink" data-ref="5"
-href="#section5">5</a> to drop some gold. If you have at least <span class="atleast" data-type="gold" data-amount="16"
->16</span> Gold you can turn to <a class="sectionref enabledlink" data-ref="3"
-href="#section3">3</a>. If you have even more than <span class="morethan" data-type="gold" data-amount="16"
->16</span> Gold you can turn to <a class="sectionref enabledlink" data-ref="4"
-href="#section4">4</a>. 
+ You drop <span class="dec counterChange" data-type="gold"
+      data-amount="5">5</span> Gold. It should not be possible to go below 0. Then go on to get gold at <a class="sectionref enabledlink" data-ref="9"
+href="#section9">9</a> or lose life at <a class="sectionref enabledlink" data-ref="8"
+href="#section8">8</a>. 
 </div>
 </div>
 <script>
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(7, document.getElementById('section7'));
+}
+</script><div class="section" id="section8">
+<div class="sectionnumber" id="para8">8</div>
+<div class="sectiontext">
+ You lose <span class="dec counterChange" data-type="life"
+      data-amount="1">1</span> Life Points. You can go to <a class="sectionref enabledlink" data-ref="9"
+href="#section9">9</a> to get some Gold. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(8, document.getElementById('section8'));
+}
+</script><div class="section" id="section9">
+<div class="sectionnumber" id="para9">9</div>
+<div class="sectiontext">
+ Congratulations, you found <span class="inc counterChange" data-type="gold"
+      data-amount="2">2</span> Gold. If you have less than <span class="lessthan" data-type="life" data-amount="1"
+>1</span> Life Points, turn to <span class="auto"></span><a class="sectionref enabledlink" data-ref="4"
+href="#section4">4</a>. You can go to <a class="sectionref enabledlink" data-ref="8"
+href="#section8">8</a> to lose some life or to <a class="sectionref enabledlink" data-ref="7"
+href="#section7">7</a> to drop some gold. If you have at least <span class="atleast" data-type="gold" data-amount="16"
+>16</span> Gold you can turn to <a class="sectionref enabledlink" data-ref="5"
+href="#section5">5</a>. If you have even more than <span class="morethan" data-type="gold" data-amount="16"
+>16</span> Gold you can turn to <a class="sectionref enabledlink" data-ref="6"
+href="#section6">6</a>. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(9, document.getElementById('section9'));
 }
 </script>     <div id="counters" class="counters">
     </div>

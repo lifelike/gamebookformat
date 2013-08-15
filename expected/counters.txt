@@ -7,23 +7,29 @@ Introduction
 
 Turn to 1 to begin.
 1
- This is where the gamebook starts. We have counters for Life Points and for Gold. You start the adventure with 10 Life Points and 12 Gold. You can never have less than 0 Gold. FIXME need to figure out best syntax for death when life points go below 1. Go to 7 to get more Gold or 6 to lose some Life Points. 
+ This is where the gamebook starts. We have counters for Life Points and for Gold. You start the adventure with 10 Life Points and 12 Gold. You can never have less than 0 Gold. FIXME need to figure out best syntax for death when life points go below 1. Go to 9 to get more Gold or 8 to lose some Life Points. Go to 3 for testing the init value markup. 
 
 2
- Less than 1 Life Point means the adventure ends now.
+ OK, we increase that something counter by 1 here, and also increase the other counter by 1. You can go back to see the difference between set and init here (3), stuck in an infinite loop.
 
 3
- You have at least 16 gold. Go back to get some more at 7. 
+ The Something Counter starts at 5, but when you come back here it will not reset to that, unlike the Other Counter that will reset to 5 every time you get here. If we try to init gold to 999 nothing will happen because it was already set to something before you came yere. Go on to 2. 
 
 4
- You have more than 16 Gold. How nice. Go back to get some more at 7. 
+ Less than 1 Life Point means the adventure ends now. 
 
 5
- You drop 5 Gold. It should not be possible to go below 0. Then go on to get gold at 7 or lose life at 6. 
+ You have at least 16 gold. Go back to get some more at 9. 
 
 6
- You lose 1 Life Points. You can go to 7 to get some Gold. 
+ You have more than 16 Gold. How nice. Go back to get some more at 9. 
 
 7
- Congratulations, you found 2 Gold. If you have less than 1 Life Points, turn to 2. You can go to 6 to lose some life or to 5 to drop some gold. If you have at least 16 Gold you can turn to 3. If you have even more than 16 Gold you can turn to 4. 
+ You drop 5 Gold. It should not be possible to go below 0. Then go on to get gold at 9 or lose life at 8. 
+
+8
+ You lose 1 Life Points. You can go to 9 to get some Gold. 
+
+9
+ Congratulations, you found 2 Gold. If you have less than 1 Life Points, turn to 4. You can go to 8 to lose some life or to 7 to drop some gold. If you have at least 16 Gold you can turn to 5. If you have even more than 16 Gold you can turn to 6. 
 
