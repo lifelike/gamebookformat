@@ -80,7 +80,7 @@ clean:
 	examples/*.txt examples/*.debug examples/*.log \
 	examples/*.pdf examples/*.out *~ examples/*~ *.pyc \
 	examples/*.dot examples/*.aux examples/*.toc $(png) \
-	examples/*.map templates/*~ templates/*/*~ \
+	$(map) templates/*~ templates/*/*~ \
 	$(examples:.gamebook=.png) readme.html \
 	examples/*.js examples/*.css
 

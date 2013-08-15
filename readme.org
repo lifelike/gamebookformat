@@ -17,7 +17,7 @@ gamebook on paper or a screen (or for debugging it).
 :   -t D, --template D    add custom template dir
 :   -o D, --option D      add template override options dir
 :   -S, --no-shuffle      do not shuffle sections
-
+:   -m F, --map-file F    number map file
 ** Supported Output Formats
 
 | Name             | Extension | Description                                                                                   |
@@ -49,6 +49,23 @@ produce LaTeX files in Letter size rather than the default A5 size.
 | letter | tex     | Letter paper size documents (PDF).   |
 | static | html    | Remove script link from HTML output. |
 
+** Number Map Files
+Whenever formatgamebook.py runs it looks for a file with the same
+name as the output file, but with a .map suffix (eg output.map if
+the output file is output.html). That file is expected to contain
+a JSON object mapping section names to numbers, and all sections
+included in that file are given those numbers rather than being
+randomly shuffled like other paragraphs. You can also add more
+map files using the --map-file (or -m) option on the command-line.
+The -M flag disables the default map file. Unless it has been
+disabled a default map file is also written, containing all
+the sections output. This way if you generate the same output
+file (or files with the same name but different types) they
+always get the same section numbers assigned. The generated
+map file can also be used from other scripts to easily read
+what numbers were assigned to sections, if you need to
+use the number of some section for something outside of
+the gamebook itself.
 ** Gamebook Format
 
 The input file expected by the formatgamebook.py script must be in a

@@ -1,0 +1,4 @@
+digraph gamebook {
+
+ 10->99
+}

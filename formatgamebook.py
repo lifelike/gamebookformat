@@ -68,13 +68,15 @@ def format_gamebook(inputfilenames,
                     import_default_map_file,
                     templatedirs,
                     shuffle,
-                    includetag):
+                    includetag,
+                    mapfilenames):
     output_format = make_output(outputfilename, templatedirs)
     book = sections.Book(make_bookid(outputfilename), includetag)
     for inputfilename in inputfilenames:
         parse_file_to_book(open(inputfilename, 'r'), book)
     if import_default_map_file:
         import_default_nr_map(outputfilename, book)
+    import_nr_maps(mapfilenames, book)
     write_book(book, shuffle, output_format, outputfilename)
 
 def make_bookid(filename):
@@ -162,7 +164,13 @@ def write_book(book, shuffle, output_format, outputfilename):
     save_section_mapping(shuffled_sections, outputfilename)
 
 def import_default_nr_map(outputfilename, book):
-    mapfilename = make_default_map_filename(outputfilename)
+    import_nr_map(make_default_map_filename(outputfilename), book)
+
+def import_nr_maps(mapfilenames, book):
+    for m in mapfilenames:
+        import_nr_map(m, book)
+
+def import_nr_map(mapfilename, book):
     if os.path.exists(mapfilename): #FIXME better check
         for name,nr in json.load(open(mapfilename)).iteritems():
             book.force_section_nr(name, nr)
@@ -198,6 +206,8 @@ if __name__ == '__main__':
     ap.add_argument('-S', '--no-shuffle', action='store_false',
                     dest='shuffle',
                     help='do not shuffle sections')
+    ap.add_argument('-m', '--map-file', metavar='F', dest='mapfiles',
+                    action='append', help='number map file')
     args = ap.parse_args()
     templatedirs = ['templates',
                     os.path.join(os.path.dirname(sys.argv[0]), 'templates')]
@@ -213,4 +223,5 @@ if __name__ == '__main__':
                     args.import_default_map_file,
                     templatedirs,
                     args.shuffle,
-                    args.includetag)
+                    args.includetag,
+                    args.mapfiles or [])
