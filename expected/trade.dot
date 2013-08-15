@@ -1,4 +1,4 @@
 digraph gamebook {
 
- shield50chain mail150spiderweb1->2
+      1->2
 }
