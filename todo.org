@@ -1,83 +1,87 @@
-* TODO [55/81] [67%]
-- [X] Debug output
-- [X] DOT output
-- [X] LaTeX output
-- [X] RTF output
-- [X] HTML output
-- [X] Split out template hanlding into separate class from output
-- [X] Inject Output dependencies
-- [X] Save section-number mapping and reuse automatically
-- [X] Add support for custom document templates.
+* TODO [55/79] [69%]
+** DONE Debug output
+** DONE DOT output
+** DONE LaTeX output
+** DONE RTF output
+** DONE HTML output
+** DONE Split out template hanlding into separate class from output
+** DONE Inject Output dependencies
+** DONE Save section-number mapping and reuse automatically
+** DONE Add support for custom document templates.
   Fixed names and/or command-line options.
-- [X] Add section links in LaTeX output.
-- [X] Prettier LaTeX output
+** DONE Add section links in LaTeX output.
+** DONE Prettier LaTeX output
   Look at how some existing gamebooks are formatted.
-- [X] Parse wiki-style tags used to mark up sections
-- [X] New text formatting style for section references
-- [X] Inventory pick up items
-- [X] Codewords set
-- [X] Check if has inventory item
-- [X] Check if has codeword
-- [X] Remove item from inventory (forced by instructions)
-- [X] Enable link if not having an item
-- [X] Enable link if not having a codeword
-- [X] Make sure dropped items can not be picked up again
-- [X] Fix problem with map file from other book sometimes crashing formatter
-- [X] Keys from formatted book should be added to map file, not replace it
-- [X] Make inventory and codewords generic
+** DONE Parse wiki-style tags used to mark up sections
+** DONE New text formatting style for section references
+** DONE Inventory pick up items
+** DONE Codewords set
+** DONE Check if has inventory item
+** DONE Check if has codeword
+** DONE Remove item from inventory (forced by instructions)
+** DONE Enable link if not having an item
+** DONE Enable link if not having a codeword
+** DONE Make sure dropped items can not be picked up again
+** DONE Fix problem with map file from other book sometimes crashing formatter
+** DONE Keys from formatted book should be added to map file, not replace it
+** DONE Make inventory and codewords generic
   They are the same, sort of, and it might be good to be able to
   add other similar entities as well, like skills or spells or whatever.
-- [X] Otherwise/else handling for has.
-- [X] Redesign otherwise/else to use xor tag on section reference.
-- [X] Disable all links after finding an auto link (that is enabled).
-- [X] Default templates. (templates/default?)
-- [X] Book option to set title
-- [X] Book option to set author
-- [X] Book option to set max section number to use
-- [X] Quote strings to not break formatting.
-- [X] Include other templates from a template.
-- [X] Template for book introduction (including rules etc)
+** DONE Otherwise/else handling for has.
+** DONE Redesign otherwise/else to use xor tag on section reference.
+** DONE Disable all links after finding an auto link (that is enabled).
+** DONE Default templates. (templates/default?)
+** DONE Book option to set title
+** DONE Book option to set author
+** DONE Book option to set max section number to use
+** DONE Quote strings to not break formatting.
+** DONE Include other templates from a template.
+** DONE Template for book introduction (including rules etc)
   Sections with some markup (has number 0?) are added as chapters
   of introduction, otherwise formatted identical to other sections.
-- [X] Inserting images
-- [X] HTML hide intro sections with link to display again
-- [X] Only accept specific characters in section names
+** DONE Inserting images
+** DONE HTML hide intro sections with link to display again
+** DONE Only accept specific characters in section names
   eg [a-z][a-z_0-9]+
-- [X] Random pick of link to follow from a section.
-- [X] Possibility to make predictable random numbers and shuffling for testing
-- [X] Test generate examples and compare to expected output in all formats
-- [X] Unit tests (finally...)
-- [X] Save game (ie player) state
-- [X] Load game (ie player) state
-- [X] Flag to select what tag(s) to include (eg for demo/preview/short...)
+** DONE Random pick of link to follow from a section.
+** DONE Possibility to make predictable random numbers and shuffling for testing
+** DONE Test generate examples and compare to expected output in all formats
+** DONE Unit tests (finally...)
+** DONE Save game (ie player) state
+** DONE Load game (ie player) state
+** DONE Flag to select what tag(s) to include (eg for demo/preview/short...)
  Allow sections with same name as long as only one is included.
  Add book config for what section to use for references to excluded sections
   (eg links to outside of demo version can lead to section explaining that)
-- [X] Counters (life, money, whatever) create and set
+** DONE Counters (life, money, whatever) create and set
   count tag to declare new counter, text in tag is display name
   optional argument sets the starting value of the tag
   display somewhere on page (in HTML output)
-- [X] Counters increase/decrease
-- [X] Counters check
-- [X] Make sure HTML output works with javascript disabled
+** DONE Counters increase/decrease
+** DONE Counters check
+** DONE Make sure HTML output works with javascript disabled
     and in inferior browsers
-- [X] Make sure counters start at 0 (not 1).
-- [X] Remove the counter names from counter-tags output (and templates).
-- [X] Buy (optionally decrease a counter to add something to a collection)
+** DONE Make sure counters start at 0 (not 1).
+** DONE Remove the counter names from counter-tags output (and templates).
+** DONE Buy (optionally decrease a counter to add something to a collection)
   buy tag to specify what can be bought, eg [buy item]sword[/buy]
   followed by cost tag to specify what it will cost, eg [cost gold]3[/cost]
   Implemented by adding cost to the old found tag (put cost tag after it).
   Might reconsider and make explicit buy tag for clarity?
-- [X] Add text template used for outputting non-tagged (plain) text.
-- [X] Named references, when that style is wanted (especially for HTML).
-- [X] Seems to be a bug in rtf template, inserting image filename.
-- [ ] Make debug output more useful with a stricter format easy to parse.
-- [ ] Add json output file containing sections, counters, collections etc.
-- [ ] Javascript GUI tests running in a browser
+** DONE Add text template used for outputting non-tagged (plain) text.
+** DONE Named references, when that style is wanted (especially for HTML).
+** DONE Seems to be a bug in rtf template, inserting image filename.
+** DONE Javascript tests running in nodejs (no GUI)
+  The big scripts in html templates are split out into separate files
+  already (script.html and endscript.html). It should be possible to
+  test those from nodejs?
+** TODO Make debug output more useful with a stricter format easy to parse.
+** TODO Add json output file containing sections, counters, collections etc.
+** TODO Javascript GUI tests running in a browser
   Preferably headless (in nodejs?). Run tests on gamebook html example(s).
   Work on laptop stashed as zombietest (using zombietest obviously).
-- [ ] Trade decrease one counter to increase another counter.
-- [ ] Pick a specific number of things from those found in a(n intro) section
+** TODO Trade decrease one counter to increase another counter.
+** TODO Pick a specific number of things from those found in a(n intro) section
   Used to pick up one or more of something found, or before starting.
   Create counter and set to how many are allowed to be picked.
   Add buy (and cost) tags for what can be taken.
@@ -87,11 +91,11 @@
   Without setting the max player can decide to pick up fewer (or none) which
    might of course also be ok at times.
   This will also work for picking eg starting skills.
-- [ ] Subtract from counter when following link (implies has at least that)
+** TODO Subtract from counter when following link (implies has at least that)
   This is the cost tag again, when it immediately follows a reference.
-- [ ] Add keyword when following link
+** TODO Add keyword when following link
   This is a new tag that follows a reference similar to a cost tag.
-- [ ] Use points to buy values for counters
+** TODO Use points to buy values for counters
  Eg to buy starting values for some attributes in introsection.
   Create a counter in that introsection, set to some value.
   Use cost tag following inc tag to set price for increasing a counter.
@@ -100,40 +104,36 @@
    following links while a counter is above its max value).
   The same mechanism can of course be used in-game at any section to
    allow the player to buy increases in different counters.
-- [ ] Tag to indicate HTML counter not to be visible outside of one section.
-- [X] Javascript tests running in nodejs (no GUI)
-  The big scripts in html templates are split out into separate files
-  already (script.html and endscript.html). It should be possible to
-  test those from nodejs?
-- [ ] Combat
+** TODO Tag to indicate HTML counter not to be visible outside of one section.
+** TODO Combat
   Tag to mark up the link to use to trigger next round.
   Tag to mark up the enemy and its values.
   Fixed set of combat abilities handled by javascript
     (some way to configure ability names, but in that case javascript
      for combat, in a separate file, must be overridden)
-- [ ] Some way to insert character sheet in book introduction
-- [ ] Some way to insert optional dice at bottom of pages for LaTeX
-- [ ] Some way to insert optional random numbers table at end of book
-- [ ] Defensive removal of any weird unicode not handled by quoting.
-- [ ] Somewhat user-friendly error messages
-- [ ] More formatting possibilities in sections
+** TODO Some way to insert character sheet in book introduction
+** TODO Some way to insert optional dice at bottom of pages for LaTeX
+** TODO Some way to insert optional random numbers table at end of book
+** TODO Defensive removal of any weird unicode not handled by quoting.
+** TODO Somewhat user-friendly error messages
+** TODO More formatting possibilities in sections
   Look at existing gamebooks to get ideas.
-- [ ] Document Gamebook format
+** TODO Document Gamebook format
   - Basic gamebook (static, nothing about magic needed for dynamic; tutorial)
   - Advanced (more complex layout options, but still static)
   - Dynamic (markup needed to make playable (HTML) version)
   - Standard output formats reference
   - Customization (make new output formats or override existing)
-- [ ] HTML with javascript active, do not make new URLs (that break history)
-- [ ] HTML CSS
-- [ ] Higher level text-language for Gamebooks
-- [ ] BGG forum output (.bgg)
-- [ ] Verify gamebook
-- [ ] Sell (optionally increase a counter to drop something from a collection)
+** TODO HTML with javascript active, do not make new URLs (that break history)
+** TODO HTML CSS
+** TODO Higher level text-language for Gamebooks
+** TODO BGG forum output (.bgg)
+** TODO Verify gamebook
+** TODO Sell (optionally increase a counter to drop something from a collection)
   sell tag to specify what can be bought, eg [sell item]sword[/sell]
   followed by cost tag to specify what it will cost, eg [cost gold]2[/cost]
   Might want to wait with this and add normal drop function first?
-- [ ] Dummy and fake sections (handle properly when verifying)
+** TODO Dummy and fake sections (handle properly when verifying)
 
 
 
