@@ -12,6 +12,7 @@ with the gamebook sections below.
 
 = Another Heading
 This starts another non-shuffled section.
+[footnote]A footnote in Another Heading.[/footnote]
 
 * 1 start
 This examples tests gamebook formatting, not so much game mechanics or
@@ -23,7 +24,7 @@ You can make named references [[named1][like this]] (just happens
 to be exactly the same syntax as in emacs org-mode btw).
 There should be an image below as well.
 If something broke, turn to [[bad]],
-otherwise turn to [[good]].
+otherwise turn to [[good]].[footnote]Good footnote.[/footnote]
 [img]testimage.png[/img]
 
 * dum :dummy:
@@ -37,7 +38,7 @@ From here you can go to [[named2][the second named section]] or
 to the [[good][good end]].
 
 * named2
-Very good. [[good][You win]].
+Very good. [[good][You win]].[footnote]Win footnote.[/footnote]
 
 * good
 Good!
