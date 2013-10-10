@@ -24,7 +24,7 @@ gamebook on paper or a screen (or for debugging it).
 |------------------+-----------+-----------------------------------------------------------------------------------------------|
 | LaTeX            | .tex      | Useful to generate PDFs using pdflatex or whatever LaTeX tools you prefer.                    |
 | Rich Text Format | .rtf      | Supported because the [[http://www.arborell.com/windhammer_prize.html][Windhammer Prize]] requires it.                                           |
-| Graphviz DOT     | .dot      | Use with the Graphviz dot tool to generate a flowchart graph of all sections in the gamebook. |
+| Graphviz DOT     | .dot      | Use with the [[http://www.graphviz.org][Graphviz]] dot tool to generate a flowchart graph of all sections in the gamebook. |
 | HTML             | .html     | Play gamebook in browser.                                                                     |
 | Plain Text       | .txt      | Raw plain text without formatting.                                                            |
 | Debug Plain Text | .debug    | Plain text debug output of gamebook contents.                                                 |
