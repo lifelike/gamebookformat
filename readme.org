@@ -86,8 +86,8 @@ References to sections can be followed using
 
 *** Optional
 To make something useful from some of the outputted files.
-- pdflatex :: Make pdf from tex files.
-- Graphviz :: Includes the dot command that can make images from dot files.
+- pdflatex :: Or other tool to make PDF documents from [[http://www.latex-project.org/][tex files]].
+- Graphviz :: Includes the dot command that can make images from [[http://en.wikipedia.org/wiki/DOT_%28graph_description_language%29][dot files]].
 
 *** Development
 The following are only needed for working on improving
