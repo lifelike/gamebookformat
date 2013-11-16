@@ -1,4 +1,4 @@
-* TODO [55/79] [69%]
+* TODO [56/79] [70%]
 ** DONE Debug output
 ** DONE DOT output
 ** DONE LaTeX output
@@ -75,11 +75,8 @@
   The big scripts in html templates are split out into separate files
   already (script.html and endscript.html). It should be possible to
   test those from nodejs?
-** TODO Make debug output more useful with a stricter format easy to parse.
-** TODO Add json output file containing sections, counters, collections etc.
-** TODO Javascript GUI tests running in a browser
-  Preferably headless (in nodejs?). Run tests on gamebook html example(s).
-  Work on laptop stashed as zombietest (using zombietest obviously).
+** DONE Make debug output more useful with a stricter format easy to parse.
+   Will be taken care of when implementing JSON output.
 ** TODO Trade decrease one counter to increase another counter.
 ** TODO Pick a specific number of things from those found in a(n intro) section
   Used to pick up one or more of something found, or before starting.
@@ -125,23 +122,19 @@
   - Standard output formats reference
   - Customization (make new output formats or override existing)
 ** TODO HTML with javascript active, do not make new URLs (that break history)
+** TODO Javascript GUI tests running in a browser
+  Preferably headless (in nodejs?). Run tests on gamebook html example(s).
+  Work on laptop stashed as zombietest (using zombietest obviously).
 ** TODO HTML CSS
 ** TODO Higher level text-language for Gamebooks
 ** TODO BGG forum output (.bgg)
 ** TODO Verify gamebook
+** TODO Add json output file containing sections, counters, collections etc.
+   This output format down-prioed because requires some changes to handle new-lines.
+   All previously supported formats handles new-lines in text without problems, JSON do not.
+   New-lines are added in ways that can currently not be affected by quoting functions.
 ** TODO Sell (optionally increase a counter to drop something from a collection)
   sell tag to specify what can be bought, eg [sell item]sword[/sell]
   followed by cost tag to specify what it will cost, eg [cost gold]2[/cost]
   Might want to wait with this and add normal drop function first?
 ** TODO Dummy and fake sections (handle properly when verifying)
-
-
-
-
-
-
-
-
-
-
-
