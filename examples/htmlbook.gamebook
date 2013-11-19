@@ -1,0 +1,19 @@
+title = HTMLBook
+= Introduction
+This is an introduction.
+This example gamebook is for testing the htmlbook option.
+See https://github.com/oreillymedia/HTMLBook for more information about HTMLBook.
+
+= More
+This is another introduction section, just to see that formatting is correct when
+there are more than one.
+
+* start
+This is the first section. From here you can go to the unnamed section [[second]]
+or [[third][this named section]].
+
+* second
+Got to another section. Story ends here.
+
+* third
+Got to this section. Story ends here.

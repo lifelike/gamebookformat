@@ -65,6 +65,9 @@ unittests=$(wildcard test_*.py)
 unittest: *.py
 	python2.7 -m unittest $(unittests:.py=)
 
+xmllinthtmlbook: examples/htmlbook.html
+	xmllint --noout --schema ../HTMLBook/schema/htmlbook.xsd examples/htmlbook.html
+
 upload: html png pdf rtf
 	if [ -n "$(uploadto)" ]; then \
 	 scp examples/*.html examples/*.png examples/*.pdf examples/*.rtf \
@@ -88,7 +91,7 @@ fixmes:
 	grep FIXME *.py
 
 .PHONY: all clean fixmes uploadto expected checkexpected test unittest \
-	templatejstest
+	templatejstest xmllinthtmlbook
 
 .PRECIOUS: %.tex %.dot
 
