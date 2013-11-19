@@ -172,8 +172,10 @@ class ReferenceFormatter (object):
     def get_to_nr(self, key):
         if key in self.name_to_nr:
             return self.name_to_nr[key]
-        else:
+        elif self.missingto in self.name_to_nr:
             return self.name_to_nr[self.missingto]
+        else:
+            raise Exception('Missing reference target: %s' % key)
 
     def __getitem__(self, key):
         if key in self.items:
