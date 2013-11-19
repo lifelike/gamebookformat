@@ -42,12 +42,14 @@ contains useful overrides for some behavior of the default output
 formats. For example adding *-o letter* to the command-line will
 produce LaTeX files in Letter size rather than the default A5 size.
 
-| Name   | Formats | Description                          |
-|--------+---------+--------------------------------------|
-| a4     | tex     | A4 paper size documents (PDF).       |
-| a5     | tex     | A5 paper size documents (PDF).       |
-| letter | tex     | Letter paper size documents (PDF).   |
-| static | html    | Remove script link from HTML output. |
+| Name     | Formats | Description                          |
+|----------+---------+--------------------------------------|
+| a4       | tex     | A4 paper size documents (PDF).       |
+| a5       | tex     | A5 paper size documents (PDF).       |
+| htmlbook | html    | Generate [[https://github.com/oreillymedia/HTMLBook][HTMLBook]] compatible HTML.   |
+| letter   | tex     | Letter paper size documents (PDF).   |
+| static   | html    | Remove script link from HTML output. |
+
 
 ** Number Map Files
 Whenever formatgamebook.py runs it looks for a file with the same
