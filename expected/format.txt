@@ -8,7 +8,6 @@ Another Heading
  
 
 
-
 Adventure begins in section 1.
 1
  This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like } and { and " and ' and \. HTML will probably not like <div> or &boom;. You can make named references like this (5) (just happens to be exactly the same syntax as in emacs org-mode btw). There should be an image below as well. If something broke, turn to 2, otherwise turn to 3. (Good footnote.)

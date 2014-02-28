@@ -2,7 +2,6 @@ BEGIN DEBUG OUTPUT
 Book title: Items
 Number of sections: 12
 
-
 Turn to 1 to begin.
 1 (start) -  Demonstrating how to manage player [COLLECT item]Inventory[/COLLECT]. You start the book carrying a [ADD item]sword[/ADD] and a [ADD item]shield[/ADD]. Turn to 12 or go to the autotest at 2. 
 2 (autotest) -  If you have the [HAS item]stick[/HAS] then you must turn immediately to ((automatic))12, and everything else in this section is ignored. You find a [ADD item]book[/ADD] here. If you have the [HAS item]sword[/HAS] you must turn immediately to ((automatic))5, again ignoring everything that follows. You drop the [DROP item]something valuable[/DROP] here if you have it, then go on to 7.

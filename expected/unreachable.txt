@@ -1,7 +1,6 @@
     Gamebook
 
 
-
 Turn to 1 to begin.
 1
  It starts here. You can get to 6. 

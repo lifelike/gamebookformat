@@ -2,7 +2,6 @@ BEGIN DEBUG OUTPUT
 Book title: Gamebook
 Number of sections: 6
 
-
 Turn to 1 to begin.
 1 (start) -  It starts here. You can get to 6. 
 2 (secondfake) -  Another fake section that is also ignored. 

@@ -4,7 +4,6 @@ Number of sections: 9
 Introduction
  This example gamebook shows how to use counters.
 
-
 Turn to 1 to begin.
 1 (start) -  This is where the gamebook starts. We have counters for [COUNT life]Life Points[/COUNT] and for [COUNT gold]Gold[/COUNT]. You start the adventure with [SET life]10[/SET] Life Points and [SET gold]12[/SET] Gold. You can never have less than [MIN gold]0[/MIN] Gold. FIXME need to figure out best syntax for death when life points go below 1. Go to 9 to get more Gold or 8 to lose some Life Points. Go to 3 for testing the init value markup. 
 2 (inittest2) -  OK, we increase that something counter by [INC something]1[/INC] here, and also increase the other counter by [INC other]1[/INC]. You can go back to see the difference between set and init here (3), stuck in an infinite loop.

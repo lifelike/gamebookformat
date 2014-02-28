@@ -41,6 +41,9 @@ subdirectory (next to the default *templates* subdirectory) that
 contains useful overrides for some behavior of the default output
 formats. For example adding *-o letter* to the command-line will
 produce LaTeX files in Letter size rather than the default A5 size.
+You can use *-o list* to generate a text file listing all sections and
+their numbers, or *-o list -t todo* to only list sections tagged as
+todo (or substitute whatever other tag(s) you are interested in).
 
 | Name     | Formats | Description                          |
 |----------+---------+--------------------------------------|
@@ -48,8 +51,8 @@ produce LaTeX files in Letter size rather than the default A5 size.
 | a5       | tex     | A5 paper size documents (PDF).       |
 | htmlbook | html    | Generate [[https://github.com/oreillymedia/HTMLBook][HTMLBook]] compatible HTML.   |
 | letter   | tex     | Letter paper size documents (PDF).   |
+| list     | txt     | Only generate list of sections.      |
 | static   | html    | Remove script link from HTML output. |
-
 
 ** Number Map Files
 Whenever formatgamebook.py runs it looks for a file with the same

@@ -2,7 +2,6 @@ BEGIN DEBUG OUTPUT
 Book title: Gamebook
 Number of sections: 5
 
-
 Turn to 1 to begin.
 1 (start) -  This gamebook contains a few sections tagged as demo, that will be included when building the example (see withdemo.gamebook.options file). There are also some sections without the demo tag that will be ignored. Go on to 5 or 4 or 2. 
 2 (demoinfo) -  This is where references to non-demo sections will lead you. It is configured at the top of the gamebook file. Remember to tag this section correctly to be included. Go on to 4. 

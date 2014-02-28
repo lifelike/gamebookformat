@@ -2,7 +2,6 @@ BEGIN DEBUG OUTPUT
 Book title: Gamebook
 Number of sections: 8
 
-
 Turn to 1 to begin.
 1 (start) -  This gamebook contains a few sections tagged as demo, that will be included when building the example as withdemo.gamebook (see withdemo.gamebook.options file). There are also some sections without the demo tag that will be ignored. This version is built without options and includes all sections. Go on to 7 or 5 or 8. 
 2 (altend) -  Alternative end. Not included in the demo.

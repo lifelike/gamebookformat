@@ -4,7 +4,6 @@ Introduction
  This example gamebook shows how to use counters.
 
 
-
 Turn to 1 to begin.
 1
  This is where the gamebook starts. We have counters for Life Points and for Gold. You start the adventure with 10 Life Points and 12 Gold. You can never have less than 0 Gold. FIXME need to figure out best syntax for death when life points go below 1. Go to 9 to get more Gold or 8 to lose some Life Points. Go to 3 for testing the init value markup. 

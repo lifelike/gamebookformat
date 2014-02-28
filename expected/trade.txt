@@ -4,7 +4,6 @@ Introduction
  Testing trade of things. You can buy things using Gold of which you start with 100. You also have an Inventory. At start you carry a sword. 
 
 
-
 Turn to 1 to begin.
 1
  You can buy a shield here for 50 Gold. There is also a chain mail costing 150. You can pick up some spiderweb for free. You can go on to the end at 2. 

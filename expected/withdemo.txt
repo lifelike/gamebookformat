@@ -1,7 +1,6 @@
     Gamebook
 
 
-
 Turn to 1 to begin.
 1
  This gamebook contains a few sections tagged as demo, that will be included when building the example (see withdemo.gamebook.options file). There are also some sections without the demo tag that will be ignored. Go on to 5 or 4 or 2. 

@@ -1,7 +1,6 @@
     Gamebook
 
 
-
 Turn to 1 to begin.
 1
  Demonstrating how Codewords (AKA sightings) can be used. Go to 2. 

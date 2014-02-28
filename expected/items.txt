@@ -1,7 +1,6 @@
     Items
 
 
-
 Turn to 1 to begin.
 1
  Demonstrating how to manage player Inventory. You start the book carrying a sword and a shield. Turn to 12 or go to the autotest at 2. 
