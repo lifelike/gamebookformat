@@ -1,0 +1,4 @@
+digraph gamebook {
+3->2
+3->1
+}
