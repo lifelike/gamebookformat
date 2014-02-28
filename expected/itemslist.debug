@@ -1,0 +1,20 @@
+BEGIN DEBUG OUTPUT
+Book title: Items
+Number of sections: 12
+Info
+ This file is for testing the list option. This section should not be listed. 
+
+Turn to 1 to begin.
+1 (start) -  Demonstrating how to manage player [COLLECT item]Inventory[/COLLECT]. You start the book carrying a [ADD item]sword[/ADD] and a [ADD item]shield[/ADD]. Turn to 12 or go to the autotest at 2. 
+2 (autotest) -  If you have the [HAS item]stick[/HAS] then you must turn immediately to ((automatic))12, and everything else in this section is ignored. You find a [ADD item]book[/ADD] here. If you have the [HAS item]sword[/HAS] you must turn immediately to ((automatic))5, again ignoring everything that follows. You drop the [DROP item]something valuable[/DROP] here if you have it, then go on to 7.
+3 (won) -  Congratulations, you won.
+4 (cut_rope) -  OK. That was fun. Turn to 3. 
+5 (inside) -  There is a rope here that can be cut using a [HAS item]sword[/HAS]. If you have one and want to do that, see 4. You can also run to the autotest at 2. Otherwise turn to 3. 
+6 (treasure) -  You found [FOUND item]something valuable[/FOUND], but there is no way forward, so you head back to 12. 
+7 (portal) -  A magic portal ahead will only allow you to pass if you did not pick up the [HAS NOT item]cursed bracelet[/HAS NOT], leading you to 6. If you have the [HAS item]cursed bracelet[/HAS] you have to go back to 12 instead. Actually feel free to head back to 12 either way. 
+8 (drop_stick) -  OK [DROP item]stick[/DROP] dropped. Turn back to 12 to confirm stick can not be picked up again even if the text says it is there (books work that way, although ideally this dynamic version should provide some hints that it is no longer there). 
+9 (curse) -  There is a [FOUND item]cursed bracelet[/FOUND] here. You can go on to 7 or go back to 12. You can also drop the [HAS item]stick[/HAS] for no particular reason if you have it, see 8. 
+10 (attempt_break_door_with_sword) -  OK. The door is broken, but so is the [DROP item]sword[/DROP]. Turn to 5. 
+11 (door) -  There is a locked door here. If you have a [HAS item]key[/HAS] you can use that to open the door, see 5. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the [HAS item]sword[/HAS], if you have it, see 10. Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see 12. 
+12 (tjunction) -  You have reached a t-junction. Here you find a [FOUND item]key[/FOUND] and a [FOUND item]stick[/FOUND]. You can go west to 11, or east to 9. 
+END DEBUG OUTPUT

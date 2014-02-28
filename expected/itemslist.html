@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Items</title>
+    <script type="text/javascript" src="gamebookformatplay.js"></script>
+    <link rel="stylesheet" href="gamebookformat.css"
+          type="text/css" />
+    <script>
+      if (typeof gamebook !== 'undefined') {
+         gamebook.id = 'itemslist';
+      }
+    </script>
+  </head>
+  <body>
+<div class="hideintrolink nodisplay"
+    onclick="gamebook.hideIntroSections()">(hide instructions)</div>
+  <div class="gamebook">
+<div class="introsection">
+<div class="introsectionheading">Info</div>
+<div class="introsectionbody">
+ This file is for testing the list option. This section should not be listed. 
+</div>
+</div>
+<div class="resumelink nodisplay"
+  onclick="gamebook.loadGame()">Resume saved game.</div>
+
+<div class="startlink"
+  onclick="gamebook.turnTo(1)">Turn to 1 to begin.</div>
+<script>
+    if (typeof gamebook !== 'undefined' && gamebook.hasSavedGame()) {
+        var resumeLinks = document.getElementsByClassName('resumelink');
+        Array.prototype.forEach.call(resumeLinks, function(e) {
+            e.classList.remove('nodisplay');
+        });
+    }
+</script>
+<div class="section" id="section1">
+<div class="sectionnumber" id="para1">1</div>
+<div class="sectiontext">
+ Demonstrating how to manage player <span class="collect" data-type="item"
+    data-name="Inventory">Inventory</span>. You start the book carrying a <span class="add" data-type="item"
+      data-what="sword">sword</span> and a <span class="add" data-type="item"
+      data-what="shield">shield</span>. Turn to <a class="sectionref enabledlink" data-ref="12"
+href="#section12">12</a> or go to the autotest at <a class="sectionref enabledlink" data-ref="2"
+href="#section2">2</a>. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(1, document.getElementById('section1'));
+}
+</script><div class="section" id="section2">
+<div class="sectionnumber" id="para2">2</div>
+<div class="sectiontext">
+ If you have the <span class="has" data-type="item" data-what="stick">stick</span> then you must turn immediately to <span class="auto"></span><a class="sectionref enabledlink" data-ref="12"
+href="#section12">12</a>, and everything else in this section is ignored. You find a <span class="add" data-type="item"
+      data-what="book">book</span> here. If you have the <span class="has" data-type="item" data-what="sword">sword</span> you must turn immediately to <span class="auto"></span><a class="sectionref enabledlink" data-ref="5"
+href="#section5">5</a>, again ignoring everything that follows. You drop the <span class="drop" data-type="item"
+      data-what="something valuable">something valuable</span> here if you have it, then go on to <a class="sectionref enabledlink" data-ref="7"
+href="#section7">7</a>.
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(2, document.getElementById('section2'));
+}
+</script><div class="section" id="section3">
+<div class="sectionnumber" id="para3">3</div>
+<div class="sectiontext">
+ Congratulations, you won.
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(3, document.getElementById('section3'));
+}
+</script><div class="section" id="section4">
+<div class="sectionnumber" id="para4">4</div>
+<div class="sectiontext">
+ OK. That was fun. Turn to <a class="sectionref enabledlink" data-ref="3"
+href="#section3">3</a>. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(4, document.getElementById('section4'));
+}
+</script><div class="section" id="section5">
+<div class="sectionnumber" id="para5">5</div>
+<div class="sectiontext">
+ There is a rope here that can be cut using a <span class="has" data-type="item" data-what="sword">sword</span>. If you have one and want to do that, see <a class="sectionref enabledlink" data-ref="4"
+href="#section4">4</a>. You can also run to the autotest at <a class="sectionref enabledlink" data-ref="2"
+href="#section2">2</a>. Otherwise turn to <a class="sectionref enabledlink" data-ref="3"
+href="#section3">3</a>. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(5, document.getElementById('section5'));
+}
+</script><div class="section" id="section6">
+<div class="sectionnumber" id="para6">6</div>
+<div class="sectiontext">
+ You found <span class="found enabledlink" data-type="item"
+      data-what="something valuable"
+>something valuable</span>
+, but there is no way forward, so you head back to <a class="sectionref enabledlink" data-ref="12"
+href="#section12">12</a>. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(6, document.getElementById('section6'));
+}
+</script><div class="section" id="section7">
+<div class="sectionnumber" id="para7">7</div>
+<div class="sectiontext">
+ A magic portal ahead will only allow you to pass if you did not pick up the <span class="hasnot" data-type="item"
+      data-what="cursed bracelet">cursed bracelet</span>, leading you to <a class="sectionref enabledlink" data-ref="6"
+href="#section6">6</a>. If you have the <span class="has" data-type="item" data-what="cursed bracelet">cursed bracelet</span> you have to go back to <a class="sectionref enabledlink" data-ref="12"
+href="#section12">12</a> instead. Actually feel free to head back to <a class="sectionref enabledlink" data-ref="12"
+href="#section12">12</a> either way. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(7, document.getElementById('section7'));
+}
+</script><div class="section" id="section8">
+<div class="sectionnumber" id="para8">8</div>
+<div class="sectiontext">
+ OK <span class="drop" data-type="item"
+      data-what="stick">stick</span> dropped. Turn back to <a class="sectionref enabledlink" data-ref="12"
+href="#section12">12</a> to confirm stick can not be picked up again even if the text says it is there (books work that way, although ideally this dynamic version should provide some hints that it is no longer there). 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(8, document.getElementById('section8'));
+}
+</script><div class="section" id="section9">
+<div class="sectionnumber" id="para9">9</div>
+<div class="sectiontext">
+ There is a <span class="found enabledlink" data-type="item"
+      data-what="cursed bracelet"
+>cursed bracelet</span>
+ here. You can go on to <a class="sectionref enabledlink" data-ref="7"
+href="#section7">7</a> or go back to <a class="sectionref enabledlink" data-ref="12"
+href="#section12">12</a>. You can also drop the <span class="has" data-type="item" data-what="stick">stick</span> for no particular reason if you have it, see <a class="sectionref enabledlink" data-ref="8"
+href="#section8">8</a>. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(9, document.getElementById('section9'));
+}
+</script><div class="section" id="section10">
+<div class="sectionnumber" id="para10">10</div>
+<div class="sectiontext">
+ OK. The door is broken, but so is the <span class="drop" data-type="item"
+      data-what="sword">sword</span>. Turn to <a class="sectionref enabledlink" data-ref="5"
+href="#section5">5</a>. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(10, document.getElementById('section10'));
+}
+</script><div class="section" id="section11">
+<div class="sectionnumber" id="para11">11</div>
+<div class="sectiontext">
+ There is a locked door here. If you have a <span class="has" data-type="item" data-what="key">key</span> you can use that to open the door, see <a class="sectionref enabledlink" data-ref="5"
+href="#section5">5</a>. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the <span class="has" data-type="item" data-what="sword">sword</span>, if you have it, see <a class="sectionref enabledlink" data-ref="10"
+href="#section10">10</a>. Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see <a class="sectionref enabledlink" data-ref="12"
+href="#section12">12</a>. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(11, document.getElementById('section11'));
+}
+</script><div class="section" id="section12">
+<div class="sectionnumber" id="para12">12</div>
+<div class="sectiontext">
+ You have reached a t-junction. Here you find a <span class="found enabledlink" data-type="item"
+      data-what="key"
+>key</span>
+ and a <span class="found enabledlink" data-type="item"
+      data-what="stick"
+>stick</span>
+. You can go west to <a class="sectionref enabledlink" data-ref="11"
+href="#section11">11</a>, or east to <a class="sectionref enabledlink" data-ref="9"
+href="#section9">9</a>. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(12, document.getElementById('section12'));
+}
+</script>    <div id="counters" class="counters">
+    </div>
+    <div id="counterTemplate" class="counterTemplate">
+      <span class="counterheading"></span>
+      <span class="countercontents"></span>
+    </div>
+    </div>
+    <div id="collections" class="collections">
+    </div>
+    <div id="collectionTemplate" class="collectionTemplate">
+      <span class="collectionheading"></span>
+      <span class="collectioncontents"></span>
+    </div>
+    </div>
+    <script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.prepare();
+}
+    </script>
+<div class="displayintrolink nodisplay"
+    onclick="gamebook.showIntroSections()">(show instructions)</div>
+    </div>
+  </body>
+</html>

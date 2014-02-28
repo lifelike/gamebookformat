@@ -1,0 +1,142 @@
+\documentclass[a5paper,onecolumn]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+
+\usepackage[top=3.3cm, bottom=3.3cm, left=2cm, right=2cm]{geometry}
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+  \pdffalse
+\else
+  \ifnum\pdfoutput=1
+    \pdftrue
+  \else
+    \pdffalse
+  \fi
+\fi
+
+\title{Items}
+\author{Pelle Nilsson}
+\date{}
+
+\newcounter{sectionnr}
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+
+\thispagestyle{empty}
+
+\pagestyle{empty}
+\subsection*{\begin{center} \textbf{Info} \end{center}}
+
+
+ \noindent
+ This file is for testing the list option. This section should not be listed. 
+\vspace{1em}
+
+Turn to 1 to begin.
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section1}
+\subsection*{\begin{center} \textbf{1} \end{center}}
+
+ \noindent
+ Demonstrating how to manage player Inventory. You start the book carrying a \textbf{sword} and a \textbf{shield}. Turn to \textbf{\autoref{section12}} or go to the autotest at \textbf{\autoref{section2}}. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section2}
+\subsection*{\begin{center} \textbf{2} \end{center}}
+
+ \noindent
+ If you have the \textit{stick} then you must turn immediately to \textbf{\autoref{section12}}, and everything else in this section is ignored. You find a \textbf{book} here. If you have the \textit{sword} you must turn immediately to \textbf{\autoref{section5}}, again ignoring everything that follows. You drop the \textit{something valuable}
+ here if you have it, then go on to \textbf{\autoref{section7}}.
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section3}
+\subsection*{\begin{center} \textbf{3} \end{center}}
+
+ \noindent
+ Congratulations, you won.
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section4}
+\subsection*{\begin{center} \textbf{4} \end{center}}
+
+ \noindent
+ OK. That was fun. Turn to \textbf{\autoref{section3}}. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section5}
+\subsection*{\begin{center} \textbf{5} \end{center}}
+
+ \noindent
+ There is a rope here that can be cut using a \textit{sword}. If you have one and want to do that, see \textbf{\autoref{section4}}. You can also run to the autotest at \textbf{\autoref{section2}}. Otherwise turn to \textbf{\autoref{section3}}. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section6}
+\subsection*{\begin{center} \textbf{6} \end{center}}
+
+ \noindent
+ You found \textbf{something valuable}, but there is no way forward, so you head back to \textbf{\autoref{section12}}. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section7}
+\subsection*{\begin{center} \textbf{7} \end{center}}
+
+ \noindent
+ A magic portal ahead will only allow you to pass if you did not pick up the \textit{cursed bracelet}, leading you to \textbf{\autoref{section6}}. If you have the \textit{cursed bracelet} you have to go back to \textbf{\autoref{section12}} instead. Actually feel free to head back to \textbf{\autoref{section12}} either way. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section8}
+\subsection*{\begin{center} \textbf{8} \end{center}}
+
+ \noindent
+ OK \textit{stick}
+ dropped. Turn back to \textbf{\autoref{section12}} to confirm stick can not be picked up again even if the text says it is there (books work that way, although ideally this dynamic version should provide some hints that it is no longer there). 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section9}
+\subsection*{\begin{center} \textbf{9} \end{center}}
+
+ \noindent
+ There is a \textbf{cursed bracelet} here. You can go on to \textbf{\autoref{section7}} or go back to \textbf{\autoref{section12}}. You can also drop the \textit{stick} for no particular reason if you have it, see \textbf{\autoref{section8}}. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section10}
+\subsection*{\begin{center} \textbf{10} \end{center}}
+
+ \noindent
+ OK. The door is broken, but so is the \textit{sword}
+. Turn to \textbf{\autoref{section5}}. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section11}
+\subsection*{\begin{center} \textbf{11} \end{center}}
+
+ \noindent
+ There is a locked door here. If you have a \textit{key} you can use that to open the door, see \textbf{\autoref{section5}}. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the \textit{sword}, if you have it, see \textbf{\autoref{section10}}. Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see \textbf{\autoref{section12}}. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section12}
+\subsection*{\begin{center} \textbf{12} \end{center}}
+
+ \noindent
+ You have reached a t-junction. Here you find a \textbf{key} and a \textbf{stick}. You can go west to \textbf{\autoref{section11}}, or east to \textbf{\autoref{section9}}. 
+\vspace{1em}
+\end{document}

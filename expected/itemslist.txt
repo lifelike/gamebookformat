@@ -1,0 +1,12 @@
+1 start
+2 autotest
+3 won
+4 cut_rope
+5 inside
+6 treasure
+7 portal
+8 drop_stick
+9 curse
+10 attempt_break_door_with_sword
+11 door
+12 tjunction

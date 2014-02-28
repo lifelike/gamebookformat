@@ -1,0 +1,79 @@
+title = Items
+author = Pelle Nilsson
+
+= Info
+This file is for testing the list option.
+This section should not be listed.
+
+* 1 start
+Demonstrating how to manage player [collect item]Inventory[/collect].
+You start
+the book carrying a [add item]sword[/add]
+and a [add item]shield[/add].
+Turn to [[tjunction]] or go to the autotest at [[autotest]].
+
+* tjunction
+You have reached a t-junction.
+Here you find a [found item]key[/found]
+and a [found item]stick[/found].
+You can go west to [[door]], or
+east to [[curse]].
+
+* door
+There is a locked door here.
+If you have a [has item]key[/has] you can use that to
+open the door, see [[inside]]. Being right before the link
+should be enough for the formatter to figure out that the
+key is required to be allowed to follow the link.
+Else you can try to open with the [has item]sword[/has],
+if you have it, see [[attempt_break_door_with_sword]].
+Hopefully the magic is good enough to pair
+pre-conditions to links, or more markup must be added later.
+You could also try to go back to pick up the key, see [[tjunction]].
+
+* attempt_break_door_with_sword
+OK. The door is broken, but so is the [drop item]sword[/drop].
+Turn to [[inside]].
+
+* curse
+There is a [found item]cursed bracelet[/found] here. You can go on to
+[[portal]] or go back to [[tjunction]]. You can also drop the
+[has item]stick[/has] for no particular reason if you have it,
+see [[drop_stick]].
+
+* drop_stick
+OK [drop item]stick[/drop] dropped. Turn back to [[tjunction]] to confirm
+stick can not be picked up again even if the text says it is there
+(books work that way, although ideally this dynamic version should
+provide some hints that it is no longer there).
+
+* portal
+A magic portal ahead will only allow you to pass if you did not pick up the
+[hasnot item]cursed bracelet[/hasnot], leading you to [[treasure]].
+If you have the [has item]cursed bracelet[/has]
+you have to go back to [[tjunction]] instead.
+Actually feel free to head back to [[tjunction]] either way.
+
+* treasure
+You found [found item]something valuable[/found], but there is no way forward,
+so you head back to [[tjunction]].
+
+* inside
+There is a rope here that can be cut using a [has item]sword[/has].
+If you have one and want to do that, see [[cut_rope]].
+You can also run to the autotest at [[autotest]].
+Otherwise turn to [[won]].
+
+* cut_rope
+OK. That was fun. Turn to [[won]].
+
+* won
+Congratulations, you won.
+* autotest
+If you have the [has item]stick[/has] then you must turn
+immediately to [[auto tjunction]], and everything else in this
+section is ignored. You find a [add item]book[/add] here.
+If you have the [has item]sword[/has] you must turn
+immediately to [[auto inside]], again ignoring everything
+that follows. You drop the [drop item]something valuable[/drop]
+here if you have it, then go on to [[portal]].
