@@ -10,6 +10,13 @@ Go on to [[demo1]] or [[demo2]] or [[notindemo1]].
 * notindemo1
 This section is not included in the demo. Turn to [[notindemo2]].
 
+* actuallynotindemoeither :demo:notthisone:
+Tagged as demo, but excluded anyay because of the --exclude flag given.
+
+* notatall :notthisone:
+Not included at all, because excluded by command-line, and not
+demo-tagged either.
+
 * demo1 :demo:
 This is the first demo section (not counting the start section).
 You can go on to the end at [[theend]].

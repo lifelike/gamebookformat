@@ -13,6 +13,7 @@ gamebook on paper or a screen (or for debugging it).
 : optional arguments:
 :   -h, --help            show this help message and exit
 :   -i T, --include T     only include sections with tag
+:   -e T, --exclude T     exclude sections with tag
 :   -M, --no-default-map  ignore default map file
 :   -t D, --template D    add custom template dir
 :   -o D, --option D      add template override options dir

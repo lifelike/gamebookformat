@@ -68,10 +68,11 @@ def format_gamebook(inputfilenames,
                     import_default_map_file,
                     templatedirs,
                     shuffle,
-                    includetag,
+                    includetags,
+                    excludetags,
                     mapfilenames):
     output_format = make_output(outputfilename, templatedirs)
-    book = sections.Book(make_bookid(outputfilename), includetag)
+    book = sections.Book(make_bookid(outputfilename), includetags, excludetags)
     for inputfilename in inputfilenames:
         parse_file_to_book(open(inputfilename, 'r'), book)
     if import_default_map_file:
@@ -194,8 +195,10 @@ if __name__ == '__main__':
                     help='input gamebook file (eg test.gamebook)')
     ap.add_argument('outputfile', metavar='outputfile',
                     help='output file (eg test.tex or test.rtf)')
-    ap.add_argument('-i', '--include', action='store', metavar='T',
-                    dest='includetag',  help='only include sections with tag')
+    ap.add_argument('-i', '--include', action='append', metavar='T',
+                    dest='includetags',  help='only include sections with tag')
+    ap.add_argument('-e', '--exclude', action='append', metavar='T',
+                    dest='excludetags',  help='exclude sections with tag')
     ap.add_argument('-M', '--no-default-map', action='store_false',
                     dest='import_default_map_file',
                     help='ignore default map file')
@@ -223,5 +226,6 @@ if __name__ == '__main__':
                     args.import_default_map_file,
                     templatedirs,
                     args.shuffle,
-                    args.includetag,
+                    args.includetags or [],
+                    args.excludetags or [],
                     args.mapfiles or [])

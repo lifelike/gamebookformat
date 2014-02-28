@@ -36,14 +36,14 @@ class TestBook(TestCase):
         self.assertEqual(b.config['max'], 0)
 
     def test_includetag(self):
-        b = sections.Book(includetag='test')
+        b = sections.Book(includetags=['test'])
         sec = sections.Section("nnn", "text")
         sec.add_tags(['some', 'test', 'other'])
         b.add(sec)
         self.assertEqual(b.sections, [sec])
 
     def test_excludetag(self):
-        b = sections.Book(includetag='test')
+        b = sections.Book(includetags=['test'])
         sec = sections.Section("nnn", "text")
         sec.add_tags(['some', 'other'])
         b.add(sec)

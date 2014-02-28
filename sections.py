@@ -13,6 +13,9 @@ class Section:
     def hastag(self, tag):
         return tag in self.tags
 
+    def hastag_in_set(self, tags):
+        return not self.tags.isdisjoint(tags)
+
     def __repr__(self):
         return "Section(%s, %s, %s)" % (repr(self.name), repr(self.text),
                                         repr(self.tags))
@@ -59,13 +62,14 @@ STR_BOOK_CONFIG = set(['id', 'title', 'author', 'starttext', 'hideintrotext',
 INT_BOOK_CONFIG = set(['max'])
 
 class Book:
-    def __init__(self, bookid='gamebook', includetag=None):
+    def __init__(self, bookid='gamebook', includetags=None, excludetags=None):
         self.sections = []
         self.introsections = []
         self.from_name = {}
         self.nr_sections = {}
         self.codewords = set()
-        self.includetag = includetag
+        self.includetags = set(includetags or [])
+        self.excludetags = set(excludetags or [])
         self.config = {'max' : 0,
                        'title' : 'Gamebook',
                        'author' : '',
@@ -85,7 +89,9 @@ class Book:
             raise Exception("Unknown book option '%s'." % name)
 
     def add(self, section):
-        if self.includetag and not section.hastag(self.includetag):
+        if ((len(self.includetags) > 0
+             and not section.hastag_in_set(self.includetags))
+             or section.hastag_in_set(self.excludetags)):
             return
         if section.name in self.from_name:
             raise Exception('Duplicate section names (%s) not allowed.' %
