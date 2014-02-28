@@ -1,0 +1,67 @@
+\documentclass[a5paper,onecolumn]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+
+\usepackage[top=3.3cm, bottom=3.3cm, left=2cm, right=2cm]{geometry}
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+  \pdffalse
+\else
+  \ifnum\pdfoutput=1
+    \pdftrue
+  \else
+    \pdffalse
+  \fi
+\fi
+
+\title{Items}
+\author{Pelle Nilsson}
+\date{}
+
+\newcounter{sectionnr}
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+
+\thispagestyle{empty}
+
+\pagestyle{empty}
+\subsection*{\begin{center} \textbf{Info} \end{center}}
+
+
+ \noindent
+ This file is for testing the list option. This section should not be listed. Using the options given in the options file for this gamebook, only the sections tagged as todo will be listed. 
+\vspace{1em}
+
+Turn to 1 to begin.
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section1}
+\subsection*{\begin{center} \textbf{1} \end{center}}
+
+ \noindent
+ There has to be a section set as missingto (ie this section), otherwise generating a list with only todo sections will fail (as one of them references non-todo sections). Unfortunate side-effect is that this section will always be included in the list. TODO figure out some fix for this.
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section2}
+\subsection*{\begin{center} \textbf{2} \end{center}}
+
+ \noindent
+ Need to write this section. Sorry for it being a dead-end for now. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section3}
+\subsection*{\begin{center} \textbf{3} \end{center}}
+
+ \noindent
+ (This section needs some work!) Here you find a \textbf{key} and a \textbf{stick}. You can go west to \textbf{\autoref{section1}}, or east to \textbf{\autoref{section2}}. 
+\vspace{1em}
+\end{document}

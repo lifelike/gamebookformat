@@ -1,4 +1,4 @@
-* TODO [56/79] [70%]
+* TODO [56/80] [70%]
 ** DONE Debug output
 ** DONE DOT output
 ** DONE LaTeX output
@@ -129,6 +129,10 @@
 ** TODO Higher level text-language for Gamebooks
 ** TODO BGG forum output (.bgg)
 ** TODO Verify gamebook
+** TODO Fix broken references in list option output for some tag
+When using the list option, and only including only sections for a tag,
+there currently has to be a missingto section, and that section is always
+listed even if it is not tagged.
 ** TODO Add json output file containing sections, counters, collections etc.
    This output format down-prioed because requires some changes to handle new-lines.
    All previously supported formats handles new-lines in text without problems, JSON do not.
