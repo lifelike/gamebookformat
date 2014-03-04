@@ -47,19 +47,29 @@
  You can buy a <span class="found enabledlink" data-type="item"
       data-what="shield"
 >shield</span>
- here for <span class="cost enabledlink" data-type="gold"
+ here for <span class="cost" data-type="gold"
       data-amount="50"
 >50</span>
- Gold. There is also a <span class="found enabledlink" data-type="item"
+ Gold or a beautiful <span class="found enabledlink" data-type="item"
+      data-what="gold ring"
+>gold ring</span>
+ for only <span class="cost" data-type="gold"
+      data-amount="75"
+>75</span>
+. There is also a <span class="found enabledlink" data-type="item"
       data-what="chain mail"
 >chain mail</span>
- costing <span class="cost enabledlink" data-type="gold"
+ costing <span class="cost" data-type="gold"
       data-amount="150"
 >150</span>
 . You can pick up some <span class="found enabledlink" data-type="item"
       data-what="spiderweb"
 >spiderweb</span>
- for free. You can go on to the end at <a class="sectionref enabledlink" data-ref="2"
+ for free. You can go to <a class="sectionref enabledlink" data-ref="3"
+href="#section3">3</a> at a cost of <span class="cost" data-type="gold"
+      data-amount="50"
+>50</span>
+. You can go on to the end at <a class="sectionref enabledlink" data-ref="2"
 href="#section2">2</a>. 
 </div>
 </div>
@@ -76,6 +86,17 @@ if (typeof gamebook !== 'undefined') {
 <script>
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(2, document.getElementById('section2'));
+}
+</script><div class="section" id="section3">
+<div class="sectionnumber" id="para3">3</div>
+<div class="sectiontext">
+ Hopefully you now have 50 less gold than you just had. You can go back to <a class="sectionref enabledlink" data-ref="1"
+href="#section1">1</a>. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(3, document.getElementById('section3'));
 }
 </script>    <div id="counters" class="counters">
     </div>

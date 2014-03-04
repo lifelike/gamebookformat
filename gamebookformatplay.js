@@ -289,6 +289,7 @@ var gamebook = {
                 } else {
                     gamebook.disableLink(c);
                 }
+                lastCanHaveCost = c;
                 enableNextLink = !(hasXorScope && !xorEnableNext);
                 hasAutoScope = false;
                 hasXorScope = false;
@@ -367,8 +368,7 @@ var gamebook = {
     },
 
     'enableLink' : function(e) {
-        e.addEventListener('click',
-                           gamebook.getTurnToFunction(e.dataset.ref));
+        e.addEventListener('click', gamebook.getTurnToFunction(e.dataset.ref));
         e.classList.add("enabledlink");
         e.classList.remove("disabledlink");
     },
@@ -447,7 +447,9 @@ var gamebook = {
             return this.turnToFunctions[nr];
         } else {
             var f = function () {
-                gamebook.turnTo(nr);
+                if (gamebook.payPrice(this)) {
+                    gamebook.turnTo(nr);
+                }
             };
             this.turnToFunctions[nr] = f;
             return f;
@@ -456,21 +458,43 @@ var gamebook = {
 
     'takeFound' : function(evt) {
         evt.preventDefault();
+        if (!gamebook.payPrice(this)) {
+            return false;
+        }
         this.classList.remove("enabledlink");
         this.classList.add("disabledlink");
         var what = this.dataset.what;
         var type = this.dataset.type;
-        if ('cost' in this.dataset && 'costtype' in this.dataset) {
-            var cost = parseInt(this.dataset.cost);
-            var counter = gamebook.player.counters[this.dataset.costtype];
+        gamebook.player.add(type, what);
+        gamebook.disableLinksNowTooExpensive();
+    },
+
+    'payPrice' : function(e) {
+        if ('cost' in e.dataset && 'costtype' in e.dataset) {
+            var cost = parseInt(e.dataset.cost);
+            var counter = gamebook.player.counters[e.dataset.costtype];
             if (counter.value - cost < counter.minValue) {
-                // this should not happen, link should be disabled
-                return;
+                return false;
             }
             counter.dec(cost);
             gamebook.updateCountersView();
         }
-        gamebook.player.add(type, what);
+        return true;
+    },
+
+    'disableLinksNowTooExpensive' : function() {
+        var e = this.sections[this.player.currentSection].element;
+        var cs = e.getElementsByClassName('sectiontext')[0].childNodes;
+        Array.prototype.forEach.call(cs, function(c) {
+            if (c.dataset && 'cost' in c.dataset && 'costtype' in c.dataset) {
+                var cost = parseInt(c.dataset.cost);
+                var counter = gamebook.player.counters[c.dataset.costtype];
+                if (counter.value - cost < counter.minValue) {
+                    c.classList.remove("enabledlink");
+                    c.classList.add("disabledlink");
+                }
+            }
+        });
     }
 
 };

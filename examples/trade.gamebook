@@ -5,10 +5,16 @@ You also have an [collect item]Inventory[/item]. At start you carry
 a [add item]sword[/add].
 
 * 1 start
-You can buy a [found item]shield[/found] here for [cost gold]50[/cost] Gold.
+You can buy a [found item]shield[/found] here for [cost gold]50[/cost] Gold
+or a beautiful [found item]gold ring[/found] for only [cost gold]75[/cost].
 There is also a [found item]chain mail[/found] costing [cost gold]150[/cost].
 You can pick up some [found item]spiderweb[/found] for free.
+You can go to [[other]] at a cost of [cost gold]50[/cost].
 You can go on to the end at [[theend]].
+
+* other
+Hopefully you now have 50 less gold than you just had.
+You can go back to [[start]].
 
 * theend
 It ends here.
