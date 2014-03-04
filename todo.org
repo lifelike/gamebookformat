@@ -1,4 +1,4 @@
-* TODO [56/80] [70%]
+* TODO [57/79] [72%]
 ** DONE Debug output
 ** DONE DOT output
 ** DONE LaTeX output
@@ -77,7 +77,6 @@
   test those from nodejs?
 ** DONE Make debug output more useful with a stricter format easy to parse.
    Will be taken care of when implementing JSON output.
-** TODO Trade decrease one counter to increase another counter.
 ** TODO Pick a specific number of things from those found in a(n intro) section
   Used to pick up one or more of something found, or before starting.
   Create counter and set to how many are allowed to be picked.
@@ -88,33 +87,40 @@
   Without setting the max player can decide to pick up fewer (or none) which
    might of course also be ok at times.
   This will also work for picking eg starting skills.
-** TODO Subtract from counter when following link (implies has at least that)
+** DONE Subtract from counter when following link (implies has at least that)
   This is the cost tag again, when it immediately follows a reference.
 ** TODO Add keyword when following link
   This is a new tag that follows a reference similar to a cost tag.
+** TODO Remove keyword when following link
+  This is a new tag that follows a reference similar to a cost tag.
 ** TODO Use points to buy values for counters
  Eg to buy starting values for some attributes in introsection.
-  Create a counter in that introsection, set to some value.
+** TODO Counter max values, not leaving a section too early
   Use cost tag following inc tag to set price for increasing a counter.
   Set max for points to 0.
   Do not allow navigation until all points are spent (ie never allows
    following links while a counter is above its max value).
   The same mechanism can of course be used in-game at any section to
    allow the player to buy increases in different counters.
-** TODO Tag to indicate HTML counter not to be visible outside of one section.
+** TODO Tag to remove counter when following link
+   What if a reference leads back to somewhere that counter is used?
+   In that case will revive the counter automatically.
+   Remove will only hide from GUI really.
 ** TODO Combat
-  Tag to mark up the link to use to trigger next round.
-  Tag to mark up the enemy and its values.
-  Fixed set of combat abilities handled by javascript
-    (some way to configure ability names, but in that case javascript
-     for combat, in a separate file, must be overridden)
+   Tag to set config parameters for combat system (probably in introsection).
+   Tag to mark up the link to use to trigger next round.
+   Tag to mark up retreat link.
+   Tag to mark up enemy starting values.
+   JavaScript easy to override parts of system, but quite configurable
+    just using the config parameters.
+   Allow multiple combat systems in the same book.
 ** TODO Some way to insert character sheet in book introduction
-** TODO Some way to insert optional dice at bottom of pages for LaTeX
-** TODO Some way to insert optional random numbers table at end of book
+   Using a PNG image is not nice. Not sure yet what tags are needed.
 ** TODO Defensive removal of any weird unicode not handled by quoting.
-** TODO Somewhat user-friendly error messages
+** TODO Somewhat user-friendly python error messages and always fail early
+** TODO Somewhat user-friendly js error messages and always fail early
 ** TODO More formatting possibilities in sections
-  Look at existing gamebooks to get ideas.
+  Look at existing gamebooks to get ideas to add to this todo list.
 ** TODO Document Gamebook format
   - Basic gamebook (static, nothing about magic needed for dynamic; tutorial)
   - Advanced (more complex layout options, but still static)
@@ -126,9 +132,6 @@
   Preferably headless (in nodejs?). Run tests on gamebook html example(s).
   Work on laptop stashed as zombietest (using zombietest obviously).
 ** TODO HTML CSS
-** TODO Higher level text-language for Gamebooks
-** TODO BGG forum output (.bgg)
-** TODO Verify gamebook
 ** TODO Fix broken references in list option output for some tag
 When using the list option, and only including only sections for a tag,
 there currently has to be a missingto section, and that section is always
@@ -141,4 +144,13 @@ listed even if it is not tagged.
   sell tag to specify what can be bought, eg [sell item]sword[/sell]
   followed by cost tag to specify what it will cost, eg [cost gold]2[/cost]
   Might want to wait with this and add normal drop function first?
+  This is like payPrice but a negative cost? Sort of.
+** TODO Tags for current format
+   Automatic upper-case tags excluded not matching output format, eg when
+    generating a HTML file all sections tagged PDF or TXT are excluded
+    (unless also tagged as HTML of course). Sections with no format
+    tag are always included, so this has to be handled somewhat
+    differently from the normal include/exclude tags unfortunately.
+   Allow multiple sections with the same name, only use one that matches,
+    or treat as any other missing section otherwise.
 ** TODO Dummy and fake sections (handle properly when verifying)
