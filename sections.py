@@ -8,7 +8,7 @@ class Section:
         self.tags = set()
 
     def add_tags(self, tags):
-        self.tags.update(set(tags))
+        self.tags.update(tags)
 
     def hastag(self, tag):
         return tag in self.tags

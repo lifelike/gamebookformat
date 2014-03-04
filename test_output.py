@@ -20,10 +20,10 @@ class TestOutputFormat(TestCase):
         pass
 
     def test_create(self):
-        of = output.OutputFormat(FakeTemplates({}), str)
+        of = output.OutputFormat(FakeTemplates({}), "TEST", str)
 
     def test_format_begin(self):
-        of = output.OutputFormat(FakeTemplates({'begin' : 'b %(max)d'}), str)
+        of = output.OutputFormat(FakeTemplates({'begin' : 'b %(max)d'}), "TEST", str)
         self.assertEqual(of.format_begin({'max' : 2}), 'b 2')
 
 class TestReferenceFormatter(TestCase):

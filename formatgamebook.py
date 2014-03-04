@@ -74,7 +74,7 @@ def format_gamebook(inputfilenames,
     output_format = make_output(outputfilename, templatedirs)
     book = sections.Book(make_bookid(outputfilename), includetags, excludetags)
     for inputfilename in inputfilenames:
-        parse_file_to_book(open(inputfilename, 'r'), book)
+        parse_file_to_book(open(inputfilename, 'r'), output_format.name, book)
     if import_default_map_file:
         import_default_nr_map(outputfilename, book)
     import_nr_maps(mapfilenames, book)
@@ -83,17 +83,17 @@ def format_gamebook(inputfilenames,
 def make_bookid(filename):
     return os.path.splitext(os.path.basename(filename))[0]
 
-def parse_file_to_book(inputfile, book):
+def parse_file_to_book(inputfile, output_format_tag, book):
     before_first_section = True
     name = None
     number = None
     text = ""
-    tags = None
+    tags = set()
     intro_section = False
     for line in inputfile.readlines():
         if line.startswith('*'):
             before_first_section = False
-            if name:
+            if name and include_for_output_format(tags, output_format_tag):
                 add_section_to_book(book, name, text, intro_section, number,
                                     tags)
             number = None
@@ -104,10 +104,10 @@ def parse_file_to_book(inputfile, book):
                 if not heading[-1].endswith(':'):
                     raise Exception('Section heading tags syntax error: %s' %
                                     heading)
-                tags = [t.strip() for t in heading[-1][1:-1].split(':')]
+                tags = set([t.strip() for t in heading[-1][1:-1].split(':')])
                 heading = heading[:-1]
             else:
-                tags = None
+                tags = set()
             if len(heading) == 1:
                 name = heading[0]
             elif len(heading) == 2:
@@ -116,7 +116,7 @@ def parse_file_to_book(inputfile, book):
             if not name or not SECTION_NAME_RE.match(name):
                 raise Exception("bad section heading: %s" % str(heading))
         elif line.startswith('='):
-            if name:
+            if name and include_for_output_format(tags, output_format_tag):
                 add_section_to_book(book, name, text, intro_section, number)
             name = line[1:].strip()
             intro_section = True
@@ -129,14 +129,23 @@ def parse_file_to_book(inputfile, book):
         elif len(line.strip()):
             raise Exception("unknown content before sections: %s"
                             % line.strip())
-    if name:
+    if name and include_for_output_format(tags, output_format_tag):
         add_section_to_book(book, name, text, intro_section, number, tags)
 
+def include_for_output_format(tags, output_format_tag):
+    include = True
+    for tag in tags:
+        if tag.isupper():
+            if tag == output_format_tag:
+                return True
+            else:
+                include = False
+    return include
+
 def add_section_to_book(book, name, text, intro_section=False,
-                        number=None, tags=None):
+                        number=None, tags=set()):
     section = sections.Section(name, text)
-    if tags:
-        section.add_tags(tags)
+    section.add_tags(tags)
     if intro_section:
         book.addintro(section)
     else:
@@ -149,7 +158,7 @@ def make_output(outputfilename, templatedirs):
         extension = of['extension']
         if outputfilename.endswith('.' + extension):
             return OutputFormat(templates.Templates(templatedirs, extension),
-                                of['quote'])
+                                of['quote'], extension.upper())
     raise Exception("Unsupported or unknown output format for %s."
                     % outputfilename)
 

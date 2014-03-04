@@ -22,6 +22,7 @@ like } and { and " and ' and \.
 HTML will probably not like <div> or &boom;.
 You can make named references [[named1][like this]] (just happens
 to be exactly the same syntax as in emacs org-mode btw).
+This book also includes a [[formatspecific][format-specific section]].
 There should be an image below as well.
 If something broke, turn to [[bad]],
 otherwise turn to [[good]].[footnote]Good footnote.[/footnote]
@@ -39,6 +40,18 @@ to the [[good][good end]].
 
 * named2
 Very good. [[good][You win]].[footnote]Win footnote.[/footnote]
+
+* formatspecific :TEX:
+This is the format-specific LaTeX section. Now you [[good][win]].
+
+* formatspecific :HTML:
+This is the format-specific HTML section. Now you [[good][win]].
+
+* formatspecific :TXT:
+This is the format-specific TXT section. Now you [[good][win]].
+
+*formatspecific :DOT:RTF:DEBUG:
+This is the format-specific section for no other formats. Now you [[bad][lose]].
 
 * good
 Good!

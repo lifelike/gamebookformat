@@ -10,7 +10,7 @@ Another Heading
 
 Adventure begins in section 1.
 1
- This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like } and { and " and ' and \. HTML will probably not like <div> or &boom;. You can make named references like this (5) (just happens to be exactly the same syntax as in emacs org-mode btw). There should be an image below as well. If something broke, turn to 2, otherwise turn to 3. (Good footnote.)
+ This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like } and { and " and ' and \. HTML will probably not like <div> or &boom;. You can make named references like this (6) (just happens to be exactly the same syntax as in emacs org-mode btw). This book also includes a format-specific section (4). There should be an image below as well. If something broke, turn to 2, otherwise turn to 3. (Good footnote.)
  
  
 
@@ -21,9 +21,12 @@ Adventure begins in section 1.
  Good! 
 
 4
+ This is the format-specific TXT section. Now you win (3). 
+
+5
  Very good. You win (3). (Win footnote.)
  
 
-5
- This is where you should end up when you follow the named reference from the starting section. From here you can go to the second named section (4) or to the good end (3). 
+6
+ This is where you should end up when you follow the named reference from the starting section. From here you can go to the second named section (5) or to the good end (3). 
 

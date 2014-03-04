@@ -1,4 +1,4 @@
-* TODO [57/79] [72%]
+* TODO [58/78] [74%]
 ** DONE Debug output
 ** DONE DOT output
 ** DONE LaTeX output
@@ -145,7 +145,7 @@ listed even if it is not tagged.
   followed by cost tag to specify what it will cost, eg [cost gold]2[/cost]
   Might want to wait with this and add normal drop function first?
   This is like payPrice but a negative cost? Sort of.
-** TODO Tags for current format
+** DONE Tags for current format
    Automatic upper-case tags excluded not matching output format, eg when
     generating a HTML file all sections tagged PDF or TXT are excluded
     (unless also tagged as HTML of course). Sections with no format

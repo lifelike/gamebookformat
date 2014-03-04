@@ -8,9 +8,10 @@ COUNTER_USE_TAGS = set(['set', 'inc', 'dec', 'min',
 
 class OutputFormat (object):
     "Handles book output. Big FIXME required to make sense."
-    def __init__(self, templates, quote):
+    def __init__(self, templates, quote, name):
         self.templates = templates
         self.format_quote = quote
+        self.name = name
         self.counter_names = {}
 
     def quote(self, s):
