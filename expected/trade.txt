@@ -12,5 +12,5 @@ Turn to 1 to begin.
  It ends here.
 
 3
- Hopefully you now have 50 less gold than you just had. You can go back to 1. 
+ Now you have 50 less gold than you just had. You can go back to 1. 
 

@@ -12,8 +12,12 @@ You can pick up some [found item]spiderweb[/found] for free.
 You can go to [[other]] at a cost of [cost gold]50[/cost].
 You can go on to the end at [[theend]].
 
-* other
+* other :HTML:
 Hopefully you now have 50 less gold than you just had.
+You can go back to [[start]].
+
+* other :TXT:DEBUG:TEX:DOT:RTF:
+Now you have 50 less gold than you just had.
 You can go back to [[start]].
 
 * theend
