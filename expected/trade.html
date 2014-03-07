@@ -65,8 +65,8 @@
 . You can pick up some <span class="found enabledlink" data-type="item"
       data-what="spiderweb"
 >spiderweb</span>
- for free. You can go to <a class="sectionref enabledlink" data-ref="3"
-href="#section3">3</a> at a cost of <span class="cost" data-type="gold"
+ for free. You can go to <a class="sectionref enabledlink" data-ref="4"
+href="#section4">4</a> at a cost of <span class="cost" data-type="gold"
       data-amount="50"
 >50</span>
 . You can go on to the end at <a class="sectionref enabledlink" data-ref="2"
@@ -80,7 +80,13 @@ if (typeof gamebook !== 'undefined') {
 </script><div class="section" id="section2">
 <div class="sectionnumber" id="para2">2</div>
 <div class="sectiontext">
- It ends here.
+ It ends here. There is a <span class="found enabledlink" data-type="item"
+      data-what="crown"
+>crown</span>
+ here that you can trade for some <span class="trade" data-type="item"
+      data-what="spiderweb"
+>spiderweb</span>
+. 
 </div>
 </div>
 <script>
@@ -90,13 +96,29 @@ if (typeof gamebook !== 'undefined') {
 </script><div class="section" id="section3">
 <div class="sectionnumber" id="para3">3</div>
 <div class="sectiontext">
- Hopefully you now have 50 less gold than you just had. You can go back to <a class="sectionref enabledlink" data-ref="1"
+ This is somewhere else. Congratulations you have found <span class="inc counterChange" data-type="gold"
+      data-amount="100">100</span> gold! Go back to <a class="sectionref enabledlink" data-ref="1"
 href="#section1">1</a>. 
 </div>
 </div>
 <script>
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(3, document.getElementById('section3'));
+}
+</script><div class="section" id="section4">
+<div class="sectionnumber" id="para4">4</div>
+<div class="sectiontext">
+ Hopefully you now have 50 less gold than you just had. You can go back to <a class="sectionref enabledlink" data-ref="1"
+href="#section1">1</a>. You can also go to <a class="sectionref enabledlink" data-ref="3"
+href="#section3">3</a> but an angry troll is blocking your path and will only allow you to go there if you give it a <span class="trade" data-type="item"
+      data-what="gold ring"
+>gold ring</span>
+. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(4, document.getElementById('section4'));
 }
 </script>    <div id="counters" class="counters">
     </div>

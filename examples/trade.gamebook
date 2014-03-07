@@ -15,10 +15,19 @@ You can go on to the end at [[theend]].
 * other :HTML:
 Hopefully you now have 50 less gold than you just had.
 You can go back to [[start]].
+You can also go to [[someotherplace]] but an angry troll
+is blocking your path and will only allow you to go there
+if you give it a [trade item]gold ring[/trade].
 
 * other :TXT:DEBUG:TEX:DOT:RTF:
 Now you have 50 less gold than you just had.
 You can go back to [[start]].
 
+* someotherplace
+This is somewhere else. Congratulations you have found [inc gold]100[/inc] gold!
+Go back to [[start]].
+
 * theend
-It ends here.
+It ends here. There is a [found item]crown[/found] here that you can trade for
+some [trade item]spiderweb[/trade].
+

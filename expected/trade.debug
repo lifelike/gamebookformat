@@ -1,11 +1,12 @@
 BEGIN DEBUG OUTPUT
 Book title: Gamebook
-Number of sections: 3
+Number of sections: 4
 Introduction
  Testing trade of things. You can buy things using [COUNT gold]Gold[/COUNT] of which you start with [SET gold]100[/SET]. You also have an [COLLECT item]Inventory[/COLLECT]. At start you carry a [ADD item]sword[/ADD]. 
 
 Turn to 1 to begin.
-1 (start) -  You can buy a [FOUND item]shield[/FOUND] here for 50 Gold or a beautiful [FOUND item]gold ring[/FOUND] for only 75. There is also a [FOUND item]chain mail[/FOUND] costing 150. You can pick up some [FOUND item]spiderweb[/FOUND] for free. You can go to 3 at a cost of 50. You can go on to the end at 2. 
-2 (theend) -  It ends here.
-3 (other) -  Now you have 50 less gold than you just had. You can go back to 1. 
+1 (start) -  You can buy a [FOUND item]shield[/FOUND] here for 50 Gold or a beautiful [FOUND item]gold ring[/FOUND] for only 75. There is also a [FOUND item]chain mail[/FOUND] costing 150. You can pick up some [FOUND item]spiderweb[/FOUND] for free. You can go to 4 at a cost of 50. You can go on to the end at 2. 
+2 (theend) -  It ends here. There is a [FOUND item]crown[/FOUND] here that you can trade for some spiderweb. 
+3 (someotherplace) -  This is somewhere else. Congratulations you have found [INC gold]100[/INC] gold! Go back to 1. 
+4 (other) -  Now you have 50 less gold than you just had. You can go back to 1. 
 END DEBUG OUTPUT

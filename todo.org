@@ -1,4 +1,4 @@
-* TODO [58/78] [74%]
+* TODO [60/82] [73%]
 ** DONE Debug output
 ** DONE DOT output
 ** DONE LaTeX output
@@ -89,10 +89,21 @@
   This will also work for picking eg starting skills.
 ** DONE Subtract from counter when following link (implies has at least that)
   This is the cost tag again, when it immediately follows a reference.
-** TODO Add keyword when following link
+** DONE Remove keyword (or item) when picking up something
+   Trade one thing from a collection to add something else to some collection.
+** TODO Add keyword (or item) when following link
   This is a new tag that follows a reference similar to a cost tag.
-** TODO Remove keyword when following link
+** DONE Remove keyword (or item) when following link
   This is a new tag that follows a reference similar to a cost tag.
+** TODO Fix bug in HTML with being able to click disabled things
+   It is possible sometimes to follow a disabled reference or
+   pick something up even when not having enough to pay its price.
+   Seems to only happen with things that do have a price, not those
+   disabled for other reasons.
+** TODO When buying or trading for something, it can be receievd again
+   The js code to make sure that something you have had but later dropped
+   can not be picked up again seems to be broken for things that
+   have a price.
 ** TODO Use points to buy values for counters
  Eg to buy starting values for some attributes in introsection.
 ** TODO Counter max values, not leaving a section too early
@@ -127,6 +138,12 @@
   - Dynamic (markup needed to make playable (HTML) version)
   - Standard output formats reference
   - Customization (make new output formats or override existing)
+** TODO Make it possible for a modifier tag to refer to any other tag
+Currently a modifier (eg cost) always applies to tag on its left or right,
+and it can be a bit confusing to remember what direction, or awkward to
+write the text in a good way to follow that rule. Make it possible to add
+to a tag what it applies to (eg what item or reference the cost should apply to,
+anywhere in the section).
 ** TODO HTML with javascript active, do not make new URLs (that break history)
 ** TODO Javascript GUI tests running in a browser
   Preferably headless (in nodejs?). Run tests on gamebook html example(s).

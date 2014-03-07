@@ -6,11 +6,14 @@ Introduction
 
 Turn to 1 to begin.
 1
- You can buy a shield here for 50 Gold or a beautiful gold ring for only 75. There is also a chain mail costing 150. You can pick up some spiderweb for free. You can go to 3 at a cost of 50. You can go on to the end at 2. 
+ You can buy a shield here for 50 Gold or a beautiful gold ring for only 75. There is also a chain mail costing 150. You can pick up some spiderweb for free. You can go to 4 at a cost of 50. You can go on to the end at 2. 
 
 2
- It ends here.
+ It ends here. There is a crown here that you can trade for some spiderweb. 
 
 3
+ This is somewhere else. Congratulations you have found 100 gold! Go back to 1. 
+
+4
  Now you have 50 less gold than you just had. You can go back to 1. 
 
