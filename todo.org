@@ -1,4 +1,4 @@
-* TODO [60/82] [73%]
+* TODO [60/83] [72%]
 ** DONE Debug output
 ** DONE DOT output
 ** DONE LaTeX output
@@ -71,21 +71,22 @@
 ** DONE Add text template used for outputting non-tagged (plain) text.
 ** DONE Named references, when that style is wanted (especially for HTML).
 ** DONE Seems to be a bug in rtf template, inserting image filename.
-** DONE Javascript tests running in nodejs (no GUI)
+** DONE JavaScript tests running in nodejs (no GUI)
   The big scripts in html templates are split out into separate files
   already (script.html and endscript.html). It should be possible to
   test those from nodejs?
 ** DONE Make debug output more useful with a stricter format easy to parse.
    Will be taken care of when implementing JSON output.
+** TODO JavaScript improved design/code for what links to enable
+   Many strange things can happen when clicking one link changes something
+   that should now enable or disable some link. Instead of the current
+   hacks all links should be re-calculated every time something have been
+   clicked, doing the same checks as when first displaying a section.
 ** TODO Pick a specific number of things from those found in a(n intro) section
   Used to pick up one or more of something found, or before starting.
   Create counter and set to how many are allowed to be picked.
   Add buy (and cost) tags for what can be taken.
     Need to make sure it is rendered in a good way (might need more tags).
-  Set max of the counter used to 0 and never allow navigation while
-   some counter is above its max.
-  Without setting the max player can decide to pick up fewer (or none) which
-   might of course also be ok at times.
   This will also work for picking eg starting skills.
 ** DONE Subtract from counter when following link (implies has at least that)
   This is the cost tag again, when it immediately follows a reference.
@@ -145,7 +146,7 @@ write the text in a good way to follow that rule. Make it possible to add
 to a tag what it applies to (eg what item or reference the cost should apply to,
 anywhere in the section).
 ** TODO HTML with javascript active, do not make new URLs (that break history)
-** TODO Javascript GUI tests running in a browser
+** TODO JavaScript GUI tests running in a browser
   Preferably headless (in nodejs?). Run tests on gamebook html example(s).
   Work on laptop stashed as zombietest (using zombietest obviously).
 ** TODO HTML CSS
