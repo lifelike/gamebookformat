@@ -14,8 +14,8 @@ var gamebook = {
                 'contents' : [],
                 'dropped' : {},
                 'add' : function(what) {
-                    if (this.contents.indexOf(what) === -1
-                        && !(what in this.dropped)) {
+                    if (this.contents.indexOf(what) === -1 &&
+                        !(what in this.dropped)) {
                         this.contents.push(what);
                         this.contents.sort();
                     }
@@ -37,7 +37,7 @@ var gamebook = {
         count : function(type, name) {
             if (type in this.counters) {
                 return;
-            };
+            }
             this.counters[type] = {
                 inited : false,
                 name : name,
@@ -144,15 +144,15 @@ var gamebook = {
                 this.collections[c].contents = collection.contents;
                 this.collections[c].dropped = collection.dropped;
             }
-            for (var c in parsedState.counters) {
-                var counter = parsedState.counters[c];
-                if (c in this.counters) {
-                    this.counters[c].name = counter.name;
+            for (var ct in parsedState.counters) {
+                var counter = parsedState.counters[ct];
+                if (ct in this.counters) {
+                    this.counters[ct].name = counter.name;
                 } else {
-                    this.count(c, counter.name);
+                    this.count(ct, counter.name);
                 }
-                this.counters[c].minValue = counter.minValue;
-                this.counters[c].value = counter.value;
+                this.counters[ct].minValue = counter.minValue;
+                this.counters[ct].value = counter.value;
             }
         }
     },
@@ -170,9 +170,9 @@ var gamebook = {
         if (!gamebook.player.started) {
             gamebook.start();
         }
-        if (!nr in this.sections) {
-            throw new Exception("Can not turn to non-existing section "
-                                + nr + ".");
+        if (!(nr in this.sections)) {
+            throw new Exception("Can not turn to non-existing section " +
+                                nr + ".");
         }
         this.displaySection(nr);
     },
@@ -273,8 +273,8 @@ var gamebook = {
         var xorEnableNext = false;
         var lastCanHaveCost = null;
         var autoDisableAllRemaining = (
-            gamebook.player.started
-            && e.classList.contains('introsectionbody'));
+            gamebook.player.started  &&
+                e.classList.contains('introsectionbody'));
         Array.prototype.forEach.call(e.childNodes, function(c) {
             if (!c.classList) {
                 return;
@@ -305,31 +305,31 @@ var gamebook = {
                 gamebook.player.count(c.dataset.type, c.dataset.name);
             } else if (c.classList.contains('set')) {
                 gamebook.player.set(c.dataset.type,
-                                    parseInt(c.dataset.amount));
+                                    parseInt(c.dataset.amount, 10));
             } else if (c.classList.contains('init')) {
                 gamebook.player.init(c.dataset.type,
-                                     parseInt(c.dataset.amount));
+                                     parseInt(c.dataset.amount, 10));
             } else if (c.classList.contains('inc')) {
                 gamebook.player.inc(c.dataset.type,
-                                    parseInt(c.dataset.amount));
+                                    parseInt(c.dataset.amount, 10));
             } else if (c.classList.contains('dec')) {
                 gamebook.player.dec(c.dataset.type,
-                                    parseInt(c.dataset.amount));
+                                    parseInt(c.dataset.amount, 10));
             } else if (c.classList.contains('min')) {
                 gamebook.player.min(c.dataset.type,
-                                    parseInt(c.dataset.limit));
+                                    parseInt(c.dataset.limit, 10));
             } else if (c.classList.contains('has')) {
                 enableNextLink = gamebook.player.has(c.dataset.type,
                                                      c.dataset.what);
             } else if (c.classList.contains('morethan')) {
                 enableNextLink = gamebook.player.hasMoreThan(
-                    c.dataset.type, parseInt(c.dataset.amount));
+                    c.dataset.type, parseInt(c.dataset.amount, 10));
             } else if (c.classList.contains('lessthan')) {
                 enableNextLink = gamebook.player.hasLessThan(
-                    c.dataset.type, parseInt(c.dataset.amount));
+                    c.dataset.type, parseInt(c.dataset.amount, 10));
             } else if (c.classList.contains('atleast')) {
                 enableNextLink = gamebook.player.hasMoreThan(
-                    c.dataset.type, parseInt(c.dataset.amount) - 1);
+                    c.dataset.type, parseInt(c.dataset.amount, 10) - 1);
             } else if (c.classList.contains('hasnot')) {
                 enableNextLink = !gamebook.player.has(c.dataset.type,
                                                       c.dataset.what);
@@ -357,7 +357,7 @@ var gamebook = {
     },
 
     addCost : function(c, e) {
-        var cost = parseInt(c.dataset.amount);
+        var cost = parseInt(c.dataset.amount, 10);
         var counter = gamebook.player.counters[c.dataset.type];
         if (counter.value - cost >= counter.minValue) {
             e.classList.add("enabledlink");
@@ -409,7 +409,7 @@ var gamebook = {
             e = e.nextSibling;
         }
         if (links.length > 0) {
-            var selected = links[Math.floor(Math.random()*links.length)]
+            var selected = links[Math.floor(Math.random()*links.length)];
             gamebook.enableLink(selected);
         } else {
             console.log("Random with nothing to select?");
@@ -489,7 +489,7 @@ var gamebook = {
     'payPrice' : function(e) {
         var cost, counter, trade, tradetype;
         if ('cost' in e.dataset && 'costtype' in e.dataset) {
-            cost = parseInt(e.dataset.cost);
+            cost = parseInt(e.dataset.cost, 10);
             counter = gamebook.player.counters[e.dataset.costtype];
             if (counter.value - cost < counter.minValue) {
                 return false;
@@ -517,7 +517,7 @@ var gamebook = {
         var cs = e.getElementsByClassName('sectiontext')[0].childNodes;
         Array.prototype.forEach.call(cs, function(c) {
             if (c.dataset && 'cost' in c.dataset && 'costtype' in c.dataset) {
-                var cost = parseInt(c.dataset.cost);
+                var cost = parseInt(c.dataset.cost, 10);
                 var counter = gamebook.player.counters[c.dataset.costtype];
                 if (counter.value - cost < counter.minValue) {
                     c.classList.remove("enabledlink");
