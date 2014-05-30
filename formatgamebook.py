@@ -41,7 +41,7 @@ from output import OutputFormat
 
 USAGE = "usage: %prog [options] inputfile(s)... outputfile"
 
-SECTION_NAME_RE = re.compile("^[a-z][a-z_0-9]*$")
+SECTION_NAME_RE = re.compile("^[A-Za-z][A-Za-z_0-9]*$")
 
 def of(extension, name, quote):
     return {'extension' : extension,
