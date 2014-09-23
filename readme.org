@@ -84,6 +84,17 @@ to EPUB, so that should be a start. You probably want to
 do some experimentation to find a way that creates results
 you like.
 
+** Check Gamebook
+The included *checkgamebook.py* script can be used to run tests
+on a book and warn about things that do not look right.
+To use it first generate a *debug* output file version of
+the book, using the same flags (eg include-tags) as when
+formatting the real book. Then run *checkgamebook.py bookname.debug*.
+(TODO: Currently does not really test anything. The idea
+is that it should do things like trying to tell you about
+sections that can not be reached, or items that are required
+before they can possibly have been found.)
+
 ** Number Map Files
 Whenever formatgamebook.py runs it looks for a file with the same
 name as the output file, but with a .map suffix (eg output.map if
@@ -102,7 +113,6 @@ what numbers were assigned to sections, if you need to
 use the number of some section for something outside of
 the gamebook itself.
 ** Gamebook Format
-
 The input file expected by the formatgamebook.py script must be in a
 format containing information about all sections in the book
 plus some optional metadata. The format should (when TBD) be documented
