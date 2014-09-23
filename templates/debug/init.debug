@@ -1,1 +1,1 @@
-[INIT %(arg1)s]%(inner)s[/SET]
+,{"counter" : "%(arg1)s", "amount" : "%(inner)s", "action" : "init"}

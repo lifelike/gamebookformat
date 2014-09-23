@@ -1,1 +1,1 @@
-[RANDOM]%(inner)s[/RANDOM]
+,{"random" : "%(inner)s"}

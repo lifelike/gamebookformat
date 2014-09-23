@@ -1,1 +1,1 @@
-[FOUND %(arg1)s]%(inner)s[/FOUND]
+,{"collection" : "%(arg1)s", "what" : "%(inner)s", "action" : "found"}

@@ -1,3 +1,4 @@
-BEGIN DEBUG OUTPUT
-Book title: %(title)s
-Number of sections: %(max)d
+{
+  "title" : "%(title)s",
+  "nr_sections" : "%(max)d",
+

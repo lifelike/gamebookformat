@@ -1,1 +1,1 @@
-[COUNT %(arg1)s]%(inner)s[/COUNT]
+,{"counter" : "%(arg1)s", "name" : "%(inner)s"}

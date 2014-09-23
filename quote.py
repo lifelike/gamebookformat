@@ -22,5 +22,10 @@ import cgi
 def html(s):
     return cgi.escape(s)
 
+def js(s):
+    return (s.replace("\\", "\\\\")
+            .replace('"', '\\"'))
+
+
 def no(s):
     return s

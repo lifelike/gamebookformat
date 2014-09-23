@@ -1,408 +1,1611 @@
-BEGIN DEBUG OUTPUT
-Book title: Gamebook
-Number of sections: 400
-Introduction
- This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at 1 or the next section at 400. References can include an optional name that is used in some formats, so the same links could also be rendered as start (1) and next (400). 
+{
+  "title" : "Gamebook",
+  "nr_sections" : "400",
 
-Turn to 1 to begin.
-1 (start) -  This is where the adventure begins. You can go on to the next section, see 400 or try the random selection feature at 399. 
-2 () - (EMPTY)
-3 () - (EMPTY)
-4 () - (EMPTY)
-5 () - (EMPTY)
-6 () - (EMPTY)
-7 () - (EMPTY)
-8 () - (EMPTY)
-9 () - (EMPTY)
-10 () - (EMPTY)
-11 () - (EMPTY)
-12 () - (EMPTY)
-13 () - (EMPTY)
-14 () - (EMPTY)
-15 () - (EMPTY)
-16 () - (EMPTY)
-17 () - (EMPTY)
-18 () - (EMPTY)
-19 () - (EMPTY)
-20 () - (EMPTY)
-21 () - (EMPTY)
-22 () - (EMPTY)
-23 () - (EMPTY)
-24 () - (EMPTY)
-25 () - (EMPTY)
-26 () - (EMPTY)
-27 () - (EMPTY)
-28 () - (EMPTY)
-29 () - (EMPTY)
-30 () - (EMPTY)
-31 () - (EMPTY)
-32 () - (EMPTY)
-33 () - (EMPTY)
-34 () - (EMPTY)
-35 () - (EMPTY)
-36 () - (EMPTY)
-37 () - (EMPTY)
-38 () - (EMPTY)
-39 () - (EMPTY)
-40 () - (EMPTY)
-41 () - (EMPTY)
-42 () - (EMPTY)
-43 () - (EMPTY)
-44 () - (EMPTY)
-45 () - (EMPTY)
-46 () - (EMPTY)
-47 () - (EMPTY)
-48 () - (EMPTY)
-49 () - (EMPTY)
-50 () - (EMPTY)
-51 () - (EMPTY)
-52 () - (EMPTY)
-53 () - (EMPTY)
-54 () - (EMPTY)
-55 () - (EMPTY)
-56 () - (EMPTY)
-57 () - (EMPTY)
-58 () - (EMPTY)
-59 () - (EMPTY)
-60 () - (EMPTY)
-61 () - (EMPTY)
-62 () - (EMPTY)
-63 () - (EMPTY)
-64 () - (EMPTY)
-65 () - (EMPTY)
-66 () - (EMPTY)
-67 () - (EMPTY)
-68 () - (EMPTY)
-69 () - (EMPTY)
-70 () - (EMPTY)
-71 () - (EMPTY)
-72 () - (EMPTY)
-73 () - (EMPTY)
-74 () - (EMPTY)
-75 () - (EMPTY)
-76 () - (EMPTY)
-77 () - (EMPTY)
-78 () - (EMPTY)
-79 () - (EMPTY)
-80 () - (EMPTY)
-81 () - (EMPTY)
-82 () - (EMPTY)
-83 () - (EMPTY)
-84 () - (EMPTY)
-85 () - (EMPTY)
-86 () - (EMPTY)
-87 () - (EMPTY)
-88 () - (EMPTY)
-89 () - (EMPTY)
-90 () - (EMPTY)
-91 () - (EMPTY)
-92 () - (EMPTY)
-93 () - (EMPTY)
-94 () - (EMPTY)
-95 () - (EMPTY)
-96 () - (EMPTY)
-97 () - (EMPTY)
-98 () - (EMPTY)
-99 () - (EMPTY)
-100 () - (EMPTY)
-101 () - (EMPTY)
-102 () - (EMPTY)
-103 () - (EMPTY)
-104 () - (EMPTY)
-105 () - (EMPTY)
-106 () - (EMPTY)
-107 () - (EMPTY)
-108 () - (EMPTY)
-109 () - (EMPTY)
-110 () - (EMPTY)
-111 () - (EMPTY)
-112 () - (EMPTY)
-113 () - (EMPTY)
-114 () - (EMPTY)
-115 () - (EMPTY)
-116 () - (EMPTY)
-117 () - (EMPTY)
-118 () - (EMPTY)
-119 () - (EMPTY)
-120 () - (EMPTY)
-121 () - (EMPTY)
-122 () - (EMPTY)
-123 () - (EMPTY)
-124 () - (EMPTY)
-125 () - (EMPTY)
-126 () - (EMPTY)
-127 () - (EMPTY)
-128 () - (EMPTY)
-129 () - (EMPTY)
-130 () - (EMPTY)
-131 () - (EMPTY)
-132 () - (EMPTY)
-133 () - (EMPTY)
-134 () - (EMPTY)
-135 () - (EMPTY)
-136 () - (EMPTY)
-137 () - (EMPTY)
-138 () - (EMPTY)
-139 () - (EMPTY)
-140 () - (EMPTY)
-141 () - (EMPTY)
-142 () - (EMPTY)
-143 () - (EMPTY)
-144 () - (EMPTY)
-145 () - (EMPTY)
-146 () - (EMPTY)
-147 () - (EMPTY)
-148 () - (EMPTY)
-149 () - (EMPTY)
-150 () - (EMPTY)
-151 () - (EMPTY)
-152 () - (EMPTY)
-153 () - (EMPTY)
-154 () - (EMPTY)
-155 () - (EMPTY)
-156 () - (EMPTY)
-157 () - (EMPTY)
-158 () - (EMPTY)
-159 () - (EMPTY)
-160 () - (EMPTY)
-161 () - (EMPTY)
-162 () - (EMPTY)
-163 () - (EMPTY)
-164 () - (EMPTY)
-165 () - (EMPTY)
-166 () - (EMPTY)
-167 () - (EMPTY)
-168 () - (EMPTY)
-169 () - (EMPTY)
-170 () - (EMPTY)
-171 () - (EMPTY)
-172 () - (EMPTY)
-173 () - (EMPTY)
-174 () - (EMPTY)
-175 () - (EMPTY)
-176 () - (EMPTY)
-177 () - (EMPTY)
-178 () - (EMPTY)
-179 () - (EMPTY)
-180 () - (EMPTY)
-181 () - (EMPTY)
-182 () - (EMPTY)
-183 () - (EMPTY)
-184 () - (EMPTY)
-185 () - (EMPTY)
-186 () - (EMPTY)
-187 () - (EMPTY)
-188 () - (EMPTY)
-189 () - (EMPTY)
-190 () - (EMPTY)
-191 () - (EMPTY)
-192 () - (EMPTY)
-193 () - (EMPTY)
-194 () - (EMPTY)
-195 () - (EMPTY)
-196 () - (EMPTY)
-197 () - (EMPTY)
-198 () - (EMPTY)
-199 () - (EMPTY)
-200 () - (EMPTY)
-201 () - (EMPTY)
-202 () - (EMPTY)
-203 () - (EMPTY)
-204 () - (EMPTY)
-205 () - (EMPTY)
-206 () - (EMPTY)
-207 () - (EMPTY)
-208 () - (EMPTY)
-209 () - (EMPTY)
-210 () - (EMPTY)
-211 () - (EMPTY)
-212 () - (EMPTY)
-213 () - (EMPTY)
-214 () - (EMPTY)
-215 () - (EMPTY)
-216 () - (EMPTY)
-217 () - (EMPTY)
-218 () - (EMPTY)
-219 () - (EMPTY)
-220 () - (EMPTY)
-221 () - (EMPTY)
-222 () - (EMPTY)
-223 () - (EMPTY)
-224 () - (EMPTY)
-225 () - (EMPTY)
-226 () - (EMPTY)
-227 () - (EMPTY)
-228 () - (EMPTY)
-229 () - (EMPTY)
-230 () - (EMPTY)
-231 () - (EMPTY)
-232 () - (EMPTY)
-233 () - (EMPTY)
-234 () - (EMPTY)
-235 () - (EMPTY)
-236 () - (EMPTY)
-237 () - (EMPTY)
-238 () - (EMPTY)
-239 () - (EMPTY)
-240 () - (EMPTY)
-241 () - (EMPTY)
-242 () - (EMPTY)
-243 () - (EMPTY)
-244 () - (EMPTY)
-245 () - (EMPTY)
-246 () - (EMPTY)
-247 () - (EMPTY)
-248 () - (EMPTY)
-249 () - (EMPTY)
-250 () - (EMPTY)
-251 () - (EMPTY)
-252 () - (EMPTY)
-253 () - (EMPTY)
-254 () - (EMPTY)
-255 () - (EMPTY)
-256 () - (EMPTY)
-257 () - (EMPTY)
-258 () - (EMPTY)
-259 () - (EMPTY)
-260 () - (EMPTY)
-261 () - (EMPTY)
-262 () - (EMPTY)
-263 () - (EMPTY)
-264 () - (EMPTY)
-265 () - (EMPTY)
-266 () - (EMPTY)
-267 () - (EMPTY)
-268 () - (EMPTY)
-269 () - (EMPTY)
-270 () - (EMPTY)
-271 () - (EMPTY)
-272 () - (EMPTY)
-273 () - (EMPTY)
-274 () - (EMPTY)
-275 () - (EMPTY)
-276 () - (EMPTY)
-277 () - (EMPTY)
-278 () - (EMPTY)
-279 () - (EMPTY)
-280 () - (EMPTY)
-281 () - (EMPTY)
-282 () - (EMPTY)
-283 () - (EMPTY)
-284 () - (EMPTY)
-285 () - (EMPTY)
-286 () - (EMPTY)
-287 () - (EMPTY)
-288 () - (EMPTY)
-289 () - (EMPTY)
-290 () - (EMPTY)
-291 () - (EMPTY)
-292 () - (EMPTY)
-293 () - (EMPTY)
-294 () - (EMPTY)
-295 () - (EMPTY)
-296 () - (EMPTY)
-297 () - (EMPTY)
-298 () - (EMPTY)
-299 () - (EMPTY)
-300 () - (EMPTY)
-301 () - (EMPTY)
-302 () - (EMPTY)
-303 () - (EMPTY)
-304 () - (EMPTY)
-305 () - (EMPTY)
-306 () - (EMPTY)
-307 () - (EMPTY)
-308 () - (EMPTY)
-309 () - (EMPTY)
-310 () - (EMPTY)
-311 () - (EMPTY)
-312 () - (EMPTY)
-313 () - (EMPTY)
-314 () - (EMPTY)
-315 () - (EMPTY)
-316 () - (EMPTY)
-317 () - (EMPTY)
-318 () - (EMPTY)
-319 () - (EMPTY)
-320 () - (EMPTY)
-321 () - (EMPTY)
-322 () - (EMPTY)
-323 () - (EMPTY)
-324 () - (EMPTY)
-325 () - (EMPTY)
-326 () - (EMPTY)
-327 () - (EMPTY)
-328 () - (EMPTY)
-329 () - (EMPTY)
-330 () - (EMPTY)
-331 () - (EMPTY)
-332 () - (EMPTY)
-333 () - (EMPTY)
-334 () - (EMPTY)
-335 () - (EMPTY)
-336 () - (EMPTY)
-337 () - (EMPTY)
-338 () - (EMPTY)
-339 () - (EMPTY)
-340 () - (EMPTY)
-341 () - (EMPTY)
-342 () - (EMPTY)
-343 () - (EMPTY)
-344 () - (EMPTY)
-345 () - (EMPTY)
-346 () - (EMPTY)
-347 () - (EMPTY)
-348 () - (EMPTY)
-349 () - (EMPTY)
-350 () - (EMPTY)
-351 () - (EMPTY)
-352 () - (EMPTY)
-353 () - (EMPTY)
-354 () - (EMPTY)
-355 () - (EMPTY)
-356 () - (EMPTY)
-357 () - (EMPTY)
-358 () - (EMPTY)
-359 () - (EMPTY)
-360 () - (EMPTY)
-361 () - (EMPTY)
-362 () - (EMPTY)
-363 () - (EMPTY)
-364 () - (EMPTY)
-365 () - (EMPTY)
-366 () - (EMPTY)
-367 () - (EMPTY)
-368 () - (EMPTY)
-369 () - (EMPTY)
-370 () - (EMPTY)
-371 () - (EMPTY)
-372 () - (EMPTY)
-373 () - (EMPTY)
-374 () - (EMPTY)
-375 () - (EMPTY)
-376 () - (EMPTY)
-377 () - (EMPTY)
-378 () - (EMPTY)
-379 () - (EMPTY)
-380 () - (EMPTY)
-381 () - (EMPTY)
-382 () - (EMPTY)
-383 () - (EMPTY)
-384 () - (EMPTY)
-385 () - (EMPTY)
-386 () - (EMPTY)
-387 () - (EMPTY)
-388 () - (EMPTY)
-389 () - (EMPTY)
-390 () - (EMPTY)
-391 () - (EMPTY)
-392 () - (EMPTY)
-393 () - (EMPTY)
-394 () - (EMPTY)
-395 () - (EMPTY)
-396 () - (EMPTY)
-397 (end) -  The end. 
-398 (altend) -  Alternative ending. 
-399 (random) -  [RANDOM]Pick a destination at random[/RANDOM] from 400 or 397 or 398. 
-400 (next) -  This is the next section. Go on to the end at 397. 
-END DEBUG OUTPUT
+"Introduction" : {
+  "intro" : true,
+  "text" : ["" ," This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at ",{"reference" : "1"}," or the next section at ",{"reference" : "400"},". References can include an optional name that is used in some formats, so the same links could also be rendered as ",{"reference" : "1", "name" : "start"}," and ",{"reference" : "400", "name" : "next"},". "]
+},
+
+  "sections" : {"IGNORE-debug-json-padding-IGNORE" : "", "start" : {
+  "nr" : 1,
+  "text" : ["" ," This is where the adventure begins. You can go on to the next section, see ",{"reference" : "400"}," or try the random selection feature at ",{"reference" : "399"},". "]
+}
+, "empty-2" : {
+  "nr" : 2,
+  "text" : [""]
+}
+, "empty-3" : {
+  "nr" : 3,
+  "text" : [""]
+}
+, "empty-4" : {
+  "nr" : 4,
+  "text" : [""]
+}
+, "empty-5" : {
+  "nr" : 5,
+  "text" : [""]
+}
+, "empty-6" : {
+  "nr" : 6,
+  "text" : [""]
+}
+, "empty-7" : {
+  "nr" : 7,
+  "text" : [""]
+}
+, "empty-8" : {
+  "nr" : 8,
+  "text" : [""]
+}
+, "empty-9" : {
+  "nr" : 9,
+  "text" : [""]
+}
+, "empty-10" : {
+  "nr" : 10,
+  "text" : [""]
+}
+, "empty-11" : {
+  "nr" : 11,
+  "text" : [""]
+}
+, "empty-12" : {
+  "nr" : 12,
+  "text" : [""]
+}
+, "empty-13" : {
+  "nr" : 13,
+  "text" : [""]
+}
+, "empty-14" : {
+  "nr" : 14,
+  "text" : [""]
+}
+, "empty-15" : {
+  "nr" : 15,
+  "text" : [""]
+}
+, "empty-16" : {
+  "nr" : 16,
+  "text" : [""]
+}
+, "empty-17" : {
+  "nr" : 17,
+  "text" : [""]
+}
+, "empty-18" : {
+  "nr" : 18,
+  "text" : [""]
+}
+, "empty-19" : {
+  "nr" : 19,
+  "text" : [""]
+}
+, "empty-20" : {
+  "nr" : 20,
+  "text" : [""]
+}
+, "empty-21" : {
+  "nr" : 21,
+  "text" : [""]
+}
+, "empty-22" : {
+  "nr" : 22,
+  "text" : [""]
+}
+, "empty-23" : {
+  "nr" : 23,
+  "text" : [""]
+}
+, "empty-24" : {
+  "nr" : 24,
+  "text" : [""]
+}
+, "empty-25" : {
+  "nr" : 25,
+  "text" : [""]
+}
+, "empty-26" : {
+  "nr" : 26,
+  "text" : [""]
+}
+, "empty-27" : {
+  "nr" : 27,
+  "text" : [""]
+}
+, "empty-28" : {
+  "nr" : 28,
+  "text" : [""]
+}
+, "empty-29" : {
+  "nr" : 29,
+  "text" : [""]
+}
+, "empty-30" : {
+  "nr" : 30,
+  "text" : [""]
+}
+, "empty-31" : {
+  "nr" : 31,
+  "text" : [""]
+}
+, "empty-32" : {
+  "nr" : 32,
+  "text" : [""]
+}
+, "empty-33" : {
+  "nr" : 33,
+  "text" : [""]
+}
+, "empty-34" : {
+  "nr" : 34,
+  "text" : [""]
+}
+, "empty-35" : {
+  "nr" : 35,
+  "text" : [""]
+}
+, "empty-36" : {
+  "nr" : 36,
+  "text" : [""]
+}
+, "empty-37" : {
+  "nr" : 37,
+  "text" : [""]
+}
+, "empty-38" : {
+  "nr" : 38,
+  "text" : [""]
+}
+, "empty-39" : {
+  "nr" : 39,
+  "text" : [""]
+}
+, "empty-40" : {
+  "nr" : 40,
+  "text" : [""]
+}
+, "empty-41" : {
+  "nr" : 41,
+  "text" : [""]
+}
+, "empty-42" : {
+  "nr" : 42,
+  "text" : [""]
+}
+, "empty-43" : {
+  "nr" : 43,
+  "text" : [""]
+}
+, "empty-44" : {
+  "nr" : 44,
+  "text" : [""]
+}
+, "empty-45" : {
+  "nr" : 45,
+  "text" : [""]
+}
+, "empty-46" : {
+  "nr" : 46,
+  "text" : [""]
+}
+, "empty-47" : {
+  "nr" : 47,
+  "text" : [""]
+}
+, "empty-48" : {
+  "nr" : 48,
+  "text" : [""]
+}
+, "empty-49" : {
+  "nr" : 49,
+  "text" : [""]
+}
+, "empty-50" : {
+  "nr" : 50,
+  "text" : [""]
+}
+, "empty-51" : {
+  "nr" : 51,
+  "text" : [""]
+}
+, "empty-52" : {
+  "nr" : 52,
+  "text" : [""]
+}
+, "empty-53" : {
+  "nr" : 53,
+  "text" : [""]
+}
+, "empty-54" : {
+  "nr" : 54,
+  "text" : [""]
+}
+, "empty-55" : {
+  "nr" : 55,
+  "text" : [""]
+}
+, "empty-56" : {
+  "nr" : 56,
+  "text" : [""]
+}
+, "empty-57" : {
+  "nr" : 57,
+  "text" : [""]
+}
+, "empty-58" : {
+  "nr" : 58,
+  "text" : [""]
+}
+, "empty-59" : {
+  "nr" : 59,
+  "text" : [""]
+}
+, "empty-60" : {
+  "nr" : 60,
+  "text" : [""]
+}
+, "empty-61" : {
+  "nr" : 61,
+  "text" : [""]
+}
+, "empty-62" : {
+  "nr" : 62,
+  "text" : [""]
+}
+, "empty-63" : {
+  "nr" : 63,
+  "text" : [""]
+}
+, "empty-64" : {
+  "nr" : 64,
+  "text" : [""]
+}
+, "empty-65" : {
+  "nr" : 65,
+  "text" : [""]
+}
+, "empty-66" : {
+  "nr" : 66,
+  "text" : [""]
+}
+, "empty-67" : {
+  "nr" : 67,
+  "text" : [""]
+}
+, "empty-68" : {
+  "nr" : 68,
+  "text" : [""]
+}
+, "empty-69" : {
+  "nr" : 69,
+  "text" : [""]
+}
+, "empty-70" : {
+  "nr" : 70,
+  "text" : [""]
+}
+, "empty-71" : {
+  "nr" : 71,
+  "text" : [""]
+}
+, "empty-72" : {
+  "nr" : 72,
+  "text" : [""]
+}
+, "empty-73" : {
+  "nr" : 73,
+  "text" : [""]
+}
+, "empty-74" : {
+  "nr" : 74,
+  "text" : [""]
+}
+, "empty-75" : {
+  "nr" : 75,
+  "text" : [""]
+}
+, "empty-76" : {
+  "nr" : 76,
+  "text" : [""]
+}
+, "empty-77" : {
+  "nr" : 77,
+  "text" : [""]
+}
+, "empty-78" : {
+  "nr" : 78,
+  "text" : [""]
+}
+, "empty-79" : {
+  "nr" : 79,
+  "text" : [""]
+}
+, "empty-80" : {
+  "nr" : 80,
+  "text" : [""]
+}
+, "empty-81" : {
+  "nr" : 81,
+  "text" : [""]
+}
+, "empty-82" : {
+  "nr" : 82,
+  "text" : [""]
+}
+, "empty-83" : {
+  "nr" : 83,
+  "text" : [""]
+}
+, "empty-84" : {
+  "nr" : 84,
+  "text" : [""]
+}
+, "empty-85" : {
+  "nr" : 85,
+  "text" : [""]
+}
+, "empty-86" : {
+  "nr" : 86,
+  "text" : [""]
+}
+, "empty-87" : {
+  "nr" : 87,
+  "text" : [""]
+}
+, "empty-88" : {
+  "nr" : 88,
+  "text" : [""]
+}
+, "empty-89" : {
+  "nr" : 89,
+  "text" : [""]
+}
+, "empty-90" : {
+  "nr" : 90,
+  "text" : [""]
+}
+, "empty-91" : {
+  "nr" : 91,
+  "text" : [""]
+}
+, "empty-92" : {
+  "nr" : 92,
+  "text" : [""]
+}
+, "empty-93" : {
+  "nr" : 93,
+  "text" : [""]
+}
+, "empty-94" : {
+  "nr" : 94,
+  "text" : [""]
+}
+, "empty-95" : {
+  "nr" : 95,
+  "text" : [""]
+}
+, "empty-96" : {
+  "nr" : 96,
+  "text" : [""]
+}
+, "empty-97" : {
+  "nr" : 97,
+  "text" : [""]
+}
+, "empty-98" : {
+  "nr" : 98,
+  "text" : [""]
+}
+, "empty-99" : {
+  "nr" : 99,
+  "text" : [""]
+}
+, "empty-100" : {
+  "nr" : 100,
+  "text" : [""]
+}
+, "empty-101" : {
+  "nr" : 101,
+  "text" : [""]
+}
+, "empty-102" : {
+  "nr" : 102,
+  "text" : [""]
+}
+, "empty-103" : {
+  "nr" : 103,
+  "text" : [""]
+}
+, "empty-104" : {
+  "nr" : 104,
+  "text" : [""]
+}
+, "empty-105" : {
+  "nr" : 105,
+  "text" : [""]
+}
+, "empty-106" : {
+  "nr" : 106,
+  "text" : [""]
+}
+, "empty-107" : {
+  "nr" : 107,
+  "text" : [""]
+}
+, "empty-108" : {
+  "nr" : 108,
+  "text" : [""]
+}
+, "empty-109" : {
+  "nr" : 109,
+  "text" : [""]
+}
+, "empty-110" : {
+  "nr" : 110,
+  "text" : [""]
+}
+, "empty-111" : {
+  "nr" : 111,
+  "text" : [""]
+}
+, "empty-112" : {
+  "nr" : 112,
+  "text" : [""]
+}
+, "empty-113" : {
+  "nr" : 113,
+  "text" : [""]
+}
+, "empty-114" : {
+  "nr" : 114,
+  "text" : [""]
+}
+, "empty-115" : {
+  "nr" : 115,
+  "text" : [""]
+}
+, "empty-116" : {
+  "nr" : 116,
+  "text" : [""]
+}
+, "empty-117" : {
+  "nr" : 117,
+  "text" : [""]
+}
+, "empty-118" : {
+  "nr" : 118,
+  "text" : [""]
+}
+, "empty-119" : {
+  "nr" : 119,
+  "text" : [""]
+}
+, "empty-120" : {
+  "nr" : 120,
+  "text" : [""]
+}
+, "empty-121" : {
+  "nr" : 121,
+  "text" : [""]
+}
+, "empty-122" : {
+  "nr" : 122,
+  "text" : [""]
+}
+, "empty-123" : {
+  "nr" : 123,
+  "text" : [""]
+}
+, "empty-124" : {
+  "nr" : 124,
+  "text" : [""]
+}
+, "empty-125" : {
+  "nr" : 125,
+  "text" : [""]
+}
+, "empty-126" : {
+  "nr" : 126,
+  "text" : [""]
+}
+, "empty-127" : {
+  "nr" : 127,
+  "text" : [""]
+}
+, "empty-128" : {
+  "nr" : 128,
+  "text" : [""]
+}
+, "empty-129" : {
+  "nr" : 129,
+  "text" : [""]
+}
+, "empty-130" : {
+  "nr" : 130,
+  "text" : [""]
+}
+, "empty-131" : {
+  "nr" : 131,
+  "text" : [""]
+}
+, "empty-132" : {
+  "nr" : 132,
+  "text" : [""]
+}
+, "empty-133" : {
+  "nr" : 133,
+  "text" : [""]
+}
+, "empty-134" : {
+  "nr" : 134,
+  "text" : [""]
+}
+, "empty-135" : {
+  "nr" : 135,
+  "text" : [""]
+}
+, "empty-136" : {
+  "nr" : 136,
+  "text" : [""]
+}
+, "empty-137" : {
+  "nr" : 137,
+  "text" : [""]
+}
+, "empty-138" : {
+  "nr" : 138,
+  "text" : [""]
+}
+, "empty-139" : {
+  "nr" : 139,
+  "text" : [""]
+}
+, "empty-140" : {
+  "nr" : 140,
+  "text" : [""]
+}
+, "empty-141" : {
+  "nr" : 141,
+  "text" : [""]
+}
+, "empty-142" : {
+  "nr" : 142,
+  "text" : [""]
+}
+, "empty-143" : {
+  "nr" : 143,
+  "text" : [""]
+}
+, "empty-144" : {
+  "nr" : 144,
+  "text" : [""]
+}
+, "empty-145" : {
+  "nr" : 145,
+  "text" : [""]
+}
+, "empty-146" : {
+  "nr" : 146,
+  "text" : [""]
+}
+, "empty-147" : {
+  "nr" : 147,
+  "text" : [""]
+}
+, "empty-148" : {
+  "nr" : 148,
+  "text" : [""]
+}
+, "empty-149" : {
+  "nr" : 149,
+  "text" : [""]
+}
+, "empty-150" : {
+  "nr" : 150,
+  "text" : [""]
+}
+, "empty-151" : {
+  "nr" : 151,
+  "text" : [""]
+}
+, "empty-152" : {
+  "nr" : 152,
+  "text" : [""]
+}
+, "empty-153" : {
+  "nr" : 153,
+  "text" : [""]
+}
+, "empty-154" : {
+  "nr" : 154,
+  "text" : [""]
+}
+, "empty-155" : {
+  "nr" : 155,
+  "text" : [""]
+}
+, "empty-156" : {
+  "nr" : 156,
+  "text" : [""]
+}
+, "empty-157" : {
+  "nr" : 157,
+  "text" : [""]
+}
+, "empty-158" : {
+  "nr" : 158,
+  "text" : [""]
+}
+, "empty-159" : {
+  "nr" : 159,
+  "text" : [""]
+}
+, "empty-160" : {
+  "nr" : 160,
+  "text" : [""]
+}
+, "empty-161" : {
+  "nr" : 161,
+  "text" : [""]
+}
+, "empty-162" : {
+  "nr" : 162,
+  "text" : [""]
+}
+, "empty-163" : {
+  "nr" : 163,
+  "text" : [""]
+}
+, "empty-164" : {
+  "nr" : 164,
+  "text" : [""]
+}
+, "empty-165" : {
+  "nr" : 165,
+  "text" : [""]
+}
+, "empty-166" : {
+  "nr" : 166,
+  "text" : [""]
+}
+, "empty-167" : {
+  "nr" : 167,
+  "text" : [""]
+}
+, "empty-168" : {
+  "nr" : 168,
+  "text" : [""]
+}
+, "empty-169" : {
+  "nr" : 169,
+  "text" : [""]
+}
+, "empty-170" : {
+  "nr" : 170,
+  "text" : [""]
+}
+, "empty-171" : {
+  "nr" : 171,
+  "text" : [""]
+}
+, "empty-172" : {
+  "nr" : 172,
+  "text" : [""]
+}
+, "empty-173" : {
+  "nr" : 173,
+  "text" : [""]
+}
+, "empty-174" : {
+  "nr" : 174,
+  "text" : [""]
+}
+, "empty-175" : {
+  "nr" : 175,
+  "text" : [""]
+}
+, "empty-176" : {
+  "nr" : 176,
+  "text" : [""]
+}
+, "empty-177" : {
+  "nr" : 177,
+  "text" : [""]
+}
+, "empty-178" : {
+  "nr" : 178,
+  "text" : [""]
+}
+, "empty-179" : {
+  "nr" : 179,
+  "text" : [""]
+}
+, "empty-180" : {
+  "nr" : 180,
+  "text" : [""]
+}
+, "empty-181" : {
+  "nr" : 181,
+  "text" : [""]
+}
+, "empty-182" : {
+  "nr" : 182,
+  "text" : [""]
+}
+, "empty-183" : {
+  "nr" : 183,
+  "text" : [""]
+}
+, "empty-184" : {
+  "nr" : 184,
+  "text" : [""]
+}
+, "empty-185" : {
+  "nr" : 185,
+  "text" : [""]
+}
+, "empty-186" : {
+  "nr" : 186,
+  "text" : [""]
+}
+, "empty-187" : {
+  "nr" : 187,
+  "text" : [""]
+}
+, "empty-188" : {
+  "nr" : 188,
+  "text" : [""]
+}
+, "empty-189" : {
+  "nr" : 189,
+  "text" : [""]
+}
+, "empty-190" : {
+  "nr" : 190,
+  "text" : [""]
+}
+, "empty-191" : {
+  "nr" : 191,
+  "text" : [""]
+}
+, "empty-192" : {
+  "nr" : 192,
+  "text" : [""]
+}
+, "empty-193" : {
+  "nr" : 193,
+  "text" : [""]
+}
+, "empty-194" : {
+  "nr" : 194,
+  "text" : [""]
+}
+, "empty-195" : {
+  "nr" : 195,
+  "text" : [""]
+}
+, "empty-196" : {
+  "nr" : 196,
+  "text" : [""]
+}
+, "empty-197" : {
+  "nr" : 197,
+  "text" : [""]
+}
+, "empty-198" : {
+  "nr" : 198,
+  "text" : [""]
+}
+, "empty-199" : {
+  "nr" : 199,
+  "text" : [""]
+}
+, "empty-200" : {
+  "nr" : 200,
+  "text" : [""]
+}
+, "empty-201" : {
+  "nr" : 201,
+  "text" : [""]
+}
+, "empty-202" : {
+  "nr" : 202,
+  "text" : [""]
+}
+, "empty-203" : {
+  "nr" : 203,
+  "text" : [""]
+}
+, "empty-204" : {
+  "nr" : 204,
+  "text" : [""]
+}
+, "empty-205" : {
+  "nr" : 205,
+  "text" : [""]
+}
+, "empty-206" : {
+  "nr" : 206,
+  "text" : [""]
+}
+, "empty-207" : {
+  "nr" : 207,
+  "text" : [""]
+}
+, "empty-208" : {
+  "nr" : 208,
+  "text" : [""]
+}
+, "empty-209" : {
+  "nr" : 209,
+  "text" : [""]
+}
+, "empty-210" : {
+  "nr" : 210,
+  "text" : [""]
+}
+, "empty-211" : {
+  "nr" : 211,
+  "text" : [""]
+}
+, "empty-212" : {
+  "nr" : 212,
+  "text" : [""]
+}
+, "empty-213" : {
+  "nr" : 213,
+  "text" : [""]
+}
+, "empty-214" : {
+  "nr" : 214,
+  "text" : [""]
+}
+, "empty-215" : {
+  "nr" : 215,
+  "text" : [""]
+}
+, "empty-216" : {
+  "nr" : 216,
+  "text" : [""]
+}
+, "empty-217" : {
+  "nr" : 217,
+  "text" : [""]
+}
+, "empty-218" : {
+  "nr" : 218,
+  "text" : [""]
+}
+, "empty-219" : {
+  "nr" : 219,
+  "text" : [""]
+}
+, "empty-220" : {
+  "nr" : 220,
+  "text" : [""]
+}
+, "empty-221" : {
+  "nr" : 221,
+  "text" : [""]
+}
+, "empty-222" : {
+  "nr" : 222,
+  "text" : [""]
+}
+, "empty-223" : {
+  "nr" : 223,
+  "text" : [""]
+}
+, "empty-224" : {
+  "nr" : 224,
+  "text" : [""]
+}
+, "empty-225" : {
+  "nr" : 225,
+  "text" : [""]
+}
+, "empty-226" : {
+  "nr" : 226,
+  "text" : [""]
+}
+, "empty-227" : {
+  "nr" : 227,
+  "text" : [""]
+}
+, "empty-228" : {
+  "nr" : 228,
+  "text" : [""]
+}
+, "empty-229" : {
+  "nr" : 229,
+  "text" : [""]
+}
+, "empty-230" : {
+  "nr" : 230,
+  "text" : [""]
+}
+, "empty-231" : {
+  "nr" : 231,
+  "text" : [""]
+}
+, "empty-232" : {
+  "nr" : 232,
+  "text" : [""]
+}
+, "empty-233" : {
+  "nr" : 233,
+  "text" : [""]
+}
+, "empty-234" : {
+  "nr" : 234,
+  "text" : [""]
+}
+, "empty-235" : {
+  "nr" : 235,
+  "text" : [""]
+}
+, "empty-236" : {
+  "nr" : 236,
+  "text" : [""]
+}
+, "empty-237" : {
+  "nr" : 237,
+  "text" : [""]
+}
+, "empty-238" : {
+  "nr" : 238,
+  "text" : [""]
+}
+, "empty-239" : {
+  "nr" : 239,
+  "text" : [""]
+}
+, "empty-240" : {
+  "nr" : 240,
+  "text" : [""]
+}
+, "empty-241" : {
+  "nr" : 241,
+  "text" : [""]
+}
+, "empty-242" : {
+  "nr" : 242,
+  "text" : [""]
+}
+, "empty-243" : {
+  "nr" : 243,
+  "text" : [""]
+}
+, "empty-244" : {
+  "nr" : 244,
+  "text" : [""]
+}
+, "empty-245" : {
+  "nr" : 245,
+  "text" : [""]
+}
+, "empty-246" : {
+  "nr" : 246,
+  "text" : [""]
+}
+, "empty-247" : {
+  "nr" : 247,
+  "text" : [""]
+}
+, "empty-248" : {
+  "nr" : 248,
+  "text" : [""]
+}
+, "empty-249" : {
+  "nr" : 249,
+  "text" : [""]
+}
+, "empty-250" : {
+  "nr" : 250,
+  "text" : [""]
+}
+, "empty-251" : {
+  "nr" : 251,
+  "text" : [""]
+}
+, "empty-252" : {
+  "nr" : 252,
+  "text" : [""]
+}
+, "empty-253" : {
+  "nr" : 253,
+  "text" : [""]
+}
+, "empty-254" : {
+  "nr" : 254,
+  "text" : [""]
+}
+, "empty-255" : {
+  "nr" : 255,
+  "text" : [""]
+}
+, "empty-256" : {
+  "nr" : 256,
+  "text" : [""]
+}
+, "empty-257" : {
+  "nr" : 257,
+  "text" : [""]
+}
+, "empty-258" : {
+  "nr" : 258,
+  "text" : [""]
+}
+, "empty-259" : {
+  "nr" : 259,
+  "text" : [""]
+}
+, "empty-260" : {
+  "nr" : 260,
+  "text" : [""]
+}
+, "empty-261" : {
+  "nr" : 261,
+  "text" : [""]
+}
+, "empty-262" : {
+  "nr" : 262,
+  "text" : [""]
+}
+, "empty-263" : {
+  "nr" : 263,
+  "text" : [""]
+}
+, "empty-264" : {
+  "nr" : 264,
+  "text" : [""]
+}
+, "empty-265" : {
+  "nr" : 265,
+  "text" : [""]
+}
+, "empty-266" : {
+  "nr" : 266,
+  "text" : [""]
+}
+, "empty-267" : {
+  "nr" : 267,
+  "text" : [""]
+}
+, "empty-268" : {
+  "nr" : 268,
+  "text" : [""]
+}
+, "empty-269" : {
+  "nr" : 269,
+  "text" : [""]
+}
+, "empty-270" : {
+  "nr" : 270,
+  "text" : [""]
+}
+, "empty-271" : {
+  "nr" : 271,
+  "text" : [""]
+}
+, "empty-272" : {
+  "nr" : 272,
+  "text" : [""]
+}
+, "empty-273" : {
+  "nr" : 273,
+  "text" : [""]
+}
+, "empty-274" : {
+  "nr" : 274,
+  "text" : [""]
+}
+, "empty-275" : {
+  "nr" : 275,
+  "text" : [""]
+}
+, "empty-276" : {
+  "nr" : 276,
+  "text" : [""]
+}
+, "empty-277" : {
+  "nr" : 277,
+  "text" : [""]
+}
+, "empty-278" : {
+  "nr" : 278,
+  "text" : [""]
+}
+, "empty-279" : {
+  "nr" : 279,
+  "text" : [""]
+}
+, "empty-280" : {
+  "nr" : 280,
+  "text" : [""]
+}
+, "empty-281" : {
+  "nr" : 281,
+  "text" : [""]
+}
+, "empty-282" : {
+  "nr" : 282,
+  "text" : [""]
+}
+, "empty-283" : {
+  "nr" : 283,
+  "text" : [""]
+}
+, "empty-284" : {
+  "nr" : 284,
+  "text" : [""]
+}
+, "empty-285" : {
+  "nr" : 285,
+  "text" : [""]
+}
+, "empty-286" : {
+  "nr" : 286,
+  "text" : [""]
+}
+, "empty-287" : {
+  "nr" : 287,
+  "text" : [""]
+}
+, "empty-288" : {
+  "nr" : 288,
+  "text" : [""]
+}
+, "empty-289" : {
+  "nr" : 289,
+  "text" : [""]
+}
+, "empty-290" : {
+  "nr" : 290,
+  "text" : [""]
+}
+, "empty-291" : {
+  "nr" : 291,
+  "text" : [""]
+}
+, "empty-292" : {
+  "nr" : 292,
+  "text" : [""]
+}
+, "empty-293" : {
+  "nr" : 293,
+  "text" : [""]
+}
+, "empty-294" : {
+  "nr" : 294,
+  "text" : [""]
+}
+, "empty-295" : {
+  "nr" : 295,
+  "text" : [""]
+}
+, "empty-296" : {
+  "nr" : 296,
+  "text" : [""]
+}
+, "empty-297" : {
+  "nr" : 297,
+  "text" : [""]
+}
+, "empty-298" : {
+  "nr" : 298,
+  "text" : [""]
+}
+, "empty-299" : {
+  "nr" : 299,
+  "text" : [""]
+}
+, "empty-300" : {
+  "nr" : 300,
+  "text" : [""]
+}
+, "empty-301" : {
+  "nr" : 301,
+  "text" : [""]
+}
+, "empty-302" : {
+  "nr" : 302,
+  "text" : [""]
+}
+, "empty-303" : {
+  "nr" : 303,
+  "text" : [""]
+}
+, "empty-304" : {
+  "nr" : 304,
+  "text" : [""]
+}
+, "empty-305" : {
+  "nr" : 305,
+  "text" : [""]
+}
+, "empty-306" : {
+  "nr" : 306,
+  "text" : [""]
+}
+, "empty-307" : {
+  "nr" : 307,
+  "text" : [""]
+}
+, "empty-308" : {
+  "nr" : 308,
+  "text" : [""]
+}
+, "empty-309" : {
+  "nr" : 309,
+  "text" : [""]
+}
+, "empty-310" : {
+  "nr" : 310,
+  "text" : [""]
+}
+, "empty-311" : {
+  "nr" : 311,
+  "text" : [""]
+}
+, "empty-312" : {
+  "nr" : 312,
+  "text" : [""]
+}
+, "empty-313" : {
+  "nr" : 313,
+  "text" : [""]
+}
+, "empty-314" : {
+  "nr" : 314,
+  "text" : [""]
+}
+, "empty-315" : {
+  "nr" : 315,
+  "text" : [""]
+}
+, "empty-316" : {
+  "nr" : 316,
+  "text" : [""]
+}
+, "empty-317" : {
+  "nr" : 317,
+  "text" : [""]
+}
+, "empty-318" : {
+  "nr" : 318,
+  "text" : [""]
+}
+, "empty-319" : {
+  "nr" : 319,
+  "text" : [""]
+}
+, "empty-320" : {
+  "nr" : 320,
+  "text" : [""]
+}
+, "empty-321" : {
+  "nr" : 321,
+  "text" : [""]
+}
+, "empty-322" : {
+  "nr" : 322,
+  "text" : [""]
+}
+, "empty-323" : {
+  "nr" : 323,
+  "text" : [""]
+}
+, "empty-324" : {
+  "nr" : 324,
+  "text" : [""]
+}
+, "empty-325" : {
+  "nr" : 325,
+  "text" : [""]
+}
+, "empty-326" : {
+  "nr" : 326,
+  "text" : [""]
+}
+, "empty-327" : {
+  "nr" : 327,
+  "text" : [""]
+}
+, "empty-328" : {
+  "nr" : 328,
+  "text" : [""]
+}
+, "empty-329" : {
+  "nr" : 329,
+  "text" : [""]
+}
+, "empty-330" : {
+  "nr" : 330,
+  "text" : [""]
+}
+, "empty-331" : {
+  "nr" : 331,
+  "text" : [""]
+}
+, "empty-332" : {
+  "nr" : 332,
+  "text" : [""]
+}
+, "empty-333" : {
+  "nr" : 333,
+  "text" : [""]
+}
+, "empty-334" : {
+  "nr" : 334,
+  "text" : [""]
+}
+, "empty-335" : {
+  "nr" : 335,
+  "text" : [""]
+}
+, "empty-336" : {
+  "nr" : 336,
+  "text" : [""]
+}
+, "empty-337" : {
+  "nr" : 337,
+  "text" : [""]
+}
+, "empty-338" : {
+  "nr" : 338,
+  "text" : [""]
+}
+, "empty-339" : {
+  "nr" : 339,
+  "text" : [""]
+}
+, "empty-340" : {
+  "nr" : 340,
+  "text" : [""]
+}
+, "empty-341" : {
+  "nr" : 341,
+  "text" : [""]
+}
+, "empty-342" : {
+  "nr" : 342,
+  "text" : [""]
+}
+, "empty-343" : {
+  "nr" : 343,
+  "text" : [""]
+}
+, "empty-344" : {
+  "nr" : 344,
+  "text" : [""]
+}
+, "empty-345" : {
+  "nr" : 345,
+  "text" : [""]
+}
+, "empty-346" : {
+  "nr" : 346,
+  "text" : [""]
+}
+, "empty-347" : {
+  "nr" : 347,
+  "text" : [""]
+}
+, "empty-348" : {
+  "nr" : 348,
+  "text" : [""]
+}
+, "empty-349" : {
+  "nr" : 349,
+  "text" : [""]
+}
+, "empty-350" : {
+  "nr" : 350,
+  "text" : [""]
+}
+, "empty-351" : {
+  "nr" : 351,
+  "text" : [""]
+}
+, "empty-352" : {
+  "nr" : 352,
+  "text" : [""]
+}
+, "empty-353" : {
+  "nr" : 353,
+  "text" : [""]
+}
+, "empty-354" : {
+  "nr" : 354,
+  "text" : [""]
+}
+, "empty-355" : {
+  "nr" : 355,
+  "text" : [""]
+}
+, "empty-356" : {
+  "nr" : 356,
+  "text" : [""]
+}
+, "empty-357" : {
+  "nr" : 357,
+  "text" : [""]
+}
+, "empty-358" : {
+  "nr" : 358,
+  "text" : [""]
+}
+, "empty-359" : {
+  "nr" : 359,
+  "text" : [""]
+}
+, "empty-360" : {
+  "nr" : 360,
+  "text" : [""]
+}
+, "empty-361" : {
+  "nr" : 361,
+  "text" : [""]
+}
+, "empty-362" : {
+  "nr" : 362,
+  "text" : [""]
+}
+, "empty-363" : {
+  "nr" : 363,
+  "text" : [""]
+}
+, "empty-364" : {
+  "nr" : 364,
+  "text" : [""]
+}
+, "empty-365" : {
+  "nr" : 365,
+  "text" : [""]
+}
+, "empty-366" : {
+  "nr" : 366,
+  "text" : [""]
+}
+, "empty-367" : {
+  "nr" : 367,
+  "text" : [""]
+}
+, "empty-368" : {
+  "nr" : 368,
+  "text" : [""]
+}
+, "empty-369" : {
+  "nr" : 369,
+  "text" : [""]
+}
+, "empty-370" : {
+  "nr" : 370,
+  "text" : [""]
+}
+, "empty-371" : {
+  "nr" : 371,
+  "text" : [""]
+}
+, "empty-372" : {
+  "nr" : 372,
+  "text" : [""]
+}
+, "empty-373" : {
+  "nr" : 373,
+  "text" : [""]
+}
+, "empty-374" : {
+  "nr" : 374,
+  "text" : [""]
+}
+, "empty-375" : {
+  "nr" : 375,
+  "text" : [""]
+}
+, "empty-376" : {
+  "nr" : 376,
+  "text" : [""]
+}
+, "empty-377" : {
+  "nr" : 377,
+  "text" : [""]
+}
+, "empty-378" : {
+  "nr" : 378,
+  "text" : [""]
+}
+, "empty-379" : {
+  "nr" : 379,
+  "text" : [""]
+}
+, "empty-380" : {
+  "nr" : 380,
+  "text" : [""]
+}
+, "empty-381" : {
+  "nr" : 381,
+  "text" : [""]
+}
+, "empty-382" : {
+  "nr" : 382,
+  "text" : [""]
+}
+, "empty-383" : {
+  "nr" : 383,
+  "text" : [""]
+}
+, "empty-384" : {
+  "nr" : 384,
+  "text" : [""]
+}
+, "empty-385" : {
+  "nr" : 385,
+  "text" : [""]
+}
+, "empty-386" : {
+  "nr" : 386,
+  "text" : [""]
+}
+, "empty-387" : {
+  "nr" : 387,
+  "text" : [""]
+}
+, "empty-388" : {
+  "nr" : 388,
+  "text" : [""]
+}
+, "empty-389" : {
+  "nr" : 389,
+  "text" : [""]
+}
+, "empty-390" : {
+  "nr" : 390,
+  "text" : [""]
+}
+, "empty-391" : {
+  "nr" : 391,
+  "text" : [""]
+}
+, "empty-392" : {
+  "nr" : 392,
+  "text" : [""]
+}
+, "empty-393" : {
+  "nr" : 393,
+  "text" : [""]
+}
+, "empty-394" : {
+  "nr" : 394,
+  "text" : [""]
+}
+, "empty-395" : {
+  "nr" : 395,
+  "text" : [""]
+}
+, "empty-396" : {
+  "nr" : 396,
+  "text" : [""]
+}
+, "end" : {
+  "nr" : 397,
+  "text" : ["" ," The end. "]
+}
+, "altend" : {
+  "nr" : 398,
+  "text" : ["" ," Alternative ending. "]
+}
+, "random" : {
+  "nr" : 399,
+  "text" : ["" ," ",{"random" : "Pick a destination at random"}
+," from ",{"reference" : "400"}," or ",{"reference" : "397"}," or ",{"reference" : "398"},". "]
+}
+, "next" : {
+  "nr" : 400,
+  "text" : ["" ," This is the next section. Go on to the end at ",{"reference" : "397"},". "]
+}
+}}

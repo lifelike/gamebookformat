@@ -1,4 +1,4 @@
-* TODO [60/83] [72%]
+* TODO [61/83] [73%]
 ** DONE Debug output
 ** DONE DOT output
 ** DONE LaTeX output
@@ -154,10 +154,12 @@ anywhere in the section).
 When using the list option, and only including only sections for a tag,
 there currently has to be a missingto section, and that section is always
 listed even if it is not tagged.
-** TODO Add json output file containing sections, counters, collections etc.
+** DONE Add json output file containing sections, counters, collections etc.
+   CLOSED: [2014-09-23 Tue 21:29]
    This output format down-prioed because requires some changes to handle new-lines.
    All previously supported formats handles new-lines in text without problems, JSON do not.
    New-lines are added in ways that can currently not be affected by quoting functions.
+   Made debug format json. Will fix new-line problems when seen (not so far).
 ** TODO Sell (optionally increase a counter to drop something from a collection)
   sell tag to specify what can be bought, eg [sell item]sword[/sell]
   followed by cost tag to specify what it will cost, eg [cost gold]2[/cost]

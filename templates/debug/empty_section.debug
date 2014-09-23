@@ -1,1 +1,4 @@
-%(nr)d () - (EMPTY)
+, "empty-%(nr)d" : {
+  "nr" : %(nr)d,
+  "text" : [""]
+}

@@ -1,2 +1,5 @@
-%(name)s
-%(text)s
+"%(name)s" : {
+  "intro" : true,
+  "text" : ["" %(text)s]
+},
+

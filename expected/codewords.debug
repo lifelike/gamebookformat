@@ -1,15 +1,42 @@
-BEGIN DEBUG OUTPUT
-Book title: Gamebook
-Number of sections: 9
+{
+  "title" : "Gamebook",
+  "nr_sections" : "9",
 
-Turn to 1 to begin.
-1 (start) -  Demonstrating how [COLLECT code]Codewords[/COLLECT] (AKA sightings) can be used. Go to 2. 
-2 (second) -  Got codeword [ADD code]warrior[/ADD]. Simple enough to set a codeword. Turn to 9. 
-3 (the_end) -  That was easy.    
-4 (xortest) -  OK, if you have the codeword [HAS code]warrior[/HAS], you may turn to 3 otherwise you may go back to 2. Although we both know you have that codeword. If you have the codeword [HAS code]fun[/HAS] you may turn to 5, without it you can go to 8. 
-5 (cheater) -  Cheater! There is no way you can have codeword fun. 
-6 (noautotest) -  If you have the codeword [HAS code]fun[/HAS] turn to ((automatic))5. Otherwise you can go to the end at 3 or to the xortest at 4. 
-7 (autotest) -  If you have codeword [HAS code]warrior[/HAS] turn to ((automatic))6. Otherwise you can go to the end at 3 or back to 1. 
-8 (notsofun) -  This is just to demonstrate choices allowed when not having a codeword. Now go on to 7 (autotest) or 4 (xor test). 
-9 (choice) -  If you have the codeword [HAS code]warrior[/HAS] you may turn to 3. If you do not have the codeword [HAS NOT code]fun[/HAS NOT], you may turn to 8. If you have the codeword [HAS code]fun[/HAS], you may instead turn to 5. Otherwise see 4. 
-END DEBUG OUTPUT
+  "sections" : {"IGNORE-debug-json-padding-IGNORE" : "", "start" : {
+  "nr" : 1,
+  "text" : ["" ," Demonstrating how ",{"collection" : "code", "name" : "Codewords"}
+," (AKA sightings) can be used. Go to ",{"reference" : "2"},". "]
+}
+, "second" : {
+  "nr" : 2,
+  "text" : ["" ," Got codeword ",{"counter" : "code", "amount" : "warrior", "action" : "add"},". Simple enough to set a codeword. Turn to ",{"reference" : "9"},". "]
+}
+, "the_end" : {
+  "nr" : 3,
+  "text" : ["" ," That was easy.    "]
+}
+, "xortest" : {
+  "nr" : 4,
+  "text" : ["" ," OK, if you have the codeword ",{"collection" : "code", "what" : "warrior", "action" : "has"},", you may turn to ",{"modifier" : "xor"},{"reference" : "3"}," otherwise you may go back to ",{"reference" : "2"},". Although we both know you have that codeword. If you have the codeword ",{"collection" : "code", "what" : "fun", "action" : "has"}," you may turn to ",{"modifier" : "xor"},{"reference" : "5"},", without it you can go to ",{"reference" : "8"},". "]
+}
+, "cheater" : {
+  "nr" : 5,
+  "text" : ["" ," Cheater! There is no way you can have codeword fun. "]
+}
+, "noautotest" : {
+  "nr" : 6,
+  "text" : ["" ," If you have the codeword ",{"collection" : "code", "what" : "fun", "action" : "has"}," turn to ",{"modifier" : "auto"},{"reference" : "5"},". Otherwise you can go to the end at ",{"reference" : "3"}," or to the xortest at ",{"reference" : "4"},". "]
+}
+, "autotest" : {
+  "nr" : 7,
+  "text" : ["" ," If you have codeword ",{"collection" : "code", "what" : "warrior", "action" : "has"}," turn to ",{"modifier" : "auto"},{"reference" : "6"},". Otherwise you can go to the end at ",{"reference" : "3"}," or back to ",{"reference" : "1"},". "]
+}
+, "notsofun" : {
+  "nr" : 8,
+  "text" : ["" ," This is just to demonstrate choices allowed when not having a codeword. Now go on to ",{"reference" : "7"}," (autotest) or ",{"reference" : "4"}," (xor test). "]
+}
+, "choice" : {
+  "nr" : 9,
+  "text" : ["" ," If you have the codeword ",{"collection" : "code", "what" : "warrior", "action" : "has"}," you may turn to ",{"reference" : "3"},". If you do not have the codeword ",{"collection" : "code", "what" : "fun", "action" : "hasnot"},", you may turn to ",{"reference" : "8"},". If you have the codeword ",{"collection" : "code", "what" : "fun", "action" : "has"},", you may instead turn to ",{"reference" : "5"},". Otherwise see ",{"reference" : "4"},". "]
+}
+}}

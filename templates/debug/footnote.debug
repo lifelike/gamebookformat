@@ -1,1 +1,1 @@
-[FOOTNOTE]%(inner)s[/FOOTNOTE]
+, {"footnote" : "%(inner)s"}

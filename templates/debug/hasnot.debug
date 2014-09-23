@@ -1,1 +1,1 @@
-[HAS NOT %(arg1)s]%(inner)s[/HAS NOT]
+,{"collection" : "%(arg1)s", "what" : "%(inner)s", "action" : "hasnot"}

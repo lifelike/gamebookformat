@@ -1,11 +1,22 @@
-BEGIN DEBUG OUTPUT
-Book title: Items
-Number of sections: 3
-Info
- This file is for testing the list option. This section should not be listed. Using the options given in the options file for this gamebook, only the sections tagged as todo will be listed. 
+{
+  "title" : "Items",
+  "nr_sections" : "3",
 
-Turn to 1 to begin.
-1 (end_todo) -  There has to be a section set as missingto (ie this section), otherwise generating a list with only todo sections will fail (as one of them references non-todo sections). Unfortunate side-effect is that this section will always be included in the list. TODO figure out some fix for this.
-2 (curse) -  Need to write this section. Sorry for it being a dead-end for now. 
-3 (tjunction) -  (This section needs some work!) Here you find a [FOUND item]key[/FOUND] and a [FOUND item]stick[/FOUND]. You can go west to 1, or east to 2. 
-END DEBUG OUTPUT
+"Info" : {
+  "intro" : true,
+  "text" : ["" ," This file is for testing the list option. This section should not be listed. Using the options given in the options file for this gamebook, only the sections tagged as todo will be listed. "]
+},
+
+  "sections" : {"IGNORE-debug-json-padding-IGNORE" : "", "end_todo" : {
+  "nr" : 1,
+  "text" : ["" ," There has to be a section set as missingto (ie this section), otherwise generating a list with only todo sections will fail (as one of them references non-todo sections). Unfortunate side-effect is that this section will always be included in the list. TODO figure out some fix for this."]
+}
+, "curse" : {
+  "nr" : 2,
+  "text" : ["" ," Need to write this section. Sorry for it being a dead-end for now. "]
+}
+, "tjunction" : {
+  "nr" : 3,
+  "text" : ["" ," (This section needs some work!) Here you find a ",{"collection" : "item", "what" : "key", "action" : "found"}," and a ",{"collection" : "item", "what" : "stick", "action" : "found"},". You can go west to ",{"reference" : "1"},", or east to ",{"reference" : "2"},". "]
+}
+}}

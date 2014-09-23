@@ -1,17 +1,46 @@
-BEGIN DEBUG OUTPUT
-Book title: Counters Example
-Number of sections: 9
-Introduction
- This example gamebook shows how to use counters.
+{
+  "title" : "Counters Example",
+  "nr_sections" : "9",
 
-Turn to 1 to begin.
-1 (start) -  This is where the gamebook starts. We have counters for [COUNT life]Life Points[/COUNT] and for [COUNT gold]Gold[/COUNT]. You start the adventure with [SET life]10[/SET] Life Points and [SET gold]12[/SET] Gold. You can never have less than [MIN gold]0[/MIN] Gold. FIXME need to figure out best syntax for death when life points go below 1. Go to 9 to get more Gold or 8 to lose some Life Points. Go to 3 for testing the init value markup. 
-2 (inittest2) -  OK, we increase that something counter by [INC something]1[/INC] here, and also increase the other counter by [INC other]1[/INC]. You can go back to see the difference between set and init here (3), stuck in an infinite loop.
-3 (inittest) -  The [COUNT something]Something Counter[/COUNT] starts at [INIT something]5[/SET], but when you come back here it will not reset to that, unlike the [COUNT other]Other Counter[/COUNT] that will reset to [SET other]5[/SET] every time you get here. If we try to init gold to [INIT gold]999[/SET] nothing will happen because it was already set to something before you came yere. Go on to 2. 
-4 (death) -  Less than 1 Life Point means the adventure ends now. 
-5 (hurrah) -  You have at least 16 gold. Go back to get some more at 9. 
-6 (rich) -  You have more than 16 Gold. How nice. Go back to get some more at 9. 
-7 (losegold) -  You drop [DEC gold]5[/DEC] Gold. It should not be possible to go below 0. Then go on to get gold at 9 or lose life at 8. 
-8 (dangerous) -  You lose [DEC life]1[/DEC] Life Points. You can go to 9 to get some Gold. 
-9 (getgold) -  Congratulations, you found [INC gold]2[/INC] Gold. If you have less than 1 Life Points, turn to ((automatic))4. You can go to 8 to lose some life or to 7 to drop some gold. If you have at least 16 Gold you can turn to 5. If you have even more than 16 Gold you can turn to 6. 
-END DEBUG OUTPUT
+"Introduction" : {
+  "intro" : true,
+  "text" : ["" ," This example gamebook shows how to use counters."]
+},
+
+  "sections" : {"IGNORE-debug-json-padding-IGNORE" : "", "start" : {
+  "nr" : 1,
+  "text" : ["" ," This is where the gamebook starts. We have counters for ",{"counter" : "life", "name" : "Life Points"}," and for ",{"counter" : "gold", "name" : "Gold"},". You start the adventure with ",{"counter" : "life", "amount" : "10", "action" : "set"}," Life Points and ",{"counter" : "gold", "amount" : "12", "action" : "set"}," Gold. You can never have less than ",{"counter" : "gold", "amount" : "0", "action" : "min"}," Gold. FIXME need to figure out best syntax for death when life points go below 1. Go to ",{"reference" : "9"}," to get more Gold or ",{"reference" : "8"}," to lose some Life Points. Go to ",{"reference" : "3"}," for testing the init value markup. "]
+}
+, "inittest2" : {
+  "nr" : 2,
+  "text" : ["" ," OK, we increase that something counter by ",{"counter" : "something", "amount" : "1", "action" : "inc"}," here, and also increase the other counter by ",{"counter" : "other", "amount" : "1", "action" : "inc"},". You can go back to see the difference between set and init ",{"reference" : "3", "name" : "here"},", stuck in an infinite loop."]
+}
+, "inittest" : {
+  "nr" : 3,
+  "text" : ["" ," The ",{"counter" : "something", "name" : "Something Counter"}," starts at ",{"counter" : "something", "amount" : "5", "action" : "init"},", but when you come back here it will not reset to that, unlike the ",{"counter" : "other", "name" : "Other Counter"}," that will reset to ",{"counter" : "other", "amount" : "5", "action" : "set"}," every time you get here. If we try to init gold to ",{"counter" : "gold", "amount" : "999", "action" : "init"}," nothing will happen because it was already set to something before you came yere. Go on to ",{"reference" : "2"},". "]
+}
+, "death" : {
+  "nr" : 4,
+  "text" : ["" ," Less than 1 Life Point means the adventure ends now. "]
+}
+, "hurrah" : {
+  "nr" : 5,
+  "text" : ["" ," You have at least 16 gold. Go back to get some more at ",{"reference" : "9"},". "]
+}
+, "rich" : {
+  "nr" : 6,
+  "text" : ["" ," You have more than 16 Gold. How nice. Go back to get some more at ",{"reference" : "9"},". "]
+}
+, "losegold" : {
+  "nr" : 7,
+  "text" : ["" ," You drop ",{"counter" : "gold", "amount" : "5", "action" : "dec"}," Gold. It should not be possible to go below 0. Then go on to get gold at ",{"reference" : "9"}," or lose life at ",{"reference" : "8"},". "]
+}
+, "dangerous" : {
+  "nr" : 8,
+  "text" : ["" ," You lose ",{"counter" : "life", "amount" : "1", "action" : "dec"}," Life Points. You can go to ",{"reference" : "9"}," to get some Gold. "]
+}
+, "getgold" : {
+  "nr" : 9,
+  "text" : ["" ," Congratulations, you found ",{"counter" : "gold", "amount" : "2", "action" : "inc"}," Gold. If you have less than ",{"counter" : "life", "amount" : "1", "action" : "lessthan"}," Life Points, turn to ",{"modifier" : "auto"},{"reference" : "4"},". You can go to ",{"reference" : "8"}," to lose some life or to ",{"reference" : "7"}," to drop some gold. If you have at least ",{"counter" : "gold", "amount" : "16", "action" : "atleast"}," Gold you can turn to ",{"reference" : "5"},". If you have even more than ",{"counter" : "gold", "amount" : "16", "action" : "morethan"}," Gold you can turn to ",{"reference" : "6"},". "]
+}
+}}

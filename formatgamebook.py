@@ -55,7 +55,7 @@ OUTPUT_FORMATS = [
     of('dot', 'Graphviz section flowchart', quote.no),
     of('html', 'HTML+JS playable in browser', quote.html),
     of('txt', 'Plain text', quote.no),
-    of('debug', 'Gamebook Debug Output', quote.no),
+    of('debug', 'Debug (JSON) Output', quote.js),
 ]
 
 def make_supported_formats_list_string():

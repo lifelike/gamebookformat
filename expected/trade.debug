@@ -1,12 +1,27 @@
-BEGIN DEBUG OUTPUT
-Book title: Gamebook
-Number of sections: 4
-Introduction
- Testing trade of things. You can buy things using [COUNT gold]Gold[/COUNT] of which you start with [SET gold]100[/SET]. You also have an [COLLECT item]Inventory[/COLLECT]. At start you carry a [ADD item]sword[/ADD]. 
+{
+  "title" : "Gamebook",
+  "nr_sections" : "4",
 
-Turn to 1 to begin.
-1 (start) -  You can buy a [FOUND item]shield[/FOUND] here for 50 Gold or a beautiful [FOUND item]gold ring[/FOUND] for only 75. There is also a [FOUND item]chain mail[/FOUND] costing 150. You can pick up some [FOUND item]spiderweb[/FOUND] for free. You can go to 4 at a cost of 50. You can go on to the end at 2. 
-2 (theend) -  It ends here. There is a [FOUND item]crown[/FOUND] here that you can trade for some spiderweb. 
-3 (someotherplace) -  This is somewhere else. Congratulations you have found [INC gold]100[/INC] gold! Go back to 1. 
-4 (other) -  Now you have 50 less gold than you just had. You can go back to 1. 
-END DEBUG OUTPUT
+"Introduction" : {
+  "intro" : true,
+  "text" : ["" ," Testing trade of things. You can buy things using ",{"counter" : "gold", "name" : "Gold"}," of which you start with ",{"counter" : "gold", "amount" : "100", "action" : "set"},". You also have an ",{"collection" : "item", "name" : "Inventory"}
+,". At start you carry a ",{"counter" : "item", "amount" : "sword", "action" : "add"},". "]
+},
+
+  "sections" : {"IGNORE-debug-json-padding-IGNORE" : "", "start" : {
+  "nr" : 1,
+  "text" : ["" ," You can buy a ",{"collection" : "item", "what" : "shield", "action" : "found"}," here for ",{"counter" : "gold", "amount" : "50", "action" : "cost"}," Gold or a beautiful ",{"collection" : "item", "what" : "gold ring", "action" : "found"}," for only ",{"counter" : "gold", "amount" : "75", "action" : "cost"},". There is also a ",{"collection" : "item", "what" : "chain mail", "action" : "found"}," costing ",{"counter" : "gold", "amount" : "150", "action" : "cost"},". You can pick up some ",{"collection" : "item", "what" : "spiderweb", "action" : "found"}," for free. You can go to ",{"reference" : "4"}," at a cost of ",{"counter" : "gold", "amount" : "50", "action" : "cost"},". You can go on to the end at ",{"reference" : "2"},". "]
+}
+, "theend" : {
+  "nr" : 2,
+  "text" : ["" ," It ends here. There is a ",{"collection" : "item", "what" : "crown", "action" : "found"}," here that you can trade for some ",{"action" : "trade", "type" : "item", "what" : "spiderweb"},". "]
+}
+, "someotherplace" : {
+  "nr" : 3,
+  "text" : ["" ," This is somewhere else. Congratulations you have found ",{"counter" : "gold", "amount" : "100", "action" : "inc"}," gold! Go back to ",{"reference" : "1"},". "]
+}
+, "other" : {
+  "nr" : 4,
+  "text" : ["" ," Now you have 50 less gold than you just had. You can go back to ",{"reference" : "1"},". "]
+}
+}}

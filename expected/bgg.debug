@@ -1,14 +1,32 @@
-BEGIN DEBUG OUTPUT
-Book title: Title of Game
-Number of sections: 4
-Introduction
- For information that goes before the actual numbered sections, if needed. 
-More Introduction
-  Any number of these optional pre-game sections are possible really. It would be useful to be able to do sub-sections here to mark up a complete rulebook as part of the paragraph booklet, but there is no such feature (yet?). 
+{
+  "title" : "Title of Game",
+  "nr_sections" : "4",
 
-Turn to 1 to begin.
-1 (start) -  This is the first section (or paragraph, if you prefer). From here you can go to section 4 or 3. 
-2 (end) -  This is the end. There is nothing more in this gamebook.
-3 (third) -  Third section. Again, its number is not known. You can go to the end at 2. This section has an image to show the syntax for doing that (same as images in bgg forums really). [IMG]testimage.png[/IMG] 
-4 (second) -  This is the second section. It may or may not end up with number 2 in the generated gamebook. From here you can skip to the 2 or go to the third section at 3. 
-END DEBUG OUTPUT
+"Introduction" : {
+  "intro" : true,
+  "text" : ["" ," For information that goes before the actual numbered sections, if needed. "]
+},
+
+"More Introduction" : {
+  "intro" : true,
+  "text" : ["" ,"  Any number of these optional pre-game sections are possible really. It would be useful to be able to do sub-sections here to mark up a complete rulebook as part of the paragraph booklet, but there is no such feature (yet?). "]
+},
+
+  "sections" : {"IGNORE-debug-json-padding-IGNORE" : "", "start" : {
+  "nr" : 1,
+  "text" : ["" ," This is the first section (or paragraph, if you prefer). From here you can go to section ",{"reference" : "4"}," or ",{"reference" : "3"},". "]
+}
+, "end" : {
+  "nr" : 2,
+  "text" : ["" ," This is the end. There is nothing more in this gamebook."]
+}
+, "third" : {
+  "nr" : 3,
+  "text" : ["" ," Third section. Again, its number is not known. You can go to the end at ",{"reference" : "2"},". This section has an image to show the syntax for doing that (same as images in bgg forums really). ",{"img" : "testimage.png"}
+," "]
+}
+, "second" : {
+  "nr" : 4,
+  "text" : ["" ," This is the second section. It may or may not end up with number 2 in the generated gamebook. From here you can skip to the ",{"reference" : "2"}," or go to the third section at ",{"reference" : "3"},". "]
+}
+}}

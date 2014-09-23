@@ -1,1 +1,1 @@
-%(name)s (%(nr)d)
+,{"reference" : "%(nr)d", "name" : "%(name)s"}

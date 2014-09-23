@@ -1,105 +1,401 @@
-BEGIN DEBUG OUTPUT
-Book title: Example Gamebook With Maps
-Number of sections: 99
+{
+  "title" : "Example Gamebook With Maps",
+  "nr_sections" : "99",
 
-Turn to 1 to begin.
-1 () - (EMPTY)
-2 () - (EMPTY)
-3 () - (EMPTY)
-4 () - (EMPTY)
-5 () - (EMPTY)
-6 () - (EMPTY)
-7 () - (EMPTY)
-8 () - (EMPTY)
-9 () - (EMPTY)
-10 (start) -  This should have number 10, as specified in first map file. The end, at 99, should be at 99. 
-11 () - (EMPTY)
-12 () - (EMPTY)
-13 () - (EMPTY)
-14 () - (EMPTY)
-15 () - (EMPTY)
-16 () - (EMPTY)
-17 () - (EMPTY)
-18 () - (EMPTY)
-19 () - (EMPTY)
-20 () - (EMPTY)
-21 () - (EMPTY)
-22 () - (EMPTY)
-23 () - (EMPTY)
-24 () - (EMPTY)
-25 () - (EMPTY)
-26 () - (EMPTY)
-27 () - (EMPTY)
-28 () - (EMPTY)
-29 () - (EMPTY)
-30 () - (EMPTY)
-31 () - (EMPTY)
-32 () - (EMPTY)
-33 () - (EMPTY)
-34 () - (EMPTY)
-35 () - (EMPTY)
-36 () - (EMPTY)
-37 () - (EMPTY)
-38 () - (EMPTY)
-39 () - (EMPTY)
-40 () - (EMPTY)
-41 () - (EMPTY)
-42 () - (EMPTY)
-43 () - (EMPTY)
-44 () - (EMPTY)
-45 () - (EMPTY)
-46 () - (EMPTY)
-47 () - (EMPTY)
-48 () - (EMPTY)
-49 () - (EMPTY)
-50 () - (EMPTY)
-51 () - (EMPTY)
-52 () - (EMPTY)
-53 () - (EMPTY)
-54 () - (EMPTY)
-55 () - (EMPTY)
-56 () - (EMPTY)
-57 () - (EMPTY)
-58 () - (EMPTY)
-59 () - (EMPTY)
-60 () - (EMPTY)
-61 () - (EMPTY)
-62 () - (EMPTY)
-63 () - (EMPTY)
-64 () - (EMPTY)
-65 () - (EMPTY)
-66 () - (EMPTY)
-67 () - (EMPTY)
-68 () - (EMPTY)
-69 () - (EMPTY)
-70 () - (EMPTY)
-71 () - (EMPTY)
-72 () - (EMPTY)
-73 () - (EMPTY)
-74 () - (EMPTY)
-75 () - (EMPTY)
-76 () - (EMPTY)
-77 () - (EMPTY)
-78 () - (EMPTY)
-79 () - (EMPTY)
-80 () - (EMPTY)
-81 () - (EMPTY)
-82 () - (EMPTY)
-83 () - (EMPTY)
-84 () - (EMPTY)
-85 () - (EMPTY)
-86 () - (EMPTY)
-87 () - (EMPTY)
-88 () - (EMPTY)
-89 () - (EMPTY)
-90 () - (EMPTY)
-91 () - (EMPTY)
-92 () - (EMPTY)
-93 () - (EMPTY)
-94 () - (EMPTY)
-95 () - (EMPTY)
-96 () - (EMPTY)
-97 () - (EMPTY)
-98 () - (EMPTY)
-99 (end) -  Number 99, as specified in second map file.
-END DEBUG OUTPUT
+  "sections" : {"IGNORE-debug-json-padding-IGNORE" : "", "empty-1" : {
+  "nr" : 1,
+  "text" : [""]
+}
+, "empty-2" : {
+  "nr" : 2,
+  "text" : [""]
+}
+, "empty-3" : {
+  "nr" : 3,
+  "text" : [""]
+}
+, "empty-4" : {
+  "nr" : 4,
+  "text" : [""]
+}
+, "empty-5" : {
+  "nr" : 5,
+  "text" : [""]
+}
+, "empty-6" : {
+  "nr" : 6,
+  "text" : [""]
+}
+, "empty-7" : {
+  "nr" : 7,
+  "text" : [""]
+}
+, "empty-8" : {
+  "nr" : 8,
+  "text" : [""]
+}
+, "empty-9" : {
+  "nr" : 9,
+  "text" : [""]
+}
+, "start" : {
+  "nr" : 10,
+  "text" : ["" ," This should have number 10, as specified in first map file. The end, at ",{"reference" : "99"},", should be at 99. "]
+}
+, "empty-11" : {
+  "nr" : 11,
+  "text" : [""]
+}
+, "empty-12" : {
+  "nr" : 12,
+  "text" : [""]
+}
+, "empty-13" : {
+  "nr" : 13,
+  "text" : [""]
+}
+, "empty-14" : {
+  "nr" : 14,
+  "text" : [""]
+}
+, "empty-15" : {
+  "nr" : 15,
+  "text" : [""]
+}
+, "empty-16" : {
+  "nr" : 16,
+  "text" : [""]
+}
+, "empty-17" : {
+  "nr" : 17,
+  "text" : [""]
+}
+, "empty-18" : {
+  "nr" : 18,
+  "text" : [""]
+}
+, "empty-19" : {
+  "nr" : 19,
+  "text" : [""]
+}
+, "empty-20" : {
+  "nr" : 20,
+  "text" : [""]
+}
+, "empty-21" : {
+  "nr" : 21,
+  "text" : [""]
+}
+, "empty-22" : {
+  "nr" : 22,
+  "text" : [""]
+}
+, "empty-23" : {
+  "nr" : 23,
+  "text" : [""]
+}
+, "empty-24" : {
+  "nr" : 24,
+  "text" : [""]
+}
+, "empty-25" : {
+  "nr" : 25,
+  "text" : [""]
+}
+, "empty-26" : {
+  "nr" : 26,
+  "text" : [""]
+}
+, "empty-27" : {
+  "nr" : 27,
+  "text" : [""]
+}
+, "empty-28" : {
+  "nr" : 28,
+  "text" : [""]
+}
+, "empty-29" : {
+  "nr" : 29,
+  "text" : [""]
+}
+, "empty-30" : {
+  "nr" : 30,
+  "text" : [""]
+}
+, "empty-31" : {
+  "nr" : 31,
+  "text" : [""]
+}
+, "empty-32" : {
+  "nr" : 32,
+  "text" : [""]
+}
+, "empty-33" : {
+  "nr" : 33,
+  "text" : [""]
+}
+, "empty-34" : {
+  "nr" : 34,
+  "text" : [""]
+}
+, "empty-35" : {
+  "nr" : 35,
+  "text" : [""]
+}
+, "empty-36" : {
+  "nr" : 36,
+  "text" : [""]
+}
+, "empty-37" : {
+  "nr" : 37,
+  "text" : [""]
+}
+, "empty-38" : {
+  "nr" : 38,
+  "text" : [""]
+}
+, "empty-39" : {
+  "nr" : 39,
+  "text" : [""]
+}
+, "empty-40" : {
+  "nr" : 40,
+  "text" : [""]
+}
+, "empty-41" : {
+  "nr" : 41,
+  "text" : [""]
+}
+, "empty-42" : {
+  "nr" : 42,
+  "text" : [""]
+}
+, "empty-43" : {
+  "nr" : 43,
+  "text" : [""]
+}
+, "empty-44" : {
+  "nr" : 44,
+  "text" : [""]
+}
+, "empty-45" : {
+  "nr" : 45,
+  "text" : [""]
+}
+, "empty-46" : {
+  "nr" : 46,
+  "text" : [""]
+}
+, "empty-47" : {
+  "nr" : 47,
+  "text" : [""]
+}
+, "empty-48" : {
+  "nr" : 48,
+  "text" : [""]
+}
+, "empty-49" : {
+  "nr" : 49,
+  "text" : [""]
+}
+, "empty-50" : {
+  "nr" : 50,
+  "text" : [""]
+}
+, "empty-51" : {
+  "nr" : 51,
+  "text" : [""]
+}
+, "empty-52" : {
+  "nr" : 52,
+  "text" : [""]
+}
+, "empty-53" : {
+  "nr" : 53,
+  "text" : [""]
+}
+, "empty-54" : {
+  "nr" : 54,
+  "text" : [""]
+}
+, "empty-55" : {
+  "nr" : 55,
+  "text" : [""]
+}
+, "empty-56" : {
+  "nr" : 56,
+  "text" : [""]
+}
+, "empty-57" : {
+  "nr" : 57,
+  "text" : [""]
+}
+, "empty-58" : {
+  "nr" : 58,
+  "text" : [""]
+}
+, "empty-59" : {
+  "nr" : 59,
+  "text" : [""]
+}
+, "empty-60" : {
+  "nr" : 60,
+  "text" : [""]
+}
+, "empty-61" : {
+  "nr" : 61,
+  "text" : [""]
+}
+, "empty-62" : {
+  "nr" : 62,
+  "text" : [""]
+}
+, "empty-63" : {
+  "nr" : 63,
+  "text" : [""]
+}
+, "empty-64" : {
+  "nr" : 64,
+  "text" : [""]
+}
+, "empty-65" : {
+  "nr" : 65,
+  "text" : [""]
+}
+, "empty-66" : {
+  "nr" : 66,
+  "text" : [""]
+}
+, "empty-67" : {
+  "nr" : 67,
+  "text" : [""]
+}
+, "empty-68" : {
+  "nr" : 68,
+  "text" : [""]
+}
+, "empty-69" : {
+  "nr" : 69,
+  "text" : [""]
+}
+, "empty-70" : {
+  "nr" : 70,
+  "text" : [""]
+}
+, "empty-71" : {
+  "nr" : 71,
+  "text" : [""]
+}
+, "empty-72" : {
+  "nr" : 72,
+  "text" : [""]
+}
+, "empty-73" : {
+  "nr" : 73,
+  "text" : [""]
+}
+, "empty-74" : {
+  "nr" : 74,
+  "text" : [""]
+}
+, "empty-75" : {
+  "nr" : 75,
+  "text" : [""]
+}
+, "empty-76" : {
+  "nr" : 76,
+  "text" : [""]
+}
+, "empty-77" : {
+  "nr" : 77,
+  "text" : [""]
+}
+, "empty-78" : {
+  "nr" : 78,
+  "text" : [""]
+}
+, "empty-79" : {
+  "nr" : 79,
+  "text" : [""]
+}
+, "empty-80" : {
+  "nr" : 80,
+  "text" : [""]
+}
+, "empty-81" : {
+  "nr" : 81,
+  "text" : [""]
+}
+, "empty-82" : {
+  "nr" : 82,
+  "text" : [""]
+}
+, "empty-83" : {
+  "nr" : 83,
+  "text" : [""]
+}
+, "empty-84" : {
+  "nr" : 84,
+  "text" : [""]
+}
+, "empty-85" : {
+  "nr" : 85,
+  "text" : [""]
+}
+, "empty-86" : {
+  "nr" : 86,
+  "text" : [""]
+}
+, "empty-87" : {
+  "nr" : 87,
+  "text" : [""]
+}
+, "empty-88" : {
+  "nr" : 88,
+  "text" : [""]
+}
+, "empty-89" : {
+  "nr" : 89,
+  "text" : [""]
+}
+, "empty-90" : {
+  "nr" : 90,
+  "text" : [""]
+}
+, "empty-91" : {
+  "nr" : 91,
+  "text" : [""]
+}
+, "empty-92" : {
+  "nr" : 92,
+  "text" : [""]
+}
+, "empty-93" : {
+  "nr" : 93,
+  "text" : [""]
+}
+, "empty-94" : {
+  "nr" : 94,
+  "text" : [""]
+}
+, "empty-95" : {
+  "nr" : 95,
+  "text" : [""]
+}
+, "empty-96" : {
+  "nr" : 96,
+  "text" : [""]
+}
+, "empty-97" : {
+  "nr" : 97,
+  "text" : [""]
+}
+, "empty-98" : {
+  "nr" : 98,
+  "text" : [""]
+}
+, "end" : {
+  "nr" : 99,
+  "text" : ["" ," Number 99, as specified in second map file."]
+}
+}}

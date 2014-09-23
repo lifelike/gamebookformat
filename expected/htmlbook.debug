@@ -1,13 +1,27 @@
-BEGIN DEBUG OUTPUT
-Book title: HTMLBook
-Number of sections: 3
-Introduction
- This is an introduction. This example gamebook is for testing the htmlbook option. See https://github.com/oreillymedia/HTMLBook for more information about HTMLBook. 
-More
- This is another introduction section, just to see that formatting is correct when there are more than one. 
+{
+  "title" : "HTMLBook",
+  "nr_sections" : "3",
 
-Turn to 1 to begin.
-1 (third) -  Got to this section. Story ends here.
-2 (second) -  Got to another section. Story ends here. 
-3 (start) -  This is the first section. From here you can go to the unnamed section 2 or this named section (1). 
-END DEBUG OUTPUT
+"Introduction" : {
+  "intro" : true,
+  "text" : ["" ," This is an introduction. This example gamebook is for testing the htmlbook option. See https://github.com/oreillymedia/HTMLBook for more information about HTMLBook. "]
+},
+
+"More" : {
+  "intro" : true,
+  "text" : ["" ," This is another introduction section, just to see that formatting is correct when there are more than one. "]
+},
+
+  "sections" : {"IGNORE-debug-json-padding-IGNORE" : "", "third" : {
+  "nr" : 1,
+  "text" : ["" ," Got to this section. Story ends here."]
+}
+, "second" : {
+  "nr" : 2,
+  "text" : ["" ," Got to another section. Story ends here. "]
+}
+, "start" : {
+  "nr" : 3,
+  "text" : ["" ," This is the first section. From here you can go to the unnamed section ",{"reference" : "2"}," or ",{"reference" : "1", "name" : "this named section"},". "]
+}
+}}

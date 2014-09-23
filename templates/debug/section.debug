@@ -1,1 +1,4 @@
-%(nr)d (%(name)s) - %(text)s
+, "%(name)s" : {
+  "nr" : %(nr)d,
+  "text" : ["" %(text)s]
+}

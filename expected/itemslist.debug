@@ -1,20 +1,59 @@
-BEGIN DEBUG OUTPUT
-Book title: Items
-Number of sections: 12
-Info
- This file is for testing the list option. This section should not be listed. 
+{
+  "title" : "Items",
+  "nr_sections" : "12",
 
-Turn to 1 to begin.
-1 (start) -  Demonstrating how to manage player [COLLECT item]Inventory[/COLLECT]. You start the book carrying a [ADD item]sword[/ADD] and a [ADD item]shield[/ADD]. Turn to 12 or go to the autotest at 2. 
-2 (autotest) -  If you have the [HAS item]stick[/HAS] then you must turn immediately to ((automatic))12, and everything else in this section is ignored. You find a [ADD item]book[/ADD] here. If you have the [HAS item]sword[/HAS] you must turn immediately to ((automatic))5, again ignoring everything that follows. You drop the [DROP item]something valuable[/DROP] here if you have it, then go on to 7.
-3 (won) -  Congratulations, you won.
-4 (cut_rope) -  OK. That was fun. Turn to 3. 
-5 (inside) -  There is a rope here that can be cut using a [HAS item]sword[/HAS]. If you have one and want to do that, see 4. You can also run to the autotest at 2. Otherwise turn to 3. 
-6 (treasure) -  You found [FOUND item]something valuable[/FOUND], but there is no way forward, so you head back to 12. 
-7 (portal) -  A magic portal ahead will only allow you to pass if you did not pick up the [HAS NOT item]cursed bracelet[/HAS NOT], leading you to 6. If you have the [HAS item]cursed bracelet[/HAS] you have to go back to 12 instead. Actually feel free to head back to 12 either way. 
-8 (drop_stick) -  OK [DROP item]stick[/DROP] dropped. Turn back to 12 to confirm stick can not be picked up again even if the text says it is there (books work that way, although ideally this dynamic version should provide some hints that it is no longer there). 
-9 (curse) -  There is a [FOUND item]cursed bracelet[/FOUND] here. You can go on to 7 or go back to 12. You can also drop the [HAS item]stick[/HAS] for no particular reason if you have it, see 8. 
-10 (attempt_break_door_with_sword) -  OK. The door is broken, but so is the [DROP item]sword[/DROP]. Turn to 5. 
-11 (door) -  There is a locked door here. If you have a [HAS item]key[/HAS] you can use that to open the door, see 5. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the [HAS item]sword[/HAS], if you have it, see 10. Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see 12. 
-12 (tjunction) -  You have reached a t-junction. Here you find a [FOUND item]key[/FOUND] and a [FOUND item]stick[/FOUND]. You can go west to 11, or east to 9. 
-END DEBUG OUTPUT
+"Info" : {
+  "intro" : true,
+  "text" : ["" ," This file is for testing the list option. This section should not be listed. "]
+},
+
+  "sections" : {"IGNORE-debug-json-padding-IGNORE" : "", "start" : {
+  "nr" : 1,
+  "text" : ["" ," Demonstrating how to manage player ",{"collection" : "item", "name" : "Inventory"}
+,". You start the book carrying a ",{"counter" : "item", "amount" : "sword", "action" : "add"}," and a ",{"counter" : "item", "amount" : "shield", "action" : "add"},". Turn to ",{"reference" : "12"}," or go to the autotest at ",{"reference" : "2"},". "]
+}
+, "autotest" : {
+  "nr" : 2,
+  "text" : ["" ," If you have the ",{"collection" : "item", "what" : "stick", "action" : "has"}," then you must turn immediately to ",{"modifier" : "auto"},{"reference" : "12"},", and everything else in this section is ignored. You find a ",{"counter" : "item", "amount" : "book", "action" : "add"}," here. If you have the ",{"collection" : "item", "what" : "sword", "action" : "has"}," you must turn immediately to ",{"modifier" : "auto"},{"reference" : "5"},", again ignoring everything that follows. You drop the ",{"collection" : "item", "what" : "something valuable", "action" : "drop"}," here if you have it, then go on to ",{"reference" : "7"},"."]
+}
+, "won" : {
+  "nr" : 3,
+  "text" : ["" ," Congratulations, you won."]
+}
+, "cut_rope" : {
+  "nr" : 4,
+  "text" : ["" ," OK. That was fun. Turn to ",{"reference" : "3"},". "]
+}
+, "inside" : {
+  "nr" : 5,
+  "text" : ["" ," There is a rope here that can be cut using a ",{"collection" : "item", "what" : "sword", "action" : "has"},". If you have one and want to do that, see ",{"reference" : "4"},". You can also run to the autotest at ",{"reference" : "2"},". Otherwise turn to ",{"reference" : "3"},". "]
+}
+, "treasure" : {
+  "nr" : 6,
+  "text" : ["" ," You found ",{"collection" : "item", "what" : "something valuable", "action" : "found"},", but there is no way forward, so you head back to ",{"reference" : "12"},". "]
+}
+, "portal" : {
+  "nr" : 7,
+  "text" : ["" ," A magic portal ahead will only allow you to pass if you did not pick up the ",{"collection" : "item", "what" : "cursed bracelet", "action" : "hasnot"},", leading you to ",{"reference" : "6"},". If you have the ",{"collection" : "item", "what" : "cursed bracelet", "action" : "has"}," you have to go back to ",{"reference" : "12"}," instead. Actually feel free to head back to ",{"reference" : "12"}," either way. "]
+}
+, "drop_stick" : {
+  "nr" : 8,
+  "text" : ["" ," OK ",{"collection" : "item", "what" : "stick", "action" : "drop"}," dropped. Turn back to ",{"reference" : "12"}," to confirm stick can not be picked up again even if the text says it is there (books work that way, although ideally this dynamic version should provide some hints that it is no longer there). "]
+}
+, "curse" : {
+  "nr" : 9,
+  "text" : ["" ," There is a ",{"collection" : "item", "what" : "cursed bracelet", "action" : "found"}," here. You can go on to ",{"reference" : "7"}," or go back to ",{"reference" : "12"},". You can also drop the ",{"collection" : "item", "what" : "stick", "action" : "has"}," for no particular reason if you have it, see ",{"reference" : "8"},". "]
+}
+, "attempt_break_door_with_sword" : {
+  "nr" : 10,
+  "text" : ["" ," OK. The door is broken, but so is the ",{"collection" : "item", "what" : "sword", "action" : "drop"},". Turn to ",{"reference" : "5"},". "]
+}
+, "door" : {
+  "nr" : 11,
+  "text" : ["" ," There is a locked door here. If you have a ",{"collection" : "item", "what" : "key", "action" : "has"}," you can use that to open the door, see ",{"reference" : "5"},". Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the ",{"collection" : "item", "what" : "sword", "action" : "has"},", if you have it, see ",{"reference" : "10"},". Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see ",{"reference" : "12"},". "]
+}
+, "tjunction" : {
+  "nr" : 12,
+  "text" : ["" ," You have reached a t-junction. Here you find a ",{"collection" : "item", "what" : "key", "action" : "found"}," and a ",{"collection" : "item", "what" : "stick", "action" : "found"},". You can go west to ",{"reference" : "11"},", or east to ",{"reference" : "9"},". "]
+}
+}}

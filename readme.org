@@ -28,7 +28,7 @@ gamebook on paper or a screen (or for debugging it).
 | Graphviz DOT     | .dot      | Use with the [[http://www.graphviz.org][Graphviz]] dot tool to generate a flowchart graph of all sections in the gamebook. |
 | HTML             | .html     | Play gamebook in browser.                                                                     |
 | Plain Text       | .txt      | Raw plain text without formatting.                                                            |
-| Debug Plain Text | .debug    | Plain text debug output of gamebook contents.                                                 |
+| Debug JSON       | .debug    | [[http://json.org][JSON-formatted]] debug output of gamebook contents.                                             |
 
 More to be added. Custom output formats or modifications to the
 default formats can easily be added. Use the *-t* command-line

@@ -1,1 +1,1 @@
-[DROP %(arg1)s]%(inner)s[/DROP]
+,{"collection" : "%(arg1)s", "what" : "%(inner)s", "action" : "drop"}

@@ -1,17 +1,44 @@
-BEGIN DEBUG OUTPUT
-Book title: Format
-Number of sections: 7
-Introduction
- Adding an introduction to the gamebook here. This will create a section, but it will not be shuffled nor numbered with the gamebook sections below. 
-Another Heading
- This starts another non-shuffled section. [FOOTNOTE]A footnote in Another Heading.[/FOOTNOTE] 
+{
+  "title" : "Format",
+  "nr_sections" : "7",
 
-Adventure begins in section 1.
-1 (start) -  This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like } and { and " and ' and \. HTML will probably not like <div> or &boom;. You can make named references like this (6) (just happens to be exactly the same syntax as in emacs org-mode btw). This book also includes a format-specific section (4). There should be an image below as well. If something broke, turn to 2, otherwise turn to 3.[FOOTNOTE]Good footnote.[/FOOTNOTE] [IMG]testimage.png[/IMG] 
-2 (bad) -  Bad.
-3 (good) -  Good! 
-4 (formatspecific) -  This is the format-specific section for no other formats. Now you lose (2). 
-5 (named2) -  Very good. You win (3).[FOOTNOTE]Win footnote.[/FOOTNOTE] 
-6 (named1) -  This is where you should end up when you follow the named reference from the starting section. From here you can go to the second named section (5) or to the good end (3). 
-7 () - (EMPTY)
-END DEBUG OUTPUT
+"Introduction" : {
+  "intro" : true,
+  "text" : ["" ," Adding an introduction to the gamebook here. This will create a section, but it will not be shuffled nor numbered with the gamebook sections below. "]
+},
+
+"Another Heading" : {
+  "intro" : true,
+  "text" : ["" ," This starts another non-shuffled section. ", {"footnote" : "A footnote in Another Heading."}," "]
+},
+
+  "sections" : {"IGNORE-debug-json-padding-IGNORE" : "", "start" : {
+  "nr" : 1,
+  "text" : ["" ," This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like } and { and \" and ' and \\. HTML will probably not like <div> or &boom;. You can make named references ",{"reference" : "6", "name" : "like this"}," (just happens to be exactly the same syntax as in emacs org-mode btw). This book also includes a ",{"reference" : "4", "name" : "format-specific section"},". There should be an image below as well. If something broke, turn to ",{"reference" : "2"},", otherwise turn to ",{"reference" : "3"},".", {"footnote" : "Good footnote."}," ",{"img" : "testimage.png"}
+," "]
+}
+, "bad" : {
+  "nr" : 2,
+  "text" : ["" ," Bad."]
+}
+, "good" : {
+  "nr" : 3,
+  "text" : ["" ," Good! "]
+}
+, "formatspecific" : {
+  "nr" : 4,
+  "text" : ["" ," This is the format-specific section for no other formats. Now you ",{"reference" : "2", "name" : "lose"},". "]
+}
+, "named2" : {
+  "nr" : 5,
+  "text" : ["" ," Very good. ",{"reference" : "3", "name" : "You win"},".", {"footnote" : "Win footnote."}," "]
+}
+, "named1" : {
+  "nr" : 6,
+  "text" : ["" ," This is where you should end up when you follow the named reference from the starting section. From here you can go to ",{"reference" : "5", "name" : "the second named section"}," or to the ",{"reference" : "3", "name" : "good end"},". "]
+}
+, "empty-7" : {
+  "nr" : 7,
+  "text" : [""]
+}
+}}

@@ -1,7 +1,9 @@
-BEGIN DEBUG OUTPUT
-Book title: Letter
-Number of sections: 1
+{
+  "title" : "Letter",
+  "nr_sections" : "1",
 
-Turn to 1 to begin.
-1 (start) -  LaTeX output (and this PDF output) from this book should be in letter size rather than the default A5 size (see command-line options used in letter.gamebook.options).
-END DEBUG OUTPUT
+  "sections" : {"IGNORE-debug-json-padding-IGNORE" : "", "start" : {
+  "nr" : 1,
+  "text" : ["" ," LaTeX output (and this PDF output) from this book should be in letter size rather than the default A5 size (see command-line options used in letter.gamebook.options)."]
+}
+}}

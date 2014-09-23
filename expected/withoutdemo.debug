@@ -1,14 +1,37 @@
-BEGIN DEBUG OUTPUT
-Book title: Gamebook
-Number of sections: 8
+{
+  "title" : "Gamebook",
+  "nr_sections" : "8",
 
-Turn to 1 to begin.
-1 (start) -  This gamebook contains a few sections tagged as demo, that will be included when building the example as withdemo.gamebook (see withdemo.gamebook.options file). There are also some sections without the demo tag that will be ignored. This version is built without options and includes all sections. Go on to 7 or 5 or 8. 
-2 (altend) -  Alternative end. Not included in the demo.
-3 (demoinfo) -  This is where references to non-demo sections will lead you. It is configured at the top of the gamebook file. Remember to tag this section correctly to be included. Nothing should lead to this section when building without the demo tag option. Go on to 5. 
-4 (theend) -  This is the end. It is also included in the demo. 
-5 (demo2) -  This is the second demo section. You can go on to the end at 4 or alternative (not in demo) end at 2. 
-6 (notindemo2) -  This section is not included in the demo. You can go on to 5 or 4 or 2. 
-7 (demo1) -  This is the first demo section (not counting the start section). You can go on to the end at 4. 
-8 (notindemo1) -  This section is not included in the demo. Turn to 6. 
-END DEBUG OUTPUT
+  "sections" : {"IGNORE-debug-json-padding-IGNORE" : "", "start" : {
+  "nr" : 1,
+  "text" : ["" ," This gamebook contains a few sections tagged as demo, that will be included when building the example as withdemo.gamebook (see withdemo.gamebook.options file). There are also some sections without the demo tag that will be ignored. This version is built without options and includes all sections. Go on to ",{"reference" : "7"}," or ",{"reference" : "5"}," or ",{"reference" : "8"},". "]
+}
+, "altend" : {
+  "nr" : 2,
+  "text" : ["" ," Alternative end. Not included in the demo."]
+}
+, "demoinfo" : {
+  "nr" : 3,
+  "text" : ["" ," This is where references to non-demo sections will lead you. It is configured at the top of the gamebook file. Remember to tag this section correctly to be included. Nothing should lead to this section when building without the demo tag option. Go on to ",{"reference" : "5"},". "]
+}
+, "theend" : {
+  "nr" : 4,
+  "text" : ["" ," This is the end. It is also included in the demo. "]
+}
+, "demo2" : {
+  "nr" : 5,
+  "text" : ["" ," This is the second demo section. You can go on to the end at ",{"reference" : "4"}," or alternative (not in demo) end at ",{"reference" : "2"},". "]
+}
+, "notindemo2" : {
+  "nr" : 6,
+  "text" : ["" ," This section is not included in the demo. You can go on to ",{"reference" : "5"}," or ",{"reference" : "4"}," or ",{"reference" : "2"},". "]
+}
+, "demo1" : {
+  "nr" : 7,
+  "text" : ["" ," This is the first demo section (not counting the start section). You can go on to the end at ",{"reference" : "4"},". "]
+}
+, "notindemo1" : {
+  "nr" : 8,
+  "text" : ["" ," This section is not included in the demo. Turn to ",{"reference" : "6"},". "]
+}
+}}
