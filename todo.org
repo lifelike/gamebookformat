@@ -1,4 +1,4 @@
-* TODO [64/92] [69%]
+* TODO [64/93] [68%]
 ** DONE Debug output
 ** DONE DOT output
 ** DONE LaTeX output
@@ -181,3 +181,7 @@ listed even if it is not tagged.
     or treat as any other missing section otherwise.
 ** TODO checkgamebook.py ignore dummy and fake sections
 ** TODO checkgamebook.py trace items to find sections they are needed but can not have been found
+** TODO tag to generate checkgamebook.py warnings
+   Some tag that can be set on incomplete sections to trigger warnings
+   as a reminder that the book is not done yet, and show you what
+   sections remain to be written.

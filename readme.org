@@ -97,6 +97,11 @@ unlocked because it is impossible to find enough money to
 pay for a key. Future versions will hopefully catch more
 problems, but never all of them in complex books.
 
+Run *checkgamebook.py -v* for verbose mode. Currently that just
+means that all ending (death?) sections of the book are printed,
+allowing you to manually check that there are no unexpected
+dead-ends.
+
 ** Number Map Files
 Whenever formatgamebook.py runs it looks for a file with the same
 name as the output file, but with a .map suffix (eg output.map if
