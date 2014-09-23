@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 
 """
-Copyright (c) 2013, Pelle Nilsson
+Copyright (c) 2013-2014, Pelle Nilsson
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
