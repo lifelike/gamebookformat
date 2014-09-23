@@ -112,6 +112,11 @@ map file can also be used from other scripts to easily read
 what numbers were assigned to sections, if you need to
 use the number of some section for something outside of
 the gamebook itself.
+
+tl;dr: If you make different output files in different formats the
+generated .map file will ensure that all files use the same
+random numbers for the same section.
+
 ** Gamebook Format
 The input file expected by the formatgamebook.py script must be in a
 format containing information about all sections in the book
