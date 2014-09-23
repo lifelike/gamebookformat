@@ -67,9 +67,12 @@ def traverse(sections, references, function, data):
 def traverse_add(section, data):
     data.add(section)
 
+def check_report(msg):
+    print "%s: %s" % (sys.argv[len(sys.argv)-1], msg)
+
 found_errors = False # yay, global state
 def check_error(msg):
-    print "%s: %s" % (sys.argv[1], msg)
+    check_report(msg)
     global found_errors
     found_errors = True
 
@@ -80,7 +83,15 @@ def check_all_sections_can_be_reached_in_theory(sections, references):
         if section not in reached:
             check_error("Could not reach section '%s' from start." % section)
 
-def check_gamebook(inputfilename):
+def report_all_ending_sections(sections, references):
+    ending_sections = []
+    for section in sections:
+        if len(references[section]) == 0:
+            ending_sections.append(section)
+    for ending_section in ending_sections:
+        check_report("ending (death?) section found: %s" % ending_section)
+
+def parse_book(inputfilename):
     book = json.load(open(inputfilename))
     sections = book["sections"]
     if not "start" in sections:
@@ -91,7 +102,16 @@ def check_gamebook(inputfilename):
         if section.startswith("empty-"):
             del sections[section]
     references = find_references(sections)
+    return [sections, references]
+
+def verbose_report_gamebook(sections, references):
+    report_all_ending_sections(sections, references)
+
+def check_gamebook(inputfilename, verbose):
+    [sections, references] = parse_book(inputfilename)
     check_all_sections_can_be_reached_in_theory(sections, references)
+    if verbose:
+        verbose_report_gamebook(sections, references)
 
 if __name__ == '__main__':
     import argparse
@@ -99,8 +119,11 @@ if __name__ == '__main__':
         formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('inputfile', metavar='debugfile',
                     help='input gamebook debug file (eg test.debug)')
+    ap.add_argument('-v', '--verbose', action='store_true',
+                    dest='verbose',
+                    help='verbose output')
     args = ap.parse_args()
-    check_gamebook(args.inputfile)
+    check_gamebook(args.inputfile, args.verbose)
     if found_errors:
         sys.exit(1)
     else:
