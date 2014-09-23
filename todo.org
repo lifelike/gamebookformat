@@ -1,4 +1,4 @@
-* TODO [61/83] [73%]
+* TODO [62/92] [67%]
 ** DONE Debug output
 ** DONE DOT output
 ** DONE LaTeX output
@@ -77,6 +77,10 @@
   test those from nodejs?
 ** DONE Make debug output more useful with a stricter format easy to parse.
    Will be taken care of when implementing JSON output.
+** DONE checkgamebook.py script, parse debug file JSON
+   CLOSED: [2014-09-23 Tue 21:52]
+** TODO checkgamebook.py build internal section graph
+** TODO checkgamebook.py find unreachable sections
 ** TODO JavaScript improved design/code for what links to enable
    Many strange things can happen when clicking one link changes something
    that should now enable or disable some link. Instead of the current
@@ -133,12 +137,12 @@
 ** TODO Somewhat user-friendly js error messages and always fail early
 ** TODO More formatting possibilities in sections
   Look at existing gamebooks to get ideas to add to this todo list.
-** TODO Document Gamebook format
-  - Basic gamebook (static, nothing about magic needed for dynamic; tutorial)
-  - Advanced (more complex layout options, but still static)
-  - Dynamic (markup needed to make playable (HTML) version)
-  - Standard output formats reference
-  - Customization (make new output formats or override existing)
+** TODO Document Gamebook format Basic gamebook (static, nothing about magic needed for dynamic)
+** TODO Document Gamebook format Advanced (more complex layout options, but still static)
+** TODO Document Gamebook format Dynamic (markup needed to make playable (HTML) version)
+** TODO Document Gamebook format Standard output formats reference
+** TODO Document Gamebook format Customization (make new output formats or override existing)
+** TODO Reference documentation (all default template tags)
 ** TODO Make it possible for a modifier tag to refer to any other tag
 Currently a modifier (eg cost) always applies to tag on its left or right,
 and it can be a bit confusing to remember what direction, or awkward to
@@ -173,4 +177,5 @@ listed even if it is not tagged.
     differently from the normal include/exclude tags unfortunately.
    Allow multiple sections with the same name, only use one that matches,
     or treat as any other missing section otherwise.
-** TODO Dummy and fake sections (handle properly when verifying)
+** TODO checkgamebook.py ignore dummy and fake sections
+** TODO checkgamebook.py trace items to find sections they are needed but can not have been found
