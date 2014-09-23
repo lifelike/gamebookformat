@@ -90,10 +90,12 @@ on a book and warn about things that do not look right.
 To use it first generate a *debug* output file version of
 the book, using the same flags (eg include-tags) as when
 formatting the real book. Then run *checkgamebook.py bookname.debug*.
-(TODO: Currently does not really test anything. The idea
-is that it should do things like trying to tell you about
-sections that can not be reached, or items that are required
-before they can possibly have been found.)
+Currently only tests that all sections can be reached, in theory,
+from the *start* section. It only looks for existing references,
+and has no idea for instance if a locked door can never be
+unlocked because it is impossible to find enough money to
+pay for a key. Future versions will hopefully catch more
+problems, but never all of them in complex books.
 
 ** Number Map Files
 Whenever formatgamebook.py runs it looks for a file with the same
