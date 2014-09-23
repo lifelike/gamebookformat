@@ -8,6 +8,8 @@ pdf: $(examples:.gamebook=.pdf)
 html: $(examples:.gamebook=.html) examples/gamebookformatplay.js \
 	examples/gamebookformat.css
 debug: $(examples:.gamebook=.debug)
+check: $(examples:.gamebook=.check)
+vcheck: $(examples:.gamebook=.vcheck)
 dot: $(examples:.gamebook=.dot)
 png: $(examples:.gamebook=.png)
 txt: $(examples:.gamebook=.txt)
@@ -39,6 +41,12 @@ examples/gamebookformat.css: gamebookformat.css
 %.debug: %.gamebook *.py templates/debug/*.debug
 	python2.7 ./buildexamplegamebook.py $< $@
 
+%.check: %.debug
+	python2.7 ./checkgamebook.py $< > $@ || true
+
+%.vcheck: %.debug
+	python2.7 ./checkgamebook.py -v $< > $@ || true
+
 %.txt:  %.gamebook *.py templates/txt/*.txt
 	python2.7 ./buildexamplegamebook.py $< $@
 
@@ -50,12 +58,12 @@ examples/gamebookformat.css: gamebookformat.css
 
 test: unittest checkexpected templatejstest
 
-expected: rtf tex html debug txt dot map
+expected: rtf tex html debug txt dot map check vcheck
 	$(RM) expected/* && \
-		cp examples/*.{rtf,tex,html,debug,txt,dot,map} \
+		cp examples/*.{rtf,tex,html,debug,txt,dot,map,check,vcheck} \
 		 expected
 
-checkexpected: clean rtf tex html debug dot txt
+checkexpected: clean rtf tex html debug dot txt check vcheck
 	diff -r -x "*.aux" -x "*.gamebook" -x "*.log" -x "*.out" -x "*.png" \
 		-x "*.pdf" -x .gitignore -x "*.js" -x "*.css" \
 		-x "*.options" -q examples expected
@@ -80,8 +88,8 @@ templatejstest:
 
 clean:
 	$(RM) examples/*rtf examples/*.html examples/*.tex \
-	examples/*.txt examples/*.debug examples/*.log \
-	examples/*.pdf examples/*.out *~ examples/*~ *.pyc \
+	examples/*.txt examples/*.debug examples/*.check examples/*.log \
+	examples/*.pdf examples/*.out *~ examples/*~ *.pyc examples/*.vcheck \
 	examples/*.dot examples/*.aux examples/*.toc $(png) \
 	$(map) templates/*~ templates/*/*~ \
 	$(examples:.gamebook=.png) readme.html \
@@ -91,7 +99,7 @@ fixmes:
 	grep FIXME *.py
 
 .PHONY: all clean fixmes uploadto expected checkexpected test unittest \
-	templatejstest xmllinthtmlbook
+	templatejstest xmllinthtmlbook check vcheck
 
 .PRECIOUS: %.tex %.dot
 

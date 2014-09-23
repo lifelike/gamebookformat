@@ -7,6 +7,8 @@ test.dot
 *.aux
 *.toc
 *.pdf
+examples/*.check
+examples/*.vcheck
 test.rtf
 *.out
 test.html
