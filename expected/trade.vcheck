@@ -1,2 +1,2 @@
-examples/trade.debug: Could not reach section 'someotherplace' from start.
-examples/trade.debug: ending (death?) section found: theend
+examples/trade.json: Could not reach section 'someotherplace' from start.
+examples/trade.json: ending (death?) section found: theend

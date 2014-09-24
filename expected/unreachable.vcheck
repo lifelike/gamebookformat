@@ -1,7 +1,7 @@
-examples/unreachable.debug: Could not reach section 'nothere' from start.
-examples/unreachable.debug: Could not reach section 'nothereeither' from start.
-examples/unreachable.debug: Could not reach section 'secondfake' from start.
-examples/unreachable.debug: ending (death?) section found: nothere
-examples/unreachable.debug: ending (death?) section found: here
-examples/unreachable.debug: ending (death?) section found: nothereeither
-examples/unreachable.debug: ending (death?) section found: secondfake
+examples/unreachable.json: Could not reach section 'nothere' from start.
+examples/unreachable.json: Could not reach section 'nothereeither' from start.
+examples/unreachable.json: Could not reach section 'secondfake' from start.
+examples/unreachable.json: ending (death?) section found: nothere
+examples/unreachable.json: ending (death?) section found: here
+examples/unreachable.json: ending (death?) section found: nothereeither
+examples/unreachable.json: ending (death?) section found: secondfake

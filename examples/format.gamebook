@@ -50,7 +50,7 @@ This is the format-specific HTML section. Now you [[good][win]].
 * formatspecific :TXT:
 This is the format-specific TXT section. Now you [[good][win]].
 
-*formatspecific :DOT:RTF:DEBUG:
+*formatspecific :DOT:RTF:JSON:
 This is the format-specific section for no other formats. Now you [[bad][lose]].
 
 * good

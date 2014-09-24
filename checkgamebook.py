@@ -33,8 +33,6 @@ import os.path
 import sys
 import json
 
-USAGE = "usage: %prog [options] inputfile(s)... outputfile"
-
 def find_section_nr_names(sections):
     section_nr_to_name = {}
     for section_name,section_contents in sections.iteritems():
@@ -118,7 +116,7 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser(
         formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('inputfile', metavar='debugfile',
-                    help='input gamebook debug file (eg test.debug)')
+                    help='input gamebook JSON file (eg test.json)')
     ap.add_argument('-v', '--verbose', action='store_true',
                     dest='verbose',
                     help='verbose output')

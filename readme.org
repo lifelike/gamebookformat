@@ -28,7 +28,7 @@ gamebook on paper or a screen (or for debugging it).
 | Graphviz DOT     | .dot      | Use with the [[http://www.graphviz.org][Graphviz]] dot tool to generate a flowchart graph of all sections in the gamebook. |
 | HTML             | .html     | Play gamebook in browser.                                                                     |
 | Plain Text       | .txt      | Raw plain text without formatting.                                                            |
-| Debug JSON       | .debug    | [[http://json.org][JSON-formatted]] debug output of gamebook contents.                                             |
+| JSON             | .json     | [[http://json.org][JSON-format]] for debugging                                                                     |
 
 More to be added. Custom output formats or modifications to the
 default formats can easily be added. Use the *-t* command-line
@@ -87,9 +87,9 @@ you like.
 ** Check Gamebook
 The included *checkgamebook.py* script can be used to run tests
 on a book and warn about things that do not look right.
-To use it first generate a *debug* output file version of
+To use it first generate a *json* output file version of
 the book, using the same flags (eg include-tags) as when
-formatting the real book. Then run *checkgamebook.py bookname.debug*.
+formatting the real book. Then run *checkgamebook.py bookname.json*.
 Currently only tests that all sections can be reached, in theory,
 from the *start* section. It only looks for existing references,
 and has no idea for instance if a locked door can never be
