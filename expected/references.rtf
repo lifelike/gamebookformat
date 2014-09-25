@@ -14,56 +14,54 @@
 
 
 
-\ql  This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at \b 1
+\ql  This gamebook demonstrates simple references between sections. Also notice that an intro section like this one can reference sections, like the start at \b {\field{\*\fldinst  REF s1 \\h }{\fldrslt 1}}
 \b0
- or the next section at \b 400
+ or the next section at \b {\field{\*\fldinst  REF s400 \\h }{\fldrslt 400}}
 \b0
-. References can include an optional name that is used in some formats, so the same links could also be rendered as start (
-\b 1
+. References can include an optional name that is used in some formats, so the same links could also be rendered as \b {\field{\*\fldinst  REF s1 \\h }{\fldrslt start}}
 \b0
-)
- and next (
-\b 400
+
+ and \b {\field{\*\fldinst  REF s400 \\h }{\fldrslt next}}
 \b0
-)
+
 .  \
 \
 \b Turn to 1 to begin.
 \b0\
 \
-\b \qc 1
+\b \qc {\*\bkmkstart s1}1{\*\bkmkend s1}
 \b0\
-\ql  This is where the adventure begins. You can go on to the next section, see \b 400
+\ql  This is where the adventure begins. You can go on to the next section, see \b {\field{\*\fldinst  REF s400 \\h }{\fldrslt 400}}
 \b0
- or try the random selection feature at \b 399
+ or try the random selection feature at \b {\field{\*\fldinst  REF s399 \\h }{\fldrslt 399}}
 \b0
 .  \
 \
 
-\b \qc 397
+\b \qc {\*\bkmkstart s397}397{\*\bkmkend s397}
 \b0\
 \ql  The end.  \
 \
 
-\b \qc 398
+\b \qc {\*\bkmkstart s398}398{\*\bkmkend s398}
 \b0\
 \ql  Alternative ending.  \
 \
 
-\b \qc 399
+\b \qc {\*\bkmkstart s399}399{\*\bkmkend s399}
 \b0\
-\ql  Pick a destination at random from \b 400
+\ql  Pick a destination at random from \b {\field{\*\fldinst  REF s400 \\h }{\fldrslt 400}}
 \b0
- or \b 397
+ or \b {\field{\*\fldinst  REF s397 \\h }{\fldrslt 397}}
 \b0
- or \b 398
+ or \b {\field{\*\fldinst  REF s398 \\h }{\fldrslt 398}}
 \b0
 .  \
 \
 
-\b \qc 400
+\b \qc {\*\bkmkstart s400}400{\*\bkmkend s400}
 \b0\
-\ql  This is the next section. Go on to the end at \b 397
+\ql  This is the next section. Go on to the end at \b {\field{\*\fldinst  REF s397 \\h }{\fldrslt 397}}
 \b0
 .  \
 \

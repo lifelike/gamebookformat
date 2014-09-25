@@ -19,21 +19,21 @@
 \b Turn to 1 to begin.
 \b0\
 \
-\b \qc 1
+\b \qc {\*\bkmkstart s1}1{\*\bkmkend s1}
 \b0\
 \ql  There has to be a section set as missingto (ie this section), otherwise generating a list with only todo sections will fail (as one of them references non-todo sections). Unfortunate side-effect is that this section will always be included in the list. TODO figure out some fix for this. \
 \
 
-\b \qc 2
+\b \qc {\*\bkmkstart s2}2{\*\bkmkend s2}
 \b0\
 \ql  Need to write this section. Sorry for it being a dead-end for now.  \
 \
 
-\b \qc 3
+\b \qc {\*\bkmkstart s3}3{\*\bkmkend s3}
 \b0\
-\ql  (This section needs some work!) Here you find a key and a stick. You can go west to \b 1
+\ql  (This section needs some work!) Here you find a key and a stick. You can go west to \b {\field{\*\fldinst  REF s1 \\h }{\fldrslt 1}}
 \b0
-, or east to \b 2
+, or east to \b {\field{\*\fldinst  REF s2 \\h }{\fldrslt 2}}
 \b0
 .  \
 \

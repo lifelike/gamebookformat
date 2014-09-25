@@ -27,24 +27,23 @@
 \b Turn to 1 to begin.
 \b0\
 \
-\b \qc 1
+\b \qc {\*\bkmkstart s1}1{\*\bkmkend s1}
 \b0\
 \ql  Got to this section. Story ends here. \
 \
 
-\b \qc 2
+\b \qc {\*\bkmkstart s2}2{\*\bkmkend s2}
 \b0\
 \ql  Got to another section. Story ends here.  \
 \
 
-\b \qc 3
+\b \qc {\*\bkmkstart s3}3{\*\bkmkend s3}
 \b0\
-\ql  This is the first section. From here you can go to the unnamed section \b 2
+\ql  This is the first section. From here you can go to the unnamed section \b {\field{\*\fldinst  REF s2 \\h }{\fldrslt 2}}
 \b0
- or this named section (
-\b 1
+ or \b {\field{\*\fldinst  REF s1 \\h }{\fldrslt this named section}}
 \b0
-)
+
 .  \
 \
 

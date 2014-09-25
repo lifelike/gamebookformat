@@ -28,64 +28,58 @@
 \b Adventure begins in section 1.
 \b0\
 \
-\b \qc 1
+\b \qc {\*\bkmkstart s1}1{\*\bkmkend s1}
 \b0\
-\ql  This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like \} and \{ and " and ' and \\. HTML will probably not like <div> or &boom;. You can make named references like this (
-\b 6
+\ql  This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like \} and \{ and " and ' and \\. HTML will probably not like <div> or &boom;. You can make named references \b {\field{\*\fldinst  REF s6 \\h }{\fldrslt like this}}
 \b0
-)
- (just happens to be exactly the same syntax as in emacs org-mode btw). This book also includes a format-specific section (
-\b 4
+
+ (just happens to be exactly the same syntax as in emacs org-mode btw). This book also includes a \b {\field{\*\fldinst  REF s4 \\h }{\fldrslt format-specific section}}
 \b0
-)
-. There should be an image below as well. If something broke, turn to \b 2
+
+. There should be an image below as well. If something broke, turn to \b {\field{\*\fldinst  REF s2 \\h }{\fldrslt 2}}
 \b0
-, otherwise turn to \b 3
+, otherwise turn to \b {\field{\*\fldinst  REF s3 \\h }{\fldrslt 3}}
 \b0
 . (Good footnote.)
  
   \
 \
 
-\b \qc 2
+\b \qc {\*\bkmkstart s2}2{\*\bkmkend s2}
 \b0\
 \ql  Bad. \
 \
 
-\b \qc 3
+\b \qc {\*\bkmkstart s3}3{\*\bkmkend s3}
 \b0\
 \ql  Good!  \
 \
 
-\b \qc 4
+\b \qc {\*\bkmkstart s4}4{\*\bkmkend s4}
 \b0\
-\ql  This is the format-specific section for no other formats. Now you lose (
-\b 2
+\ql  This is the format-specific section for no other formats. Now you \b {\field{\*\fldinst  REF s2 \\h }{\fldrslt lose}}
 \b0
-)
+
 .  \
 \
 
-\b \qc 5
+\b \qc {\*\bkmkstart s5}5{\*\bkmkend s5}
 \b0\
-\ql  Very good. You win (
-\b 3
+\ql  Very good. \b {\field{\*\fldinst  REF s3 \\h }{\fldrslt You win}}
 \b0
-)
+
 . (Win footnote.)
   \
 \
 
-\b \qc 6
+\b \qc {\*\bkmkstart s6}6{\*\bkmkend s6}
 \b0\
-\ql  This is where you should end up when you follow the named reference from the starting section. From here you can go to the second named section (
-\b 5
+\ql  This is where you should end up when you follow the named reference from the starting section. From here you can go to \b {\field{\*\fldinst  REF s5 \\h }{\fldrslt the second named section}}
 \b0
-)
- or to the good end (
-\b 3
+
+ or to the \b {\field{\*\fldinst  REF s3 \\h }{\fldrslt good end}}
 \b0
-)
+
 .  \
 \
 
