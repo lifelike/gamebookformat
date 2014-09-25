@@ -73,6 +73,31 @@ instance by making a template with a *html/head-overrides.html* file).
 (TODO: Add example showing how to do that, because the last few
 sentences here probably did not make sense to anyone.)
 
+** PDF (easy way)
+An easy way to make a PDF is to make a *RTF* of a book
+(eg *formatgamebook.py mybook.gamebook mybook.rtf*) and then
+open the created document in [[http://www.libreoffice.org/][LibreOffice]] and use the
+Export to PDF feature in that application. You might also have
+luck using other applications like OpenOffice or Microsoft Office,
+although LibreOffice is known to be able to generate a PDF with
+all cross-references still intact, and it's free anyway, so if
+you have a problem with the other applications you can always
+install it and hopefully that will work. The problem with
+RTF is that the generated document is very plain, has no
+images (yet?) and it is rather painful to write custom
+templates for.
+You might also have success converting the static HTML
+version to PDF, if you find a tool that does a good job
+at that (recommendations?).
+** PDF (good way)
+The best way to make a PDF is to export to *TEX* ([[http://www.latex-project.org/][LaTeX]]) and then
+use LaTeX (in one of its many versions) to create a PDF. This
+will look much better than going through RTF, but explaining how
+to install and use LaTeX is beyond this README document. A good
+thing about LaTeX is that templates can be easily created to
+do any layout and decorations you can imagine for your book, so
+you can get a professional gamebook to print, if you
+[[http://en.wikibooks.org/wiki/LaTeX][read up a bit on how LaTeX works first]].
 ** EPUB
 There is no built-in support for generating EPUB books, however
 there are numerous tools out there to import one of the
