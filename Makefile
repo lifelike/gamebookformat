@@ -1,13 +1,13 @@
 examples=$(wildcard examples/*.gamebook)
 
-all: rtf pdf html debug png txt
+all: rtf pdf html json png txt
 
 rtf: $(examples:.gamebook=.rtf)
 tex: $(examples:.gamebook=.tex)
 pdf: $(examples:.gamebook=.pdf)
 html: $(examples:.gamebook=.html) examples/gamebookformatplay.js \
 	examples/gamebookformat.css
-debug: $(examples:.gamebook=.debug)
+json: $(examples:.gamebook=.json)
 check: $(examples:.gamebook=.check)
 vcheck: $(examples:.gamebook=.vcheck)
 dot: $(examples:.gamebook=.dot)
@@ -38,13 +38,13 @@ examples/gamebookformat.css: gamebookformat.css
 %.dot: %.gamebook *.py templates/dot/*.dot
 	python2.7 ./buildexamplegamebook.py $< $@
 
-%.debug: %.gamebook *.py templates/debug/*.debug
+%.json: %.gamebook *.py templates/json/*.json
 	python2.7 ./buildexamplegamebook.py $< $@
 
-%.check: %.debug
+%.check: %.json
 	python2.7 ./checkgamebook.py $< > $@ || true
 
-%.vcheck: %.debug
+%.vcheck: %.json
 	python2.7 ./checkgamebook.py -v $< > $@ || true
 
 %.txt:  %.gamebook *.py templates/txt/*.txt
@@ -58,12 +58,12 @@ examples/gamebookformat.css: gamebookformat.css
 
 test: unittest checkexpected templatejstest
 
-expected: rtf tex html debug txt dot map check vcheck
+expected: rtf tex html json txt dot map check vcheck
 	$(RM) expected/* && \
-		cp examples/*.{rtf,tex,html,debug,txt,dot,map,check,vcheck} \
+		cp examples/*.{rtf,tex,html,json,txt,dot,map,check,vcheck} \
 		 expected
 
-checkexpected: clean rtf tex html debug dot txt check vcheck
+checkexpected: clean rtf tex html json dot txt check vcheck
 	diff -r -x "*.aux" -x "*.gamebook" -x "*.log" -x "*.out" -x "*.png" \
 		-x "*.pdf" -x .gitignore -x "*.js" -x "*.css" \
 		-x "*.options" -q examples expected
@@ -88,7 +88,7 @@ templatejstest:
 
 clean:
 	$(RM) examples/*rtf examples/*.html examples/*.tex \
-	examples/*.txt examples/*.debug examples/*.check examples/*.log \
+	examples/*.txt examples/*.json examples/*.check examples/*.log \
 	examples/*.pdf examples/*.out *~ examples/*~ *.pyc examples/*.vcheck \
 	examples/*.dot examples/*.aux examples/*.toc $(png) \
 	$(map) templates/*~ templates/*/*~ \

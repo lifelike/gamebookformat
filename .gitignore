@@ -1,6 +1,6 @@
 *~
 *.pyc
-test.debug
+test.json
 test.tex
 test.dot
 *.log
@@ -9,6 +9,7 @@ test.dot
 *.pdf
 examples/*.check
 examples/*.vcheck
+examples/*.json
 test.rtf
 *.out
 test.html

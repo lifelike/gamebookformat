@@ -1,4 +1,4 @@
-* TODO [64/93] [68%]
+* TODO [65/95] [68%]
 ** DONE Debug output
 ** DONE DOT output
 ** DONE LaTeX output
@@ -83,7 +83,10 @@
    CLOSED: [2014-09-23 Tue 23:10]
 ** DONE checkgamebook.py find unreachable sections
    CLOSED: [2014-09-23 Tue 23:10]
-** TODO JavaScript improved design/code for what links to enable
+** DONE Debug output should be called just JSON
+   CLOSED: [2014-09-24 Wed 21:36]
+** TODO JavaScript improved design/code for what links to enable using JSON
+   Rewrite HTML player to generate HTML from JSON dynamically.
    Many strange things can happen when clicking one link changes something
    that should now enable or disable some link. Instead of the current
    hacks all links should be re-calculated every time something have been
@@ -185,3 +188,5 @@ listed even if it is not tagged.
    Some tag that can be set on incomplete sections to trigger warnings
    as a reminder that the book is not done yet, and show you what
    sections remain to be written.
+** TODO Generic MAP section numbers substitution script
+   Use generated MAP file to insert section numbers in any external file.

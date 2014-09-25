@@ -19,7 +19,7 @@ You can also go to [[someotherplace]] but an angry troll
 is blocking your path and will only allow you to go there
 if you give it a [trade item]gold ring[/trade].
 
-* other :TXT:DEBUG:TEX:DOT:RTF:
+* other :TXT:JSON:TEX:DOT:RTF:
 Now you have 50 less gold than you just had.
 You can go back to [[start]].
 

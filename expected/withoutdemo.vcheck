@@ -1,3 +1,3 @@
-examples/withoutdemo.debug: Could not reach section 'demoinfo' from start.
-examples/withoutdemo.debug: ending (death?) section found: theend
-examples/withoutdemo.debug: ending (death?) section found: altend
+examples/withoutdemo.json: Could not reach section 'demoinfo' from start.
+examples/withoutdemo.json: ending (death?) section found: theend
+examples/withoutdemo.json: ending (death?) section found: altend
