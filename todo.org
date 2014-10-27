@@ -85,12 +85,39 @@
    CLOSED: [2014-09-23 Tue 23:10]
 ** DONE Debug output should be called just JSON
    CLOSED: [2014-09-24 Wed 21:36]
-** TODO JavaScript improved design/code for what links to enable using JSON
-   Rewrite HTML player to generate HTML from JSON dynamically.
+** TODO Make default templates for more tags
+   Many tags can default to do the same as a b-tag for bold for instance.
+   Make as many DEFAULT templates as possible and remove format-specific ones.
+   This will make further development so much more nice.
+** TODO Paged option
+   Option -o paged to make each section render on its own page.
+   Add template overrides for at least html, tex, and rtf.
+   Probably change the style for section headers as well.
+** TODO include templates for generating tags for each section
+	start, separator, end (probably only for JSON and HTML now)
+** TODO include templates for generating book config
+	start, separator, end (probably only for JSON and HTML now)
+** TODO JavaScript improved design/code for what links to enable
    Many strange things can happen when clicking one link changes something
    that should now enable or disable some link. Instead of the current
    hacks all links should be re-calculated every time something have been
    clicked, doing the same checks as when first displaying a section.
+** TODO Reset tag
+	Show in dynamic HTML only, and only after something was changed in
+   	current section. Eg if player picks something up or buys something,
+	then wants to undo that, there should be a link to do so. Text inside
+	of tags is displayed as the clickable link to reset section.
+** TODO return-links
+  Insert reference link to return to most recent section tagged as :RETURNHERE:.
+  This will be based on the order sections are written in the file (for now?).
+  This is probably a special case (ie hack) based on normal references.
+** TODO :UNIQUE: tag
+  If a section has a :UNIQUE: tag, every link to it creates a new unique copy
+  with automatically generated name. This is not recursive, so to make entire
+ subtrees that are unique every section in the subtree must be tagged.
+  This is done early in the parsing, so everything will treat the clones as
+ different sections. If a number is given it is applied to first generated clone.
+ That is probably not very useful but whatever.
 ** TODO Pick a specific number of things from those found in a(n intro) section
   Used to pick up one or more of something found, or before starting.
   Create counter and set to how many are allowed to be picked.
@@ -114,6 +141,10 @@
    The js code to make sure that something you have had but later dropped
    can not be picked up again seems to be broken for things that
    have a price.
+** TODO automatic configurable explanation for things that were dropped
+   When disabling something found because it was dropped, display a
+   warning after automatically,eg default "(not available because you already picked it up)"
+   in some good style.
 ** TODO Use points to buy values for counters
  Eg to buy starting values for some attributes in introsection.
 ** TODO Counter max values, not leaving a section too early
@@ -137,6 +168,9 @@
    Allow multiple combat systems in the same book.
 ** TODO Some way to insert character sheet in book introduction
    Using a PNG image is not nice. Not sure yet what tags are needed.
+   Probably a charactersheet template that is only non-empty for formats
+   it makes sense in. For HTML all the inventory stuff etc could be moved
+   into the character sheet, making it also available in the static HTML.
 ** TODO Defensive removal of any weird unicode not handled by quoting.
 ** TODO Somewhat user-friendly python error messages and always fail early
 ** TODO Somewhat user-friendly js error messages and always fail early
