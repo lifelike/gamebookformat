@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>gamebookformat 1.0 documentation</title>
+    <script type="text/javascript" src="gamebookformatplay.js"></script>
+    <link rel="stylesheet" href="gamebookformat.css"
+          type="text/css" />
+    <script>
+      if (typeof gamebook !== 'undefined') {
+         gamebook.id = 'doc';
+      }
+    </script>
+  </head>
+  <body>
+<div class="hideintrolink nodisplay"
+    onclick="gamebook.hideIntroSections()">(hide instructions)</div>
+  <div class="gamebook">
+<div class="introsection">
+<div class="introsectionheading">Introduction</div>
+<div class="introsectionbody">
+ This is the documentation for gamebookformat 1.0. It was itself generated using gamebookformat (or more precisely the formatgamebook.py tool). 
+</div>
+</div>
+<div class="resumelink nodisplay"
+  onclick="gamebook.loadGame()">Resume saved game.</div>
+
+<div class="startlink"
+  onclick="gamebook.turnTo(1)">Turn to 1 to begin.</div>
+<script>
+    if (typeof gamebook !== 'undefined' && gamebook.hasSavedGame()) {
+        var resumeLinks = document.getElementsByClassName('resumelink');
+        Array.prototype.forEach.call(resumeLinks, function(e) {
+            e.classList.remove('nodisplay');
+        });
+    }
+</script>
+<div class="section" id="section1">
+<div class="sectionnumber" id="para1">1</div>
+<div class="sectiontext">
+ <b>Getting Started.</b>
+ 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(1, document.getElementById('section1'));
+}
+</script><div class="section" id="section2">
+<div class="sectionnumber" id="para2">2</div>
+<div class="sectiontext">
+ <b>Installation.</b>
+ 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(2, document.getElementById('section2'));
+}
+</script><div class="section" id="section3">
+<div class="sectionnumber" id="para3">3</div>
+<div class="sectiontext">
+ <b>Tutorials.</b>
+ There are 4 tutorials of increasing complexity currently included in this document: <a class="sectionref enabledlink" data-ref="4"
+href="#section4">The Basic Tutorial</a> shows how to make a simple static gamebook for printing or reading on a screen. <a class="sectionref enabledlink" data-ref="5"
+href="#section5">The Advanced Tutorial</a> adds many formatting tricks to make more interesting gamebooks, but still only very static. <a class="sectionref enabledlink" data-ref="6"
+href="#section6">The Dynamic Tutorial</a> finally explains how to add mark-up to your gamebooks to be make dynamic HTML gamebooks that can be played in a browser (while still work well if it is printed on paper or viewed in a simple ebook reader). Finally <a class="sectionref enabledlink" data-ref="7"
+href="#section7">The Customization Tutorial</a> shows how to override the default templates to make small or big changes to how gamebooks are rendered. The tutorials do not cover all features of gamebookformat, so also have a look at the included examples and the <a class="sectionref enabledlink" data-ref="8"
+href="#section8">Reference section below</a> to learn about all the things the tools can do.
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(3, document.getElementById('section3'));
+}
+</script><div class="section" id="section4">
+<div class="sectionnumber" id="para4">4</div>
+<div class="sectiontext">
+ <b>Basic Tutorial.</b>
+ This tutorial will guide you through creating a simple gamebook with linked sections of text with some simple formatting, resulting in static html and rtf documents that can be easily navigated for manual play printed on paper or on any computer or ebook reader.
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(4, document.getElementById('section4'));
+}
+</script><div class="section" id="section5">
+<div class="sectionnumber" id="para5">5</div>
+<div class="sectiontext">
+ <b>Advanced Tutorial.</b>
+ This tutorial continues the <a class="sectionref enabledlink" data-ref="4"
+href="#section4">Basic Tutorial</a>, only adding some more details to do more advanced formatting like adding images to books or how to make links that display text instead of numbers.
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(5, document.getElementById('section5'));
+}
+</script><div class="section" id="section6">
+<div class="sectionnumber" id="para6">6</div>
+<div class="sectiontext">
+ <b>Dynamic Tutorial.</b>
+ 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(6, document.getElementById('section6'));
+}
+</script><div class="section" id="section7">
+<div class="sectionnumber" id="para7">7</div>
+<div class="sectiontext">
+ <b>Customization Tutorial</b>
+.
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(7, document.getElementById('section7'));
+}
+</script><div class="section" id="section8">
+<div class="sectionnumber" id="para8">8</div>
+<div class="sectiontext">
+ <b>Reference.</b>
+
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(8, document.getElementById('section8'));
+}
+</script>    <div id="counters" class="counters">
+    </div>
+    <div id="counterTemplate" class="counterTemplate">
+      <span class="counterheading"></span>
+      <span class="countercontents"></span>
+    </div>
+    </div>
+    <div id="collections" class="collections">
+    </div>
+    <div id="collectionTemplate" class="collectionTemplate">
+      <span class="collectionheading"></span>
+      <span class="collectioncontents"></span>
+    </div>
+    </div>
+    <script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.prepare();
+}
+    </script>
+<div class="displayintrolink nodisplay"
+    onclick="gamebook.showIntroSections()">(show instructions)</div>
+    </div>
+  </body>
+</html>

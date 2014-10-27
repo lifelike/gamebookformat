@@ -1,0 +1,50 @@
+{
+  "title" : "gamebookformat 1.0 documentation",
+  "nr_sections" : "8",
+
+"Introduction" : {
+  "intro" : true,
+  "text" : ["" ," This is the documentation for gamebookformat 1.0. It was itself generated using gamebookformat (or more precisely the formatgamebook.py tool). "]
+},
+
+  "sections" : {"IGNORE-debug-json-padding-IGNORE" : "", "start" : {
+  "nr" : 1,
+  "text" : ["" ," ", "Getting Started."
+," "]
+}
+, "install" : {
+  "nr" : 2,
+  "text" : ["" ," ", "Installation."
+," "]
+}
+, "tutorials" : {
+  "nr" : 3,
+  "text" : ["" ," ", "Tutorials."
+," There are 4 tutorials of increasing complexity currently included in this document: ",{"reference" : "4", "name" : "The Basic Tutorial"}," shows how to make a simple static gamebook for printing or reading on a screen. ",{"reference" : "5", "name" : "The Advanced Tutorial"}," adds many formatting tricks to make more interesting gamebooks, but still only very static. ",{"reference" : "6", "name" : "The Dynamic Tutorial"}," finally explains how to add mark-up to your gamebooks to be make dynamic HTML gamebooks that can be played in a browser (while still work well if it is printed on paper or viewed in a simple ebook reader). Finally ",{"reference" : "7", "name" : "The Customization Tutorial"}," shows how to override the default templates to make small or big changes to how gamebooks are rendered. The tutorials do not cover all features of gamebookformat, so also have a look at the included examples and the ",{"reference" : "8", "name" : "Reference section below"}," to learn about all the things the tools can do."]
+}
+, "basictut" : {
+  "nr" : 4,
+  "text" : ["" ," ", "Basic Tutorial."
+," This tutorial will guide you through creating a simple gamebook with linked sections of text with some simple formatting, resulting in static html and rtf documents that can be easily navigated for manual play printed on paper or on any computer or ebook reader."]
+}
+, "advancedtut" : {
+  "nr" : 5,
+  "text" : ["" ," ", "Advanced Tutorial."
+," This tutorial continues the ",{"reference" : "4", "name" : "Basic Tutorial"},", only adding some more details to do more advanced formatting like adding images to books or how to make links that display text instead of numbers."]
+}
+, "dyntut" : {
+  "nr" : 6,
+  "text" : ["" ," ", "Dynamic Tutorial."
+," "]
+}
+, "custtut" : {
+  "nr" : 7,
+  "text" : ["" ," ", "Customization Tutorial"
+,"."]
+}
+, "reference" : {
+  "nr" : 8,
+  "text" : ["" ," ", "Reference."
+]
+}
+}}

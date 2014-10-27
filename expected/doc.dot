@@ -1,0 +1,8 @@
+digraph gamebook {
+Getting Started.Installation.Tutorials.3->4
+3->5
+3->6
+3->7
+3->8
+Basic Tutorial.Advanced Tutorial.5->4
+Dynamic Tutorial.Customization TutorialReference.}

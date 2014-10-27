@@ -1,0 +1,113 @@
+\documentclass[a5paper,onecolumn]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+
+\usepackage[top=3.3cm, bottom=3.3cm, left=2cm, right=2cm]{geometry}
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+  \pdffalse
+\else
+  \ifnum\pdfoutput=1
+    \pdftrue
+  \else
+    \pdffalse
+  \fi
+\fi
+
+\title{gamebookformat 1.0 documentation}
+\author{Pelle Nilsson}
+\date{}
+
+\newcounter{sectionnr}
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+
+\thispagestyle{empty}
+
+\pagestyle{empty}
+\subsection*{\begin{center} \textbf{Introduction} \end{center}}
+
+
+ \noindent
+ This is the documentation for gamebookformat 1.0. It was itself generated using gamebookformat (or more precisely the formatgamebook.py tool). 
+\vspace{1em}
+
+Turn to 1 to begin.
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section1}
+\subsection*{\begin{center} \textbf{1} \end{center}}
+
+ \noindent
+ Getting Started. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section2}
+\subsection*{\begin{center} \textbf{2} \end{center}}
+
+ \noindent
+ Installation. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section3}
+\subsection*{\begin{center} \textbf{3} \end{center}}
+
+ \noindent
+ Tutorials. There are 4 tutorials of increasing complexity currently included in this document: The Basic Tutorial (\textbf{\autoref{section4}})
+ shows how to make a simple static gamebook for printing or reading on a screen. The Advanced Tutorial (\textbf{\autoref{section5}})
+ adds many formatting tricks to make more interesting gamebooks, but still only very static. The Dynamic Tutorial (\textbf{\autoref{section6}})
+ finally explains how to add mark-up to your gamebooks to be make dynamic HTML gamebooks that can be played in a browser (while still work well if it is printed on paper or viewed in a simple ebook reader). Finally The Customization Tutorial (\textbf{\autoref{section7}})
+ shows how to override the default templates to make small or big changes to how gamebooks are rendered. The tutorials do not cover all features of gamebookformat, so also have a look at the included examples and the Reference section below (\textbf{\autoref{section8}})
+ to learn about all the things the tools can do.
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section4}
+\subsection*{\begin{center} \textbf{4} \end{center}}
+
+ \noindent
+ Basic Tutorial. This tutorial will guide you through creating a simple gamebook with linked sections of text with some simple formatting, resulting in static html and rtf documents that can be easily navigated for manual play printed on paper or on any computer or ebook reader.
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section5}
+\subsection*{\begin{center} \textbf{5} \end{center}}
+
+ \noindent
+ Advanced Tutorial. This tutorial continues the Basic Tutorial (\textbf{\autoref{section4}})
+, only adding some more details to do more advanced formatting like adding images to books or how to make links that display text instead of numbers.
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section6}
+\subsection*{\begin{center} \textbf{6} \end{center}}
+
+ \noindent
+ Dynamic Tutorial. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section7}
+\subsection*{\begin{center} \textbf{7} \end{center}}
+
+ \noindent
+ Customization Tutorial.
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section8}
+\subsection*{\begin{center} \textbf{8} \end{center}}
+
+ \noindent
+ Reference.
+\vspace{1em}
+\end{document}
