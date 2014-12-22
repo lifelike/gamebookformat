@@ -46,14 +46,15 @@ You can use *-o list* to generate a text file listing all sections and
 their numbers, or *-o list -i todo* to only list sections tagged as
 todo (or substitute whatever other tag(s) you are interested in).
 
-| Name     | Formats | Description                          |
-|----------+---------+--------------------------------------|
-| a4       | tex     | A4 paper size documents (PDF).       |
-| a5       | tex     | A5 paper size documents (PDF).       |
-| htmlbook | html    | Generate [[https://github.com/oreillymedia/HTMLBook][HTMLBook]] compatible HTML.   |
-| letter   | tex     | Letter paper size documents (PDF).   |
-| list     | txt     | Only generate list of sections.      |
-| static   | html    | Remove script link from HTML output. |
+| Name     | Formats | Description                                     |
+|----------+---------+-------------------------------------------------|
+| a4       | tex     | A4 paper size documents (PDF).                  |
+| a5       | tex     | A5 paper size documents (PDF).                  |
+| htmlbook | html    | Generate [[https://github.com/oreillymedia/HTMLBook][HTMLBook]] compatible HTML.              |
+| letter   | tex     | Letter paper size documents (PDF).              |
+| list     | txt     | Only generate list of sections.                 |
+| static   | html    | Remove script link from HTML output.            |
+| twine2   | html    | Generate story that can be imported to [[http://twinery.org/2/#stories][Twine 2]]  |
 
 ** Styles and Scripts
 Generated *html* files use the included *gamebookformat.css* for
@@ -109,6 +110,15 @@ to EPUB, so that should be a start. You probably want to
 do some experimentation to find a way that creates results
 you like.
 
+** Twine 2 Export
+There is experimental support to generate output for [[http://twinery.org/2/#stories][Twine 2]]. Use
+output format *.html* with option *-o twine2*. Use the *Import From
+File* link in the Twine 2 user interface to import the generated html
+file. If everything works as it should you can then edit and play or
+debug the story in Twine 2. Currently most formatting will
+be ignored and there is no support for handling collections or
+counters (yet?). Also there is a known cosmetic issue with newlines in
+files causing ugly line-breaks and list-items.
 ** Check Gamebook
 The included *checkgamebook.py* script can be used to run tests
 on a book and warn about things that do not look right.

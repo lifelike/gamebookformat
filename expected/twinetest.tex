@@ -1,0 +1,62 @@
+\documentclass[a5paper,onecolumn]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+
+\usepackage[top=3.3cm, bottom=3.3cm, left=2cm, right=2cm]{geometry}
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+  \pdffalse
+\else
+  \ifnum\pdfoutput=1
+    \pdftrue
+  \else
+    \pdffalse
+  \fi
+\fi
+
+\title{Gamebookformat Twine 2 Export Example}
+\author{Pelle Nilsson}
+\date{}
+
+\newcounter{sectionnr}
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+
+\thispagestyle{empty}
+
+\pagestyle{empty}
+
+Turn to 1 to begin.
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section1}
+\subsection*{\begin{center} \textbf{1} \end{center}}
+
+ \noindent
+ This is just an experiment exporting to the markup used in Twine 2 (see http://twinery.org). A known problem is that new-lines are significant in Twine, while they are happily ignored by gamebookformat. Have to add some hack to strip unintended whitespace from files when exporting to Twine 2. Also the book has to start at section 1 because currently the startnode given in the generated file is hardcoded to 1. Many things like item management and counters are not yet implemented, but from a quick look int the Twine 2 documentation it should be possible to add all that later. Creating a Twine 2 document is done using html output format with the -o twine2 option. Use the "Import From File" link in the Twine 2 web GUI to import the generated HTML file. From here you can go to \textbf{\autoref{section3}} or the end (\textbf{\autoref{section2}})
+. 
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section2}
+\subsection*{\begin{center} \textbf{2} \end{center}}
+
+ \noindent
+ It ends here.
+\vspace{1em}
+\phantomsection
+\refstepcounter{sectionnr}
+\label{section3}
+\subsection*{\begin{center} \textbf{3} \end{center}}
+
+ \noindent
+ This is another section, just to try references. You can go on to the end at \textbf{\autoref{section2}}. 
+\vspace{1em}
+\end{document}
