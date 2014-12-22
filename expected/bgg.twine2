@@ -1,13 +1,8 @@
 <tw-storydata name="Title of Game" startnode="1" creator="Twine" creator-version="2.0" format="Harlowe" options="">
 <style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script>
-<tw-passagedata pid="1" name="1" tags="" position="10,10"> This is the first section (or paragraph, if you prefer). From here you can go to section [[4]]
- or [[3]]
-. </tw-passagedata>
+<tw-passagedata pid="1" name="1" tags="" position="10,10"> This is the first section (or paragraph, if you prefer). From here you can go to section [[4]] or [[3]]. </tw-passagedata>
 <tw-passagedata pid="2" name="2" tags="" position="20,20"> This is the end. There is nothing more in this gamebook.</tw-passagedata>
-<tw-passagedata pid="3" name="3" tags="" position="30,30"> Third section. Again, its number is not known. You can go to the end at [[2]]
-. This section has an image to show the syntax for doing that (same as images in bgg forums really). 
+<tw-passagedata pid="3" name="3" tags="" position="30,30"> Third section. Again, its number is not known. You can go to the end at [[2]]. This section has an image to show the syntax for doing that (same as images in bgg forums really). 
  </tw-passagedata>
-<tw-passagedata pid="4" name="4" tags="" position="40,40"> This is the second section. It may or may not end up with number 2 in the generated gamebook. From here you can skip to the [[2]]
- or go to the third section at [[3]]
-. </tw-passagedata>
+<tw-passagedata pid="4" name="4" tags="" position="40,40"> This is the second section. It may or may not end up with number 2 in the generated gamebook. From here you can skip to the [[2]] or go to the third section at [[3]]. </tw-passagedata>
 </tw-storydata>

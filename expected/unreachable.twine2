@@ -1,7 +1,6 @@
 <tw-storydata name="Gamebook" startnode="1" creator="Twine" creator-version="2.0" format="Harlowe" options="">
 <style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script>
-<tw-passagedata pid="1" name="1" tags="" position="10,10"> It starts here. You can get to [[6]]
-. </tw-passagedata>
+<tw-passagedata pid="1" name="1" tags="" position="10,10"> It starts here. You can get to [[6]]. </tw-passagedata>
 <tw-passagedata pid="2" name="2" tags="" position="20,20"> Another fake section that is also ignored. </tw-passagedata>
 <tw-passagedata pid="3" name="3" tags="" position="30,30"> You can not get here either, but because it is tagged as fake there will be no warning generated. </tw-passagedata>
 <tw-passagedata pid="5" name="5" tags="" position="50,50"> You can not get here. Verification should warn you about that. </tw-passagedata>

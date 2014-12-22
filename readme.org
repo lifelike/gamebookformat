@@ -136,8 +136,7 @@ File* link in the Twine 2 user interface to import the generated
 file. If everything works as it should you can then edit and play or
 debug the story in Twine 2. Currently most formatting will
 be ignored and there is no support for handling collections or
-counters (yet?). Also there is a known cosmetic issue with newlines in
-files causing ugly line-breaks and list-items.
+counters (yet?).
 ** Check Gamebook
 The included *checkgamebook.py* script can be used to run tests
 on a book and warn about things that do not look right.

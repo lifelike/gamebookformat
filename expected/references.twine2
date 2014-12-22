@@ -1,14 +1,8 @@
 <tw-storydata name="Gamebook" startnode="1" creator="Twine" creator-version="2.0" format="Harlowe" options="">
 <style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script>
-<tw-passagedata pid="1" name="1" tags="" position="10,10"> This is where the adventure begins. You can go on to the next section, see [[400]]
- or try the random selection feature at [[399]]
-. </tw-passagedata>
+<tw-passagedata pid="1" name="1" tags="" position="10,10"> This is where the adventure begins. You can go on to the next section, see [[400]] or try the random selection feature at [[399]]. </tw-passagedata>
 <tw-passagedata pid="397" name="397" tags="" position="3970,3970"> The end. </tw-passagedata>
 <tw-passagedata pid="398" name="398" tags="" position="3980,3980"> Alternative ending. </tw-passagedata>
-<tw-passagedata pid="399" name="399" tags="" position="3990,3990"> Pick a destination at random from [[400]]
- or [[397]]
- or [[398]]
-. </tw-passagedata>
-<tw-passagedata pid="400" name="400" tags="" position="4000,4000"> This is the next section. Go on to the end at [[397]]
-. </tw-passagedata>
+<tw-passagedata pid="399" name="399" tags="" position="3990,3990"> Pick a destination at random from [[400]] or [[397]] or [[398]]. </tw-passagedata>
+<tw-passagedata pid="400" name="400" tags="" position="4000,4000"> This is the next section. Go on to the end at [[397]]. </tw-passagedata>
 </tw-storydata>

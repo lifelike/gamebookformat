@@ -1,20 +1,12 @@
 <tw-storydata name="Format" startnode="1" creator="Twine" creator-version="2.0" format="Harlowe" options="">
 <style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script>
-<tw-passagedata pid="1" name="1" tags="" position="10,10"> This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like } and { and " and ' and \. HTML will probably not like &lt;div&gt; or &amp;boom;. You can make named references [[like this->6]]
- (just happens to be exactly the same syntax as in emacs org-mode btw). This book also includes a [[format-specific section->4]]
-. There should be an image below as well. If something broke, turn to [[2]]
-, otherwise turn to [[3]]
-. (Good footnote.)
+<tw-passagedata pid="1" name="1" tags="" position="10,10"> This examples tests gamebook formatting, not so much game mechanics or references. Currently there is nothing here really. This section contains some tricky characters to quote, like } and { and " and ' and \. HTML will probably not like  `<` div `>`  or  `&` boom;. You can make named references [[like this->6]] (just happens to be exactly the same syntax as in emacs org-mode btw). This book also includes a [[format-specific section->4]]. There should be an image below as well. If something broke, turn to [[2]], otherwise turn to [[3]]. (Good footnote.)
  
  </tw-passagedata>
 <tw-passagedata pid="2" name="2" tags="" position="20,20"> Bad.</tw-passagedata>
 <tw-passagedata pid="3" name="3" tags="" position="30,30"> Good! </tw-passagedata>
-<tw-passagedata pid="4" name="4" tags="" position="40,40"> This is the format-specific section for no other formats. Now you [[lose->2]]
-. </tw-passagedata>
-<tw-passagedata pid="5" name="5" tags="" position="50,50"> Very good. [[You win->3]]
-. (Win footnote.)
+<tw-passagedata pid="4" name="4" tags="" position="40,40"> This is the format-specific section for no other formats. Now you [[lose->2]]. </tw-passagedata>
+<tw-passagedata pid="5" name="5" tags="" position="50,50"> Very good. [[You win->3]]. (Win footnote.)
  </tw-passagedata>
-<tw-passagedata pid="6" name="6" tags="" position="60,60"> This is where you should end up when you follow the named reference from the starting section. From here you can go to [[the second named section->5]]
- or to the [[good end->3]]
-. </tw-passagedata>
+<tw-passagedata pid="6" name="6" tags="" position="60,60"> This is where you should end up when you follow the named reference from the starting section. From here you can go to [[the second named section->5]] or to the [[good end->3]]. </tw-passagedata>
 </tw-storydata>

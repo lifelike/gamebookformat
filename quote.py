@@ -28,11 +28,14 @@ def js(s):
 
 def twine2(s):
     #have to think of a good solution
-    return (cgi.escape(s).replace("`", "'")
+    return (s.replace("`", "'")
+            .replace("<", " `<` ")
+            .replace(">", " `>` ")
+            .replace("&", " `&` ")
             .replace("\r\n", " ")
             .replace("\n", " ")
-            .replace("[", "`[`")
-            .replace("]", "`]`"))
+            .replace("[", " `[` ")
+            .replace("]", " `]` "))
 
 def no(s):
     return s

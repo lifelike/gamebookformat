@@ -1,22 +1,11 @@
 <tw-storydata name="Gamebook" startnode="1" creator="Twine" creator-version="2.0" format="Harlowe" options="">
 <style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script>
-<tw-passagedata pid="1" name="1" tags="" position="10,10"> This gamebook contains a few sections tagged as demo, that will be included when building the example as withdemo.gamebook (see withdemo.gamebook.options file). There are also some sections without the demo tag that will be ignored. This version is built without options and includes all sections. Go on to [[7]]
- or [[5]]
- or [[8]]
-. </tw-passagedata>
+<tw-passagedata pid="1" name="1" tags="" position="10,10"> This gamebook contains a few sections tagged as demo, that will be included when building the example as withdemo.gamebook (see withdemo.gamebook.options file). There are also some sections without the demo tag that will be ignored. This version is built without options and includes all sections. Go on to [[7]] or [[5]] or [[8]]. </tw-passagedata>
 <tw-passagedata pid="2" name="2" tags="" position="20,20"> Alternative end. Not included in the demo.</tw-passagedata>
-<tw-passagedata pid="3" name="3" tags="" position="30,30"> This is where references to non-demo sections will lead you. It is configured at the top of the gamebook file. Remember to tag this section correctly to be included. Nothing should lead to this section when building without the demo tag option. Go on to [[5]]
-. </tw-passagedata>
+<tw-passagedata pid="3" name="3" tags="" position="30,30"> This is where references to non-demo sections will lead you. It is configured at the top of the gamebook file. Remember to tag this section correctly to be included. Nothing should lead to this section when building without the demo tag option. Go on to [[5]]. </tw-passagedata>
 <tw-passagedata pid="4" name="4" tags="" position="40,40"> This is the end. It is also included in the demo. </tw-passagedata>
-<tw-passagedata pid="5" name="5" tags="" position="50,50"> This is the second demo section. You can go on to the end at [[4]]
- or alternative (not in demo) end at [[2]]
-. </tw-passagedata>
-<tw-passagedata pid="6" name="6" tags="" position="60,60"> This section is not included in the demo. You can go on to [[5]]
- or [[4]]
- or [[2]]
-. </tw-passagedata>
-<tw-passagedata pid="7" name="7" tags="" position="70,70"> This is the first demo section (not counting the start section). You can go on to the end at [[4]]
-. </tw-passagedata>
-<tw-passagedata pid="8" name="8" tags="" position="80,80"> This section is not included in the demo. Turn to [[6]]
-. </tw-passagedata>
+<tw-passagedata pid="5" name="5" tags="" position="50,50"> This is the second demo section. You can go on to the end at [[4]] or alternative (not in demo) end at [[2]]. </tw-passagedata>
+<tw-passagedata pid="6" name="6" tags="" position="60,60"> This section is not included in the demo. You can go on to [[5]] or [[4]] or [[2]]. </tw-passagedata>
+<tw-passagedata pid="7" name="7" tags="" position="70,70"> This is the first demo section (not counting the start section). You can go on to the end at [[4]]. </tw-passagedata>
+<tw-passagedata pid="8" name="8" tags="" position="80,80"> This section is not included in the demo. Turn to [[6]]. </tw-passagedata>
 </tw-storydata>

@@ -2,7 +2,5 @@
 <style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script>
 <tw-passagedata pid="1" name="1" tags="" position="10,10"> Got to this section. Story ends here.</tw-passagedata>
 <tw-passagedata pid="2" name="2" tags="" position="20,20"> Got to another section. Story ends here. </tw-passagedata>
-<tw-passagedata pid="3" name="3" tags="" position="30,30"> This is the first section. From here you can go to the unnamed section [[2]]
- or [[this named section->1]]
-. </tw-passagedata>
+<tw-passagedata pid="3" name="3" tags="" position="30,30"> This is the first section. From here you can go to the unnamed section [[2]] or [[this named section->1]]. </tw-passagedata>
 </tw-storydata>

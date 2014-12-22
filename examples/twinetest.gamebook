@@ -4,8 +4,7 @@ author = Pelle Nilsson
 * 1 start
 This is just an experiment exporting to the markup used in [b]Twine 2[/b] (see http://twinery.org).
 A known problem is that new-lines are significant in Twine, while they are happily ignored by
-gamebookformat. Have to add some hack to strip unintended whitespace from files when exporting
-to Twine 2. Also the book has to start at section 1 because currently the startnode given in
+gamebookformat. The book has to start at section 1 because currently the startnode given in
 the generated file is hardcoded to 1.
 Many things like item management and counters are not yet implemented, but from a quick look
 int the Twine 2 documentation it should be possible to add all that later.
