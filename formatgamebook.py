@@ -70,8 +70,9 @@ def format_gamebook(inputfilenames,
                     shuffle,
                     includetags,
                     excludetags,
-                    mapfilenames):
-    output_format = make_output(outputfilename, templatedirs)
+                    mapfilenames,
+                    allow_unknown_tags):
+    output_format = make_output(outputfilename, allow_unknown_tags, templatedirs)
     book = sections.Book(make_bookid(outputfilename), includetags, excludetags)
     for inputfilename in inputfilenames:
         parse_file_to_book(open(inputfilename, 'r'), output_format.name, book)
@@ -153,11 +154,12 @@ def add_section_to_book(book, name, text, intro_section=False,
         if number:
             book.force_section_nr(name, number)
 
-def make_output(outputfilename, templatedirs):
+def make_output(outputfilename, allow_unknown_tags, templatedirs):
     for of in OUTPUT_FORMATS:
         extension = of['extension']
         if outputfilename.endswith('.' + extension):
             return OutputFormat(templates.Templates(templatedirs, extension),
+                                allow_unknown_tags,
                                 of['quote'], extension.upper())
     raise Exception("Unsupported or unknown output format for %s."
                     % outputfilename)
@@ -220,6 +222,8 @@ if __name__ == '__main__':
                     help='do not shuffle sections')
     ap.add_argument('-m', '--map-file', metavar='F', dest='mapfiles',
                     action='append', help='number map file')
+    ap.add_argument('-x', '--allow-unknown', action='store_true',
+                    dest='allow_unknown_tags')
     args = ap.parse_args()
     templatedirs = ['templates',
                     os.path.join(os.path.dirname(sys.argv[0]), 'templates')]
@@ -237,4 +241,5 @@ if __name__ == '__main__':
                     args.shuffle,
                     args.includetags or [],
                     args.excludetags or [],
-                    args.mapfiles or [])
+                    args.mapfiles or [],
+                    args.allow_unknown_tags)

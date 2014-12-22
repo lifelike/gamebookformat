@@ -2,14 +2,41 @@ import os
 import os.path
 import sys
 
+# Hardcoded list of tags allowed without -x flag.
+BUILTIN_TAGS = ['add',
+                'atleast',
+                'b',
+                'collect',
+                'cost',
+                'count',
+                'dec',
+                'drop',
+                'found',
+                'has',
+                'hasnot',
+                'img',
+                'inc',
+                'init',
+                'lessthan',
+                'min',
+                'morethan',
+                'random',
+                'set',
+                'take',
+                'trade',
+                'xor']
+
+NOT_BUILTIN_TAG_MESSAGE = "Unknown tag %s not allowed without -x flag."
+
 COUNTER_CREATE_TAG = 'count'
 COUNTER_USE_TAGS = set(['set', 'inc', 'dec', 'min',
                         'lessthan', 'morethan', 'atleast'])
 
 class OutputFormat (object):
     "Handles book output. Big FIXME required to make sense."
-    def __init__(self, templates, quote, name):
+    def __init__(self, templates, allow_unknown_tags, quote, name):
         self.templates = templates
+        self.allow_unknown_tags = allow_unknown_tags
         self.format_quote = quote
         self.name = name
         self.counter_names = {}
@@ -112,6 +139,8 @@ class OutputFormat (object):
                 tag = section.text[tag_start+1:tag_end].strip()
                 tagparts = tag.split()
                 tagname = tagparts[0]
+                if not self.allow_unknown_tags and tagname not in BUILTIN_TAGS:
+                    raise Exception(NOT_BUILTIN_TAG_MESSAGE % tagname)
                 end_tag_start = section.text.find('[', tag_end)
                 if (not end_tag_start > tag_end
                     and section.text[end_tag_start].startswith('[/' + tagname

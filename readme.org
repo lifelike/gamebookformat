@@ -19,6 +19,7 @@ gamebook on paper or a screen (or for debugging it).
 :   -o D, --option D      add template override options dir
 :   -S, --no-shuffle      do not shuffle sections
 :   -m F, --map-file F    number map file
+:   -x, --allow_unknown   allow unknown tags
 ** Supported Output Formats
 
 | Name             | Extension | Description                                                                                   |
@@ -56,6 +57,26 @@ todo (or substitute whatever other tag(s) you are interested in).
 | static   | html    | Remove script link from HTML output.            |
 | twine2   | html    | Generate story that can be imported to [[http://twinery.org/2/#stories][Twine 2]]  |
 
+** Adding Custom Templates
+Any of the built-in templates can be overridden easily. New
+tags can be added that can generate any output you need for
+different file formats. However to add a tag that is not
+included in the default distribution the command-line
+flat *-x* is required to tell gamebookformat that you
+know what you are doing. Otherwise when an unknown
+tag is encountered you get an ugly error message.
+The reason for making it moderately difficult to add
+a new tag is that all the builtin tags have been
+choosen to work reasonably well in anything from
+static printed gamebooks to dynamic digital app
+gamebooks. Anyone thinking of adding a new tag
+should think twice about how having that tag might
+mean that some output formats are not longer useful.
+Sticking to the default tags and not overriding them
+to do bad things ensures that your gamebooks are
+still readable and playable in all supported
+output formats. (The process of adding new templates and new output
+formats really should be better documented.)
 ** Styles and Scripts
 Generated *html* files use the included *gamebookformat.css* for
 styling and *gamebookformat.js* for scripting (except with the
