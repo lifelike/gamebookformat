@@ -28,7 +28,7 @@ def js(s):
 
 def twine2(s):
     #have to think of a good solution
-    return (s.replace("`", "'")
+    return (cgi.escape(s).replace("`", "'")
             .replace("\r\n", " ")
             .replace("\n", " ")
             .replace("[", "`[`")
