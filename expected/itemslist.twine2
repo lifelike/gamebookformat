@@ -1,38 +1,38 @@
 <tw-storydata name="Items" startnode="1" creator="Twine" creator-version="2.0" format="Harlowe" options="">
 <style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script>
-<tw-passagedata pid="1" name="1" tags="" position="10,10"> Demonstrating how to manage player <b>Inventory</b>. You start the book carrying a <b>sword</b> and a <b>shield</b>. Turn to [[12]]
+<tw-passagedata pid="1" name="1" tags="" position="10,10"> Demonstrating how to manage player *Inventory*. You start the book carrying a *sword* and a *shield*. Turn to [[12]]
  or go to the autotest at [[2]]
 . </tw-passagedata>
-<tw-passagedata pid="2" name="2" tags="" position="20,20"> If you have the <b>stick</b> then you must turn immediately to <b>stick</b>[[12]]
-, and everything else in this section is ignored. You find a <b>book</b> here. If you have the <b>sword</b> you must turn immediately to <b>sword</b>[[5]]
-, again ignoring everything that follows. You drop the <b>something valuable</b> here if you have it, then go on to [[7]]
+<tw-passagedata pid="2" name="2" tags="" position="20,20"> If you have the *stick* then you must turn immediately to [[12]]
+, and everything else in this section is ignored. You find a *book* here. If you have the *sword* you must turn immediately to [[5]]
+, again ignoring everything that follows. You drop the *something valuable* here if you have it, then go on to [[7]]
 .</tw-passagedata>
 <tw-passagedata pid="3" name="3" tags="" position="30,30"> Congratulations, you won.</tw-passagedata>
 <tw-passagedata pid="4" name="4" tags="" position="40,40"> OK. That was fun. Turn to [[3]]
 . </tw-passagedata>
-<tw-passagedata pid="5" name="5" tags="" position="50,50"> There is a rope here that can be cut using a <b>sword</b>. If you have one and want to do that, see [[4]]
+<tw-passagedata pid="5" name="5" tags="" position="50,50"> There is a rope here that can be cut using a *sword*. If you have one and want to do that, see [[4]]
 . You can also run to the autotest at [[2]]
 . Otherwise turn to [[3]]
 . </tw-passagedata>
-<tw-passagedata pid="6" name="6" tags="" position="60,60"> You found <b>something valuable</b>, but there is no way forward, so you head back to [[12]]
+<tw-passagedata pid="6" name="6" tags="" position="60,60"> You found *something valuable*, but there is no way forward, so you head back to [[12]]
 . </tw-passagedata>
-<tw-passagedata pid="7" name="7" tags="" position="70,70"> A magic portal ahead will only allow you to pass if you did not pick up the <b>cursed bracelet</b>, leading you to [[6]]
-. If you have the <b>cursed bracelet</b> you have to go back to [[12]]
+<tw-passagedata pid="7" name="7" tags="" position="70,70"> A magic portal ahead will only allow you to pass if you did not pick up the *cursed bracelet*, leading you to [[6]]
+. If you have the *cursed bracelet* you have to go back to [[12]]
  instead. Actually feel free to head back to [[12]]
  either way. </tw-passagedata>
-<tw-passagedata pid="8" name="8" tags="" position="80,80"> OK <b>stick</b> dropped. Turn back to [[12]]
+<tw-passagedata pid="8" name="8" tags="" position="80,80"> OK *stick* dropped. Turn back to [[12]]
  to confirm stick can not be picked up again even if the text says it is there (books work that way, although ideally this dynamic version should provide some hints that it is no longer there). </tw-passagedata>
-<tw-passagedata pid="9" name="9" tags="" position="90,90"> There is a <b>cursed bracelet</b> here. You can go on to [[7]]
+<tw-passagedata pid="9" name="9" tags="" position="90,90"> There is a *cursed bracelet* here. You can go on to [[7]]
  or go back to [[12]]
-. You can also drop the <b>stick</b> for no particular reason if you have it, see [[8]]
+. You can also drop the *stick* for no particular reason if you have it, see [[8]]
 . </tw-passagedata>
-<tw-passagedata pid="10" name="10" tags="" position="100,100"> OK. The door is broken, but so is the <b>sword</b>. Turn to [[5]]
+<tw-passagedata pid="10" name="10" tags="" position="100,100"> OK. The door is broken, but so is the *sword*. Turn to [[5]]
 . </tw-passagedata>
-<tw-passagedata pid="11" name="11" tags="" position="110,110"> There is a locked door here. If you have a <b>key</b> you can use that to open the door, see [[5]]
-. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the <b>sword</b>, if you have it, see [[10]]
+<tw-passagedata pid="11" name="11" tags="" position="110,110"> There is a locked door here. If you have a *key* you can use that to open the door, see [[5]]
+. Being right before the link should be enough for the formatter to figure out that the key is required to be allowed to follow the link. Else you can try to open with the *sword*, if you have it, see [[10]]
 . Hopefully the magic is good enough to pair pre-conditions to links, or more markup must be added later. You could also try to go back to pick up the key, see [[12]]
 . </tw-passagedata>
-<tw-passagedata pid="12" name="12" tags="" position="120,120"> You have reached a t-junction. Here you find a <b>key</b> and a <b>stick</b>. You can go west to [[11]]
+<tw-passagedata pid="12" name="12" tags="" position="120,120"> You have reached a t-junction. Here you find a *key* and a *stick*. You can go west to [[11]]
 , or east to [[9]]
 . </tw-passagedata>
 </tw-storydata>
