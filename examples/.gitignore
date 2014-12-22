@@ -5,6 +5,7 @@
 *.debug
 *.txt
 *.png
+*.twine2
 !testimage.png
 *.js
 *.css

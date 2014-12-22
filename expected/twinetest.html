@@ -1,9 +1,91 @@
-<tw-storydata name="Gamebookformat Twine 2 Export Example" startnode="1" creator="Twine" creator-version="2.0" format="Harlowe" options="">
-<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script>
-<tw-passagedata pid="1" name="1" tags="" position="10,10"> This is just an experiment exporting to the markup used in <b>Twine 2</b> (see http://twinery.org). A known problem is that new-lines are significant in Twine, while they are happily ignored by gamebookformat. Have to add some hack to strip unintended whitespace from files when exporting to Twine 2. Also the book has to start at section 1 because currently the startnode given in the generated file is hardcoded to 1. Many things like item management and counters are not yet implemented, but from a quick look int the Twine 2 documentation it should be possible to add all that later. Creating a Twine 2 document is done using html output format with the -o twine2 option. Use the "Import From File" link in the Twine 2 web GUI to import the generated HTML file. From here you can go to [[3]]
- or [[the end->2]]
-. </tw-passagedata>
-<tw-passagedata pid="2" name="2" tags="" position="20,20"> It ends here.</tw-passagedata>
-<tw-passagedata pid="3" name="3" tags="" position="30,30"> This is another section, just to try references. You can go on to the end at [[2]]
-. </tw-passagedata>
-</tw-storydata>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Gamebookformat Twine 2 Export Example</title>
+    <script type="text/javascript" src="gamebookformatplay.js"></script>
+    <link rel="stylesheet" href="gamebookformat.css"
+          type="text/css" />
+    <script>
+      if (typeof gamebook !== 'undefined') {
+         gamebook.id = 'twinetest';
+      }
+    </script>
+  </head>
+  <body>
+<div class="hideintrolink nodisplay"
+    onclick="gamebook.hideIntroSections()">(hide instructions)</div>
+  <div class="gamebook">
+<div class="resumelink nodisplay"
+  onclick="gamebook.loadGame()">Resume saved game.</div>
+
+<div class="startlink"
+  onclick="gamebook.turnTo(1)">Turn to 1 to begin.</div>
+<script>
+    if (typeof gamebook !== 'undefined' && gamebook.hasSavedGame()) {
+        var resumeLinks = document.getElementsByClassName('resumelink');
+        Array.prototype.forEach.call(resumeLinks, function(e) {
+            e.classList.remove('nodisplay');
+        });
+    }
+</script>
+<div class="section" id="section1">
+<div class="sectionnumber" id="para1">1</div>
+<div class="sectiontext">
+ This is just an experiment exporting to the markup used in <b>Twine 2</b>
+ (see http://twinery.org). A known problem is that new-lines are significant in Twine, while they are happily ignored by gamebookformat. Have to add some hack to strip unintended whitespace from files when exporting to Twine 2. Also the book has to start at section 1 because currently the startnode given in the generated file is hardcoded to 1. Many things like item management and counters are not yet implemented, but from a quick look int the Twine 2 documentation it should be possible to add all that later. Creating a Twine 2 document is done using twine2 output format. Use the "Import From File" link in the Twine 2 web GUI to import the generated file. From here you can go to <a class="sectionref enabledlink" data-ref="3"
+href="#section3">3</a> or <a class="sectionref enabledlink" data-ref="2"
+href="#section2">the end</a>. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(1, document.getElementById('section1'));
+}
+</script><div class="section" id="section2">
+<div class="sectionnumber" id="para2">2</div>
+<div class="sectiontext">
+ It ends here.
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(2, document.getElementById('section2'));
+}
+</script><div class="section" id="section3">
+<div class="sectionnumber" id="para3">3</div>
+<div class="sectiontext">
+ This is another section, just to try references. You can go on to the end at <a class="sectionref enabledlink" data-ref="2"
+href="#section2">2</a>. 
+</div>
+</div>
+<script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.addSection(3, document.getElementById('section3'));
+}
+</script>    <div id="counters" class="counters">
+    </div>
+    <div id="counterTemplate" class="counterTemplate">
+      <span class="counterheading"></span>
+      <span class="countercontents"></span>
+    </div>
+    </div>
+    <div id="collections" class="collections">
+    </div>
+    <div id="collectionTemplate" class="collectionTemplate">
+      <span class="collectionheading"></span>
+      <span class="collectioncontents"></span>
+    </div>
+    </div>
+    <script>
+if (typeof gamebook !== 'undefined') {
+   gamebook.prepare();
+}
+    </script>
+<div class="displayintrolink nodisplay"
+    onclick="gamebook.showIntroSections()">(show instructions)</div>
+    </div>
+  </body>
+</html>

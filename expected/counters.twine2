@@ -1,0 +1,27 @@
+<tw-storydata name="Counters Example" startnode="1" creator="Twine" creator-version="2.0" format="Harlowe" options="">
+<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script>
+<tw-passagedata pid="1" name="1" tags="" position="10,10"> This is where the gamebook starts. We have counters for <b>Life Points</b> and for <b>Gold</b>. You start the adventure with <b>10</b> Life Points and <b>12</b> Gold. You can never have less than <b>0</b> Gold. FIXME need to figure out best syntax for death when life points go below 1. Go to [[9]]
+ to get more Gold or [[8]]
+ to lose some Life Points. Go to [[3]]
+ for testing the init value markup. </tw-passagedata>
+<tw-passagedata pid="2" name="2" tags="" position="20,20"> OK, we increase that something counter by <b>1</b> here, and also increase the other counter by <b>1</b>. You can go back to see the difference between set and init [[here->3]]
+, stuck in an infinite loop.</tw-passagedata>
+<tw-passagedata pid="3" name="3" tags="" position="30,30"> The <b>Something Counter</b> starts at 5, but when you come back here it will not reset to that, unlike the <b>Other Counter</b> that will reset to <b>5</b> every time you get here. If we try to init gold to 999 nothing will happen because it was already set to something before you came yere. Go on to [[2]]
+. </tw-passagedata>
+<tw-passagedata pid="4" name="4" tags="" position="40,40"> Less than 1 Life Point means the adventure ends now. </tw-passagedata>
+<tw-passagedata pid="5" name="5" tags="" position="50,50"> You have at least 16 gold. Go back to get some more at [[9]]
+. </tw-passagedata>
+<tw-passagedata pid="6" name="6" tags="" position="60,60"> You have more than 16 Gold. How nice. Go back to get some more at [[9]]
+. </tw-passagedata>
+<tw-passagedata pid="7" name="7" tags="" position="70,70"> You drop <b>5</b> Gold. It should not be possible to go below 0. Then go on to get gold at [[9]]
+ or lose life at [[8]]
+. </tw-passagedata>
+<tw-passagedata pid="8" name="8" tags="" position="80,80"> You lose <b>1</b> Life Points. You can go to [[9]]
+ to get some Gold. </tw-passagedata>
+<tw-passagedata pid="9" name="9" tags="" position="90,90"> Congratulations, you found <b>2</b> Gold. If you have less than <b>1</b> Life Points, turn to <b>1</b>[[4]]
+. You can go to [[8]]
+ to lose some life or to [[7]]
+ to drop some gold. If you have at least <b>16</b> Gold you can turn to [[5]]
+. If you have even more than <b>16</b> Gold you can turn to [[6]]
+. </tw-passagedata>
+</tw-storydata>

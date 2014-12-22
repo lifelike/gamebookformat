@@ -9,8 +9,8 @@ to Twine 2. Also the book has to start at section 1 because currently the startn
 the generated file is hardcoded to 1.
 Many things like item management and counters are not yet implemented, but from a quick look
 int the Twine 2 documentation it should be possible to add all that later.
-Creating a Twine 2 document is done using html output format with the -o twine2 option.
-Use the "Import From File" link in the Twine 2 web GUI to import the generated HTML file.
+Creating a Twine 2 document is done using twine2 output format.
+Use the "Import From File" link in the Twine 2 web GUI to import the generated file.
 From here you can go to [[other]] or [[ending][the end]].
 
 * other

@@ -1,0 +1,30 @@
+<tw-storydata name="Gamebook" startnode="1" creator="Twine" creator-version="2.0" format="Harlowe" options="">
+<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script>
+<tw-passagedata pid="1" name="1" tags="" position="10,10"> Demonstrating how <b>Codewords</b> (AKA sightings) can be used. Go to [[2]]
+. </tw-passagedata>
+<tw-passagedata pid="2" name="2" tags="" position="20,20"> Got codeword <b>warrior</b>. Simple enough to set a codeword. Turn to [[9]]
+. </tw-passagedata>
+<tw-passagedata pid="3" name="3" tags="" position="30,30"> That was easy.    </tw-passagedata>
+<tw-passagedata pid="4" name="4" tags="" position="40,40"> OK, if you have the codeword <b>warrior</b>, you may turn to [[3]]
+ otherwise you may go back to [[2]]
+. Although we both know you have that codeword. If you have the codeword <b>fun</b> you may turn to [[5]]
+, without it you can go to [[8]]
+. </tw-passagedata>
+<tw-passagedata pid="5" name="5" tags="" position="50,50"> Cheater! There is no way you can have codeword fun. </tw-passagedata>
+<tw-passagedata pid="6" name="6" tags="" position="60,60"> If you have the codeword <b>fun</b> turn to <b>fun</b>[[5]]
+. Otherwise you can go to the end at [[3]]
+ or to the xortest at [[4]]
+. </tw-passagedata>
+<tw-passagedata pid="7" name="7" tags="" position="70,70"> If you have codeword <b>warrior</b> turn to <b>warrior</b>[[6]]
+. Otherwise you can go to the end at [[3]]
+ or back to [[1]]
+. </tw-passagedata>
+<tw-passagedata pid="8" name="8" tags="" position="80,80"> This is just to demonstrate choices allowed when not having a codeword. Now go on to [[7]]
+ (autotest) or [[4]]
+ (xor test). </tw-passagedata>
+<tw-passagedata pid="9" name="9" tags="" position="90,90"> If you have the codeword <b>warrior</b> you may turn to [[3]]
+. If you do not have the codeword <b>fun</b>, you may turn to [[8]]
+. If you have the codeword <b>fun</b>, you may instead turn to [[5]]
+. Otherwise see [[4]]
+. </tw-passagedata>
+</tw-storydata>

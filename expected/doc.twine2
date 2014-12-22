@@ -1,0 +1,17 @@
+<tw-storydata name="gamebookformat 1.0 documentation" startnode="1" creator="Twine" creator-version="2.0" format="Harlowe" options="">
+<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script>
+<tw-passagedata pid="1" name="1" tags="" position="10,10"> <b>Getting Started.</b> </tw-passagedata>
+<tw-passagedata pid="2" name="2" tags="" position="20,20"> <b>Installation.</b> </tw-passagedata>
+<tw-passagedata pid="3" name="3" tags="" position="30,30"> <b>Tutorials.</b> There are 4 tutorials of increasing complexity currently included in this document: [[The Basic Tutorial->4]]
+ shows how to make a simple static gamebook for printing or reading on a screen. [[The Advanced Tutorial->5]]
+ adds many formatting tricks to make more interesting gamebooks, but still only very static. [[The Dynamic Tutorial->6]]
+ finally explains how to add mark-up to your gamebooks to be make dynamic HTML gamebooks that can be played in a browser (while still work well if it is printed on paper or viewed in a simple ebook reader). Finally [[The Customization Tutorial->7]]
+ shows how to override the default templates to make small or big changes to how gamebooks are rendered. The tutorials do not cover all features of gamebookformat, so also have a look at the included examples and the [[Reference section below->8]]
+ to learn about all the things the tools can do.</tw-passagedata>
+<tw-passagedata pid="4" name="4" tags="" position="40,40"> <b>Basic Tutorial.</b> This tutorial will guide you through creating a simple gamebook with linked sections of text with some simple formatting, resulting in static html and rtf documents that can be easily navigated for manual play printed on paper or on any computer or ebook reader.</tw-passagedata>
+<tw-passagedata pid="5" name="5" tags="" position="50,50"> <b>Advanced Tutorial.</b> This tutorial continues the [[Basic Tutorial->4]]
+, only adding some more details to do more advanced formatting like adding images to books or how to make links that display text instead of numbers.</tw-passagedata>
+<tw-passagedata pid="6" name="6" tags="" position="60,60"> <b>Dynamic Tutorial.</b> </tw-passagedata>
+<tw-passagedata pid="7" name="7" tags="" position="70,70"> <b>Customization Tutorial</b>.</tw-passagedata>
+<tw-passagedata pid="8" name="8" tags="" position="80,80"> <b>Reference.</b></tw-passagedata>
+</tw-storydata>

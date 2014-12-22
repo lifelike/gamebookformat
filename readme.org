@@ -30,14 +30,13 @@ gamebook on paper or a screen (or for debugging it).
 | HTML             | .html     | Play gamebook in browser.                                                                     |
 | Plain Text       | .txt      | Raw plain text without formatting.                                                            |
 | JSON             | .json     | [[http://json.org][JSON-format]] for debugging                                                                     |
+| twine2           | .twine2   | Story file that can be imported to [[http://twinery.org/2/#stories][Twine 2]]                                                    |
 
 More to be added. Custom output formats or modifications to the
 default formats can easily be added. Use the *-t* command-line
 option to add subdirectories containing new templates or
 overrides for default templates.
-
 ** Included Optional Templates
-
 The *-o* command-line option is like *-t* but searches the *options*
 subdirectory (next to the default *templates* subdirectory) that
 contains useful overrides for some behavior of the default output
@@ -55,7 +54,6 @@ todo (or substitute whatever other tag(s) you are interested in).
 | letter   | tex     | Letter paper size documents (PDF).              |
 | list     | txt     | Only generate list of sections.                 |
 | static   | html    | Remove script link from HTML output.            |
-| twine2   | html    | Generate story that can be imported to [[http://twinery.org/2/#stories][Twine 2]]  |
 
 ** Adding Custom Templates
 Any of the built-in templates can be overridden easily. New
@@ -133,8 +131,8 @@ you like.
 
 ** Twine 2 Export
 There is experimental support to generate output for [[http://twinery.org/2/#stories][Twine 2]]. Use
-output format *.html* with option *-o twine2*. Use the *Import From
-File* link in the Twine 2 user interface to import the generated html
+output format *.twine2*. Use the *Import From
+File* link in the Twine 2 user interface to import the generated
 file. If everything works as it should you can then edit and play or
 debug the story in Twine 2. Currently most formatting will
 be ignored and there is no support for handling collections or

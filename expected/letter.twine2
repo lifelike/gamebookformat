@@ -1,0 +1,4 @@
+<tw-storydata name="Letter" startnode="1" creator="Twine" creator-version="2.0" format="Harlowe" options="">
+<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script>
+<tw-passagedata pid="1" name="1" tags="" position="10,10"> LaTeX output (and this PDF output) from this book should be in letter size rather than the default A5 size (see command-line options used in letter.gamebook.options).</tw-passagedata>
+</tw-storydata>

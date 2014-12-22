@@ -55,6 +55,7 @@ OUTPUT_FORMATS = [
     of('dot', 'Graphviz section flowchart', quote.no),
     of('html', 'HTML+JS playable in browser', quote.html),
     of('txt', 'Plain text', quote.no),
+    of('twine2', "Twine 2", quote.twine2),
     of('json', 'JSON', quote.js),
 ]
 

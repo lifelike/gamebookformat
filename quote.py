@@ -26,6 +26,13 @@ def js(s):
     return (s.replace("\\", "\\\\")
             .replace('"', '\\"'))
 
+def twine2(s):
+    #have to think of a good solution
+    return (s.replace("`", "'")
+            .replace("\r\n", " ")
+            .replace("\n", " ")
+            .replace("[", "`[`")
+            .replace("]", "`]`"))
 
 def no(s):
     return s

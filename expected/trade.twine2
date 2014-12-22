@@ -1,0 +1,12 @@
+<tw-storydata name="Gamebook" startnode="1" creator="Twine" creator-version="2.0" format="Harlowe" options="">
+<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script>
+<tw-passagedata pid="1" name="1" tags="" position="10,10"> You can buy a <b>shield</b> here for <b>50</b> Gold or a beautiful <b>gold ring</b> for only <b>75</b>. There is also a <b>chain mail</b> costing <b>150</b>. You can pick up some <b>spiderweb</b> for free. You can go to [[4]]
+ at a cost of <b>50</b>. You can go on to the end at [[2]]
+. </tw-passagedata>
+<tw-passagedata pid="2" name="2" tags="" position="20,20"> It ends here. There is a <b>crown</b> here that you can trade for some <b>spiderweb</b>. </tw-passagedata>
+<tw-passagedata pid="3" name="3" tags="" position="30,30"> This is somewhere else. Congratulations you have found <b>100</b> gold! Go back to [[1]]
+. </tw-passagedata>
+<tw-passagedata pid="4" name="4" tags="" position="40,40"> Hopefully you now have 50 less gold than you just had. You can go back to [[1]]
+. You can also go to [[3]]
+ but an angry troll is blocking your path and will only allow you to go there if you give it a <b>gold ring</b>. </tw-passagedata>
+</tw-storydata>
