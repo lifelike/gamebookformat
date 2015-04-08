@@ -1,0 +1,37 @@
+{
+  "title" : "Paged Option",
+  "nr_sections" : "4",
+
+"Introduction" : {
+  "intro" : true,
+  "text" : ["" ," This gamebook is formatted with the ", "paged"
+," option. Every section should begin at the top of a new page. Not the introsections though. "]
+},
+
+"Another Heading" : {
+  "intro" : true,
+  "text" : ["" ," This is another introsection, just to confirm that it is not cause a new page-break. "]
+},
+
+"Formats" : {
+  "intro" : true,
+  "text" : ["" ," Only some formats support page-breaks. HTML for instance currently does not (although it is technically possible to add it using print stylesheets). "]
+},
+
+  "sections" : {"IGNORE-debug-json-padding-IGNORE" : "", "start" : {
+  "nr" : 1,
+  "text" : ["" ," First section. You can go to ",{"reference" : "4"}," or ",{"reference" : "3"}," from here. "]
+}
+, "end" : {
+  "nr" : 2,
+  "text" : ["" ," This is The End. "]
+}
+, "third" : {
+  "nr" : 3,
+  "text" : ["" ," This is the third section. It might or might not be numbered 3 though, because of the automatic section numbering in gamebookformat. You can go on to the end at ",{"reference" : "2"},". "]
+}
+, "second" : {
+  "nr" : 4,
+  "text" : ["" ," This is the second section. Yay. You can go on to ",{"reference" : "3"}," or ",{"reference" : "2"}," or back to ",{"reference" : "1"},". "]
+}
+}}

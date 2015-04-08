@@ -1,0 +1,25 @@
+    Paged Option
+
+Introduction
+ This gamebook is formatted with the paged option. Every section should begin at the top of a new page. Not the introsections though. 
+
+Another Heading
+ This is another introsection, just to confirm that it is not cause a new page-break. 
+
+Formats
+ Only some formats support page-breaks. HTML for instance currently does not (although it is technically possible to add it using print stylesheets). 
+
+
+Turn to 1 to begin.
+1
+ First section. You can go to 4 or 3 from here. 
+
+2
+ This is The End. 
+
+3
+ This is the third section. It might or might not be numbered 3 though, because of the automatic section numbering in gamebookformat. You can go on to the end at 2. 
+
+4
+ This is the second section. Yay. You can go on to 3 or 2 or back to 1. 
+
