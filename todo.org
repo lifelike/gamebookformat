@@ -1,4 +1,4 @@
-* TODO [65/95] [68%]
+* TODO [66/102] [64%]
 ** DONE Debug output
 ** DONE DOT output
 ** DONE LaTeX output
@@ -85,11 +85,15 @@
    CLOSED: [2014-09-23 Tue 23:10]
 ** DONE Debug output should be called just JSON
    CLOSED: [2014-09-24 Wed 21:36]
-** TODO Make default templates for more tags
+** Make default templates for more tags
+   CLOSED: [2015-04-08 Wed 21:01]
    Many tags can default to do the same as a b-tag for bold for instance.
    Make as many DEFAULT templates as possible and remove format-specific ones.
    This will make further development so much more nice.
-** TODO Paged option
+   Actually not doing this, because the default just showing inner text
+   is the best default anyway.
+** DONE Paged option
+   CLOSED: [2015-04-08 Wed 21:31]
    Option -o paged to make each section render on its own page.
    Add template overrides for at least html, tex, and rtf.
    Probably change the style for section headers as well.
