@@ -1,0 +1,35 @@
+title = Paged Option
+id = paged
+
+= Introduction
+This gamebook is formatted with the [b]paged[/b] option.
+Every section should begin at the top of a new page.
+Not the introsections though.
+
+= Another Heading
+This is another introsection, just to confirm that
+it is not cause a new page-break.
+
+= Formats
+Only some formats support page-breaks. HTML
+for instance currently does not (although it
+is technically possible to add it using
+print stylesheets).
+
+* 1 start
+First section. You can go to [[second]] or [[third]]
+from here.
+
+* second
+This is the second section. Yay.
+You can go on to [[third]] or [[end]] or back to [[start]].
+
+* third
+This is the third section. It might or might not
+be numbered 3 though, because of the automatic
+section numbering in gamebookformat.
+You can go on to the end at [[end]].
+
+* end
+This is The End.
+
