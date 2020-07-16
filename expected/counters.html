@@ -37,7 +37,8 @@
         });
     }
 </script>
-<div class="section" id="section1">
+<div class="section" id="section1"
+     >
 <div class="sectionnumber" id="para1">1</div>
 <div class="sectiontext">
  This is where the gamebook starts. We have counters for <span class="count counterChange" data-type="life"
@@ -56,7 +57,9 @@ href="#section3">3</a> for testing the init value markup.
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(1, document.getElementById('section1'));
 }
-</script><div class="section" id="section2">
+</script>
+<div class="section" id="section2"
+     >
 <div class="sectionnumber" id="para2">2</div>
 <div class="sectiontext">
  OK, we increase that something counter by <span class="inc counterChange" data-type="something"
@@ -69,7 +72,9 @@ href="#section3">here</a>, stuck in an infinite loop.
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(2, document.getElementById('section2'));
 }
-</script><div class="section" id="section3">
+</script>
+<div class="section" id="section3"
+     >
 <div class="sectionnumber" id="para3">3</div>
 <div class="sectiontext">
  The <span class="count counterChange" data-type="something"
@@ -85,7 +90,9 @@ href="#section2">2</a>.
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(3, document.getElementById('section3'));
 }
-</script><div class="section" id="section4">
+</script>
+<div class="section" id="section4"
+     >
 <div class="sectionnumber" id="para4">4</div>
 <div class="sectiontext">
  Less than 1 Life Point means the adventure ends now. 
@@ -95,7 +102,9 @@ if (typeof gamebook !== 'undefined') {
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(4, document.getElementById('section4'));
 }
-</script><div class="section" id="section5">
+</script>
+<div class="section" id="section5"
+     >
 <div class="sectionnumber" id="para5">5</div>
 <div class="sectiontext">
  You have at least 16 gold. Go back to get some more at <a class="sectionref enabledlink" data-ref="9"
@@ -106,7 +115,9 @@ href="#section9">9</a>.
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(5, document.getElementById('section5'));
 }
-</script><div class="section" id="section6">
+</script>
+<div class="section" id="section6"
+     >
 <div class="sectionnumber" id="para6">6</div>
 <div class="sectiontext">
  You have more than 16 Gold. How nice. Go back to get some more at <a class="sectionref enabledlink" data-ref="9"
@@ -117,7 +128,9 @@ href="#section9">9</a>.
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(6, document.getElementById('section6'));
 }
-</script><div class="section" id="section7">
+</script>
+<div class="section" id="section7"
+     >
 <div class="sectionnumber" id="para7">7</div>
 <div class="sectiontext">
  You drop <span class="dec counterChange" data-type="gold"
@@ -130,7 +143,9 @@ href="#section8">8</a>.
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(7, document.getElementById('section7'));
 }
-</script><div class="section" id="section8">
+</script>
+<div class="section" id="section8"
+     >
 <div class="sectionnumber" id="para8">8</div>
 <div class="sectiontext">
  You lose <span class="dec counterChange" data-type="life"
@@ -142,7 +157,9 @@ href="#section9">9</a> to get some Gold.
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(8, document.getElementById('section8'));
 }
-</script><div class="section" id="section9">
+</script>
+<div class="section" id="section9"
+     >
 <div class="sectionnumber" id="para9">9</div>
 <div class="sectiontext">
  Congratulations, you found <span class="inc counterChange" data-type="gold"
@@ -161,7 +178,8 @@ href="#section6">6</a>.
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(9, document.getElementById('section9'));
 }
-</script>    <div id="counters" class="counters">
+</script>
+    <div id="counters" class="counters">
     </div>
     <div id="counterTemplate" class="counterTemplate">
       <span class="counterheading"></span>

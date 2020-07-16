@@ -15,7 +15,7 @@
 
 "Formats" : {
   "intro" : true,
-  "text" : ["" ," Only some formats support page-breaks. HTML for instance currently does not (although it is technically possible to add it using print stylesheets). "]
+  "text" : ["" ," Only some formats support page-breaks (HTML, RTF, LaTeX). "]
 },
 
   "sections" : {"IGNORE-debug-json-padding-IGNORE" : "", "start" : {

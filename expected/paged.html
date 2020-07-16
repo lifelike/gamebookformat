@@ -34,7 +34,7 @@
 <div class="introsection">
 <div class="introsectionheading">Formats</div>
 <div class="introsectionbody">
- Only some formats support page-breaks. HTML for instance currently does not (although it is technically possible to add it using print stylesheets). 
+ Only some formats support page-breaks (HTML, RTF, LaTeX). 
 </div>
 </div>
 <div class="resumelink nodisplay"
@@ -50,7 +50,9 @@
         });
     }
 </script>
-<div class="section" id="section1">
+<div class="section" id="section1"
+style="page-break-before: always;"
+     >
 <div class="sectionnumber" id="para1">1</div>
 <div class="sectiontext">
  First section. You can go to <a class="sectionref enabledlink" data-ref="4"
@@ -62,7 +64,10 @@ href="#section3">3</a> from here.
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(1, document.getElementById('section1'));
 }
-</script><div class="section" id="section2">
+</script>
+<div class="section" id="section2"
+style="page-break-before: always;"
+     >
 <div class="sectionnumber" id="para2">2</div>
 <div class="sectiontext">
  This is The End. 
@@ -72,7 +77,10 @@ if (typeof gamebook !== 'undefined') {
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(2, document.getElementById('section2'));
 }
-</script><div class="section" id="section3">
+</script>
+<div class="section" id="section3"
+style="page-break-before: always;"
+     >
 <div class="sectionnumber" id="para3">3</div>
 <div class="sectiontext">
  This is the third section. It might or might not be numbered 3 though, because of the automatic section numbering in gamebookformat. You can go on to the end at <a class="sectionref enabledlink" data-ref="2"
@@ -83,7 +91,10 @@ href="#section2">2</a>.
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(3, document.getElementById('section3'));
 }
-</script><div class="section" id="section4">
+</script>
+<div class="section" id="section4"
+style="page-break-before: always;"
+     >
 <div class="sectionnumber" id="para4">4</div>
 <div class="sectiontext">
  This is the second section. Yay. You can go on to <a class="sectionref enabledlink" data-ref="3"
@@ -96,7 +107,8 @@ href="#section1">1</a>.
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(4, document.getElementById('section4'));
 }
-</script>    <div id="counters" class="counters">
+</script>
+    <div id="counters" class="counters">
     </div>
     <div id="counterTemplate" class="counterTemplate">
       <span class="counterheading"></span>

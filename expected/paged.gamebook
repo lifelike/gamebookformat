@@ -11,10 +11,7 @@ This is another introsection, just to confirm that
 it is not cause a new page-break.
 
 = Formats
-Only some formats support page-breaks. HTML
-for instance currently does not (although it
-is technically possible to add it using
-print stylesheets).
+Only some formats support page-breaks (HTML, RTF, LaTeX).
 
 * 1 start
 First section. You can go to [[second]] or [[third]]

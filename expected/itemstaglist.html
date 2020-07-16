@@ -37,7 +37,8 @@
         });
     }
 </script>
-<div class="section" id="section1">
+<div class="section" id="section1"
+     >
 <div class="sectionnumber" id="para1">1</div>
 <div class="sectiontext">
  There has to be a section set as missingto (ie this section), otherwise generating a list with only todo sections will fail (as one of them references non-todo sections). Unfortunate side-effect is that this section will always be included in the list. TODO figure out some fix for this.
@@ -47,7 +48,9 @@
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(1, document.getElementById('section1'));
 }
-</script><div class="section" id="section2">
+</script>
+<div class="section" id="section2"
+     >
 <div class="sectionnumber" id="para2">2</div>
 <div class="sectiontext">
  Need to write this section. Sorry for it being a dead-end for now. 
@@ -57,7 +60,9 @@ if (typeof gamebook !== 'undefined') {
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(2, document.getElementById('section2'));
 }
-</script><div class="section" id="section3">
+</script>
+<div class="section" id="section3"
+     >
 <div class="sectionnumber" id="para3">3</div>
 <div class="sectiontext">
  (This section needs some work!) Here you find a <span class="found enabledlink" data-type="item"
@@ -75,7 +80,8 @@ href="#section2">2</a>.
 if (typeof gamebook !== 'undefined') {
    gamebook.addSection(3, document.getElementById('section3'));
 }
-</script>    <div id="counters" class="counters">
+</script>
+    <div id="counters" class="counters">
     </div>
     <div id="counterTemplate" class="counterTemplate">
       <span class="counterheading"></span>
