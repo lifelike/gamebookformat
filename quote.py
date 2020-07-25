@@ -39,3 +39,14 @@ def twine2(s):
 
 def no(s):
     return s
+
+def markdown(s):
+    #have to think of a good solution
+    return (s.replace("\\", "\\\\")
+            .replace("`", "\\`")
+            .replace("*", "\\*")
+            .replace("{", "\\{")
+            .replace("}", "\\}")
+            .replace("[", "\\[")
+            .replace("]", "\\]")
+            .replace("\#", "\\\#"))

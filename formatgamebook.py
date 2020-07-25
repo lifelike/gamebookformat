@@ -35,6 +35,7 @@ OUTPUT_FORMATS = [
     of('rtf', 'Rich Text Format', quote.rtf),
     of('dot', 'Graphviz section flowchart', quote.no),
     of('html', 'HTML+JS playable in browser', quote.html),
+    of('md', 'Markdown', quote.markdown),
     of('txt', 'Plain text', quote.no),
     of('twine2', "Twine 2", quote.twine2),
     of('json', 'JSON', quote.js),

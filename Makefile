@@ -3,6 +3,7 @@ examples=$(wildcard examples/*.gamebook)
 all: rtf pdf html json png txt
 
 rtf: $(examples:.gamebook=.rtf)
+md: $(examples:.gamebook=.md)
 tex: $(examples:.gamebook=.tex)
 pdf: $(examples:.gamebook=.pdf)
 html: $(examples:.gamebook=.html) examples/gamebookformatplay.js \
@@ -54,6 +55,9 @@ examples/gamebookformat.css: gamebookformat.css
 %.txt:  %.gamebook *.py templates/txt/*.txt
 	python2.7 ./buildexamplegamebook.py $< $@
 
+%.md: %.gamebook *.py templates/md/*.md
+	python2.7 ./buildexamplegamebook.py $< $@
+
 %.pdf: %.tex
 	cd $(dir $<) &&	pdflatex $(notdir $<) && pdflatex $(notdir $<)
 
@@ -62,12 +66,12 @@ examples/gamebookformat.css: gamebookformat.css
 
 test: unittest checkexpected templatejstest
 
-expected: rtf tex html json txt dot map check vcheck twine2
+expected: rtf tex md html json txt dot map check vcheck twine2
 	$(RM) expected/* && \
-		cp examples/*.{rtf,tex,html,json,txt,twine2,dot,map,check,vcheck} \
+		cp examples/*.{rtf,tex,html,json,txt,twine2,dot,map,check,vcheck,md} \
 		 expected
 
-checkexpected: clean rtf tex html json dot txt twine2 check vcheck
+checkexpected: clean rtf md tex html json dot txt twine2 check vcheck
 	diff -r -x "*.aux" -x "*.gamebook" -x "*.log" -x "*.out" -x "*.png" \
 		-x "*.pdf" -x .gitignore -x "*.js" -x "*.css" \
 		-x "*.options" -q examples expected
@@ -94,7 +98,7 @@ clean:
 	$(RM) examples/*rtf examples/*.html examples/*.tex \
 	examples/*.txt examples/*.twine2 examples/*.json examples/*.check examples/*.log \
 	examples/*.pdf examples/*.out *~ examples/*~ *.pyc examples/*.vcheck \
-	examples/*.dot examples/*.aux examples/*.toc $(png) \
+	examples/*.dot examples/*.aux examples/*.toc examples/*.md $(png) \
 	$(map) templates/*~ templates/*/*~ \
 	$(examples:.gamebook=.png) readme.html \
 	examples/*.js examples/*.css

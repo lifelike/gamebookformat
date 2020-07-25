@@ -52,7 +52,7 @@ class Templates (object):
         if m:
             return self.get(m.group(1))
         else:
-            raise Exception("Bad preprocessor line '%s' in template." % line)
+            return line
 
     def get_template_filename(self, templatedir, name, subdir=None, extension=None):
         if not subdir:
